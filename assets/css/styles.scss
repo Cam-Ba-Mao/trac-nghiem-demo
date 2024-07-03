@@ -1,0 +1,11 @@
+// Build css
+// chạy comment cd .\assets\css\
+// sass styles.scss styles.css --watch
+
+.tdmu-header {
+    &__brand {
+        img {
+            max-width: 155px;
+        }
+    }
+}
