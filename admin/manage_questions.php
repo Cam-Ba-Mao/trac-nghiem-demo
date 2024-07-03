@@ -10,6 +10,13 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
     exit();
 }
 
+require __DIR__ . '/../lib/SpreadSheet/vendor/autoload.php'; // Đảm bảo đường dẫn đúng tới file autoload.php của PhpSpreadsheet
+// require __DIR__ . '/autoloader.php'; // Gọi autoloader mà bạn vừa tạo
+
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 // Xử lý thêm câu hỏi
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_question'])) {
     $question_text = $_POST['question_text'];
@@ -38,6 +45,71 @@ if (isset($_GET['delete_id'])) {
     } else {
         $error_message = "Lỗi: " . mysqli_error($conn);
     }
+}
+
+// Xử lý nhập câu hỏi từ file Excel
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['import_questions'])) {
+    $file = $_FILES['questions_file']['tmp_name'];
+
+    $spreadsheet = IOFactory::load($file);
+    $sheetData = $spreadsheet->getActiveSheet()->toArray();
+
+    foreach ($sheetData as $row) {
+        $question_text = $row[0];
+        $option_a = $row[1];
+        $option_b = $row[2];
+        $option_c = $row[3];
+        $option_d = $row[4];
+        $correct_option = $row[5];
+
+        $query = "INSERT INTO questions (question_text, option_a, option_b, option_c, option_d, correct_option)
+                  VALUES ('$question_text', '$option_a', '$option_b', '$option_c', '$option_d', '$correct_option')";
+        mysqli_query($conn, $query);
+    }
+    $success_message = "Nhập câu hỏi thành công.";
+}
+
+// Xử lý xuất câu hỏi ra file Excel
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['export_questions'])) {
+    $spreadsheet = new Spreadsheet();
+    $sheet = $spreadsheet->getActiveSheet();
+
+    $sheet->setCellValue('A1', 'Nội dung câu hỏi');
+    $sheet->setCellValue('B1', 'Lựa chọn A');
+    $sheet->setCellValue('C1', 'Lựa chọn B');
+    $sheet->setCellValue('D1', 'Lựa chọn C');
+    $sheet->setCellValue('E1', 'Lựa chọn D');
+    $sheet->setCellValue('F1', 'Đáp án đúng');
+
+    $query = "SELECT question_text, option_a, option_b, option_c, option_d, correct_option FROM questions";
+    $result = mysqli_query($conn, $query);
+    $rowNumber = 2; // Bắt đầu từ hàng thứ 2 để không ghi đè lên tiêu đề
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $sheet->setCellValue('A' . $rowNumber, $row['question_text']);
+        $sheet->setCellValue('B' . $rowNumber, $row['option_a']);
+        $sheet->setCellValue('C' . $rowNumber, $row['option_b']);
+        $sheet->setCellValue('D' . $rowNumber, $row['option_c']);
+        $sheet->setCellValue('E' . $rowNumber, $row['option_d']);
+        $sheet->setCellValue('F' . $rowNumber, $row['correct_option']);
+        $rowNumber++;
+    }
+
+    $writer = new Xlsx($spreadsheet);
+    $fileName = 'questions.xlsx';
+    $filePath = __DIR__ . '/' . $fileName;
+    $writer->save($filePath);
+
+    header('Content-Description: File Transfer');
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    header('Content-Disposition: attachment; filename="' . basename($filePath) . '"');
+    header('Expires: 0');
+    header('Cache-Control: must-revalidate');
+    header('Pragma: public');
+    header('Content-Length: ' . filesize($filePath));
+    flush(); // Flush system output buffer
+    readfile($filePath);
+    exit();
 }
 
 // Lấy danh sách câu hỏi từ cơ sở dữ liệu
@@ -71,6 +143,19 @@ include(__DIR__ . '/../header.php');
 
     <?php if (isset($success_message)) { echo "<p style='color: green;'>$success_message</p>"; } ?>
     <?php if (isset($error_message)) { echo "<p style='color: red;'>$error_message</p>"; } ?>
+
+    <!-- Form tải lên file Excel -->
+    <h2>Nhập câu hỏi từ file Excel</h2>
+    <form method="POST" enctype="multipart/form-data">
+        Chọn file Excel: <input type="file" name="questions_file" required><br>
+        <input type="submit" name="import_questions" value="Nhập">
+    </form>
+
+    <!-- Nút xuất câu hỏi ra file Excel -->
+    <h2>Xuất câu hỏi ra file Excel</h2>
+    <form method="POST">
+        <input type="submit" name="export_questions" value="Xuất">
+    </form>
 
     <!-- Danh sách câu hỏi -->
     <h2>Danh sách câu hỏi</h2>
