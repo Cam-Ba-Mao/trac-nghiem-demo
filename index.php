@@ -33,7 +33,7 @@ include('header.php');
         <h2>Trang học sinh</h2>
         <ul>
             <li><a href="./student/exams.php">Làm bài thi</a></li>
-            <li><a href="./student/results.php">Xem kết quả</a></li>
+            <li><a href="./student/list-results.php">Xem kết quả</a></li>
         </ul>
     <?php endif; ?>
 

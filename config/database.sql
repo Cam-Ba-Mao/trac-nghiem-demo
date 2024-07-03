@@ -8,6 +8,11 @@ CREATE TABLE users (
     role ENUM('student', 'admin') NOT NULL
 );
 
+INSERT INTO users (id, username, password, role) VALUES
+(1, 'maocam', '12345', 'admin'),
+(2, 'phuongbui', '12345', 'student');
+
+
 CREATE TABLE questions (
     id INT AUTO_INCREMENT PRIMARY KEY,
     question_text TEXT NOT NULL,
@@ -21,6 +26,7 @@ CREATE TABLE questions (
 CREATE TABLE exams (
     id INT AUTO_INCREMENT PRIMARY KEY,
     exam_name VARCHAR(255) NOT NULL,
+    exam_time int(11) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
