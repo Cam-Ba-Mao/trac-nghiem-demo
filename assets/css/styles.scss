@@ -1,11 +1,124 @@
-// Build css
-// chạy comment cd .\assets\css\
-// sass styles.scss styles.css --watch
+/*---------------------------------
+**** Build CSS
+chạy comment cd .\assets\css\
+sass styles.scss styles.css --watch
+-----------------------------------*/
+
+@import "_variables.scss";
+@import "_fonts.scss";
+@import "_mixins.scss";
+@import "_global.scss";
+
+.tdmu-title {
+    font-size: 24px;
+
+    @include breakpoint-up(lg) {
+        font-size: 32px; 
+    }
+}
 
 .tdmu-header {
+    background-color: $white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 20; 
+    transition: transform .5s, background-color .5s, position .5s;
+    border-bottom: 1px solid rgba($black-1, .1);
+    padding: 1rem .5rem;
+
+    &__wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
     &__brand {
+        max-width: 155px;
+
         img {
-            max-width: 155px;
+            width: 100%;   
+        }
+    }
+
+    &__take-exam-time {
+        font-weight: 700;
+
+        span {
+            color: $blue;
+        }
+
+        .time-to-do {
+            
+            font-size: 24px;
         }
     }
 }
+
+.tdmu-take-exam {
+    display: grid;
+    // grid-template-columns: repeat(2, 1fr);
+    // grid-template-columns: 30% 50% 20%;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+
+    &__answer {
+        // margin-bottom: 0;
+        position: sticky;
+        top: 0;
+        transition: all .2s ease-out;
+        max-width: 248px;
+        overflow-y: auto;
+        display: inline-block;
+        height: calc(100% - 65px);
+        background: white;
+        border: 2px solid $blue;
+        
+        .menu-link {
+            display: block;
+            padding-left: 15px;
+            padding-bottom: 3px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+
+            .tick {
+                float: right;
+                color: green;
+                margin-right: 15px;
+            }
+
+        }        
+    }
+
+    &__content {
+        #examForm {
+            > div {
+                &:not(:first-child) {
+                    margin-top: 1rem;
+                }
+
+                input[type="radio"] {
+                    font-weight: 500;
+                }
+            }
+
+            input[type="submit"] {
+                margin-top: 1.5rem;
+                padding: .5rem 2rem;
+                border-radius: 24px;
+                border: 1px solid $blue;
+                background: $white;
+                font-weight: 500;
+                
+                &:hover {
+                    background: $blue;
+                    color: $white;
+                }
+            }
+        }
+    }
+
+}
+
+

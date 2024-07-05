@@ -1,5 +1,10 @@
 (function ($) {
 
+    const body = $('body');
+    const scrollUp = "scroll-up";
+    const scrollDown = "scroll-down";
+    var lastScroll = 0;
+
     function initLazyLoad() {
         $('.lazy').Lazy({
             afterLoad: function (el) {
@@ -29,25 +34,6 @@
             $('[data-popup-content]').removeClass('is-active');
             closePopupOverlay();
         });
-    }
-
-    function handleIE() {
-        var userAgent, ieReg, ie;
-        userAgent = window.navigator.userAgent;
-        ieReg = /msie|Trident.*rv[ :]*11\./gi;
-        ie = ieReg.test(userAgent);
-
-        if (ie) {
-            $('.rt-img-drop').each(function () {
-                var $container = $(this),
-                    imgLazy = $(this).find('img').attr('src'),
-                    picLazy = $(this).find('source').attr('srcset'),
-                    imgUrl = picLazy ? picLazy : imgLazy;
-                if (imgUrl) {
-                    $container.css('backgroundImage', 'url(' + imgUrl + ')').addClass('custom-object-fit');
-                }
-            });
-        }
     }
 
     function initAnchorScroll() {
@@ -113,15 +99,51 @@
 
     function handleTEST() {
         alert('Hello bạn đến với thế giới lập trình website của IMTA!!');
+        
     }
 
+    function getRootVars() {
+        var root = document.querySelector(":root");
+        root.style.setProperty("--vh", window.innerHeight / 100 + "px");
+        root.style.setProperty("--mh", $('.tdmu-header').outerHeight() + "px");
+    }
+
+    function handleScrollMenu() {
+        $(window).on('scroll', function() {
+            calculateScroll();
+        });
+    }
+
+    function calculateScroll() {
+        var currentScroll = window.pageYOffset;
+
+        if (currentScroll <= 0) {
+            body.removeClass(scrollUp);
+            return;
+        }
+
+        if (currentScroll > lastScroll && !body.hasClass(scrollDown)) {
+            // down
+            // body.removeClass(scrollUp);
+            body.addClass(scrollDown);
+        }
+        // } else if ( currentScroll < lastScroll && body.hasClass(scrollDown) ) {
+        //     // up
+        //     body.removeClass(scrollDown);
+        //     body.addClass(scrollUp);
+        // }
+
+        lastScroll = currentScroll;
+    }
 
     $(function () {
         // handleTEST();
-
+        getRootVars();
+        handleScrollMenu();
+        calculateScroll();
     });
 
     $(window).on('resize', function () {
-        // getRootVars();
+        getRootVars();
     });
 })(jQuery);

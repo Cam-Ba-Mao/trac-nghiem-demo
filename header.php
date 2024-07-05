@@ -11,16 +11,27 @@
     <script src="<?php echo BASE_URL; ?>/assets/js/bootstrap.min.js"></script>
     <script src="<?php echo BASE_URL; ?>/assets/js/scripts.js"></script>
     <!-- <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/cssreset.css" /> -->
-    <!-- <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/bootstrap.min.css"/> -->
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>/assets/css/styles.css">
 </head>
 <body>
     <header class="tdmu-header">
-        <h1>Quiz Application</h1>
-        <div class="tdmu-header__brand">
-            <img src="<?php echo BASE_URL; ?>/assets/img/Logo_TDMU_2024_nguyen_ban.svg" alt="">
-        </div>
-        
+        <!-- <h1>Quiz Application</h1> -->
+        <div class="tdmu-header__wrap">
+            <div class="tdmu-header__brand">
+                <a href="http://">
+                    <img src="<?php echo BASE_URL; ?>/assets/img/Logo_TDMU_2024_nguyen_ban.svg" alt="">
+                </a>
+            </div>
+            <?php if (isset($title) && $title == "Làm bài thi"): ?>
+            <div class="tdmu-header__take-exam-time">
+                <span>Thời gian làm bài:</span>
+                <div class="time-to-do" id="timer">
+                    <?php echo $exam['exam_time'] . ":00"; ?>
+                </div>
+            </div>
+            <?php endif; ?>
+        </div>        
         <!-- <nav>
             <ul>
                 <li><a href="index.php">Home</a></li>
@@ -30,4 +41,4 @@
             </ul>
         </nav> -->
     </header>
-    <main>
+    <main class="tdmu-content">

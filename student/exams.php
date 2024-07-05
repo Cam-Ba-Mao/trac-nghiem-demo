@@ -16,11 +16,11 @@ $title = "Danh sách đề thi";
 include(__DIR__ . '/../header.php');
 ?>
 
-    <h1>Danh sách đề thi</h1>
+    <h1 class="tdmu-title">Danh sách đề thi</h1>
     <ul>
         <?php while($exam = mysqli_fetch_assoc($result)) { ?>
             <li>
-                <a href="take_exam.php?exam_id=<?php echo $exam['id']; ?>"><?php echo $exam['exam_name']; ?></a>
+                <a href="take_exam.php?exam_id=<?php echo $exam['id']; ?>&exam_name=<?php echo $exam['exam_name']; ?>"><?php echo $exam['exam_name']; ?></a>
             </li>
         <?php } ?>
     </ul>

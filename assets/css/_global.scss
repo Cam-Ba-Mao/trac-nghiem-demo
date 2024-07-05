@@ -1,0 +1,186 @@
+:root {
+    --safe-area-bottom: calc(100vh - 100 * var(--vh));
+    scroll-behavior: auto;
+}
+
+* {
+    &:focus {
+        outline: none;
+    }
+}
+
+
+body {
+    font-family: $font-family-primary;
+    color: $body-color;
+	position: relative;
+
+    &.is-lock {
+        overflow: hidden;
+        touch-action: none;
+        -ms-touch-action: none;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+    }
+
+    &:not(.is-transparent) {
+        .tdmu-content {
+            padding-top: 1rem;
+            margin-top: var(--mh);
+        }
+    } 
+}
+
+.tdmu-popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000000;
+    opacity: 0.5;
+    z-index: 50;
+}
+
+/*---------------------------------
+**** Global | Heading
+-----------------------------------*/
+h1,
+.h1 {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+h2,
+.h2 {
+    font-weight: 700;
+    font-size: 26px;
+}
+
+h3,
+.h3 {
+    font-weight: 700;
+    font-size: 24px;
+}
+
+h4,
+.h4 {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+h5,
+.h5 {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+h6,
+.h6 {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/*---------------------------------
+**** Global | Media
+-----------------------------------*/
+img {
+    max-width: 100%;
+
+    &.lazy {
+        visibility: hidden;
+
+        &.loaded {
+            visibility: visible;
+        }
+    }
+}
+
+.rt-img-drop,
+.rt-img-drop-contain {
+    display: block;
+    position: relative;
+    overflow: hidden;
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-position: 50% 50%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+
+.rt-img-drop {
+    img {
+        object-fit: cover;
+    }
+}
+
+.rt-img-drop-contain {
+    img {
+        object-fit: contain;
+    }
+}
+
+.custom-object-fit {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+
+    > img {
+        display: none !important;
+    }
+}
+
+/*---------------------------------
+**** Global | Forms
+-----------------------------------*/
+input,
+textarea {
+    font-size: 16px;
+}
+
+textarea {
+    resize: none;
+}
+
+.required {
+    color: $red;
+}
+
+input[type="search"] {
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+        -webkit-appearance:none;
+    }
+}
+
+/*---------------------------------
+**** Scrollbar
+-----------------------------------*/
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $blue;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: $blue;
+}

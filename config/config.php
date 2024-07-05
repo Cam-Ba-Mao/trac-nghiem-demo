@@ -16,4 +16,25 @@ if (!$conn) {
 
 // Thiết lập charset utf8 để hỗ trợ tiếng Việt
 mysqli_set_charset($conn, 'utf8');
+
+/**
+ * debug function
+ */
+if (!function_exists('dd')) {
+    function dd($a, $b = false, $c = true) {
+        $display = $b ? 'style="display:none"' : '';
+        echo '<div class="dd-debug" ' . $display . '>';
+        if (is_array($a) || is_object($a)) {
+            echo '<pre>';
+            print_r($a);
+            echo '</pre>';
+        } else {
+            var_dump($a);
+        }
+        echo '</div>';
+        if ($c) {
+            die();
+        }
+    }
+}
 ?>

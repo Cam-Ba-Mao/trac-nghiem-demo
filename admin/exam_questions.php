@@ -71,7 +71,7 @@ $title = "Quản lý câu hỏi cho đề thi";
 include(__DIR__ . '/../header.php');
 ?>
 
-    <h1>Quản lý câu hỏi cho đề thi</h1>
+    <h1 class="tdmu-title">Quản lý câu hỏi cho đề thi</h1>
 
     <!-- Form chọn đề thi -->
     <form method="POST">

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('config.php');
+include(__DIR__ . '/../config/config.php');
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
@@ -15,10 +15,10 @@ $result = mysqli_query($conn, $query);
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Danh sách đề thi</title>
+    <title class="tdmu-title">Danh sách đề thi</title>
 </head>
 <body>
-    <h1>Danh sách đề thi</h1>
+    <h1 class="tdmu-title">Danh sách đề thi</h1>
     <ul>
         <?php while($exam = mysqli_fetch_assoc($result)) { ?>
             <li>

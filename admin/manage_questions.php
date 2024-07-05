@@ -121,7 +121,7 @@ $title = "Quản lý câu hỏi";
 include(__DIR__ . '/../header.php');
 ?>
 
-    <h1>Quản lý câu hỏi</h1>
+    <h1 class="tdmu-title">Quản lý câu hỏi</h1>
 
     <!-- Form thêm câu hỏi -->
     <form method="POST">

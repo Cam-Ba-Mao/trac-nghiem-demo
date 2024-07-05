@@ -19,7 +19,7 @@ $title = "Trang chính";
 include('header.php');
 
 ?>
-    <h1>Chào mừng, <?php echo $_SESSION['username']; ?>!</h1>
+    <h1 class="tdmu-title">Chào mừng, <?php echo $_SESSION['username']; ?>!</h1>
 
     <?php if ($role == 'admin'): ?>
         <h2>Trang quản trị viên</h2>

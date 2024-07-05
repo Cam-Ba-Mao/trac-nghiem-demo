@@ -44,7 +44,7 @@ $title = "Quản lý đề thi";
 include(__DIR__ . '/../header.php');
 ?>
 
-    <h1>Quản lý đề thi</h1>
+    <h1 class="tdmu-title">Quản lý đề thi</h1>
 
     <!-- Form thêm đề thi -->
     <form method="POST">

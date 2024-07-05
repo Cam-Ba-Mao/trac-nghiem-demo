@@ -8,6 +8,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $exam_id = $_GET['exam_id'];
+$exam_name = $_GET['exam_name'];
 $query = "SELECT q.* FROM questions q 
         JOIN exam_questions eq ON q.id = eq.question_id 
         WHERE eq.exam_id = $exam_id";
@@ -24,27 +25,43 @@ $title = "Làm bài thi";
 
 include(__DIR__ . '/../header.php');
 ?>
-
-    <div class="time-to-do" id="timer">
-        <?php echo $exam['exam_time'] . ":00"; ?>
+    <h1 class="tdmu-title">Làm bài thi <?= $exam_name; ?></h1>
+    <div class="tdmu-take-exam">
+        <div class="tdmu-take-exam__answer">
+            <?php 
+                $key = 1;
+                $result = mysqli_query($conn, $query); // Reset result set to use it again
+                while ($question = mysqli_fetch_assoc($result)) { ?>
+                    <a href="#quest-<?= $key; ?>" class="menu-link">Câu <?= $key; ?> <span class="tick" id="tick-<?= $question['id']; ?>"></span></a>
+            <?php 
+                $key++;
+                } 
+            ?>
+        </div>
+        <div class="tdmu-take-exam__content">
+            <form id="examForm">
+                <?php 
+                    $key = 1;
+                    $result = mysqli_query($conn, $query); // Reset result set to use it again
+                    while ($question = mysqli_fetch_assoc($result)) { ?>
+                    <div id="quest-<?= $key; ?>">
+                        <p><?php echo "Câu " . $key . '. ' . $question['question_text']; ?></p>
+                        <input type="radio" name="question_<?php echo $question['id']; ?>" value="A"> <?php echo $question['option_a']; ?><br>
+                        <input type="radio" name="question_<?php echo $question['id']; ?>" value="B"> <?php echo $question['option_b']; ?><br>
+                        <input type="radio" name="question_<?php echo $question['id']; ?>" value="C"> <?php echo $question['option_c']; ?><br>
+                        <input type="radio" name="question_<?php echo $question['id']; ?>" value="D"> <?php echo $question['option_d']; ?><br>
+                    </div>
+                <?php 
+                    $key++;
+                    } ?>
+                <input type="submit" value="Nộp bài">
+            </form>
+        </div>
+        <div class="student-info">
+            <h3>Thông tin sinh viên: </h3>
+            <span>Họ tên: <?php echo $_SESSION['username']; ?>!</span>
+        </div>
     </div>
-    <form id="examForm">
-        <?php 
-            $key = 1;
-        while ($question = mysqli_fetch_assoc($result)) { ?>
-            <div>
-                <p><?php echo "Câu " . $key . '. ' . $question['question_text']; ?></p>
-                <input type="radio" name="question_<?php echo $question['id']; ?>" value="A"> <?php echo $question['option_a']; ?><br>
-                <input type="radio" name="question_<?php echo $question['id']; ?>" value="B"> <?php echo $question['option_b']; ?><br>
-                <input type="radio" name="question_<?php echo $question['id']; ?>" value="C"> <?php echo $question['option_c']; ?><br>
-                <input type="radio" name="question_<?php echo $question['id']; ?>" value="D"> <?php echo $question['option_d']; ?><br>
-            </div>
-        <?php 
-        $key++;
-        } ?>
-        <input type="submit" value="Nộp bài">
-    </form>
-
     <script>
         var min = <?= $min ?>;
         var sec = <?= $sec ?>;
@@ -61,6 +78,24 @@ include(__DIR__ . '/../header.php');
             });
         });
 
+        $('a[href*="#"]:not([href="#"])').click(function () {
+			if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+				var target = $(this.hash);
+				target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+				if (target.length) {
+					$('html, body').animate({
+						scrollTop: target.offset().top - 65
+					}, 500);
+					return false;
+				}
+			}
+		});
+       
+        $('input[type=radio]').on("change", function () {
+            var question_id = $(this).attr("name").split('_')[1];
+            $('#tick-' + question_id).text("✓");
+        });
+
         function countdown() {
             var cdID = setInterval(function() {
                 if (sec == 0) {
@@ -71,11 +106,13 @@ include(__DIR__ . '/../header.php');
                 var min_text = min < 10 ? '0' + min : min;
                 var sec_text = sec < 10 ? '0' + sec : sec;
                 $('#timer').text(min_text + ':' + sec_text);
+                if (min < 10) {
+                    $('#timer').css('color', 'red');
+                }
 
                 if (min < 0) {
                     clearInterval(cdID);
                     $('#timer').text('00:00');
-                    $('#timer').css('color', 'red');
                     console.log('Hết giờ, hệ thống sẽ tự động nộp bài!');
                     $("#examForm").submit();
                 }

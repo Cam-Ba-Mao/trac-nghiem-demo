@@ -1,0 +1,23 @@
+// Breakpoint
+$breakpoints: (
+    xs: 0,
+    ssm: 360px,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px,
+    xxxl: 2000px,
+) !default;
+
+// Colors
+$white: #FFFFFF !default;
+$black: #000000 !default;
+$red: #C6363B;
+$black-1: #202121 !default;
+$body-color: $black-1;
+
+$blue: #005180;
+
+// Typography
+$font-family-primary: 'SVN-Gilroy', Arial, Helvetica, sans-serif !default;
