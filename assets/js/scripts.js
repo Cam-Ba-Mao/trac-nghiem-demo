@@ -1,8 +1,6 @@
 (function ($) {
 
-    const body = $('body');
-    const scrollUp = "scroll-up";
-    const scrollDown = "scroll-down";
+    
     var lastScroll = 0;
 
     function initLazyLoad() {
@@ -115,10 +113,16 @@
     }
 
     function calculateScroll() {
+        const body = $('body');
+        const scrollUp = "scroll-up";
+        const scrollDown = "scroll-down";
         var currentScroll = window.pageYOffset;
+
+        console.log(currentScroll);
 
         if (currentScroll <= 0) {
             body.removeClass(scrollUp);
+            body.removeClass(scrollDown);
             return;
         }
 
@@ -126,12 +130,11 @@
             // down
             // body.removeClass(scrollUp);
             body.addClass(scrollDown);
+        } else if ( currentScroll < lastScroll && body.hasClass(scrollDown) ) {
+            // up
+            // body.removeClass(scrollDown);
+            // body.addClass(scrollUp);
         }
-        // } else if ( currentScroll < lastScroll && body.hasClass(scrollDown) ) {
-        //     // up
-        //     body.removeClass(scrollDown);
-        //     body.addClass(scrollUp);
-        // }
 
         lastScroll = currentScroll;
     }

@@ -17,6 +17,22 @@ sass styles.scss styles.css --watch
     }
 }
 
+body {
+    &.scroll-down {
+        padding-top: var(--mh);
+
+        .tdmu-take-exam {
+            &__answer {
+                top: calc(var(--mh) + 16px);
+            }
+
+            .student-info {
+                top: calc(var(--mh) + 16px);
+            }
+        }
+    }
+}
+
 .tdmu-header {
     background-color: $white;
     position: fixed;
@@ -24,7 +40,7 @@ sass styles.scss styles.css --watch
     width: 100%;
     z-index: 20; 
     transition: transform .5s, background-color .5s, position .5s;
-    border-bottom: 1px solid rgba($black-1, .1);
+    border-bottom: 1px solid rgba($black-1, .2);
     padding: 1rem .5rem;
 
     &__wrap {
@@ -51,16 +67,28 @@ sass styles.scss styles.css --watch
         .time-to-do {
             
             font-size: 24px;
+
+            @include breakpoint-up(lg) {
+                font-size: 32px;
+            }
         }
     }
 }
 
 .tdmu-take-exam {
-    display: grid;
-    // grid-template-columns: repeat(2, 1fr);
-    // grid-template-columns: 30% 50% 20%;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    .tdmu-title {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: $blue;
+    }
+
+    &__wrap {
+        display: grid;
+        // grid-template-columns: repeat(2, 1fr);
+        // grid-template-columns: 30% 50% 20%;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+    }
 
     &__answer {
         // margin-bottom: 0;
@@ -69,8 +97,7 @@ sass styles.scss styles.css --watch
         transition: all .2s ease-out;
         max-width: 248px;
         overflow-y: auto;
-        display: inline-block;
-        height: calc(100% - 65px);
+        max-height: 800px;
         background: white;
         border: 2px solid $blue;
         
@@ -88,6 +115,15 @@ sass styles.scss styles.css --watch
                 margin-right: 15px;
             }
 
+            &:hover {
+                background-color: $blue;
+                color: $white;
+
+                .tick {
+                    color: $white;
+                }
+            }
+
         }        
     }
 
@@ -100,6 +136,11 @@ sass styles.scss styles.css --watch
 
                 input[type="radio"] {
                     font-weight: 500;
+                }
+
+                p {
+                    font-weight: 700;
+                    font-size: 16px;
                 }
             }
 
@@ -119,6 +160,15 @@ sass styles.scss styles.css --watch
         }
     }
 
+    .student-info {
+        border-radius: 24px;
+        border: 2px solid $blue;
+        padding: 1.5rem;
+        display: inline-block;
+        position: sticky;
+        top: 0;
+        transition: all .2s ease-out;       
+    }
 }
 
 

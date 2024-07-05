@@ -25,41 +25,50 @@ $title = "Làm bài thi";
 
 include(__DIR__ . '/../header.php');
 ?>
-    <h1 class="tdmu-title">Làm bài thi <?= $exam_name; ?></h1>
+    
     <div class="tdmu-take-exam">
-        <div class="tdmu-take-exam__answer">
-            <?php 
-                $key = 1;
-                $result = mysqli_query($conn, $query); // Reset result set to use it again
-                while ($question = mysqli_fetch_assoc($result)) { ?>
-                    <a href="#quest-<?= $key; ?>" class="menu-link">Câu <?= $key; ?> <span class="tick" id="tick-<?= $question['id']; ?>"></span></a>
-            <?php 
-                $key++;
-                } 
-            ?>
-        </div>
-        <div class="tdmu-take-exam__content">
-            <form id="examForm">
-                <?php 
-                    $key = 1;
-                    $result = mysqli_query($conn, $query); // Reset result set to use it again
-                    while ($question = mysqli_fetch_assoc($result)) { ?>
-                    <div id="quest-<?= $key; ?>">
-                        <p><?php echo "Câu " . $key . '. ' . $question['question_text']; ?></p>
-                        <input type="radio" name="question_<?php echo $question['id']; ?>" value="A"> <?php echo $question['option_a']; ?><br>
-                        <input type="radio" name="question_<?php echo $question['id']; ?>" value="B"> <?php echo $question['option_b']; ?><br>
-                        <input type="radio" name="question_<?php echo $question['id']; ?>" value="C"> <?php echo $question['option_c']; ?><br>
-                        <input type="radio" name="question_<?php echo $question['id']; ?>" value="D"> <?php echo $question['option_d']; ?><br>
-                    </div>
-                <?php 
-                    $key++;
-                    } ?>
-                <input type="submit" value="Nộp bài">
-            </form>
-        </div>
-        <div class="student-info">
-            <h3>Thông tin sinh viên: </h3>
-            <span>Họ tên: <?php echo $_SESSION['username']; ?>!</span>
+        <h1 class="tdmu-title">Làm bài thi <?= $exam_name; ?></h1>
+        <div class="tdmu-take-exam__wrap">
+            <div class="tdmu-take-left">
+                <div class="tdmu-take-exam__answer">
+                    <?php 
+                        $key = 1;
+                        $result = mysqli_query($conn, $query); // Reset result set to use it again
+                        while ($question = mysqli_fetch_assoc($result)) { ?>
+                            <a href="#quest-<?= $key; ?>" class="menu-link">Câu <?= $key; ?> <span class="tick" id="tick-<?= $question['id']; ?>"></span></a>
+                    <?php 
+                        $key++;
+                        } 
+                    ?>
+                </div>
+            </div>
+            <div class="tdmu-take-middle">
+                <div class="tdmu-take-exam__content">
+                    <form id="examForm">
+                        <?php 
+                            $key = 1;
+                            $result = mysqli_query($conn, $query); // Reset result set to use it again
+                            while ($question = mysqli_fetch_assoc($result)) { ?>
+                            <div id="quest-<?= $key; ?>">
+                                <p><?php echo "Câu " . $key . '. ' . $question['question_text']; ?></p>
+                                <input type="radio" name="question_<?php echo $question['id']; ?>" value="A"> <?php echo $question['option_a']; ?><br>
+                                <input type="radio" name="question_<?php echo $question['id']; ?>" value="B"> <?php echo $question['option_b']; ?><br>
+                                <input type="radio" name="question_<?php echo $question['id']; ?>" value="C"> <?php echo $question['option_c']; ?><br>
+                                <input type="radio" name="question_<?php echo $question['id']; ?>" value="D"> <?php echo $question['option_d']; ?><br>
+                            </div>
+                        <?php 
+                            $key++;
+                            } ?>
+                        <input type="submit" value="Nộp bài">
+                    </form>
+                </div>
+            </div>
+            <div class="tdmu-take-right">
+                <div class="student-info">
+                    <h3>Thông tin sinh viên: </h3>
+                    <span><strong>Họ tên:</strong> &nbsp;<?php echo $_SESSION['username']; ?>!</span>
+                </div>
+            </div>
         </div>
     </div>
     <script>
@@ -83,9 +92,16 @@ include(__DIR__ . '/../header.php');
 				var target = $(this.hash);
 				target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
 				if (target.length) {
-					$('html, body').animate({
-						scrollTop: target.offset().top - 65
-					}, 500);
+                    if($('body.scroll-down').length >= 0)
+                    {
+                        $('html, body').animate({
+                            scrollTop: target.offset().top - $('.tdmu-header').outerHeight() - 65
+                        }, 500);
+                    } else {
+                        $('html, body').animate({
+                            scrollTop: target.offset().top - 65
+                        }, 500);
+                    }
 					return false;
 				}
 			}

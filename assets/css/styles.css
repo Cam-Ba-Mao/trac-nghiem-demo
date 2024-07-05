@@ -358,6 +358,16 @@ input[type=search]::-webkit-search-decoration, input[type=search]::-webkit-searc
   }
 }
 
+body.scroll-down {
+  padding-top: var(--mh);
+}
+body.scroll-down .tdmu-take-exam__answer {
+  top: calc(var(--mh) + 16px);
+}
+body.scroll-down .tdmu-take-exam .student-info {
+  top: calc(var(--mh) + 16px);
+}
+
 .tdmu-header {
   background-color: #FFFFFF;
   position: fixed;
@@ -365,7 +375,7 @@ input[type=search]::-webkit-search-decoration, input[type=search]::-webkit-searc
   width: 100%;
   z-index: 20;
   transition: transform 0.5s, background-color 0.5s, position 0.5s;
-  border-bottom: 1px solid rgba(32, 33, 33, 0.1);
+  border-bottom: 1px solid rgba(32, 33, 33, 0.2);
   padding: 1rem 0.5rem;
 }
 .tdmu-header__wrap {
@@ -388,8 +398,18 @@ input[type=search]::-webkit-search-decoration, input[type=search]::-webkit-searc
 .tdmu-header__take-exam-time .time-to-do {
   font-size: 24px;
 }
+@media (min-width: 992px) {
+  .tdmu-header__take-exam-time .time-to-do {
+    font-size: 32px;
+  }
+}
 
-.tdmu-take-exam {
+.tdmu-take-exam .tdmu-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #005180;
+}
+.tdmu-take-exam__wrap {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
@@ -400,8 +420,7 @@ input[type=search]::-webkit-search-decoration, input[type=search]::-webkit-searc
   transition: all 0.2s ease-out;
   max-width: 248px;
   overflow-y: auto;
-  display: inline-block;
-  height: calc(100% - 65px);
+  max-height: 800px;
   background: white;
   border: 2px solid #005180;
 }
@@ -418,11 +437,22 @@ input[type=search]::-webkit-search-decoration, input[type=search]::-webkit-searc
   color: green;
   margin-right: 15px;
 }
+.tdmu-take-exam__answer .menu-link:hover {
+  background-color: #005180;
+  color: #FFFFFF;
+}
+.tdmu-take-exam__answer .menu-link:hover .tick {
+  color: #FFFFFF;
+}
 .tdmu-take-exam__content #examForm > div:not(:first-child) {
   margin-top: 1rem;
 }
 .tdmu-take-exam__content #examForm > div input[type=radio] {
   font-weight: 500;
+}
+.tdmu-take-exam__content #examForm > div p {
+  font-weight: 700;
+  font-size: 16px;
 }
 .tdmu-take-exam__content #examForm input[type=submit] {
   margin-top: 1.5rem;
@@ -435,6 +465,15 @@ input[type=search]::-webkit-search-decoration, input[type=search]::-webkit-searc
 .tdmu-take-exam__content #examForm input[type=submit]:hover {
   background: #005180;
   color: #FFFFFF;
+}
+.tdmu-take-exam .student-info {
+  border-radius: 24px;
+  border: 2px solid #005180;
+  padding: 1.5rem;
+  display: inline-block;
+  position: sticky;
+  top: 0;
+  transition: all 0.2s ease-out;
 }
 
 /*# sourceMappingURL=styles.css.map */
