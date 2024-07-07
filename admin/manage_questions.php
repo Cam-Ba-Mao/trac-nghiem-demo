@@ -11,7 +11,6 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
 }
 
 require __DIR__ . '/../lib/SpreadSheet/vendor/autoload.php'; // Đảm bảo đường dẫn đúng tới file autoload.php của PhpSpreadsheet
-// require __DIR__ . '/autoloader.php'; // Gọi autoloader mà bạn vừa tạo
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -62,9 +61,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['import_questions'])) {
         $option_d = $row[4];
         $correct_option = $row[5];
 
+        // $query = "INSERT INTO questions (question_text, option_a, option_b, option_c, option_d, correct_option)
+        //           VALUES ('$question_text', '$option_a', '$option_b', '$option_c', '$option_d', '$correct_option')";
+        // mysqli_query($conn, $query);
+
         $query = "INSERT INTO questions (question_text, option_a, option_b, option_c, option_d, correct_option)
-                  VALUES ('$question_text', '$option_a', '$option_b', '$option_c', '$option_d', '$correct_option')";
-        mysqli_query($conn, $query);
+          VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = mysqli_prepare($conn, $query);
+        mysqli_stmt_bind_param($stmt, 'ssssss', $question_text, $option_a, $option_b, $option_c, $option_d, $correct_option);
+
+        if (mysqli_stmt_execute($stmt)) {
+            $success_message = "Thêm câu hỏi thành công.";
+        } else {
+            $error_message = "Lỗi: " . mysqli_error($conn);
+        }
+
+        mysqli_stmt_close($stmt);
     }
     $success_message = "Nhập câu hỏi thành công.";
 }
