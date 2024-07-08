@@ -141,9 +141,12 @@
 
     $(function () {
         // handleTEST();
-        getRootVars();
-        handleScrollMenu();
-        calculateScroll();
+       
+        $(document).ready(function () {
+            getRootVars();
+            calculateScroll();
+            handleScrollMenu();
+        });
     });
 
     $(window).on('resize', function () {

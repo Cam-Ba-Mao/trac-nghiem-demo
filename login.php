@@ -30,15 +30,15 @@ include('header.php');
         <input type="submit" value="Đăng nhập">
     </form> -->
     <div class="login-wrap">
-        <section class="sign-in">
-            <div class="container">
-                <div class="signin-content">
-                    <div class="signin-image">
+        <section class="tdmu-sign-in">
+            <div class="tdmu-sign-in__wrap">
+                <div class="tdmu-sign-in__content">
+                    <div class="tdmu-sign-in__content--image">
                         <figure><img src="<?php echo BASE_URL; ?>/assets/img/signin-image.jpg" alt="sing up image"></figure>
                         <!-- <a href="#" class="signup-image-link">Create an account</a> -->
                     </div>
 
-                    <div class="signin-form">
+                    <div class="tdmu-sign-in__content--form">
                         <h2 class="form-title">Đăng nhập</h2>
                         <form method="POST" class="register-form" id="login-form">
                             <div class="form-group">

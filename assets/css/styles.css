@@ -477,10 +477,15 @@ body.scroll-down .tdmu-take-exam .student-info {
 }
 
 .login-wrap {
-  padding: 150px 0;
+  padding: 60px 0;
+}
+@media (min-width: 768px) {
+  .login-wrap {
+    padding: 150px 0;
+  }
 }
 
-.sign-in .container {
+.tdmu-sign-in__wrap {
   width: 900px;
   background: #fff;
   margin: 0 auto;
@@ -488,28 +493,28 @@ body.scroll-down .tdmu-take-exam .student-info {
   border-radius: 20px;
 }
 @media (max-width: 1200px) {
-  .sign-in .container {
+  .tdmu-sign-in__wrap {
     width: calc(100% - 30px);
     max-width: 100%;
   }
 }
 @media (min-width: 1024px) {
-  .sign-in .container {
+  .tdmu-sign-in__wrap {
     max-width: 1200px;
   }
 }
-.sign-in .signin-content {
+.tdmu-sign-in__content {
   display: flex;
   padding-top: 67px;
   padding-bottom: 87px;
 }
 @media (max-width: 768px) {
-  .sign-in .signin-content {
+  .tdmu-sign-in__content {
     justify-content: center;
     flex-direction: column;
   }
 }
-.sign-in .signin-image {
+.tdmu-sign-in__content--image {
   margin-left: 110px;
   margin-right: 20px;
   margin-top: 10px;
@@ -517,7 +522,7 @@ body.scroll-down .tdmu-take-exam .student-info {
   overflow: hidden;
 }
 @media (max-width: 768px) {
-  .sign-in .signin-image {
+  .tdmu-sign-in__content--image {
     margin-left: 0px;
     margin-right: 0px;
     margin-top: 50px;
@@ -525,23 +530,23 @@ body.scroll-down .tdmu-take-exam .student-info {
     width: auto;
   }
 }
-.sign-in .signin-image figure {
+.tdmu-sign-in__content--image figure {
   margin-bottom: 50px;
   text-align: center;
   margin: 0;
 }
-.sign-in .signin-image figure img {
+.tdmu-sign-in__content--image figure img {
   max-width: 100%;
   height: auto;
 }
-.sign-in .signin-form {
+.tdmu-sign-in__content--form {
   margin-right: 80px;
   margin-left: 20px;
   width: 50%;
   overflow: hidden;
 }
 @media (max-width: 768px) {
-  .sign-in .signin-form {
+  .tdmu-sign-in__content--form {
     order: 1;
     margin-right: 0px;
     margin-left: 0px;
@@ -549,10 +554,10 @@ body.scroll-down .tdmu-take-exam .student-info {
     width: auto;
   }
 }
-.sign-in .signin-form .form-title {
+.tdmu-sign-in__content--form .form-title {
   margin-bottom: 33px;
 }
-.sign-in .signin-form h2 {
+.tdmu-sign-in__content--form h2 {
   line-height: 1.66;
   margin: 0;
   padding: 0;
@@ -561,42 +566,42 @@ body.scroll-down .tdmu-take-exam .student-info {
   font-family: Poppins;
   font-size: 36px;
 }
-.sign-in .signin-form .register-form {
+.tdmu-sign-in__content--form .register-form {
   width: 100%;
 }
-.sign-in .signin-form .register-form .form-group {
+.tdmu-sign-in__content--form .register-form .form-group {
   position: relative;
   margin-bottom: 25px;
   overflow: hidden;
 }
-.sign-in .signin-form .register-form .form-group:last-child {
+.tdmu-sign-in__content--form .register-form .form-group:last-child {
   margin-bottom: 0px;
 }
-.sign-in .signin-form .register-form .form-group.form-button {
+.tdmu-sign-in__content--form .register-form .form-group.form-button {
   margin-bottom: 1rem;
 }
 @media (max-width: 768px) {
-  .sign-in .signin-form .register-form .form-group.form-button {
+  .tdmu-sign-in__content--form .register-form .form-group.form-button {
     text-align: center;
   }
 }
-.sign-in .signin-form .register-form .form-group label {
+.tdmu-sign-in__content--form .register-form .form-group label {
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
   color: #222;
 }
-.sign-in .signin-form .register-form .form-group label .material-icons-name {
+.tdmu-sign-in__content--form .register-form .form-group label .material-icons-name {
   font-size: 18px;
 }
-.sign-in .signin-form .register-form .form-group label .zmdi {
+.tdmu-sign-in__content--form .register-form .form-group label .zmdi {
   display: inline-block;
   font: normal normal normal 14px/1 "Material-Design-Iconic-Font";
   font-size: inherit;
   text-rendering: auto;
 }
-.sign-in .signin-form .register-form .form-group input {
+.tdmu-sign-in__content--form .register-form .form-group input {
   width: 100%;
   display: block;
   border: none;
@@ -605,28 +610,28 @@ body.scroll-down .tdmu-take-exam .student-info {
   font-family: Poppins;
   box-sizing: border-box;
 }
-.sign-in .signin-form .register-form .form-group input, .sign-in .signin-form .register-form .form-group select, .sign-in .signin-form .register-form .form-group textarea {
+.tdmu-sign-in__content--form .register-form .form-group input, .tdmu-sign-in__content--form .register-form .form-group select, .tdmu-sign-in__content--form .register-form .form-group textarea {
   outline: none;
   appearance: unset !important;
 }
-.sign-in .signin-form .register-form .form-group input[type=checkbox]:not(old) {
+.tdmu-sign-in__content--form .register-form .form-group input[type=checkbox]:not(old) {
   width: 2em;
   margin: 0;
   padding: 0;
   font-size: 1em;
   display: none;
 }
-.sign-in .signin-form .register-form .form-group input[type=checkbox]:not(old) + label {
+.tdmu-sign-in__content--form .register-form .form-group input[type=checkbox]:not(old) + label {
   display: inline-block;
   line-height: 1.5em;
   margin-top: 6px;
 }
-.sign-in .signin-form .register-form .form-group .label-agree-term {
+.tdmu-sign-in__content--form .register-form .form-group .label-agree-term {
   position: relative;
   top: 0%;
   transform: translateY(0);
 }
-.sign-in .signin-form .register-form .form-group input[type=checkbox]:not(old) + label > span {
+.tdmu-sign-in__content--form .register-form .form-group input[type=checkbox]:not(old) + label > span {
   display: inline-block;
   width: 13px;
   height: 13px;
@@ -638,7 +643,7 @@ body.scroll-down .tdmu-take-exam .student-info {
   background-image: linear-gradient(white, white);
   vertical-align: bottom;
 }
-.sign-in .signin-form .register-form .form-group input[type=checkbox]:not(old):checked + label > span:before {
+.tdmu-sign-in__content--form .register-form .form-group input[type=checkbox]:not(old):checked + label > span:before {
   content: "\f26b";
   display: block;
   color: #222;
@@ -648,10 +653,10 @@ body.scroll-down .tdmu-take-exam .student-info {
   font-family: "Material-Design-Iconic-Font";
   font-weight: bold;
 }
-.sign-in .signin-form .register-form .form-group input[type=checkbox] {
+.tdmu-sign-in__content--form .register-form .form-group input[type=checkbox] {
   appearance: checkbox !important;
 }
-.sign-in .signin-form .register-form .form-group .form-submit {
+.tdmu-sign-in__content--form .register-form .form-group .form-submit {
   display: inline-block;
   background: #6dabe4;
   color: #fff;
@@ -662,7 +667,7 @@ body.scroll-down .tdmu-take-exam .student-info {
   margin-top: 25px;
   cursor: pointer;
 }
-.sign-in .signin-form .register-form .form-group #signin {
+.tdmu-sign-in__content--form .register-form .form-group #signin {
   margin-top: 16px;
 }
 
