@@ -1,7 +1,15 @@
+var $ = jQuery.noConflict();
+
+function getRootVars() {
+    var root = document.querySelector(":root");
+    root.style.setProperty("--vh", window.innerHeight / 100 + "px");
+    root.style.setProperty("--mh", $('.tdmu-header').outerHeight() + "px");
+}
+
 (function ($) {
 
     
-    var lastScroll = 0;
+    let lastScroll = 0;
 
     function initLazyLoad() {
         $('.lazy').Lazy({
@@ -100,12 +108,6 @@
         
     }
 
-    function getRootVars() {
-        var root = document.querySelector(":root");
-        root.style.setProperty("--vh", window.innerHeight / 100 + "px");
-        root.style.setProperty("--mh", $('.tdmu-header').outerHeight() + "px");
-    }
-
     function handleScrollMenu() {
         $(window).on('scroll', function() {
             calculateScroll();
@@ -116,15 +118,9 @@
         const body = $('body');
         const scrollUp = "scroll-up";
         const scrollDown = "scroll-down";
-        var currentScroll = window.pageYOffset;
+        var currentScroll = window.scrollY;
 
         console.log(currentScroll);
-
-        if (currentScroll <= 0) {
-            body.removeClass(scrollUp);
-            body.removeClass(scrollDown);
-            return;
-        }
 
         if (currentScroll > lastScroll && !body.hasClass(scrollDown)) {
             // down
@@ -134,6 +130,12 @@
             // up
             // body.removeClass(scrollDown);
             // body.addClass(scrollUp);
+        }
+
+        if (currentScroll <= 0) {
+            // body.removeClass(scrollUp);
+            body.removeClass(scrollDown);
+            // return;
         }
 
         lastScroll = currentScroll;

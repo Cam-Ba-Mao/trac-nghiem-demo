@@ -201,12 +201,17 @@ body {
 
     &__content {
         display: flex;
-        padding-top: 67px;
-        padding-bottom: 87px;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
 
         @include breakpoint-down(768px) {
             justify-content: center;
             flex-direction: column;
+        }
+
+        @include breakpoint-up(md) {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
         }
 
         &--image {
@@ -402,10 +407,9 @@ body {
     }
 
     .row {
-        flex-direction: column-reverse;
-
-        @include breakpoint-up(lg) {
-            flex-direction: row;
+        
+        @include breakpoint-down(767px) {
+            flex-direction: column-reverse;
         }
     }
 
@@ -435,11 +439,11 @@ body {
         margin-bottom: 1rem;
 
         @include breakpoint-up(md) {
-            font-size: 40px;
+            font-size: 32px;
         }
 
         @include breakpoint-up(lg) {
-            font-size: 50px;
+            font-size: 40px;
         }
 
         @include breakpoint-up(xl) {
@@ -450,10 +454,9 @@ body {
 
     &__image {
         width: 100%;
-        margin-bottom: 3rem;
 
-        @include breakpoint-up(lg) {
-            margin-bottom: 0;
+        @include breakpoint-down(767px) {
+            margin-bottom: 1.5rem;
         }
     }
 
