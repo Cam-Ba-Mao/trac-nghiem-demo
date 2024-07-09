@@ -1,0 +1,5 @@
+#php_flag display_errors off
+Options -Indexes
+RewriteBase /trac-nghiem-demo/
+
+ErrorDocument 404 /trac-nghiem-demo/404.php

@@ -8,6 +8,7 @@ sass styles.scss styles.css --watch
 @import "_fonts.scss";
 @import "_mixins.scss";
 @import "_global.scss";
+@import "_button.scss";
 
 .tdmu-title {
     font-size: 24px;
@@ -389,4 +390,90 @@ body {
     
 
  
+}
+
+.tdmu-404 {
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+
+    @include breakpoint-up(md) {
+        padding-top: 6rem;
+        padding-bottom: 4rem;
+    }
+
+    .row {
+        flex-direction: column-reverse;
+
+        @include breakpoint-up(lg) {
+            flex-direction: row;
+        }
+    }
+
+    h1 {
+        font-weight: 700;
+        font-size: 48px;
+        font-family: $font-family-primary;
+
+        @include breakpoint-up(md) {
+            font-size: 64px;
+        }
+
+        @include breakpoint-up(lg) {
+            font-size: 100px;
+        }
+
+        @include breakpoint-up(xl) {
+            font-size: 140px;
+        }
+    }
+
+    .tdmu-sub-title {
+        font-weight: 500;
+        font-size: 24px;
+        font-family: $font-family-primary;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+
+        @include breakpoint-up(md) {
+            font-size: 40px;
+        }
+
+        @include breakpoint-up(lg) {
+            font-size: 50px;
+        }
+
+        @include breakpoint-up(xl) {
+            font-size: 54px;
+        }
+    }
+
+
+    &__image {
+        width: 100%;
+        margin-bottom: 3rem;
+
+        @include breakpoint-up(lg) {
+            margin-bottom: 0;
+        }
+    }
+
+    &__desc {
+        margin-top: 8px;
+
+        text-align: left;
+        margin-bottom: 1.5rem;
+        font-weight: 400;
+
+        @include breakpoint-up(sm) {
+            font-size: 18px;
+        }
+
+        @include breakpoint-up(md) {
+            max-width: 540px;
+        }
+    }
+
+    &__cta {
+        
+    }
 }
