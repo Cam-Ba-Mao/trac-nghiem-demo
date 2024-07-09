@@ -19,24 +19,25 @@ $title = "Trang chính";
 include('header.php');
 
 ?>
-    <h1 class="tdmu-title">Chào mừng, <?php echo $_SESSION['username']; ?>!</h1>
+    <section class="tdmu-home-page">
+        <h1 class="tdmu-title">Chào mừng, <?php echo $_SESSION['username']; ?>!</h1>
 
-    <?php if ($role == 'admin'): ?>
-        <h2>Trang quản trị viên</h2>
-        <ul>
-            <li><a href="./admin/manage_students.php">Quản lý học sinh</a></li>
-            <li><a href="./admin/manage_questions.php">Quản lý câu hỏi</a></li>
-            <li><a href="./admin/manage_exams.php">Quản lý đề thi</a></li>
-            <li><a href="./admin/exam_questions.php">Quản lý câu hỏi cho từng đề thi</a></li>
-        </ul>
-    <?php else: ?>
-        <h2>Trang học sinh</h2>
-        <ul>
-            <li><a href="./student/exams.php">Làm bài thi</a></li>
-            <li><a href="./student/list-results.php">Xem kết quả</a></li>
-        </ul>
-    <?php endif; ?>
+        <?php if ($role == 'admin'): ?>
+            <h2>Trang quản trị viên</h2>
+            <ul>
+                <li><a href="./admin/manage_students.php">Quản lý học sinh</a></li>
+                <li><a href="./admin/manage_questions.php">Quản lý câu hỏi</a></li>
+                <li><a href="./admin/manage_exams.php">Quản lý đề thi</a></li>
+                <li><a href="./admin/exam_questions.php">Quản lý câu hỏi cho từng đề thi</a></li>
+            </ul>
+        <?php else: ?>
+            <h2>Trang học sinh</h2>
+            <ul>
+                <li><a href="./student/exams.php">Làm bài thi</a></li>
+                <li><a href="./student/list-results.php">Xem kết quả</a></li>
+            </ul>
+        <?php endif; ?>
 
-    <p><a href="logout.php">Đăng xuất</a></p>
-
+        <p><a href="logout.php" class="logout-btn">Đăng xuất</a></p>
+    </section>
 <?php include('footer.php'); ?>

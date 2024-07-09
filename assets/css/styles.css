@@ -444,6 +444,9 @@ body.scroll-down .tdmu-take-exam .student-info {
   }
 }
 
+.tdmu-take-exam {
+  padding-top: 2rem;
+}
 .tdmu-take-exam .tdmu-title {
   text-align: center;
   margin-bottom: 1.5rem;
@@ -797,6 +800,44 @@ body.scroll-down .tdmu-take-exam .student-info {
   .tdmu-404__desc {
     max-width: 540px;
   }
+}
+.tdmu-home-page ul {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.tdmu-home-page li {
+  padding-left: 2rem;
+}
+.tdmu-home-page li a {
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.logout-btn {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.tdmu-results {
+  padding-top: 2rem;
+}
+.tdmu-results ul {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.tdmu-results li {
+  padding-left: 1.5rem;
+}
+
+.tdmu-list-results {
+  padding-top: 2rem;
+}
+
+.tdmu-exams {
+  padding-top: 2rem;
 }
 
 /*# sourceMappingURL=styles.css.map */

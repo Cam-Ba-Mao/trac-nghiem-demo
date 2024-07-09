@@ -146,8 +146,8 @@ function getRootVars() {
        
         $(document).ready(function () {
             getRootVars();
-            calculateScroll();
-            handleScrollMenu();
+            // calculateScroll();
+            // handleScrollMenu();
         });
     });
 

@@ -77,6 +77,8 @@ body {
 }
 
 .tdmu-take-exam {
+    padding-top: 2rem;
+    
     .tdmu-title {
         text-align: center;
         margin-bottom: 1.5rem;
@@ -479,4 +481,45 @@ body {
     &__cta {
         
     }
+}
+
+.tdmu-home-page {
+    ul {
+        @include reset-list;
+    }
+
+    li {
+        padding-left: 2rem;
+        
+        a {
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+    }
+}
+
+.logout-btn {
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.tdmu-results {
+    padding-top: 2rem;
+
+    ul {
+        @include reset-list;
+    }
+
+    li {
+        padding-left: 1.5rem;
+    }
+}
+
+.tdmu-list-results {
+    padding-top: 2rem;
+}
+
+.tdmu-exams {
+    padding-top: 2rem;
 }

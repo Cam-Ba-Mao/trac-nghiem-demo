@@ -14,9 +14,8 @@ $query = "SELECT * FROM results WHERE user_id = $user_id AND exam_id = $exam_id 
 $result = mysqli_query($conn, $query);
 $exam_result = mysqli_fetch_assoc($result);
 // Lấy danh sách các câu hỏi và câu trả lời
-$query = "SELECT e.exam_name q.question_text, q.correct_option, ua.selected_option
+$query = "SELECT q.question_text, q.correct_option, ua.selected_option
           FROM questions q
-          JOIN exams e ON e.id = eq.exam_id
           JOIN exam_questions eq ON q.id = eq.question_id
           JOIN user_answers ua ON q.id = ua.question_id
           WHERE eq.exam_id = $exam_id AND ua.result_id = " . $exam_result['id'];
@@ -36,23 +35,20 @@ $title = "Kết quả thi";
 
 include(__DIR__ . '/../header.php');
 ?>
-
-    <h1 class="tdmu-title">Kết quả thi: <?= $result['exam_name'] ?> </h1>
-    <p>Số câu đúng: <?php echo $exam_result['score']; ?> / Tổng số câu: <?php echo $total_questions; ?></p>
-    <p>Điểm: <?php echo number_format($total_score, 2); ?></p> <!-- Sử dụng number_format để làm tròn điểm số -->
-    <h2>Chi tiết bài thi:</h2>
-    <span class="title">Chú thích:<br />
-        <span style="color: green;">Màu xanh </span>là học sinh chọn đúng đáp án <br />
-        <span style="color: red;">Màu đỏ </span> là đáp án học sinh chọn sai<br />
-        <span style="color: blue;">Màu xanh dương </span> là đáp án đúng của câu hỏi
-    </span>
-    <ul>
-        <?php $key = 1; while($question = mysqli_fetch_assoc($result)) { ?>
-            <li>
-                <p><strong>Câu <?= $key; ?>: <?php echo $question['question_text']; ?></strong></p>
-                <p style="color: blue;">Đáp án đúng: <?php echo $question['correct_option']; ?></p>
-                <p style="color: green;">Đáp án bạn chọn: <?php echo $question['selected_option']; ?></p>
-            </li>
-        <?php $key++; } ?>
-    </ul>
+    <section class="tdmu-results">
+        <h1 class="tdmu-title">Kết quả thi: </h1>
+        <p>Số câu đúng: <?php echo $exam_result['score']; ?> / Tổng số câu: <?php echo $total_questions; ?></p>
+        <p>Điểm: <?php echo number_format($total_score, 2); ?></p> <!-- Sử dụng number_format để làm tròn điểm số -->
+        <h2>Chi tiết bài thi:</h2>
+        <ul>
+            <?php $key = 1; while($question = mysqli_fetch_assoc($result)) { ?>
+                <li>
+                    <p><strong>Câu <?= $key; ?>: <?php echo $question['question_text']; ?></strong></p>
+                    <p style="color: green;">Đáp án đúng: <?php echo $question['correct_option']; ?></p>
+                    <p style="color: blue;">Đáp án bạn chọn: <?php echo $question['selected_option']; ?></p>
+                </li>
+            <?php $key++; } ?>
+        </ul>
+    </section>
+    
 <?php include(__DIR__ . '/../footer.php');
