@@ -37,15 +37,15 @@ include(__DIR__ . '/../header.php');
 ?>
     <section class="tdmu-results">
         <h1 class="tdmu-title">Kết quả thi: </h1>
-        <p>Số câu đúng: <?php echo $exam_result['score']; ?> / Tổng số câu: <?php echo $total_questions; ?></p>
-        <p>Điểm: <?php echo number_format($total_score, 2); ?></p> <!-- Sử dụng number_format để làm tròn điểm số -->
-        <h2>Chi tiết bài thi:</h2>
+        <p class="tdmu-results__correct">Số câu đúng: <?php echo $exam_result['score']; ?> / Tổng số câu: <?php echo $total_questions; ?></p>
+        <p class="tdmu-results__score">Điểm: <?php echo number_format($total_score, 2); ?></p> <!-- Sử dụng number_format để làm tròn điểm số -->
+        <h2 class="tdmu-results__test-detail">Chi tiết bài thi:</h2>
         <ul>
             <?php $key = 1; while($question = mysqli_fetch_assoc($result)) { ?>
                 <li>
                     <p><strong>Câu <?= $key; ?>: <?php echo $question['question_text']; ?></strong></p>
-                    <p style="color: green;">Đáp án đúng: <?php echo $question['correct_option']; ?></p>
-                    <p style="color: blue;">Đáp án bạn chọn: <?php echo $question['selected_option']; ?></p>
+                    <p style="color: green; font-weight: 600;">Đáp án đúng: <?php echo $question['correct_option']; ?></p>
+                    <p style="color: blue; font-weight: 600;">Đáp án bạn chọn: <?php echo $question['selected_option']; ?></p>
                 </li>
             <?php $key++; } ?>
         </ul>

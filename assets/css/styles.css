@@ -831,6 +831,24 @@ body.scroll-down .tdmu-take-exam .student-info {
 .tdmu-results li {
   padding-left: 1.5rem;
 }
+.tdmu-results__test-detail {
+  margin-bottom: 1rem;
+}
+.tdmu-results__correct, .tdmu-results__score {
+  font-weight: 600;
+  font-size: 16px;
+}
+@media (min-width: 992px) {
+  .tdmu-results__correct, .tdmu-results__score {
+    font-size: 18px;
+  }
+}
+.tdmu-results__correct {
+  color: green;
+}
+.tdmu-results__score {
+  color: #005180;
+}
 
 .tdmu-list-results {
   padding-top: 2rem;

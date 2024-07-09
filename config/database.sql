@@ -9,8 +9,8 @@ CREATE TABLE users (
 );
 
 INSERT INTO users (id, username, password, role) VALUES
-(1, 'maocam', '12345', 'admin'),
-(2, 'phuongbui', '12345', 'student');
+(1, 'maocam', 'Magano123', 'admin'),
+(2, 'phuongbui', 'phuong@101220', 'student');
 
 
 CREATE TABLE questions (

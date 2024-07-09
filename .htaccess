@@ -3,3 +3,5 @@ Options -Indexes
 RewriteBase /trac-nghiem-demo/
 
 ErrorDocument 404 /trac-nghiem-demo/404.php
+ErrorDocument 403 /trac-nghiem-demo/404.php
+ErrorDocument 500 /trac-nghiem-demo/404.php

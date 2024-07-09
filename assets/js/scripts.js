@@ -1,15 +1,17 @@
 var $ = jQuery.noConflict();
 
-function getRootVars() {
-    var root = document.querySelector(":root");
-    root.style.setProperty("--vh", window.innerHeight / 100 + "px");
-    root.style.setProperty("--mh", $('.tdmu-header').outerHeight() + "px");
-}
+
 
 (function ($) {
 
     
     let lastScroll = 0;
+
+    function getRootVars() {
+        var root = document.querySelector(":root");
+        root.style.setProperty("--vh", window.innerHeight / 100 + "px");
+        root.style.setProperty("--mh", $('.tdmu-header').outerHeight() + "px");
+    }
 
     function initLazyLoad() {
         $('.lazy').Lazy({
@@ -143,11 +145,18 @@ function getRootVars() {
 
     $(function () {
         // handleTEST();
+
+        // clearTimeout(myTimeout);
+
+        myTimeout = setTimeout(() => {
+            getRootVars();
+            calculateScroll();
+            handleScrollMenu();
+        }, 500);
        
         $(document).ready(function () {
-            getRootVars();
-            // calculateScroll();
-            // handleScrollMenu();
+                      
+           
         });
     });
 
