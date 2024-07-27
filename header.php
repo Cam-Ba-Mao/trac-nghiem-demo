@@ -12,6 +12,7 @@
     <script src="<?php echo BASE_URL; ?>/assets/js/bootstrap.min.js"></script>
     <script src="<?php echo BASE_URL; ?>/assets/js/scripts.js"></script>
     <!-- <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/cssreset.css" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous"/>
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/fonts/material-icon/css/material-design-iconic-font.min.css"/>
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>/assets/css/styles.css">
@@ -34,13 +35,5 @@
             </div>
             <?php endif; ?>
         </div>        
-        <!-- <nav>
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="exams.php">Exams</a></li>
-                <li><a href="profile.php">Profile</a></li>
-                <li><a href="logout.php">Logout</a></li>
-            </ul>
-        </nav> -->
     </header>
     <main class="tdmu-content">

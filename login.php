@@ -48,6 +48,7 @@ include('header.php');
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
                                 <input type="password" name="your_pass" id="your_pass" placeholder="Mật khẩu"/>
+                                <i class="fa fa-eye toggle"></i>
                             </div>
                             <!-- <div class="form-group">
                                 <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />

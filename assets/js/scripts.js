@@ -1,5 +1,56 @@
 var $ = jQuery.noConflict();
 
+function getRootVars() {
+    var root = document.querySelector(":root");
+    root.style.setProperty("--vh", window.innerHeight / 100 + "px");
+   
+    setTimeout(function () {
+        root.style.setProperty("--mh", $('.tdmu-header').outerHeight() + "px");
+    }, 100)
+}
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     const menuToggle = document.querySelector('.menu-toggle');
+//     const adminMenu = document.querySelector('.admin-menu');
+
+//     menuToggle.addEventListener('click', function() {
+//         adminMenu.classList.toggle('open');
+//         if (adminMenu.classList.contains('open')) {
+//             adminMenu.style.width = '200px';
+//         } else {
+//             adminMenu.style.width = '60px';
+//         }
+//     });
+// });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const adminMenu = document.querySelector('.admin-menu');
+
+    menuToggle.addEventListener('click', function() {
+        if (adminMenu.classList.contains('collapsed')) {
+            adminMenu.classList.remove('collapsed');
+            adminMenu.classList.add('expanded');
+        } else {
+            adminMenu.classList.remove('expanded');
+            adminMenu.classList.add('collapsed');
+        }
+    });
+});
+
+window.addEventListener("load", function () {
+    const togglePassword = document.querySelector(".toggle");
+    togglePassword.addEventListener("click", function () {
+        const input = this.previousElementSibling;
+        const inputType = input.getAttribute("type");
+        if (inputType === "password") {
+            input.setAttribute("type", "text");
+        } else {
+            input.setAttribute("type", "password");
+        }
+    });
+});
+  
 
 
 (function ($) {
@@ -7,11 +58,7 @@ var $ = jQuery.noConflict();
     
     let lastScroll = 0;
 
-    function getRootVars() {
-        var root = document.querySelector(":root");
-        root.style.setProperty("--vh", window.innerHeight / 100 + "px");
-        root.style.setProperty("--mh", $('.tdmu-header').outerHeight() + "px");
-    }
+   
 
     function initLazyLoad() {
         $('.lazy').Lazy({
@@ -122,7 +169,7 @@ var $ = jQuery.noConflict();
         const scrollDown = "scroll-down";
         var currentScroll = window.scrollY;
 
-        console.log(currentScroll);
+        // console.log(currentScroll);
 
         if (currentScroll > lastScroll && !body.hasClass(scrollDown)) {
             // down
@@ -147,12 +194,9 @@ var $ = jQuery.noConflict();
         // handleTEST();
 
         // clearTimeout(myTimeout);
-
-        myTimeout = setTimeout(() => {
-            getRootVars();
-            calculateScroll();
-            handleScrollMenu();
-        }, 500);
+        getRootVars();
+        calculateScroll();
+        handleScrollMenu();
        
         $(document).ready(function () {
                       

@@ -9,12 +9,13 @@ sass styles.scss styles.css --watch
 @import "_mixins.scss";
 @import "_global.scss";
 @import "_button.scss";
+@import "admin.scss";
 
 .tdmu-title {
     font-size: 24px;
 
     @include breakpoint-up(lg) {
-        font-size: 32px; 
+        font-size: 32px;
     }
 }
 
@@ -39,7 +40,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 20; 
+    z-index: 20;
     transition: transform .5s, background-color .5s, position .5s;
     border-bottom: 1px solid rgba($black-1, .2);
     padding: 1rem .5rem;
@@ -54,7 +55,7 @@ body {
         max-width: 155px;
 
         img {
-            width: 100%;   
+            width: 100%;
         }
     }
 
@@ -66,7 +67,7 @@ body {
         }
 
         .time-to-do {
-            
+
             font-size: 24px;
 
             @include breakpoint-up(lg) {
@@ -78,7 +79,7 @@ body {
 
 .tdmu-take-exam {
     padding-top: 2rem;
-    
+
     .tdmu-title {
         text-align: center;
         margin-bottom: 1.5rem;
@@ -103,7 +104,7 @@ body {
         max-height: 800px;
         background: white;
         border: 2px solid $blue;
-        
+
         .menu-link {
             display: block;
             padding-left: 15px;
@@ -127,12 +128,12 @@ body {
                 }
             }
 
-        }        
+        }
     }
 
     &__content {
         #examForm {
-            > div {
+            >div {
                 &:not(:first-child) {
                     margin-top: 1rem;
                 }
@@ -154,7 +155,7 @@ body {
                 border: 1px solid $blue;
                 background: $white;
                 font-weight: 500;
-                
+
                 &:hover {
                     background: $blue;
                     color: $white;
@@ -170,7 +171,7 @@ body {
         display: inline-block;
         position: sticky;
         top: 0;
-        transition: all .2s ease-out;       
+        transition: all .2s ease-out;
     }
 }
 
@@ -192,7 +193,7 @@ body {
         border-radius: 20px;
 
         @include breakpoint-down(1200px) {
-            width: calc( 100% - 30px);
+            width: calc(100% - 30px);
             max-width: 100%;
         }
 
@@ -222,7 +223,7 @@ body {
             margin-top: 10px;
             width: 50%;
             overflow: hidden;
-    
+
             @include breakpoint-down(768px) {
                 margin-left: 0px;
                 margin-right: 0px;
@@ -230,12 +231,12 @@ body {
                 order: 2;
                 width: auto;
             }
-    
+
             figure {
                 margin-bottom: 50px;
                 text-align: center;
                 margin: 0;
-    
+
                 img {
                     max-width: 100%;
                     height: auto;
@@ -248,7 +249,7 @@ body {
             margin-left: 20px;
             width: 50%;
             overflow: hidden;
-    
+
             @include breakpoint-down(768px) {
                 order: 1;
                 margin-right: 0px;
@@ -256,11 +257,11 @@ body {
                 padding: 0 30px;
                 width: auto;
             }
-    
+
             .form-title {
                 margin-bottom: 33px;
             }
-            
+
             h2 {
                 line-height: 1.66;
                 margin: 0;
@@ -270,39 +271,39 @@ body {
                 font-family: Poppins;
                 font-size: 36px;
             }
-    
+
             .register-form {
                 width: 100%;
-    
+
                 .form-group {
                     position: relative;
                     margin-bottom: 25px;
                     overflow: hidden;
-    
+
                     &:last-child {
                         margin-bottom: 0px;
                     }
-    
+
                     &.form-button {
                         margin-bottom: 1rem;
-                        
+
                         @include breakpoint-down(768px) {
                             text-align: center;
                         }
-        
+
                     }
-    
+
                     label {
                         position: absolute;
                         left: 0;
                         top: 50%;
                         transform: translateY(-50%);
                         color: #222;
-    
+
                         .material-icons-name {
                             font-size: 18px;
                         }
-    
+
                         .zmdi {
                             display: inline-block;
                             font: normal normal normal 14px / 1 'Material-Design-Iconic-Font';
@@ -310,7 +311,7 @@ body {
                             text-rendering: auto;
                         }
                     }
-    
+
                     input {
                         width: 100%;
                         display: block;
@@ -320,12 +321,14 @@ body {
                         font-family: Poppins;
                         box-sizing: border-box;
                     }
-    
-                    input, select, textarea {
+
+                    input,
+                    select,
+                    textarea {
                         outline: none;
                         appearance: unset !important;
                     }
-    
+
                     input[type=checkbox]:not(old) {
                         width: 2em;
                         margin: 0;
@@ -333,20 +336,20 @@ body {
                         font-size: 1em;
                         display: none;
                     }
-    
-                    input[type=checkbox]:not(old) + label {
+
+                    input[type=checkbox]:not(old)+label {
                         display: inline-block;
                         line-height: 1.5em;
                         margin-top: 6px;
                     }
-    
+
                     .label-agree-term {
                         position: relative;
                         top: 0%;
                         transform: translateY(0);
                     }
-    
-                    input[type=checkbox]:not(old) + label > span {
+
+                    input[type=checkbox]:not(old)+label>span {
                         display: inline-block;
                         width: 13px;
                         height: 13px;
@@ -358,8 +361,8 @@ body {
                         background-image: linear-gradient(white, white);
                         vertical-align: bottom;
                     }
-    
-                    input[type=checkbox]:not(old):checked + label > span:before {
+
+                    input[type=checkbox]:not(old):checked+label>span:before {
                         content: '\f26b';
                         display: block;
                         color: #222;
@@ -369,11 +372,11 @@ body {
                         font-family: 'Material-Design-Iconic-Font';
                         font-weight: bold;
                     }
-    
+
                     input[type=checkbox] {
                         appearance: checkbox !important;
                     }
-    
+
                     .form-submit {
                         display: inline-block;
                         background: #6dabe4;
@@ -385,18 +388,26 @@ body {
                         margin-top: 25px;
                         cursor: pointer;
                     }
-    
+
                     #signin {
                         margin-top: 16px;
+                    }
+
+                    .toggle {
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        right: 4px;
+                        cursor: pointer;
                     }
                 }
             }
         }
     }
 
-    
 
- 
+
+
 }
 
 .tdmu-404 {
@@ -409,7 +420,7 @@ body {
     }
 
     .row {
-        
+
         @include breakpoint-down(767px) {
             flex-direction: column-reverse;
         }
@@ -478,9 +489,7 @@ body {
         }
     }
 
-    &__cta {
-        
-    }
+    &__cta {}
 }
 
 .tdmu-home-page {
@@ -490,7 +499,7 @@ body {
 
     li {
         padding-left: 2rem;
-        
+
         a {
             font-size: 16px;
             font-weight: 600;
@@ -519,7 +528,8 @@ body {
         margin-bottom: 1rem;
     }
 
-    &__correct, &__score {
+    &__correct,
+    &__score {
         font-weight: 600;
         font-size: 16px;
 
@@ -527,7 +537,7 @@ body {
             font-size: 18px;
         }
     }
-    
+
     &__correct {
         color: green;
     }

@@ -389,6 +389,116 @@ input[type=search]::-webkit-search-decoration, input[type=search]::-webkit-searc
   color: #FFFFFF;
 }
 
+.wrapper {
+  display: flex;
+  flex: 1;
+}
+
+.admin-menu {
+  width: 60px;
+  /* Bắt đầu với menu thu gọn */
+  background-color: #23282d;
+  color: #fff;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+.admin-menu.collapsed {
+  width: 60px;
+}
+.admin-menu.collapsed ul li a {
+  text-align: center;
+  padding: 10px 0;
+}
+.admin-menu.collapsed ul li a span {
+  display: none;
+}
+.admin-menu.expanded {
+  width: 200px;
+}
+.admin-menu.expanded ul li a {
+  text-align: left;
+  padding: 10px 15px;
+}
+.admin-menu.expanded ul li a span {
+  display: inline;
+}
+.admin-menu.expanded ul ul {
+  left: 200px;
+}
+.admin-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.admin-menu ul li {
+  position: relative;
+}
+.admin-menu ul li a {
+  display: block;
+  padding: 10px 15px;
+  color: #fff;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.admin-menu ul li a span {
+  display: inline;
+}
+.admin-menu ul li a:hover {
+  background-color: #0073aa;
+}
+.admin-menu ul li ul {
+  display: none;
+  position: absolute;
+  left: 60px;
+  /* Thay đổi vị trí khi menu thu gọn */
+  top: 0;
+  background-color: #32373c;
+}
+.admin-menu ul li ul li a {
+  padding: 10px 20px;
+}
+.admin-menu ul li:hover > ul {
+  display: block;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+.menu-toggle {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #0073aa;
+  color: #fff;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .admin-menu {
+    width: 60px;
+  }
+  .admin-menu.expanded {
+    width: 200px;
+  }
+  .admin-menu ul li a {
+    text-align: left;
+    padding: 10px 15px;
+  }
+  .admin-menu ul li a span {
+    display: inline;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  .admin-menu ul ul {
+    left: 200px;
+  }
+  .menu-toggle {
+    display: block;
+  }
+}
 .tdmu-title {
   font-size: 24px;
 }
@@ -659,7 +769,9 @@ body.scroll-down .tdmu-take-exam .student-info {
   font-family: Poppins;
   box-sizing: border-box;
 }
-.tdmu-sign-in__content--form .register-form .form-group input, .tdmu-sign-in__content--form .register-form .form-group select, .tdmu-sign-in__content--form .register-form .form-group textarea {
+.tdmu-sign-in__content--form .register-form .form-group input,
+.tdmu-sign-in__content--form .register-form .form-group select,
+.tdmu-sign-in__content--form .register-form .form-group textarea {
   outline: none;
   appearance: unset !important;
 }
@@ -718,6 +830,13 @@ body.scroll-down .tdmu-take-exam .student-info {
 }
 .tdmu-sign-in__content--form .register-form .form-group #signin {
   margin-top: 16px;
+}
+.tdmu-sign-in__content--form .register-form .form-group .toggle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 4px;
+  cursor: pointer;
 }
 
 .tdmu-404 {
