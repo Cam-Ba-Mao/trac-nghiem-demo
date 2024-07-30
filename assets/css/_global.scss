@@ -24,7 +24,7 @@ body {
         position: fixed;
     }
 
-    &:not(.is-transparent) {
+    &.is-transparent {
         .tdmu-content {
             padding-top: var(--mh);
         }

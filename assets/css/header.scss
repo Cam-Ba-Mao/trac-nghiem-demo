@@ -1,0 +1,55 @@
+body {
+    &.is-transparent {
+        .tdmu-header {
+            position: fixed;
+        }
+    }
+}
+
+.tdmu-header {
+    background-color: $white;
+    position: relative;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+    transition: transform .5s, background-color .5s, position .5s;
+    border-bottom: 1px solid rgba($black-1, .2);
+    padding: 1rem .5rem;
+
+    &__wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__brand {
+        max-width: 155px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__take-exam-time {
+        font-weight: 700;
+
+        span {
+            color: $blue;
+        }
+
+        .time-to-do {
+
+            font-size: 24px;
+
+            @include breakpoint-up(lg) {
+                font-size: 32px;
+            }
+        }
+    }
+}
+
+footer {
+    p {
+        font-weight: 600;
+    }
+}

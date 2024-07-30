@@ -22,6 +22,7 @@ $min = $exam['exam_time'];
 $sec = 0;
 
 $title = "Làm bài thi";
+$class = "is-transparent";
 
 include(__DIR__ . '/../header.php');
 ?>

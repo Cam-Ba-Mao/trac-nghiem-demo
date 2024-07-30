@@ -10,14 +10,9 @@ if (!isset($_SESSION['user_id'])) {
 // Lấy danh sách các đề thi
 $query = "SELECT * FROM exams";
 $result = mysqli_query($conn, $query);
-?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title class="tdmu-title">Danh sách kết quả đề thi</title>
-</head>
-<body>
+include(__DIR__ . '/../header.php');
+?>
     <section class="tdmu-list-results">
         <h1 class="tdmu-title">Danh sách kết quả đề thi</h1>
         <ul>
@@ -29,5 +24,4 @@ $result = mysqli_query($conn, $query);
         </ul>
     </section>
     
-</body>
-</html>
+<?php include(__DIR__ . '/../footer.php');

@@ -23,33 +23,60 @@ function getRootVars() {
 //     });
 // });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const adminMenu = document.querySelector('.admin-menu');
-
-    menuToggle.addEventListener('click', function() {
-        if (adminMenu.classList.contains('collapsed')) {
-            adminMenu.classList.remove('collapsed');
-            adminMenu.classList.add('expanded');
+// Hàm để chuyển đổi trạng thái menu
+const toggleMenu = () => {
+    
+    window.addEventListener('load', function() {
+        // Chọn các phần tử
+        const menuToggleButton = document.querySelector('.menu-toggle');
+        const adminMenu = document.querySelector('.admin-menu');
+        
+        // Kiểm tra sự tồn tại của các phần tử trước khi thêm sự kiện
+        if (menuToggleButton && adminMenu) {
+            // Thêm sự kiện click
+            menuToggleButton.addEventListener('click', function() {
+                if (adminMenu.classList.contains('collapsed')) {
+                    adminMenu.classList.remove('collapsed');
+                    adminMenu.classList.add('expanded');
+                } else {
+                    adminMenu.classList.remove('expanded');
+                    adminMenu.classList.add('collapsed');
+                }
+            });
         } else {
-            adminMenu.classList.remove('expanded');
-            adminMenu.classList.add('collapsed');
+            console.log('Không tìm thấy phần tử menu-toggle hoặc admin-menu.');
         }
     });
-});
+};
 
-window.addEventListener("load", function () {
-    const togglePassword = document.querySelector(".toggle");
-    togglePassword.addEventListener("click", function () {
-        const input = this.previousElementSibling;
-        const inputType = input.getAttribute("type");
-        if (inputType === "password") {
-            input.setAttribute("type", "text");
+const showPassword = () => {
+    window.addEventListener("load", function () {
+        const togglePassword = document.querySelector(".toggle");
+        
+        if (togglePassword) {
+            togglePassword.addEventListener("click", function () {
+                const input = this.previousElementSibling;
+                const inputType = input.getAttribute("type");
+                
+                // Toggle input type
+                if (inputType === "password") {
+                    input.setAttribute("type", "text");
+                } else {
+                    input.setAttribute("type", "password");
+                }
+                
+                // Toggle icon classes
+                this.classList.toggle("fa-eye");
+                this.classList.toggle("fa-eye-slash");
+            });
         } else {
-            input.setAttribute("type", "password");
+            console.log('Không tìm thấy phần tử togglePassword.');
         }
+        
     });
-});
+}
+
+
   
 
 
@@ -197,6 +224,9 @@ window.addEventListener("load", function () {
         getRootVars();
         calculateScroll();
         handleScrollMenu();
+        // Gọi hàm để khởi tạo hành vi chuyển đổi menu
+        toggleMenu();
+        showPassword();
        
         $(document).ready(function () {
                       

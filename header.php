@@ -1,5 +1,5 @@
 <?php
-    define('BASE_URL', '/trac-nghiem-demo');
+    include(__DIR__ .'/config/config.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>/assets/css/styles.css">
 </head>
-<body>
+<body class="<?= !empty($class) ?  $class : '' ?>">
     <header class="tdmu-header">
         <!-- <h1>Quiz Application</h1> -->
         <div class="tdmu-header__wrap">
