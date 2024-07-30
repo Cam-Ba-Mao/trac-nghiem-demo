@@ -6,7 +6,7 @@ include('./config/config.php');
 
 // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng đến trang đăng nhập
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+    header("Location: dang-nhap");
     exit();
 }
 
