@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>/assets/css/styles.css">
 </head>
 <body class="<?= !empty($class) ?  $class : '' ?>">
-    <main class="tdmu-content">
+    <div class="tdmu-container">
         <!-- START HEADER-->
         <header class="tdmu-header">
             <!-- <h1>Quiz Application</h1> -->
@@ -38,4 +38,7 @@
                 <?php endif; ?>
             </div>        
         </header>
-        <!-- START HEADER-->
+        <!-- CLOSE HEADER-->
+        <main class="tdmu-content">  
+        
+        

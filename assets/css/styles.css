@@ -348,11 +348,15 @@ input[type=search]::-webkit-search-decoration, input[type=search]::-webkit-searc
   background: #005180;
 }
 
-.tdmu-content {
+.tdmu-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
+}
+
+.tdmu-content {
+  flex: 1 1 auto;
 }
 
 .tdmu-btn,
