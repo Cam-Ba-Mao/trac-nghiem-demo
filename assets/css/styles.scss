@@ -39,6 +39,10 @@ body {
 
 .tdmu-take-exam {
     padding-top: 2rem;
+    width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 
     .tdmu-title {
         text-align: center;
@@ -49,9 +53,23 @@ body {
     &__wrap {
         display: grid;
         // grid-template-columns: repeat(2, 1fr);
-        // grid-template-columns: 30% 50% 20%;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: 1fr 2fr 1fr;
+        // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 2rem;
+
+        @include breakpoint-down(767px) {
+            grid-template-columns: calc(30% - 1rem) calc(70% - 1rem);
+
+            .tdmu-take-right {
+                display: none;
+            }
+        }
+
+        @include breakpoint-up(1600px) {
+            grid-template-columns: 20% 60% 20%;
+        }
+
+        
     }
 
     &__answer {
@@ -64,6 +82,11 @@ body {
         max-height: 800px;
         background: white;
         border: 2px solid $blue;
+
+        @include breakpoint-up(md) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
 
         .menu-link {
             display: block;
@@ -240,6 +263,10 @@ body {
 
 .tdmu-results {
     padding-top: 2rem;
+    width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 
     ul {
         @include reset-list;
@@ -258,11 +285,20 @@ body {
         margin-bottom: 1rem;
     }
 
+    &__content {
+        width: 100%;
+        max-width: 800px;
+    }
+
     &__info {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
 
         &--title {
             margin-bottom: 1rem;
+            background: $blue;
+            color: $white;
+            padding: 10px;
+            font-size: clamp(1.125rem, 1.0795rem + 0.2273vw, 1.25rem);
         }
 
         &--total, &--correct, &--wrong, &--score{
@@ -284,6 +320,50 @@ body {
 
         &--wrong {
             color: red;
+        }
+
+        &--note {
+            margin-top: 1rem;
+
+            h3 {
+                font-size: clamp(1.125rem, 1.0795rem + 0.2273vw, 1.25rem);
+                background: $blue;
+                color: $white;
+                padding: 10px;
+            }
+
+            span {
+                font-weight: 700;
+                font-size: 16px;
+                margin-bottom: 2px;
+                display: inline-block;
+            }
+
+            p {
+                font-weight: 500;
+                margin-bottom: 2px;
+                font-size: 14px;
+
+                &:nth-child(3) {
+                    strong {
+                        color: green;
+                    }
+                }
+
+                &:nth-child(4) {
+                    strong {
+                        color: blue;
+                    }
+                }
+
+                &:nth-child(5) {
+                    margin-bottom: 0;
+
+                    strong {
+                        color: red;
+                    }
+                }
+            }
         }
     }
 }

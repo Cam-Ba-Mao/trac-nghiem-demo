@@ -348,6 +348,13 @@ input[type=search]::-webkit-search-decoration, input[type=search]::-webkit-searc
   background: #005180;
 }
 
+.tdmu-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
 .tdmu-btn,
 .btn {
   display: inline-block;
@@ -539,16 +546,19 @@ body.is-transparent .tdmu-header {
   }
 }
 
+footer {
+  padding: 0 1rem;
+}
 footer p {
   font-weight: 600;
 }
 
 .login-wrap {
-  padding: 60px 0;
+  padding: 4rem 0;
 }
 @media (min-width: 768px) {
   .login-wrap {
-    padding: 150px 0;
+    padding: 6.25rem 0 6rem;
   }
 }
 
@@ -579,8 +589,8 @@ footer p {
 }
 @media (min-width: 768px) {
   .tdmu-sign-in__content {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
   }
 }
 .tdmu-sign-in__content--image {
@@ -614,7 +624,7 @@ footer p {
   }
 }
 .tdmu-sign-in__content--form .form-title {
-  margin-bottom: 33px;
+  margin-bottom: 1.5rem;
 }
 .tdmu-sign-in__content--form h2 {
   line-height: 1.66;
@@ -630,7 +640,7 @@ footer p {
 }
 .tdmu-sign-in__content--form .register-form .form-group {
   position: relative;
-  margin-bottom: 25px;
+  margin-bottom: 1.5rem;
   overflow: hidden;
 }
 .tdmu-sign-in__content--form .register-form .form-group:last-child {
@@ -656,7 +666,7 @@ footer p {
 .tdmu-sign-in__content--form .register-form .form-group #your_pass {
   padding-right: 50px;
 }
-.tdmu-sign-in__content--form .register-form .form-group input {
+.tdmu-sign-in__content--form .register-form .form-group input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
   box-sizing: border-box;
   display: block;
   width: 100%;
@@ -666,20 +676,62 @@ footer p {
   border: 1px solid #E9EAEC;
   font-family: inherit;
   line-height: inherit;
+  outline: none;
+  appearance: unset !important;
   padding: 1rem 1.25rem;
   font-size: 14px;
   font-weight: 500;
   color: #111827;
 }
-.tdmu-sign-in__content--form .register-form .form-group input:focus {
+.tdmu-sign-in__content--form .register-form .form-group input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]):focus {
   box-shadow: none;
   border-color: #005180;
 }
-.tdmu-sign-in__content--form .register-form .form-group input,
-.tdmu-sign-in__content--form .register-form .form-group select,
-.tdmu-sign-in__content--form .register-form .form-group textarea {
-  outline: none;
-  appearance: unset !important;
+.tdmu-sign-in__content--form .register-form .form-group.remember-me {
+  display: block;
+  padding-left: 28px;
+  position: relative;
+  line-height: 1;
+}
+.tdmu-sign-in__content--form .register-form .form-group.remember-me input {
+  display: none;
+}
+.tdmu-sign-in__content--form .register-form .form-group.remember-me input:checked + label::after {
+  opacity: 1;
+  border: thin solid #27A376;
+}
+.tdmu-sign-in__content--form .register-form .form-group.remember-me input[type=checkbox] + label::after {
+  background-color: #27A376;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3.5L3.77551 6.33333L9 1' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E%0A");
+  background-size: 10px auto;
+}
+.tdmu-sign-in__content--form .register-form .form-group.remember-me label {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.5;
+  vertical-align: middle;
+  margin-bottom: 0;
+  cursor: pointer;
+  user-select: none;
+}
+.tdmu-sign-in__content--form .register-form .form-group.remember-me label::before, .tdmu-sign-in__content--form .register-form .form-group.remember-me label::after {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+}
+.tdmu-sign-in__content--form .register-form .form-group.remember-me label::before {
+  border: thin solid #CBD5E0;
+}
+.tdmu-sign-in__content--form .register-form .form-group.remember-me label::after {
+  opacity: 0;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  z-index: 1;
 }
 .tdmu-sign-in__content--form .register-form .form-group .form-submit {
   display: inline-block;
@@ -691,6 +743,7 @@ footer p {
   margin-top: 1rem;
   cursor: pointer;
   border: none;
+  font-weight: 500;
 }
 .tdmu-sign-in__content--form .register-form .form-group .form-submit:hover {
   background: #005180;
@@ -734,6 +787,10 @@ body.is-transparent.scroll-down .tdmu-take-exam .student-info {
 
 .tdmu-take-exam {
   padding-top: 2rem;
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .tdmu-take-exam .tdmu-title {
   text-align: center;
@@ -742,8 +799,21 @@ body.is-transparent.scroll-down .tdmu-take-exam .student-info {
 }
 .tdmu-take-exam__wrap {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: 1fr 2fr 1fr;
   gap: 2rem;
+}
+@media (max-width: 767px) {
+  .tdmu-take-exam__wrap {
+    grid-template-columns: calc(30% - 1rem) calc(70% - 1rem);
+  }
+  .tdmu-take-exam__wrap .tdmu-take-right {
+    display: none;
+  }
+}
+@media (min-width: 1600px) {
+  .tdmu-take-exam__wrap {
+    grid-template-columns: 20% 60% 20%;
+  }
 }
 .tdmu-take-exam__answer {
   position: sticky;
@@ -754,6 +824,12 @@ body.is-transparent.scroll-down .tdmu-take-exam .student-info {
   max-height: 800px;
   background: white;
   border: 2px solid #005180;
+}
+@media (min-width: 768px) {
+  .tdmu-take-exam__answer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 .tdmu-take-exam__answer .menu-link {
   display: block;
@@ -909,6 +985,10 @@ body.is-transparent.scroll-down .tdmu-take-exam .student-info {
 
 .tdmu-results {
   padding-top: 2rem;
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .tdmu-results ul {
   padding-left: 0;
@@ -925,11 +1005,19 @@ body.is-transparent.scroll-down .tdmu-take-exam .student-info {
 .tdmu-results__test-detail {
   margin-bottom: 1rem;
 }
+.tdmu-results__content {
+  width: 100%;
+  max-width: 800px;
+}
 .tdmu-results__info {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 .tdmu-results__info--title {
   margin-bottom: 1rem;
+  background: #005180;
+  color: #FFFFFF;
+  padding: 10px;
+  font-size: clamp(1.125rem, 1.0795rem + 0.2273vw, 1.25rem);
 }
 .tdmu-results__info--total, .tdmu-results__info--correct, .tdmu-results__info--wrong, .tdmu-results__info--score {
   font-weight: 600;
@@ -947,6 +1035,38 @@ body.is-transparent.scroll-down .tdmu-take-exam .student-info {
   color: #005180;
 }
 .tdmu-results__info--wrong {
+  color: red;
+}
+.tdmu-results__info--note {
+  margin-top: 1rem;
+}
+.tdmu-results__info--note h3 {
+  font-size: clamp(1.125rem, 1.0795rem + 0.2273vw, 1.25rem);
+  background: #005180;
+  color: #FFFFFF;
+  padding: 10px;
+}
+.tdmu-results__info--note span {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 2px;
+  display: inline-block;
+}
+.tdmu-results__info--note p {
+  font-weight: 500;
+  margin-bottom: 2px;
+  font-size: 14px;
+}
+.tdmu-results__info--note p:nth-child(3) strong {
+  color: green;
+}
+.tdmu-results__info--note p:nth-child(4) strong {
+  color: blue;
+}
+.tdmu-results__info--note p:nth-child(5) {
+  margin-bottom: 0;
+}
+.tdmu-results__info--note p:nth-child(5) strong {
   color: red;
 }
 

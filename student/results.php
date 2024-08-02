@@ -40,7 +40,7 @@ $title = "Kết quả thi";
 include(__DIR__ . '/../header.php');
 ?>
 <section class="tdmu-results">
-    <h1 class="tdmu-title">Kết quả thi: </h1>
+    <h1 class="tdmu-title"> </h1>
     <div class="tdmu-results__wrap">
         <div class="tdmu-results-left">
             <div class="tdmu-take-exam__answer">
@@ -65,11 +65,18 @@ include(__DIR__ . '/../header.php');
         <div class="tdmu-results-middle">
             <div class="tdmu-results__content">
                 <div class="tdmu-results__info">
-                    <h2 class="tdmu-results__info--title">Chi tiết bài thi:</h2>
+                    <h2 class="tdmu-results__info--title">Kết quả thi:</h2>
                     <div class="tdmu-results__info--total">Tổng số câu: <?php echo $total_questions; ?></div>
                     <div class="tdmu-results__info--correct">Số câu đúng: <?php echo $exam_result['score']; ?></div>
                     <div class="tdmu-results__info--wrong">Số câu sai: <?php echo $wrong_answers; ?></div>
                     <div class="tdmu-results__info--score">Điểm: <?php echo number_format($total_score, 2); ?></div> <!-- Sử dụng number_format để làm tròn điểm số -->
+                    <div class="tdmu-results__info--note">
+                        <h3>Chi tiết bài kiểm tra: </h3>
+                        <span>Ghi chú:</span>
+                        <p><strong>Màu xanh lá</strong> là màu đáp án đúng</p>
+                        <p><strong>Màu xanh dương</strong> là đáp án bạn chọn đúng</p>
+                        <p><strong>Màu đỏ</strong> là đáp án bạn chọn sai</p>
+                    </div>
                 </div>
                 
                 <ul>

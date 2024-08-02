@@ -183,3 +183,10 @@ input[type="search"] {
 ::-webkit-scrollbar-thumb:hover {
     background: $blue;
 }
+
+.tdmu-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
