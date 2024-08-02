@@ -42,11 +42,7 @@ $saved_password = isset($_COOKIE['password']) ? $_COOKIE['password'] : '';
 
 include('header.php');
 ?>
-    <!-- <form method="POST">
-        Tên đăng nhập: <input type="text" name="username" required><br>
-        Mật khẩu: <input type="password" name="password" required><br>
-        <input type="submit" value="Đăng nhập">
-    </form> -->
+
     <div class="login-wrap">
         <section class="tdmu-sign-in">
             <div class="tdmu-sign-in__wrap">
