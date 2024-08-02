@@ -1,6 +1,6 @@
             </main>
             <footer>
-                <p>&copy; <?= date('Y'); ?> Quiz Application. All rights reserved.</p>
+                <p>&copy; <?= date('Y'); ?> Quiz Application by Ba Mao Web Developer. All rights reserved.</p>
             </footer>
         </div>
     </body>
