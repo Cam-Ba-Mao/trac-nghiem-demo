@@ -37,7 +37,6 @@ include('header.php');
                         <figure><img src="<?php echo BASE_URL; ?>/assets/img/signin-image.jpg" alt="sing up image"></figure>
                         <!-- <a href="#" class="signup-image-link">Create an account</a> -->
                     </div>
-
                     <div class="tdmu-sign-in__content--form">
                         <h2 class="form-title">Đăng nhập</h2>
                         <form method="POST" class="register-form" id="login-form">

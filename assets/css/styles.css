@@ -762,13 +762,13 @@ footer p {
   }
 }
 
-body.scroll-down {
+body.is-transparent.scroll-down {
   padding-top: var(--mh);
 }
-body.scroll-down .tdmu-take-exam__answer {
+body.is-transparent.scroll-down .tdmu-take-exam__answer {
   top: calc(var(--mh) + 16px);
 }
-body.scroll-down .tdmu-take-exam .student-info {
+body.is-transparent.scroll-down .tdmu-take-exam .student-info {
   top: calc(var(--mh) + 16px);
 }
 
@@ -955,26 +955,39 @@ body.scroll-down .tdmu-take-exam .student-info {
   margin-bottom: 0;
   list-style: none;
 }
-.tdmu-results li {
-  padding-left: 1.5rem;
+.tdmu-results__wrap {
+  display: grid;
+  grid-template-columns: calc(30% - 8px) calc(70% - 8px); /* Trừ đi một nửa khoảng cách gap cho mỗi cột */
+  gap: 16px;
+  width: 100%; /* Đảm bảo grid container không vượt quá chiều rộng của trang */
+  box-sizing: border-box; /* Bao gồm padding và border trong chiều rộng và chiều cao của phần tử */
 }
 .tdmu-results__test-detail {
   margin-bottom: 1rem;
 }
-.tdmu-results__correct, .tdmu-results__score {
+.tdmu-results__info {
+  margin-bottom: 1.5rem;
+}
+.tdmu-results__info--title {
+  margin-bottom: 1rem;
+}
+.tdmu-results__info--total, .tdmu-results__info--correct, .tdmu-results__info--wrong, .tdmu-results__info--score {
   font-weight: 600;
   font-size: 16px;
 }
 @media (min-width: 992px) {
-  .tdmu-results__correct, .tdmu-results__score {
+  .tdmu-results__info--total, .tdmu-results__info--correct, .tdmu-results__info--wrong, .tdmu-results__info--score {
     font-size: 18px;
   }
 }
-.tdmu-results__correct {
+.tdmu-results__info--correct {
   color: green;
 }
-.tdmu-results__score {
+.tdmu-results__info--score {
   color: #005180;
+}
+.tdmu-results__info--wrong {
+  color: red;
 }
 
 .tdmu-list-results {

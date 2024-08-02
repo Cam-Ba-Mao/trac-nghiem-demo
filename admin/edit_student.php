@@ -14,8 +14,15 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['edit_student'])) {
     $id = $_POST['id'];
     $username = $_POST['username'];
+    $password = $_POST['password'];
 
-    $query = "UPDATE users SET username = '$username' WHERE id = $id";
+    $query = "UPDATE users SET username = '$username'";
+    if (!empty($password)) {
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $query .= ", password = '$hashed_password'";
+    }
+    $query .= " WHERE id = $id";
+
     if (mysqli_query($conn, $query)) {
         $success_message = "Chỉnh sửa học sinh thành công.";
     } else {
@@ -45,8 +52,9 @@ include(__DIR__ . '/../header.php');
     <form method="POST">
         <input type="hidden" name="id" value="<?php echo $student['id']; ?>">
         Tên đăng nhập: <input type="text" name="username" value="<?php echo $student['username']; ?>" required><br>
+        Mật khẩu mới: <input type="password" name="password" placeholder="Để trống nếu không muốn thay đổi"><br>
         <input type="submit" name="edit_student" value="Lưu">
     </form>
 
     <p><a href="manage_students.php">Quay lại</a></p>
-<?php include(__DIR__ . '/../footer.php');
+<?php include(__DIR__ . '/../footer.php'); ?>

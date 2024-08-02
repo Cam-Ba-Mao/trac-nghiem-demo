@@ -22,7 +22,7 @@ sass styles.scss styles.css --watch
 }
 
 body {
-    &.scroll-down {
+    &.is-transparent.scroll-down {
         padding-top: var(--mh);
 
         .tdmu-take-exam {
@@ -245,30 +245,46 @@ body {
         @include reset-list;
     }
 
-    li {
-        padding-left: 1.5rem;
+
+    &__wrap {
+        display: grid;
+        grid-template-columns: calc(30% - 8px) calc(70% - 8px); /* Trừ đi một nửa khoảng cách gap cho mỗi cột */
+        gap: 16px;
+        width: 100%; /* Đảm bảo grid container không vượt quá chiều rộng của trang */
+        box-sizing: border-box; /* Bao gồm padding và border trong chiều rộng và chiều cao của phần tử */
     }
 
     &__test-detail {
         margin-bottom: 1rem;
     }
 
-    &__correct,
-    &__score {
-        font-weight: 600;
-        font-size: 16px;
+    &__info {
+        margin-bottom: 1.5rem;
 
-        @include breakpoint-up(lg) {
-            font-size: 18px;
+        &--title {
+            margin-bottom: 1rem;
         }
-    }
 
-    &__correct {
-        color: green;
-    }
+        &--total, &--correct, &--wrong, &--score{
+            font-weight: 600;
+            font-size: 16px;
+    
+            @include breakpoint-up(lg) {
+                font-size: 18px;
+            }
+        }
 
-    &__score {
-        color: $blue;
+        &--correct {
+            color: green;
+        }
+
+        &--score {
+            color: $blue;
+        }
+
+        &--wrong {
+            color: red;
+        }
     }
 }
 
