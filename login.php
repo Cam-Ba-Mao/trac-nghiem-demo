@@ -34,30 +34,34 @@ include('header.php');
             <div class="tdmu-sign-in__wrap">
                 <div class="tdmu-sign-in__content">
                     <div class="tdmu-sign-in__content--image">
-                        <figure><img src="<?php echo BASE_URL; ?>/assets/img/signin-image.jpg" alt="sing up image"></figure>
+                        <img src="<?php echo BASE_URL; ?>/assets/img/signin-image.jpg" alt="sing up image">
                         <!-- <a href="#" class="signup-image-link">Create an account</a> -->
                     </div>
                     <div class="tdmu-sign-in__content--form">
                         <h2 class="form-title">Đăng nhập</h2>
-                        <form method="POST" class="register-form" id="login-form">
+                        <form method="POST" class="register-form">
                             <div class="form-group">
-                                <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="your_name" id="your_name" placeholder="Tên đăng nhập"/>
+                                <label for="your_name"><i class="fa-solid fa-user"></i>Tên đăng nhập</label>
+                                <input type="text" name="your_name" id="your_name" placeholder="Nhập tên đăng nhập của bạn"/>
                             </div>
                             <div class="form-group">
-                                <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="your_pass" id="your_pass" placeholder="Mật khẩu"/>
-                                <i class="fa fa-eye toggle"></i>
+                                <label for="your_pass"><i class="fa-solid fa-lock"></i>Mật khẩu</label>
+                                <div class="form-group__wrap">
+                                    <input type="password" name="your_pass" id="your_pass" placeholder="Nhập Mật khẩu"/>
+                                    <i class="fa fa-eye togglePassword"></i>
+                                </div>
                             </div>
                             <!-- <div class="form-group">
                                 <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
                                 <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
                             </div> -->
                             <div class="form-group form-button">
-                                <input type="submit" name="signin" id="signin" class="form-submit" value="Đăng nhập"/>
+                                <button type="submit" name="signin" id="signin" class="form-submit" value="Đăng nhập">Đăng nhập</button>
                             </div>
                         </form>
-                        <?php if(isset($error)) { echo "<p style='color: red;'>$error</p>"; } ?>
+                        <?php if(isset($error)) : ?>
+                            <div class="invalid-message"><?= $error; ?></div>
+                        <?php endif; ?>
                         <!-- <div class="social-login">
                             <span class="social-label">Or login with</span>
                             <ul class="socials">

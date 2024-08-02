@@ -51,7 +51,7 @@ const toggleMenu = () => {
 
 const showPassword = () => {
     window.addEventListener("load", function () {
-        const togglePassword = document.querySelector(".toggle");
+        const togglePassword = document.querySelector(".togglePassword");
         
         if (togglePassword) {
             togglePassword.addEventListener("click", function () {
