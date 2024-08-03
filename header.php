@@ -47,7 +47,9 @@
                         $avatar = $user['avatar'] ? $user['avatar'] : 'default-avatar.png';     
                     ?>
                     <div class="avatar-container">
-                        <img src="<?php echo BASE_URL; ?>/assets/upload/<?php echo $avatar; ?>" alt="Avatar" class="avatar" onclick="toggleDropdown()">
+                        <div class="avatar-container__image" onclick="toggleDropdown()">
+                            <img src="<?php echo BASE_URL; ?>/assets/upload/<?php echo $avatar; ?>" alt="Avatar" class="avatar">
+                        </div>
                         <div id="dropdownMenu" class="dropdown-menu">
                             <a href="<?php echo BASE_URL; ?>/request_password_change.php">Đổi mật khẩu</a>
                             <a href="<?php echo BASE_URL; ?>/upload_avatar.php">Đổi avatar</a> <!-- Thêm tùy chọn đổi avatar -->
