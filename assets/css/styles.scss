@@ -375,3 +375,22 @@ body {
 .tdmu-exams {
     padding-top: 2rem;
 }
+
+.tdmu-upload_avatar, .tdmu-request-password-change, .tdmu-verify-otp {
+    margin-top: 1.5rem;
+    padding: 0 1rem;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tdmu-request-password-change {
+    
+}
+
+.tdmu-verify-otp, .tdmu-request-password-change {
+    h2 {
+        margin-bottom: 1.5rem;
+    }
+}

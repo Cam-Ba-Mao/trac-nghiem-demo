@@ -28,15 +28,36 @@
                         <img src="<?php echo BASE_URL; ?>/assets/img/Logo_TDMU_2024_nguyen_ban.svg" alt="">
                     </a>
                 </div>
-                <?php if (isset($title) && $title == "Làm bài thi"): ?>
-                <div class="tdmu-header__take-exam-time">
-                    <span>Thời gian làm bài:</span>
-                    <div class="time-to-do" id="timer">
-                        <?php echo $exam['exam_time'] . ":00"; ?>
+                <div class="tdmu-header__right">
+                    <?php if (isset($title) && $title == "Làm bài thi"): ?>
+                    <div class="tdmu-header__take-exam-time">
+                        <span>Thời gian làm bài:</span>
+                        <div class="time-to-do" id="timer">
+                            <?php echo $exam['exam_time'] . ":00"; ?>
+                        </div>
                     </div>
+                    <?php endif; ?>
+                    <!-- Other header content -->
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                    <?php
+                        $user_id = $_SESSION['user_id'];
+                        $queryAvatar = "SELECT avatar FROM users WHERE id = $user_id";
+                        $resultAvatar = mysqli_query($conn, $queryAvatar);
+                        $user = mysqli_fetch_assoc($resultAvatar);
+                        $avatar = $user['avatar'] ? $user['avatar'] : 'default-avatar.png';     
+                    ?>
+                    <div class="avatar-container">
+                        <img src="<?php echo BASE_URL; ?>/assets/upload/<?php echo $avatar; ?>" alt="Avatar" class="avatar" onclick="toggleDropdown()">
+                        <div id="dropdownMenu" class="dropdown-menu">
+                            <a href="<?php echo BASE_URL; ?>/request_password_change.php">Đổi mật khẩu</a>
+                            <a href="<?php echo BASE_URL; ?>/upload_avatar.php">Đổi avatar</a> <!-- Thêm tùy chọn đổi avatar -->
+                            <!-- Other menu items if needed -->
+                        </div>
+                    </div>    
+                    <?php endif; ?>
                 </div>
-                <?php endif; ?>
-            </div>        
+            </div>   
+            
         </header>
         <!-- CLOSE HEADER-->
         <main class="tdmu-content">  

@@ -23,6 +23,16 @@ if (!defined('BASE_URL')) {
     define('BASE_URL', '/trac-nghiem-demo');
 }
 
+if (!defined('SMTP_USERNAME')) {
+    define('SMTP_USERNAME', 'cambamao98@gmail.com');
+}
+
+if (!defined('SMTP_PASSWORD')) {
+    define('SMTP_PASSWORD', 'jfrp rljh hwhb vkyr');
+}
+
+
+
 /**
  * Hàm debug
  */

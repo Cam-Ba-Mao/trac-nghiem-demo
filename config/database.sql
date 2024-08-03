@@ -8,9 +8,9 @@ CREATE TABLE users (
     role ENUM('student', 'admin') NOT NULL
 );
 
-INSERT INTO users (id, username, password, role) VALUES
-(1, 'maocam', 'Magano123', 'admin'),
-(2, 'phuongbui', 'phuong@101220', 'student');
+INSERT INTO users (id, username, password, email, avatar, role) VALUES
+(1, 'maocam', 'Magano123', 'cambamao98@gmail.com', '' 'admin'),
+(2, 'phuongbui', 'phuong@101220', 'phuongbui@gmail.com', '', 'student');
 
 
 CREATE TABLE questions (
