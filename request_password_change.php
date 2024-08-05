@@ -34,6 +34,7 @@ include('header.php');
 ?>
     <div class="tdmu-request-password-change">
         <h2><?= $title; ?></h2>
+        <div class="tdmu-request-password-change__desc">Nhập địa chỉ email của bạn và chúng tôi sẽ gửi cho bạn mã OTP để đặt lại mật khẩu.</div>
         <form method="POST">
             <div class="form-group">
                 <label for="email">Email:</label>
@@ -43,6 +44,6 @@ include('header.php');
                 <button type="submit">Gửi OTP</button>
             </div>
         </form>
-        <?php if (isset($error)) echo "<p>$error</p>"; ?>
+        <?php if (isset($error)) echo "<p class='invalid-message'>$error</p>"; ?>
     </div>
 <?php include('footer.php'); ?>
