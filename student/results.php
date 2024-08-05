@@ -9,13 +9,14 @@ if (!isset($_SESSION['user_id'])) {
 
 $exam_id = $_GET['exam_id'];
 $user_id = $_SESSION['user_id'];
+
 // Lấy kết quả thi mới nhất của người dùng
 $query = "SELECT * FROM results WHERE user_id = $user_id AND exam_id = $exam_id ORDER BY submitted_at DESC LIMIT 1";
 $result = mysqli_query($conn, $query);
 $exam_result = mysqli_fetch_assoc($result);
 
 // Lấy danh sách các câu hỏi và câu trả lời
-$query = "SELECT q.id, q.question_text, q.correct_option, ua.selected_option
+$query = "SELECT q.id, q.question_text, q.option_a, q.option_b, q.option_c, q.option_d, q.correct_option, ua.selected_option
           FROM questions q
           JOIN exam_questions eq ON q.id = eq.question_id
           JOIN user_answers ua ON q.id = ua.question_id
@@ -40,14 +41,14 @@ $title = "Kết quả thi";
 include(__DIR__ . '/../header.php');
 ?>
 <section class="tdmu-results">
-    <h1 class="tdmu-title"> </h1>
+    <h1 class="tdmu-title">Kết quả thi</h1>
     <div class="tdmu-results__wrap">
         <div class="tdmu-results-left">
             <div class="tdmu-take-exam__answer">
                 <?php 
                     $key = 1;
-                    $result_left = mysqli_query($conn, $query); // Reset result set to use it again
-                    while ($question = mysqli_fetch_assoc($result_left)) { 
+                    mysqli_data_seek($result, 0); // Reset result set to use it again
+                    while ($question = mysqli_fetch_assoc($result)) { 
                         $is_correct = $question['selected_option'] === $question['correct_option'];
                 ?>
                     <a href="#quest-<?= $key; ?>" class="menu-link">
@@ -88,6 +89,10 @@ include(__DIR__ . '/../header.php');
                     ?>
                         <li id="quest-<?= $key; ?>">
                             <p><strong>Câu <?= $key; ?>: <?php echo $question['question_text']; ?></strong></p>
+                            <p><strong>A.</strong> <?php echo $question['option_a']; ?></p>
+                            <p><strong>B.</strong> <?php echo $question['option_b']; ?></p>
+                            <p><strong>C.</strong> <?php echo $question['option_c']; ?></p>
+                            <p><strong>D.</strong> <?php echo $question['option_d']; ?></p>
                             <p style="color: green; font-weight: 600;">Đáp án đúng: <?php echo $question['correct_option']; ?></p>
                             <?php if ($is_correct) { ?>
                                 <p style="color: blue; font-weight: 600;">Đáp án bạn chọn: <?php echo $question['selected_option']; ?></p>

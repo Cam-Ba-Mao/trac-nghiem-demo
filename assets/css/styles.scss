@@ -55,7 +55,7 @@ body {
         // grid-template-columns: repeat(2, 1fr);
         grid-template-columns: 1fr 2fr 1fr;
         // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 2rem;
+        gap: 1rem;
 
         @include breakpoint-down(767px) {
             grid-template-columns: calc(30% - 1rem) calc(70% - 1rem);
@@ -67,6 +67,7 @@ body {
 
         @include breakpoint-up(1600px) {
             grid-template-columns: 20% 60% 20%;
+            gap: 2rem;
         }
 
         
@@ -96,6 +97,10 @@ body {
             font-weight: bold;
             text-decoration: none;
 
+            @include breakpoint-up(xl) {
+                font-size: 18px;
+            }
+
             .tick {
                 float: right;
                 color: green;
@@ -123,11 +128,27 @@ body {
 
                 input[type="radio"] {
                     font-weight: 500;
+
+                    @include breakpoint-up(xl) {
+                        font-size: 18px;
+                    }
+                }
+
+                span {
+                    font-size: 16px;
+
+                    @include breakpoint-up(xl) {
+                        font-size: 18px;
+                    }
                 }
 
                 p {
                     font-weight: 700;
                     font-size: 16px;
+
+                    @include breakpoint-up(xl) {
+                        font-size: 18px;
+                    }
                 }
             }
 
@@ -155,6 +176,10 @@ body {
         position: sticky;
         top: 0;
         transition: all .2s ease-out;
+
+        h3 {
+            font-size: clamp(1.125rem, 1.0139rem + 0.5556vw, 1.5rem);
+        }
     }
 }
 
@@ -288,6 +313,12 @@ body {
     &__content {
         width: 100%;
         max-width: 800px;
+        
+        li {
+            @include breakpoint-up(xl) {
+                font-size: 18px;
+            }
+        }
     }
 
     &__info {
@@ -334,7 +365,7 @@ body {
 
             span {
                 font-weight: 700;
-                font-size: 16px;
+                font-size: clamp(0.875rem, 0.7841rem + 0.4545vw, 1.125rem);
                 margin-bottom: 2px;
                 display: inline-block;
             }
@@ -342,7 +373,7 @@ body {
             p {
                 font-weight: 500;
                 margin-bottom: 2px;
-                font-size: 14px;
+                font-size: clamp(0.875rem, 0.8295rem + 0.2273vw, 1rem);
 
                 &:nth-child(3) {
                     strong {

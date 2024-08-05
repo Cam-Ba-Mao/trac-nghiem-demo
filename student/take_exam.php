@@ -52,10 +52,10 @@ include(__DIR__ . '/../header.php');
                             while ($question = mysqli_fetch_assoc($result)) { ?>
                             <div id="quest-<?= $key; ?>">
                                 <p><?php echo "Câu " . $key . '. ' . $question['question_text']; ?></p>
-                                <input type="radio" name="question_<?php echo $question['id']; ?>" value="A"> <?php echo $question['option_a']; ?><br>
-                                <input type="radio" name="question_<?php echo $question['id']; ?>" value="B"> <?php echo $question['option_b']; ?><br>
-                                <input type="radio" name="question_<?php echo $question['id']; ?>" value="C"> <?php echo $question['option_c']; ?><br>
-                                <input type="radio" name="question_<?php echo $question['id']; ?>" value="D"> <?php echo $question['option_d']; ?><br>
+                                <input type="radio" name="question_<?php echo $question['id']; ?>" value="A"> <span><?php echo $question['option_a']; ?></span> <br>
+                                <input type="radio" name="question_<?php echo $question['id']; ?>" value="B"> <span><?php echo $question['option_b']; ?></span><br>
+                                <input type="radio" name="question_<?php echo $question['id']; ?>" value="C"> <span><?php echo $question['option_c']; ?></span><br>
+                                <input type="radio" name="question_<?php echo $question['id']; ?>" value="D"> <span><?php echo $question['option_d']; ?></span><br>
                             </div>
                         <?php 
                             $key++;
