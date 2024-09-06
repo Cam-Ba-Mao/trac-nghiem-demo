@@ -51,6 +51,15 @@
             img {
                 max-width: 100%;
                 height: auto;
+                margin-bottom: 3rem;
+            }
+
+            .forgot-password {
+                display: block;
+                font-size: 14px;
+                color: $black-1;
+                text-align: center;
+                text-decoration: underline;
             }
         }
 
@@ -246,13 +255,47 @@
 }
 
 .social-login {
-    display: flex;
-    gap: 1rem;
     margin-top: 3rem;
 
-    .socials {
-        @include reset-list;
+    &__label {
+        margin-bottom: 1.5rem;
+        display: block;
+        text-align: center;
+        position: relative;
+
+        span {
+            position: relative;
+            z-index: 2;
+            background-color: #ffffff;
+            padding: 0 1rem;
+        }
+
+        &::after {
+            content: "";
+            border-top: 1px solid #F1F2F4;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            z-index: 1;
+        }
+    }
+
+    &__wrap {
         display: flex;
         gap: 1rem;
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            border-radius: 12px;
+            border: 1px solid #E9EAEC;
+            padding: 1rem 2rem;
+            width: 100%;
+            font-weight: 500;
+        }
     }
 }

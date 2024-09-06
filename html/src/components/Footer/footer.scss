@@ -2,6 +2,7 @@
     background: $color-005180 url(../images/bg.png) no-repeat center center / cover;
     color: $white;
     padding-top: 2rem;  
+    padding-bottom: 1rem;
     
     @include breakpoint-up(lg) {
         padding-top: 3rem;  
@@ -98,7 +99,13 @@
         text-transform: uppercase;
         border-top: solid 1px rgba($color: $white, $alpha: .1);
         padding-top: 1rem;
-        padding-bottom: 1rem;
+        // padding-bottom: 1rem;
+    }
+
+    &__author {
+        text-align: center;
+        font-size: 14px;
+        letter-spacing: 0.56px;
     }
 }
 
