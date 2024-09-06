@@ -16,11 +16,13 @@ block container
                         form(method="POST" class="register-form")
                             .form-group
                                 label(for="your_name")
-                                    i(class="fa-solid fa-user") Tên đăng nhập
-                                    input(type="text" name="your_name" id="your_name" placeholder="Nhập tên đăng nhập của bạn" value="")
+                                    i(class="fa-solid fa-user") 
+                                    | Tên đăng nhập
+                                input(type="text" name="your_name" id="your_name" placeholder="Nhập tên đăng nhập của bạn" value="")
                             .form-group
                                 label(for="your_pass")
-                                    i(class="fa-solid fa-lock") Mật khẩu
+                                    i(class="fa-solid fa-lock") 
+                                    | Mật khẩu
                                 .form-group__wrap
                                     input(type="password" name="your_pass" id="your_pass" placeholder="Nhập Mật khẩu" value="")
                                     i(class="fa fa-eye togglePassword")

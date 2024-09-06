@@ -15,7 +15,7 @@ $breakpoints: (xs: 0,
     ) !default;
 
 // Typography
-$font-family-primary: 'SF Pro Display', Arial, Helvetica, sans-serif !default;
+$font-family-primary: 'SVN-Gilroy', Arial, Helvetica, sans-serif !default;
 $font-family-secondary: 'Space Grotesk', Arial, Helvetica, sans-serif !default;
 
 // Colors
@@ -40,19 +40,14 @@ $red-2: #ff4e4d !default;
 
 $color-040F49: #040F49 !default;
 $color-A7A7A7: #A7A7A7 !default;
-$color-FF4713: #FF4713 !default;
-$color-C33130: #C33130 !default;
 $color-B42928: #B42928 !default;
 $color-FBF5E7: #FBF5E7 !default;
-$color-F2F6FF: #F2F6FF !default;
-$color-FDFAF2: #FDFAF2;
-$color-222529: #222529;
 
 $primary: $color-040F49 !default;
 $secondary: $gray-3 !default;
 $danger: $red !default;
 $body-color: $black-1 !default;
-$placeholder-color: $red !default;
+$placeholder-color: $black-1 !default;
 
 // Custom Colors
 

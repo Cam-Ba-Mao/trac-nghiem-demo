@@ -32,6 +32,23 @@ body {
         width: 100%;
         position: fixed;
     }
+
+    &.is-transparent {
+
+        .bm-content {
+            padding-top: var(--mh);
+        }
+
+        .bm-take-exam {
+            &__answer {
+                top: calc(var(--mh) + 16px);
+            }
+
+            .student-info {
+                top: calc(var(--mh) + 16px);
+            }
+        }
+    }
 }
 
 .bm-container {

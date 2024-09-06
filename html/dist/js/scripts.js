@@ -470,7 +470,17 @@ window.addEventListener('load', function () {
   var body = $('body');
   var scrollUp = "scroll-up";
   var scrollDown = "scroll-down";
+  var clsException = "is-transparent";
   var lastScroll = 0;
+  function handleNavCollapse() {
+    $('.bm-header-toggler').on('click', function () {
+      $(this).toggleClass('is-active');
+      $('body').toggleClass('is-lock');
+      // $('.bm-menu-header').toggleClass('is-active');
+      $('header.bm-header ').toggleClass('is-active');
+      $('.bm-header__desktop').toggleClass('is-show');
+    });
+  }
   function handleScrollMenu() {
     $(window).on('scroll', function () {
       calculateScroll();
@@ -478,46 +488,55 @@ window.addEventListener('load', function () {
   }
   function calculateScroll() {
     var currentScroll = window.pageYOffset;
-    if (currentScroll > lastScroll && !body.hasClass(scrollDown)) {
-      // down
-      body.removeClass(scrollUp);
-      body.addClass(scrollDown);
-    } else if (currentScroll < lastScroll && body.hasClass(scrollDown)) {
-      // up
-      body.removeClass(scrollDown);
-      body.addClass(scrollUp);
-    }
-    lastScroll = currentScroll;
-    if (currentScroll <= 0) {
-      body.removeClass(scrollUp);
-    }
-  }
-  function handleClickMenuButton() {
-    $(document).on('click', '.bm-header__hamburger .btn', function () {
-      if (document.body.classList.contains('opened-menu')) {
-        $('body').removeClass('opened-menu is-lock');
-        $(this).find('span').html(this.dataset.label);
-        $(this).parents('.bm-header__head').each(function () {
-          $(this).removeClass('open');
-          $(this).removeAttr('style');
-        });
-      } else {
-        $('body').addClass('opened-menu is-lock');
-        $(this).find('span').html(this.dataset.close);
-        $(this).parents('.bm-header__head').each(function () {
-          $(this).addClass('open');
-          $(this).css({
-            height: $('.bm-header__nav').height() + 150,
-            width: $('.bm-header__nav').outerWidth() + 60
-          });
-        });
+
+    // console.log(currentScroll);
+    // console.log(lastScroll);
+    if (body.hasClass(clsException)) {
+      if (currentScroll > lastScroll && !body.hasClass(scrollDown)) {
+        // down
+        body.removeClass(scrollUp);
+        body.addClass(scrollDown);
+      } else if (currentScroll < lastScroll && body.hasClass(scrollDown)) {
+        // up
+        body.removeClass(scrollDown);
+        body.addClass(scrollUp);
       }
-    });
+      lastScroll = currentScroll;
+      if (currentScroll <= 0) {
+        body.removeClass(scrollUp);
+        // return;
+      }
+    }
   }
+
+  // function handleClickMenuButton() {
+  //     $(document).on('click', '.bm-header__hamburger .btn', function(){
+  //         if(document.body.classList.contains('opened-menu')) {
+  //             $('body').removeClass('opened-menu is-lock');
+  //             $(this).find('span').html(this.dataset.label);
+  //             $(this).parents('.bm-header__head').each(function(){
+  //                 $(this).removeClass('open');
+  //                 $(this).removeAttr('style');
+  //             });
+  //         }
+  //         else {
+  //             $('body').addClass('opened-menu is-lock');
+  //             $(this).find('span').html(this.dataset.close);
+  //             $(this).parents('.bm-header__head').each(function(){
+  //                 $(this).addClass('open');
+  //                 $(this).css({
+  //                     height: $('.bm-header__nav').height() + 150,
+  //                     width: $('.bm-header__nav').outerWidth() + 60,
+  //                 });
+  //             });
+  //         }
+  //     });
+  // }
+
   $(function () {
+    handleNavCollapse();
     handleScrollMenu();
     calculateScroll();
-    handleClickMenuButton();
   });
 })(jQuery);
 (function ($) {
@@ -557,7 +576,62 @@ window.addEventListener('load', function () {
   });
 })(jQuery);
 (function ($) {
+  // Hàm để chuyển đổi trạng thái menu
+  var toggleMenu = function toggleMenu() {
+    window.addEventListener('load', function () {
+      // Chọn các phần tử
+      var menuToggleButton = document.querySelector('.menu-toggle');
+      var adminMenu = document.querySelector('.admin-menu');
+
+      // Kiểm tra sự tồn tại của các phần tử trước khi thêm sự kiện
+      if (menuToggleButton && adminMenu) {
+        // Thêm sự kiện click
+        menuToggleButton.addEventListener('click', function () {
+          if (adminMenu.classList.contains('collapsed')) {
+            adminMenu.classList.remove('collapsed');
+            adminMenu.classList.add('expanded');
+          } else {
+            adminMenu.classList.remove('expanded');
+            adminMenu.classList.add('collapsed');
+          }
+        });
+      } else {
+        console.log('Không tìm thấy phần tử menu-toggle hoặc admin-menu.');
+      }
+    });
+  };
   $(function () {
+    toggleMenu();
+    $(window).on("resize", function () {});
+  });
+})(jQuery);
+(function ($) {
+  var showPassword = function showPassword() {
+    window.addEventListener("load", function () {
+      var togglePassword = document.querySelector(".togglePassword");
+      if (togglePassword) {
+        togglePassword.addEventListener("click", function () {
+          var input = this.previousElementSibling;
+          var inputType = input.getAttribute("type");
+
+          // Toggle input type
+          if (inputType === "password") {
+            input.setAttribute("type", "text");
+          } else {
+            input.setAttribute("type", "password");
+          }
+
+          // Toggle icon classes
+          this.classList.toggle("fa-eye");
+          this.classList.toggle("fa-eye-slash");
+        });
+      } else {
+        console.log('Không tìm thấy phần tử togglePassword.');
+      }
+    });
+  };
+  $(function () {
+    showPassword();
     $(window).on("resize", function () {});
   });
 })(jQuery);

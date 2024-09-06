@@ -1,10 +1,12 @@
 // Common
 %form-group {
+    position: relative;
+    
     &:not(:last-of-type) {
         margin-bottom: $form-row-spacing;
     }
 
-    position: relative;
+  
 }
 
 %form-label {
@@ -76,7 +78,9 @@
     }
 
     @if ($form-float ==false) {
-        padding: $input-padding-y $input-padding-x;
+        & {
+            padding: $input-padding-y $input-padding-x;
+        }
 
         &::placeholder {
             color: $input-placeholder-color;
@@ -84,7 +88,9 @@
     }
 
     @else {
-        padding: $form-float-input-padding-top $input-padding-x 0;
+        & {
+            padding: $form-float-input-padding-top $input-padding-x 0;
+        }
 
         &:not(.show-placeholder)::placeholder {
             color: transparent;
