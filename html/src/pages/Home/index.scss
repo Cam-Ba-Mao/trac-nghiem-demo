@@ -1,0 +1,15 @@
+.bm-home-page {
+    ul {
+        @include reset-list;
+    }
+
+    li {
+        padding-left: 2rem;
+
+        a {
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+    }
+}

@@ -1,0 +1,145 @@
+.bm-take-exam {
+    padding-top: 2rem;
+    width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .bm-title {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: $blue;
+    }
+
+    &__wrap {
+        display: grid;
+        // grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 2fr 1fr;
+        // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+
+        @include breakpoint-down(767px) {
+            grid-template-columns: calc(30% - 1rem) calc(70% - 1rem);
+
+            .bm-take-right {
+                display: none;
+            }
+        }
+
+        @include breakpoint-up(1600px) {
+            grid-template-columns: 20% 60% 20%;
+            gap: 2rem;
+        }
+
+        
+    }
+
+    &__answer {
+        // margin-bottom: 0;
+        position: sticky;
+        top: 0;
+        transition: all .2s ease-out;
+        max-width: 248px;
+        overflow-y: auto;
+        max-height: 800px;
+        background: white;
+        border: 2px solid $blue;
+
+        @include breakpoint-up(md) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .menu-link {
+            display: block;
+            padding-left: 15px;
+            padding-bottom: 3px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+
+            @include breakpoint-up(xl) {
+                font-size: 18px;
+            }
+
+            .tick {
+                float: right;
+                color: green;
+                margin-right: 15px;
+            }
+
+            &:hover {
+                background-color: $blue;
+                color: $white;
+
+                .tick {
+                    color: $white;
+                }
+            }
+
+        }
+    }
+
+    &__content {
+        #examForm {
+            >div {
+                &:not(:first-child) {
+                    margin-top: 1rem;
+                }
+
+                input[type="radio"] {
+                    font-weight: 500;
+
+                    @include breakpoint-up(xl) {
+                        font-size: 18px;
+                    }
+                }
+
+                span {
+                    font-size: 16px;
+
+                    @include breakpoint-up(xl) {
+                        font-size: 18px;
+                    }
+                }
+
+                p {
+                    font-weight: 700;
+                    font-size: 16px;
+
+                    @include breakpoint-up(xl) {
+                        font-size: 18px;
+                    }
+                }
+            }
+
+            input[type="submit"] {
+                margin-top: 1.5rem;
+                padding: .5rem 2rem;
+                border-radius: 24px;
+                border: 1px solid $blue;
+                background: $white;
+                font-weight: 500;
+
+                &:hover {
+                    background: $blue;
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    .student-info {
+        border-radius: 24px;
+        border: 2px solid $blue;
+        padding: 1.5rem;
+        display: inline-block;
+        position: sticky;
+        top: 0;
+        transition: all .2s ease-out;
+
+        h3 {
+            font-size: clamp(1.125rem, 1.0139rem + 0.5556vw, 1.5rem);
+        }
+    }
+}

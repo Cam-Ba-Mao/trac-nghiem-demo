@@ -1,0 +1,116 @@
+.bm-results {
+    padding-top: 2rem;
+    width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+
+    ul {
+        @include reset-list;
+    }
+
+
+    &__wrap {
+        display: grid;
+        grid-template-columns: calc(30% - 8px) calc(70% - 8px); /* Trừ đi một nửa khoảng cách gap cho mỗi cột */
+        gap: 16px;
+        width: 100%; /* Đảm bảo grid container không vượt quá chiều rộng của trang */
+        box-sizing: border-box; /* Bao gồm padding và border trong chiều rộng và chiều cao của phần tử */
+    }
+
+    &__test-detail {
+        margin-bottom: 1rem;
+    }
+
+    &__content {
+        width: 100%;
+        max-width: 800px;
+        
+        li {
+            @include breakpoint-up(xl) {
+                font-size: 18px;
+            }
+        }
+    }
+
+    &__info {
+        margin-bottom: 1rem;
+
+        &--title {
+            margin-bottom: 1rem;
+            background: $blue;
+            color: $white;
+            padding: 10px;
+            font-size: clamp(1.125rem, 1.0795rem + 0.2273vw, 1.25rem);
+        }
+
+        &--total, &--correct, &--wrong, &--score{
+            font-weight: 600;
+            font-size: 16px;
+    
+            @include breakpoint-up(lg) {
+                font-size: 18px;
+            }
+        }
+
+        &--correct {
+            color: green;
+        }
+
+        &--score {
+            color: $blue;
+        }
+
+        &--wrong {
+            color: red;
+        }
+
+        &--note {
+            margin-top: 1rem;
+
+            h3 {
+                font-size: clamp(1.125rem, 1.0795rem + 0.2273vw, 1.25rem);
+                background: $blue;
+                color: $white;
+                padding: 10px;
+            }
+
+            span {
+                font-weight: 700;
+                font-size: clamp(0.875rem, 0.7841rem + 0.4545vw, 1.125rem);
+                margin-bottom: 2px;
+                display: inline-block;
+            }
+
+            p {
+                font-weight: 500;
+                margin-bottom: 2px;
+                font-size: clamp(0.875rem, 0.8295rem + 0.2273vw, 1rem);
+
+                &:nth-child(3) {
+                    strong {
+                        color: green;
+                    }
+                }
+
+                &:nth-child(4) {
+                    strong {
+                        color: blue;
+                    }
+                }
+
+                &:nth-child(5) {
+                    margin-bottom: 0;
+
+                    strong {
+                        color: red;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.bm-list-results {
+    padding-top: 2rem;
+}
