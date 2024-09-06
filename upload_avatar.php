@@ -46,7 +46,7 @@ $title = "Đổi avatar";
 
 include('header.php');
 ?>
-    <div class="tdmu-upload_avatar">
+    <div class="bm-upload_avatar">
         <form action="upload_avatar.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="avatar">Chọn avatar mới:</label>

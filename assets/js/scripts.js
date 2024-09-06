@@ -5,7 +5,7 @@ function getRootVars() {
     root.style.setProperty("--vh", window.innerHeight / 100 + "px");
    
     setTimeout(function () {
-        root.style.setProperty("--mh", $('.tdmu-header').outerHeight() + "px");
+        root.style.setProperty("--mh", $('.bm-header').outerHeight() + "px");
     }, 100)
 }
 

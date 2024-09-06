@@ -42,8 +42,8 @@ include('header.php');
             <?php else: ?>
                 <h1>Welcome to Student Dashboard</h1>
             <?php endif; ?>
-            <section class="tdmu-home-page">
-                <p class="tdmu-title">Chào mừng, <?php echo $_SESSION['username']; ?>!</p>
+            <section class="bm-home-page">
+                <p class="bm-title">Chào mừng, <?php echo $_SESSION['username']; ?>!</p>
                 <p><a href="logout.php" class="logout-btn">Đăng xuất</a></p>
             </section>
         </div>

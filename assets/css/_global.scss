@@ -25,13 +25,13 @@ body {
     }
 
     &.is-transparent {
-        .tdmu-content {
+        .bm-content {
             padding-top: var(--mh);
         }
     } 
 }
 
-.tdmu-popup-overlay {
+.bm-popup-overlay {
     display: none;
     position: fixed;
     top: 0;
@@ -184,13 +184,13 @@ input[type="search"] {
     background: $blue;
 }
 
-.tdmu-container {
+.bm-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
 }
 
-.tdmu-content {
+.bm-content {
     flex: 1 1 auto;
 }

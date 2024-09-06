@@ -1,0 +1,46 @@
+.bm-fordev
+    input#bm-fordev-toggler(type="checkbox")
+    .bm-fordev__inner
+        label.bm-fordev__header(for="bm-fordev-toggler") FOR DEV
+        .bm-fordev__body
+            .bm-fordev__title
+                .bm-custom-control
+                    input(type="checkbox" id="enable-admin-bar")
+                    label(for="enable-admin-bar") Admin bar
+            .bm-fordev__content
+                -
+                    devNav = [
+                        {
+                            "name": "Style Guide",
+                            "url": "./styleguide.html"
+                        },
+                        {
+                            "name": "General",
+                            "url": "./general.html"
+                        },
+                        {
+                            "name": "Home",
+                            "url": "./index.html"
+                        },
+                        {
+                            "name": "Contact",
+                            "url": "./contact.html"
+                        },
+                        {
+                            "name": "Thank You",
+                            "url": "./thank-you.html"
+                        },
+                        {
+                            "name": "404",
+                            "url": "./404.html"
+                        },
+                        {
+                            "name": "Login",
+                            "url": "./login.html"
+                        },
+                    ]
+                    
+                ul.bm-fordev-list
+                    each val in devNav
+                        li
+                            a(href= val["url"])= val["name"]

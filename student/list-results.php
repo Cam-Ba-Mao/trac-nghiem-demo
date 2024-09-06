@@ -13,8 +13,8 @@ $result = mysqli_query($conn, $query);
 
 include(__DIR__ . '/../header.php');
 ?>
-    <section class="tdmu-list-results">
-        <h1 class="tdmu-title">Danh sách kết quả đề thi</h1>
+    <section class="bm-list-results">
+        <h1 class="bm-title">Danh sách kết quả đề thi</h1>
         <ul>
             <?php while($exam = mysqli_fetch_assoc($result)) { ?>
                 <li>

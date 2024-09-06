@@ -45,7 +45,7 @@ $title = "Quản lý học sinh";
 include(__DIR__ . '/../header.php');
 ?>
 
-    <h1 class="tdmu-title">Quản lý học sinh</h1>
+    <h1 class="bm-title">Quản lý học sinh</h1>
 
     <!-- Form thêm học sinh -->
     <form method="POST">

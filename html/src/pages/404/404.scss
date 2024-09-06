@@ -1,0 +1,46 @@
+.rt-404{
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    @include breakpoint-up(lg) {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+    
+    &__inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+        text-align: center;
+    }
+
+    &__image {
+        margin-bottom: 1.5rem;
+
+        @include breakpoint-up(lg) {
+            margin-bottom: 2.25rem; 
+        }
+
+        img {
+            @include breakpoint-up(sm) {
+                max-width: 367px;
+            }
+        }
+    }
+
+    .rt-title {
+        color: $blue;
+        margin-bottom: .75rem;
+    }
+
+    &__desc {
+        margin-bottom: 1.875rem;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: calc(24/18);
+
+    }
+}

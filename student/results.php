@@ -40,11 +40,11 @@ $title = "Kết quả thi";
 
 include(__DIR__ . '/../header.php');
 ?>
-<section class="tdmu-results">
-    <h1 class="tdmu-title">Kết quả thi</h1>
-    <div class="tdmu-results__wrap">
-        <div class="tdmu-results-left">
-            <div class="tdmu-take-exam__answer">
+<section class="bm-results">
+    <h1 class="bm-title">Kết quả thi</h1>
+    <div class="bm-results__wrap">
+        <div class="bm-results-left">
+            <div class="bm-take-exam__answer">
                 <?php 
                     $key = 1;
                     mysqli_data_seek($result, 0); // Reset result set to use it again
@@ -63,15 +63,15 @@ include(__DIR__ . '/../header.php');
                 ?>
             </div>
         </div>
-        <div class="tdmu-results-middle">
-            <div class="tdmu-results__content">
-                <div class="tdmu-results__info">
-                    <h2 class="tdmu-results__info--title">Kết quả thi:</h2>
-                    <div class="tdmu-results__info--total">Tổng số câu: <?php echo $total_questions; ?></div>
-                    <div class="tdmu-results__info--correct">Số câu đúng: <?php echo $exam_result['score']; ?></div>
-                    <div class="tdmu-results__info--wrong">Số câu sai: <?php echo $wrong_answers; ?></div>
-                    <div class="tdmu-results__info--score">Điểm: <?php echo number_format($total_score, 2); ?></div> <!-- Sử dụng number_format để làm tròn điểm số -->
-                    <div class="tdmu-results__info--note">
+        <div class="bm-results-middle">
+            <div class="bm-results__content">
+                <div class="bm-results__info">
+                    <h2 class="bm-results__info--title">Kết quả thi:</h2>
+                    <div class="bm-results__info--total">Tổng số câu: <?php echo $total_questions; ?></div>
+                    <div class="bm-results__info--correct">Số câu đúng: <?php echo $exam_result['score']; ?></div>
+                    <div class="bm-results__info--wrong">Số câu sai: <?php echo $wrong_answers; ?></div>
+                    <div class="bm-results__info--score">Điểm: <?php echo number_format($total_score, 2); ?></div> <!-- Sử dụng number_format để làm tròn điểm số -->
+                    <div class="bm-results__info--note">
                         <h3>Chi tiết bài kiểm tra: </h3>
                         <span>Ghi chú:</span>
                         <p><strong>Màu xanh lá</strong> là màu đáp án đúng</p>

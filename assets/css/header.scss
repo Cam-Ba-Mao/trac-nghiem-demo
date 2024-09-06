@@ -1,12 +1,12 @@
 body {
     &.is-transparent {
-        .tdmu-header {
+        .bm-header {
             position: fixed;
         }
     }
 }
 
-.tdmu-header {
+.bm-header {
     background-color: $white;
     position: relative;
     top: 0;

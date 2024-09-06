@@ -27,11 +27,11 @@ $class = "is-transparent";
 include(__DIR__ . '/../header.php');
 ?>
     
-    <div class="tdmu-take-exam">
-        <h1 class="tdmu-title">Làm bài thi <?= $exam_name; ?></h1>
-        <div class="tdmu-take-exam__wrap">
-            <div class="tdmu-take-left">
-                <div class="tdmu-take-exam__answer">
+    <div class="bm-take-exam">
+        <h1 class="bm-title">Làm bài thi <?= $exam_name; ?></h1>
+        <div class="bm-take-exam__wrap">
+            <div class="bm-take-left">
+                <div class="bm-take-exam__answer">
                     <?php 
                         $key = 1;
                         $result = mysqli_query($conn, $query); // Reset result set to use it again
@@ -43,8 +43,8 @@ include(__DIR__ . '/../header.php');
                     ?>
                 </div>
             </div>
-            <div class="tdmu-take-middle">
-                <div class="tdmu-take-exam__content">
+            <div class="bm-take-middle">
+                <div class="bm-take-exam__content">
                     <form id="examForm">
                         <?php 
                             $key = 1;
@@ -64,7 +64,7 @@ include(__DIR__ . '/../header.php');
                     </form>
                 </div>
             </div>
-            <div class="tdmu-take-right">
+            <div class="bm-take-right">
                 <div class="student-info">
                     <h3>Thông tin sinh viên: </h3>
                     <span><strong>Họ tên:</strong> &nbsp;<?php echo $_SESSION['username']; ?>!</span>
@@ -96,7 +96,7 @@ include(__DIR__ . '/../header.php');
                     if($('body.scroll-down').length >= 0)
                     {
                         $('html, body').animate({
-                            scrollTop: target.offset().top - $('.tdmu-header').outerHeight() - 65
+                            scrollTop: target.offset().top - $('.bm-header').outerHeight() - 65
                         }, 500);
                     } else {
                         $('html, body').animate({

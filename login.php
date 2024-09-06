@@ -78,13 +78,13 @@ include('header.php');
 ?>
 
 <div class="login-wrap">
-    <section class="tdmu-sign-in">
-        <div class="tdmu-sign-in__wrap">
-            <div class="tdmu-sign-in__content">
-                <div class="tdmu-sign-in__content--image">
+    <section class="bm-sign-in">
+        <div class="bm-sign-in__wrap">
+            <div class="bm-sign-in__content">
+                <div class="bm-sign-in__content--image">
                     <img src="<?php echo BASE_URL; ?>/assets/img/signin-image.jpg" alt="sign up image">
                 </div>
-                <div class="tdmu-sign-in__content--form">
+                <div class="bm-sign-in__content--form">
                     <h2 class="form-title">Đăng nhập</h2>
                     <form method="POST" class="register-form">
                         <div class="form-group">
@@ -109,6 +109,14 @@ include('header.php');
                     <?php if(isset($error)) : ?>
                         <div class="invalid-message"><?= $error; ?></div>
                     <?php endif; ?>
+                    <a href="<?php echo BASE_URL; ?>/request_password_change.php">Quên mật khẩu</a>
+                    <div class="social-login">
+                        <span class="social-label">Or login with</span>
+                        <ul class="socials">
+                            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-google"></i></a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

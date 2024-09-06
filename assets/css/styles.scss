@@ -13,7 +13,7 @@ sass styles.scss styles.css --watch
 @import "header.scss";
 @import "sign-in.scss";
 
-.tdmu-title {
+.bm-title {
     font-size: 24px;
 
     @include breakpoint-up(lg) {
@@ -25,7 +25,7 @@ body {
     &.is-transparent.scroll-down {
         padding-top: var(--mh);
 
-        .tdmu-take-exam {
+        .bm-take-exam {
             &__answer {
                 top: calc(var(--mh) + 16px);
             }
@@ -37,14 +37,14 @@ body {
     }
 }
 
-.tdmu-take-exam {
+.bm-take-exam {
     padding-top: 2rem;
     width: 100%;
     max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
 
-    .tdmu-title {
+    .bm-title {
         text-align: center;
         margin-bottom: 1.5rem;
         color: $blue;
@@ -60,7 +60,7 @@ body {
         @include breakpoint-down(767px) {
             grid-template-columns: calc(30% - 1rem) calc(70% - 1rem);
 
-            .tdmu-take-right {
+            .bm-take-right {
                 display: none;
             }
         }
@@ -183,7 +183,7 @@ body {
     }
 }
 
-.tdmu-404 {
+.bm-404 {
     padding-top: 3rem;
     padding-bottom: 4rem;
 
@@ -217,7 +217,7 @@ body {
         }
     }
 
-    .tdmu-sub-title {
+    .bm-sub-title {
         font-weight: 500;
         font-size: 24px;
         font-family: $font-family-primary;
@@ -265,7 +265,7 @@ body {
     &__cta {}
 }
 
-.tdmu-home-page {
+.bm-home-page {
     ul {
         @include reset-list;
     }
@@ -286,7 +286,7 @@ body {
     font-weight: 700;
 }
 
-.tdmu-results {
+.bm-results {
     padding-top: 2rem;
     width: 100%;
     max-width: 1400px;
@@ -399,15 +399,15 @@ body {
     }
 }
 
-.tdmu-list-results {
+.bm-list-results {
     padding-top: 2rem;
 }
 
-.tdmu-exams {
+.bm-exams {
     padding-top: 2rem;
 }
 
-.tdmu-upload_avatar, .tdmu-request-password-change, .tdmu-verify-otp {
+.bm-upload_avatar, .bm-request-password-change, .bm-verify-otp {
     margin-top: 1.5rem;
     padding: 0 1rem;
     width: 100%;
@@ -416,7 +416,7 @@ body {
     margin-right: auto;
 }
 
-.tdmu-request-password-change {
+.bm-request-password-change {
     &__desc {
         font-weight: 500;
         font-size: 16px;
@@ -424,7 +424,7 @@ body {
     }
 }
 
-.tdmu-verify-otp, .tdmu-request-password-change {
+.bm-verify-otp, .bm-request-password-change {
     h2 {
         margin-bottom: 1.5rem;
     }

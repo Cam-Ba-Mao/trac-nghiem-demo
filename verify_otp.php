@@ -42,7 +42,7 @@ $title = "Xác Thực OTP";
 include('header.php');
 ?>
 
-    <div class="tdmu-verify-otp">
+    <div class="bm-verify-otp">
         <h2><?= $title; ?></h2>
         <?php if (isset($error)) { echo "<p>$error</p>"; } ?>
         <form action="verify_otp.php" method="post">

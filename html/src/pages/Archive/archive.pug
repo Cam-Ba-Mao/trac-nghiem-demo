@@ -1,0 +1,203 @@
+extends ../../_core/layouts/layouts-default
+
+append vars
+    -bodyClass = "page-template-archive is-transparent"
+    -typeMenu = ""
+    -banner = 1
+
+block container
+    //- Banner
+    //- include ../../components/Banner/banner
+    
+    //- Blog
+    section.bm-blog#bm-blog
+        .container 
+            .bm-blog__inner
+                .row
+                    .col-lg-4.col-xl-3
+                        include ../../components/ArchiveSidebar/archive-sidebar
+
+                    .col-lg-8.col-xl-9
+                        .bm-blog__inner--content
+                            h1.bm-title Kinh nghiệm du học
+
+                            .bm-blog__inner--featured
+                                .bm-blog__inner--featured__item
+                                    a(href="#" target="_blank" title="")
+                                        h2.bm-title
+                                            img.lazy(data-src="./images/blog/star.svg" width="16" alt="")
+                                            | Tin nổi bật
+                                        .img-wrapper
+                                            img.lazy(data-src="./images/blog/blog-thumb-01.jpg" width="100%" alt="")
+                                        h3 Khám phá Tây Úc - Điểm đến đầy hứa hẹn cho du học sinh Việt Nam
+                                        p Tây Úc là bang có diện tích lớn nhất Australia, trải dài từ Bắc đến Nam và là cửa ngõ ra châu Á của Australia...
+                                        .readmore
+                                            span 20.06.2024
+                                            span 3 phút đọc
+
+                                .bm-blog__inner--featured__item
+                                    h2.bm-title
+                                        img.lazy(data-src="./images/blog/flame.svg" width="16" alt="")
+                                        | Bài viết mới nhất
+                                    .blog-wrapper
+                                        a.blog-item(href="#" target="_blank" title="")
+                                            .img-wrapper
+                                                img.lazy(data-src="./images/blog/recent-thumb-1.jpg" width="100%" alt="")
+                                            .text-wrapper
+                                                h3 Chất lượng đào tạo của hệ thống Đại học California
+                                                p Tây Úc là bang có diện tích lớn nhất Australia, trải dài từ Bắc đến Nam và là cửa ngõ ra châu Á của Australia...
+                                                .readmore
+                                                    span 20.06.2024
+                                                    span 3 phút đọc
+                                        a.blog-item(href="#" target="_blank" title="")
+                                            .img-wrapper
+                                                img.lazy(data-src="./images/blog/recent-thumb-2.jpg" width="100%" alt="")
+                                            .text-wrapper
+                                                h3 Học bổng Thạc sĩ 100% học phí tại Đại học Tư thục lớn và uy tín nhất Ireland năm 2024
+                                                p Tây Úc là bang có diện tích lớn nhất Australia, trải dài từ Bắc đến Nam và là cửa ngõ ra châu Á của Australia...
+                                                .readmore
+                                                    span 20.06.2024
+                                                    span 3 phút đọc
+                                        a.blog-item(href="#" target="_blank" title="")
+                                            .img-wrapper
+                                                img.lazy(data-src="./images/blog/recent-thumb-3.jpg" width="100%" alt="")
+                                            .text-wrapper
+                                                h3 Chương trình học bổng trường BHMS Thụy Sĩ trị giá lên tới 250 triệu đồng
+                                                p Tây Úc là bang có diện tích lớn nhất Australia, trải dài từ Bắc đến Nam và là cửa ngõ ra châu Á của Australia...
+                                                .readmore
+                                                    span 20.06.2024
+                                                    span 3 phút đọc
+                            .bm-blog__inner--posts
+                                a.title-wrapper(href="#" target="_blank" title="")
+                                    h2.bm-title
+                                        img.lazy(data-src="./images/blog/usa.svg" width="16" alt="")
+                                        | Du học Mỹ
+                                    span Xem thêm
+                                .posts-wrapper
+                                    a.post-item(href="#" target="_blank" title="")
+                                        .img-wrapper 
+                                            img.lazy(data-src="./images/blog/blog-thumb-2.jpg" width="100%" alt="")
+                                        .text-wrapper
+                                            h3 Các điều kiện giành học bổng du học Australia
+                                            p Học bổng du học Australia không chỉ dành cho học sinh có thành tích xuất sắc, mà còn với ứng viên đáp ứng đủ điều kiện.
+                                            .readmore
+                                                span 20.06.2024
+                                                span 3 phút đọc
+
+                                    a.post-item(href="#" target="_blank" title="")
+                                        .img-wrapper
+                                            img.lazy(data-src="./images/blog/blog-thumb-3.jpg" width="100%" alt="")
+                                        .text-wrapper
+                                            h3 Quy trình đầu tư chương trình visa EB5 nhận thẻ xanh Mỹ
+                                            p Để nhận thẻ xanh Mỹ thông qua chương trình visa EB5, các nhà đầu tư phải tìm hiểu thật kỹ về quy trình cũng như thủ tục.
+                                            .readmore
+                                                span 20.06.2024
+                                                span 3 phút đọc
+
+                            .bm-blog__inner--posts
+                                a.title-wrapper(href="#" target="_blank" title="")
+                                    h2.bm-title
+                                        img.lazy(data-src="./images/blog/canada.svg" width="16" alt="")
+                                        | Du học Canada
+                                    span Xem thêm
+                                .posts-wrapper
+                                    a.post-item(href="#" target="_blank" title="")
+                                        .img-wrapper 
+                                            img.lazy(data-src="./images/blog/blog-thumb-4.jpg" width="100%" alt="")
+                                        .text-wrapper
+                                            h3 Các điều kiện giành học bổng du học Australia
+                                            p Học bổng du học Australia không chỉ dành cho học sinh có thành tích xuất sắc, mà còn với ứng viên đáp ứng đủ điều kiện.
+                                            .readmore
+                                                span 20.06.2024
+                                                span 3 phút đọc
+
+                                    a.post-item(href="#" target="_blank" title="")
+                                        .img-wrapper
+                                            img.lazy(data-src="./images/blog/blog-thumb-5.jpg" width="100%" alt="")
+                                        .text-wrapper
+                                            h3 Quy trình đầu tư chương trình visa EB5 nhận thẻ xanh Mỹ
+                                            p Để nhận thẻ xanh Mỹ thông qua chương trình visa EB5, các nhà đầu tư phải tìm hiểu thật kỹ về quy trình cũng như thủ tục.
+                                            .readmore
+                                                span 20.06.2024
+                                                span 3 phút đọc
+                            
+                            .bm-blog__inner--posts
+                                a.title-wrapper(href="#" target="_blank" title="")
+                                    h2.bm-title
+                                        img.lazy(data-src="./images/blog/australia.svg" width="16" alt="")
+                                        | Du học Úc
+                                    span Xem thêm
+                                .posts-wrapper
+                                    a.post-item(href="#" target="_blank" title="")
+                                        .img-wrapper 
+                                            img.lazy(data-src="./images/blog/blog-thumb-6.jpg" width="100%" alt="")
+                                        .text-wrapper
+                                            h3 Các điều kiện giành học bổng du học Australia
+                                            p Học bổng du học Australia không chỉ dành cho học sinh có thành tích xuất sắc, mà còn với ứng viên đáp ứng đủ điều kiện.
+                                            .readmore
+                                                span 20.06.2024
+                                                span 3 phút đọc
+
+                                    a.post-item(href="#" target="_blank" title="")
+                                        .img-wrapper
+                                            img.lazy(data-src="./images/blog/blog-thumb-7.jpg" width="100%" alt="")
+                                        .text-wrapper
+                                            h3 Quy trình đầu tư chương trình visa EB5 nhận thẻ xanh Mỹ
+                                            p Để nhận thẻ xanh Mỹ thông qua chương trình visa EB5, các nhà đầu tư phải tìm hiểu thật kỹ về quy trình cũng như thủ tục.
+                                            .readmore
+                                                span 20.06.2024
+                                                span 3 phút đọc
+
+                            .bm-blog__inner--posts
+                                a.title-wrapper(href="#" target="_blank" title="")
+                                    h2.bm-title
+                                        img.lazy(data-src="./images/blog/england.svg" width="16" alt="")
+                                        | Du học Anh
+                                    span Xem thêm
+                                .posts-wrapper
+                                    a.post-item(href="#" target="_blank" title="")
+                                        .img-wrapper 
+                                            img.lazy(data-src="./images/blog/blog-thumb-8.jpg" width="100%" alt="")
+                                        .text-wrapper
+                                            h3 Các điều kiện giành học bổng du học Australia
+                                            p Học bổng du học Australia không chỉ dành cho học sinh có thành tích xuất sắc, mà còn với ứng viên đáp ứng đủ điều kiện.
+                                            .readmore
+                                                span 20.06.2024
+                                                span 3 phút đọc
+
+                                    a.post-item(href="#" target="_blank" title="")
+                                        .img-wrapper
+                                            img.lazy(data-src="./images/blog/blog-thumb-9.jpg" width="100%" alt="")
+                                        .text-wrapper
+                                            h3 Quy trình đầu tư chương trình visa EB5 nhận thẻ xanh Mỹ
+                                            p Để nhận thẻ xanh Mỹ thông qua chương trình visa EB5, các nhà đầu tư phải tìm hiểu thật kỹ về quy trình cũng như thủ tục.
+                                            .readmore
+                                                span 20.06.2024
+                                                span 3 phút đọc
+
+                            .bm-blog__inner--posts
+                                a.title-wrapper(href="#" target="_blank" title="")
+                                    h2.bm-title
+                                        img.lazy(data-src="./images/blog/germany.svg" width="16" alt="")
+                                        | Du học Đức
+                                    span Xem thêm
+                                .posts-wrapper
+                                    a.post-item(href="#" target="_blank" title="")
+                                        .img-wrapper 
+                                            img.lazy(data-src="./images/blog/blog-thumb-10.jpg" width="100%" alt="")
+                                        .text-wrapper
+                                            h3 Các điều kiện giành học bổng du học Australia
+                                            p Học bổng du học Australia không chỉ dành cho học sinh có thành tích xuất sắc, mà còn với ứng viên đáp ứng đủ điều kiện.
+                                            .readmore
+                                                span 20.06.2024
+                                                span 3 phút đọc
+
+                                    a.post-item(href="#" target="_blank" title="")
+                                        .img-wrapper
+                                            img.lazy(data-src="./images/blog/blog-thumb-11.jpg" width="100%" alt="")
+                                        .text-wrapper
+                                            h3 Quy trình đầu tư chương trình visa EB5 nhận thẻ xanh Mỹ
+                                            p Để nhận thẻ xanh Mỹ thông qua chương trình visa EB5, các nhà đầu tư phải tìm hiểu thật kỹ về quy trình cũng như thủ tục.
+                                            .readmore
+                                                span 20.06.2024
+                                                span 3 phút đọc

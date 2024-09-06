@@ -1,0 +1,32 @@
+extends ../../_core/layouts/layouts-default
+
+append vars
+    -bodyClass = "page-template-home is-transparent"
+    -typeMenu = ""
+
+block container
+    .login-wrap
+        section.bm-sign-in
+            .bm-sign-in__wrap
+                .bm-sign-in__content
+                    .bm-sign-in__content--image
+                        img(src="./images/signin-image.jpg" alt="sign up image")
+                    .bm-sign-in__content--form
+                        h2.form-title Đăng nhập
+                        form(method="POST" class="register-form")
+                            .form-group
+                                label(for="your_name")
+                                    i(class="fa-solid fa-user") Tên đăng nhập
+                                    input(type="text" name="your_name" id="your_name" placeholder="Nhập tên đăng nhập của bạn" value="")
+                            .form-group
+                                label(for="your_pass")
+                                    i(class="fa-solid fa-lock") Mật khẩu
+                                .form-group__wrap
+                                    input(type="password" name="your_pass" id="your_pass" placeholder="Nhập Mật khẩu" value="")
+                                    i(class="fa fa-eye togglePassword")
+                            .form-group.remember-me
+                                input(type="checkbox" name="remember-me" id="remember-me")
+                                label(for="remember-me") Nhớ tài khoản
+                            .form-group.form-button
+                                button(type="submit" name="signin" id="signin" class="form-submit" value="Đăng nhập") Đăng nhập
+                            .invalid-message Sai tài khoản

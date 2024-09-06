@@ -1,0 +1,86 @@
+extends ../../_core/layouts/layouts-default
+
+append vars
+    -bodyClass = "page-template-contact is-transparent"
+
+block container
+    section.bm-contact
+        .container 
+            .row 
+                .col-lg-6.col-xl-5
+                    .bm-contact__form
+                        .bm-contact__form--head
+                            .bm-block__heading
+                                .bm-title Liên hệ với chúng tôi
+                                .bm-title__desc Liên hệ ngay với chuyên gia tư vấn của ISA
+                        .bm-contact__form--body
+                            .wpforms-container.wpforms-container-full
+                                form(action="./styleguide.html" class="wpforms-validate wpforms-form wpforms-ajax-form")
+                                    .wpforms-field-container
+                                        +wpf-input("wpf-input-1", "Họ và Tên *", "Họ và Tên", "", "wpf-icon wpf-icon-name")
+                                        +wpf-input("wpf-input-2", "Email *", "Email", "", "wpf-icon wpf-icon-email")
+                                        +wpf-input("wpf-input-3", "Số điện thoại *", "Số điện thoại", "", "wpf-icon wpf-icon-phone")
+                                        +wpf-textarea("Ghi chú")
+                                    .wpforms-submit-container
+                                        button(type="submit" class="wpforms-submit is-icon" data-alt-text="Sending..." data-submit-text="Submit") GỬI THÔNG TIN
+
+                .col-lg-6.col-xl-5.offset-xl-2
+                    .bm-contact__info
+                        .bm-block__heading
+                            .bm-title__desc Contact us
+                            .bm-title Thông tin liên hệ
+                        ul.bm-contact__info--desc
+                            li.is-address 
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.0833 7.91667C17.0833 12 10.4167 18.75 10.4167 18.75C10.4167 18.75 3.75 12 3.75 7.91667C3.75 3.66667 7.16667 1.25 10.4167 1.25C13.6667 1.25 17.0833 3.66667 17.0833 7.91667Z" stroke="currentColor" stroke-opacity="0.8" stroke-miterlimit="10" stroke-linecap="square"/>
+                                    <path d="M10.4167 10.4166C11.7974 10.4166 12.9167 9.29734 12.9167 7.91663C12.9167 6.53591 11.7974 5.41663 10.4167 5.41663C9.03597 5.41663 7.91669 6.53591 7.91669 7.91663C7.91669 9.29734 9.03597 10.4166 10.4167 10.4166Z" stroke="currentColor" stroke-opacity="0.8" stroke-miterlimit="10" stroke-linecap="square"/>
+                                </svg>
+                                | 240 Trần Bình Trọng, Phường 4, Quận 5, TP.HCM
+
+                            li.is-phone 
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13.1733 12.24L11.3892 14C10.4587 13.439 9.59442 12.7751 8.81249 12.0209C8.05936 11.2376 7.39557 10.3732 6.83332 9.44335L8.59166 7.65919C8.69815 7.55104 8.77007 7.41367 8.79827 7.26453C8.82646 7.1154 8.80966 6.96124 8.74999 6.82169L6.91666 2.54835C6.84423 2.37985 6.71368 2.24298 6.54879 2.16268C6.38389 2.08237 6.19564 2.06398 6.01832 2.11085L2.65666 3.00002C2.48878 3.04354 2.34065 3.14275 2.2365 3.28142C2.13234 3.42009 2.07834 3.59 2.08332 3.76335C2.29722 7.67316 3.92287 11.3725 6.65832 14.1742C9.46055 16.9105 13.1609 18.5365 17.0717 18.75C17.2452 18.7559 17.4155 18.7023 17.5544 18.5982C17.6934 18.4941 17.7927 18.3457 17.8358 18.1775L18.7242 14.8142C18.7713 14.637 18.7531 14.4487 18.6729 14.2838C18.5927 14.1189 18.4559 13.9883 18.2875 13.9159L14.0133 12.0834C13.8736 12.0228 13.719 12.0054 13.5694 12.0333C13.4197 12.0612 13.2818 12.1332 13.1733 12.24V12.24Z" stroke="currentColor" stroke-opacity="0.8" stroke-miterlimit="10" stroke-linecap="square"/>
+                                </svg>
+                                a(href="tel:(028) 7109 9845") (028) 7109 9845
+
+                            li.is-email 
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_16_159)">
+                                        <path d="M1.76166 3.38159L10.4167 11.2499L19.0708 3.38243" stroke="currentColor" stroke-opacity="0.8" stroke-miterlimit="10"/>
+                                        <path d="M17.9167 2.91663H2.91667C1.99619 2.91663 1.25 3.66282 1.25 4.58329V16.25C1.25 17.1704 1.99619 17.9166 2.91667 17.9166H17.9167C18.8371 17.9166 19.5833 17.1704 19.5833 16.25V4.58329C19.5833 3.66282 18.8371 2.91663 17.9167 2.91663Z" stroke="currentColor" stroke-opacity="0.8" stroke-miterlimit="10" stroke-linecap="square"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_16_159">
+                                            <rect width="20" height="20" fill="currentColor"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                
+                                a(href="mailto:info@duhocisa.edu.vn") info@duhocisa.edu.vn
+
+                        ul.bm-contact__info--social 
+                            li 
+                                a(href="#" target="_blank")
+                                    +icon('instagram')
+                            li 
+                                a(href="#" target="_blank")
+                                    +icon('facebook')
+                            li 
+                                a(href="#" target="_blank")
+                                    +icon('youtube')
+                            li 
+                                a(href="#" target="_blank")
+                                    +icon('linkedin')
+
+                        hr
+
+                        .bm-contact__links
+                            h3.bm-title Dịch vụ của chúng tôi
+                            ul.bm-contact__links--items
+                                li 
+                                    a(href="#") Du học Trung học Mỹ
+                                li 
+                                    a(href="#") Du học Trung học Canada
+                                li 
+                                    a(href="#") Du học Hè
+                    

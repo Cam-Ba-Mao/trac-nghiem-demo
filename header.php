@@ -18,19 +18,19 @@
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>/assets/css/styles.css">
 </head>
 <body class="<?= !empty($class) ?  $class : '' ?>">
-    <div class="tdmu-container">
+    <div class="bm-container">
         <!-- START HEADER-->
-        <header class="tdmu-header">
+        <header class="bm-header">
             <!-- <h1>Quiz Application</h1> -->
-            <div class="tdmu-header__wrap">
-                <div class="tdmu-header__brand">
+            <div class="bm-header__wrap">
+                <div class="bm-header__brand">
                     <a href="<?php echo BASE_URL; ?>/index.php">
                         <img src="<?php echo BASE_URL; ?>/assets/img/Logo_TDMU_2024_nguyen_ban.svg" alt="">
                     </a>
                 </div>
-                <div class="tdmu-header__right">
+                <div class="bm-header__right">
                     <?php if (isset($title) && $title == "Làm bài thi"): ?>
-                    <div class="tdmu-header__take-exam-time">
+                    <div class="bm-header__take-exam-time">
                         <span>Thời gian làm bài:</span>
                         <div class="time-to-do" id="timer">
                             <?php echo $exam['exam_time'] . ":00"; ?>
@@ -62,6 +62,6 @@
             
         </header>
         <!-- CLOSE HEADER-->
-        <main class="tdmu-content">  
+        <main class="bm-content">  
         
         

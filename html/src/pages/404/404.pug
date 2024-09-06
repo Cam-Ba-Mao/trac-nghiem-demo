@@ -1,0 +1,26 @@
+extends ../../_core/layouts/layouts-default
+
+append vars
+    -bodyClass = "page-template-404"
+
+block container
+
+    section.rt-404
+        .container 
+            .rt-404__inner
+                .rt-404__image 
+                    img.lazy(data-src="./images/404.png" alt="404")
+
+                h1.rt-title.rt-title__small PAGE NOT FOUND!
+
+                .rt-404__desc We’re sorry, the page you requestedcould not be found. Please go back to the homepage! 
+                
+                .rt-404__cta 
+                    a(href="#" class="rt-btn rt-btn-primary") HOME PAGE
+                
+                    
+                
+                
+                
+
+                
