@@ -244,3 +244,15 @@
         margin-right: 4px;
     }
 }
+
+.social-login {
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+
+    .socials {
+        @include reset-list;
+        display: flex;
+        gap: 1rem;
+    }
+}

@@ -87,7 +87,7 @@ body {
 }
 
 .bm-header {
-    background: $red;
+    background: $color-005180;
     position: fixed;
     width: 100%;
     z-index: 20;
@@ -126,7 +126,7 @@ body {
             // top: 100%;
             // left: 0;
             // width: 100%;
-            // background: $red;
+            // background: $color-005180;
             // z-index: 999;
             // height: 100vh;
             overflow-x: hidden;
@@ -136,7 +136,7 @@ body {
         &.is-show {
             opacity: 1;
             visibility: visible;
-            background-color: $red;
+            background-color: $color-005180;
             clip-path: circle(150vh at 100% 0);
            
         }

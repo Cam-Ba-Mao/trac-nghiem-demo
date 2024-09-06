@@ -1,7 +1,7 @@
 extends ../../_core/layouts/layouts-default
 
 append vars
-    -bodyClass = "page-template-home is-transparent"
+    -bodyClass = "page-template-login"
     -typeMenu = ""
 
 block container
@@ -32,3 +32,12 @@ block container
                             .form-group.form-button
                                 button(type="submit" name="signin" id="signin" class="form-submit" value="Đăng nhập") Đăng nhập
                             .invalid-message Sai tài khoản
+                        .social-login
+                            span.social-label Or login with
+                            ul.socials
+                                li
+                                    a(href='#')
+                                        i.fa-brands.fa-google
+                                li
+                                    a(href='#')
+                                        i.fa-brands.fa-facebook

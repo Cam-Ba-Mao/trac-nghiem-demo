@@ -1,5 +1,5 @@
 .bm-footer {
-    background: $blue url(../images/schools/banner.png) no-repeat center center / cover;
+    background: $color-005180 url(../images/bg.png) no-repeat center center / cover;
     color: $white;
     padding-top: 2rem;  
     
@@ -103,29 +103,15 @@
 }
 
 .bm-footer-brand {
-    display: grid;
-    grid-template-columns: 125px auto;
-    align-items: center;
+   
+    display: block;
 
-    @include breakpoint-up(sm) {
-        grid-template-columns: 141px auto;
-    }
+    a {
+        display: block;
+        max-width: 185px;
 
-    
-
-    &__desc {
-        font-weight: 500;
-        padding-left: 2rem;
-        position: relative;
-
-        &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 1rem;
-            width: 1px;
-            height: 100%;
-            background-color: rgba($color: $white, $alpha: .5);
+        img {
+            width: 100%;
         }
     }
 }
