@@ -5,5 +5,32 @@ append vars
     -typeMenu = ""
 
 block container
-    
-    
+
+    .wrapper
+        .admin-menu.expanded
+            .menu-toggle ☰
+            ul
+                li
+                    a(href='./admin/manage_students.php')
+                        span Quản lý học sinh
+                li
+                    a(href='./admin/manage_questions.php')
+                        span Quản lý câu hỏi
+                li
+                    a(href='./admin/manage_exams.php')
+                        span Quản lý đề thi
+                li
+                    a(href='./admin/exam_questions.php')
+                        span Quản lý câu hỏi cho từng đề thi
+            ul
+                li
+                    a(href='./student/exams.php') Làm bài thi
+                li
+                    a(href='./student/list-results.php') Xem kết quả
+        .content
+            h1 Welcome to Admin Dashboard
+            h1 Welcome to Student Dashboard
+            section.bm-home-page
+                p.bm-title Chào mừng, IT Test
+                p
+                    a.logout-btn(href='logout.php') Đăng xuất
