@@ -679,3 +679,202 @@ input[type="search"] {
         }
     }
 }
+
+#bm-toast {
+    position: fixed;
+    z-index: 999999;
+}
+
+.bm-toast {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 16px;
+    min-width: 360px;
+    max-width: 400px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
+    transition: all linear 0.3s;
+    border-radius: 10px;
+    gap: 10px;
+    margin: 8px;
+
+    &__icon {
+        flex-shrink: 0;
+    }
+    
+    &__body {
+        flex-grow: 1;
+    }
+    
+    &__title {
+        font-family: "SF Pro Display", Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 24px;
+        color: #333;
+        margin: 0;
+    }
+    
+    &__close {
+        flex-shrink: 0;
+        cursor: pointer;
+        display: none; /* Ẩn đi theo mặc định */
+    }
+
+    &--success {
+        background: #E7F7EF;
+
+        .bm-toast__title {
+            color: #27A376;
+        }
+    }
+
+    &--error {
+        background: #FFEDEC;
+
+        .bm-toast__title {
+            color: #E03137;
+        }
+    }
+
+    &--info {
+        background: #3292ff;
+
+        .bm-toast__title {
+            color: #2f35eb;
+        }
+    }
+
+    &--warning {
+        background: #FFF6D3;
+
+        .bm-toast__title {
+            color: #E6BB20;
+        }
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(calc(100% + 32px));
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+.custom-select {
+    position: relative;
+    width: 166px;
+    display: inline-block;
+
+    /* Add a bit of style for the down arrow when the options are active */
+    &.active .select-style:after {
+        color: #fff;
+    }
+
+    select {
+        display: none;
+    }
+
+    /* Style the custom select box */
+    .select-style {
+        position: relative;
+        padding: .75rem 1rem;
+        padding-right: 2rem;
+        background-color: #fff;
+        border: 1px solid $blue;
+        border-radius: 10px;
+        font-weight: 500;
+        cursor: pointer;
+        user-select: none;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        /* Add a bit of style when hovering over the select box */
+        &:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Add a bit of style for the down arrow */
+        &:after {
+            content: "";
+            background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.4107 6.91075C4.73614 6.58531 5.26378 6.58531 5.58921 6.91075L9.99996 11.3215L14.4107 6.91075C14.7361 6.58531 15.2638 6.58531 15.5892 6.91075C15.9147 7.23619 15.9147 7.76382 15.5892 8.08926L10.5892 13.0893C10.2638 13.4147 9.73614 13.4147 9.4107 13.0893L4.4107 8.08926C4.08527 7.76382 4.08527 7.23619 4.4107 6.91075Z' fill='%23111827'/%3E%3C/svg%3E%0A");
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            color: #555;
+            transition: all 0.2s ease;
+        }
+
+        &.show {
+            &:after {
+                transform: translateY(-50%) rotate(180deg);
+            }
+
+        }
+    }
+}
+
+.custom-select-container {
+    /* Style the options container */
+    &.options {
+        position: absolute;
+        top: 108%;
+        left: 0;
+        right: 0;
+        border: 1px solid $blue;
+        border-radius: 8px;
+        background-color: $white;
+        max-height: 300px;
+        overflow-y: auto;
+        z-index: 1;
+        @include reset-list;
+        padding: 1rem;
+        width: 100%;
+        min-width: max-content;
+        display: inline-block;
+
+        /* Style the individual options */
+        li {
+            padding: .75rem 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 14px;
+
+            /* Highlight option when hovering over it */
+            // &:hover {
+            //     background-color: $white-3;
+            //     font-weight: 500;
+            // }
+
+            /* Style for the selected option */
+            &.active {
+                background-color: $white-3;
+            }
+
+            /* Style for the selected option */
+            [selected] {
+                background-color: #3498db;
+                color: #fff;
+            }
+        }
+    }
+
+    
+}

@@ -24,6 +24,276 @@ function getRootVars() {
   root.style.setProperty("--mh", $('header.bm-header').outerHeight() + "px");
   root.style.setProperty("--gi", ($('#isa-gifts').length > 0 ? $('#isa-gifts').outerHeight() : 0) + "px");
 }
+
+// Hàm tạo thông báo
+function toast(_ref) {
+  var _ref$debug = _ref.debug,
+    debug = _ref$debug === void 0 ? false : _ref$debug,
+    _ref$title = _ref.title,
+    title = _ref$title === void 0 ? "" : _ref$title,
+    _ref$type = _ref.type,
+    type = _ref$type === void 0 ? "info" : _ref$type,
+    _ref$duration = _ref.duration,
+    duration = _ref$duration === void 0 ? 3000 : _ref$duration,
+    _ref$position = _ref.position,
+    position = _ref$position === void 0 ? "top-right" : _ref$position,
+    _ref$dismissOthers = _ref.dismissOthers,
+    dismissOthers = _ref$dismissOthers === void 0 ? false : _ref$dismissOthers,
+    _ref$showCloseButton = _ref.showCloseButton,
+    showCloseButton = _ref$showCloseButton === void 0 ? false : _ref$showCloseButton;
+  var main = document.getElementById("bm-toast");
+  if (!main) {
+    div = document.createElement("div");
+    div.id = 'bm-toast';
+    document.body.appendChild(div);
+    main = document.getElementById("bm-toast");
+  }
+  if (main) {
+    var _toast = document.createElement("div");
+
+    // Xóa thông báo cũ nếu tồn tại
+    if (main && main.firstChild && dismissOthers == true) {
+      main.removeChild(main.firstChild);
+    }
+    switch (position) {
+      case "top-left":
+        main.style.top = "32px";
+        main.style.left = "32px";
+        main.style.right = "auto";
+        main.style.bottom = "auto";
+        break;
+      case "top-right":
+        main.style.top = "32px";
+        main.style.right = "32px";
+        main.style.left = "auto";
+        main.style.bottom = "auto";
+        break;
+      case "bottom-left":
+        main.style.bottom = "32px";
+        main.style.left = "32px";
+        main.style.top = "auto";
+        main.style.right = "auto";
+        break;
+      case "bottom-right":
+        main.style.bottom = "32px";
+        main.style.right = "32px";
+        main.style.top = "auto";
+        main.style.left = "auto";
+        break;
+      default:
+        main.style.top = "32px";
+        main.style.right = "32px";
+        main.style.left = "auto";
+        main.style.bottom = "auto";
+        break;
+    }
+
+    // Kiểm tra nếu debug bật, không ẩn thông báo
+    if (debug == false) {
+      // Tự động xóa thông báo
+      var autoRemoveId = setTimeout(function () {
+        // Kiểm tra xem toast có phải là con của main hay không
+        if (main.contains(_toast)) {
+          main.removeChild(_toast);
+        }
+      }, duration + 1000);
+
+      // Xóa thông báo khi nhấp vào nút đóng
+      _toast.onclick = function (e) {
+        if (e.target.closest(".bm-toast__close")) {
+          if (main.contains(_toast)) {
+            main.removeChild(_toast);
+          }
+          clearTimeout(autoRemoveId);
+        }
+      };
+    } else {
+      _toast.style.animation = "slideInLeft ease .3s";
+    }
+    var icons = {
+      success: '<path d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM16.78 9.7L11.11 15.37C10.97 15.51 10.78 15.59 10.58 15.59C10.38 15.59 10.19 15.51 10.05 15.37L7.22 12.54C6.93 12.25 6.93 11.77 7.22 11.48C7.51 11.19 7.99 11.19 8.28 11.48L10.58 13.78L15.72 8.64C16.01 8.35 16.49 8.35 16.78 8.64C17.07 8.93 17.07 9.4 16.78 9.7Z" fill="#27A376"/>',
+      info: "fas fa-info-circle",
+      warning: "fas fa-exclamation-circle",
+      error: '<path d="M4.47012 20.9997H19.5301C21.0701 20.9997 22.0301 19.3297 21.2601 17.9997L13.7301 4.98969C12.9601 3.65969 11.0401 3.65969 10.2701 4.98969L2.74012 17.9997C1.97012 19.3297 2.93012 20.9997 4.47012 20.9997ZM12.0001 13.9997C11.4501 13.9997 11.0001 13.5497 11.0001 12.9997V10.9997C11.0001 10.4497 11.4501 9.99969 12.0001 9.99969C12.5501 9.99969 13.0001 10.4497 13.0001 10.9997V12.9997C13.0001 13.5497 12.5501 13.9997 12.0001 13.9997ZM13.0001 17.9997H11.0001V15.9997H13.0001V17.9997Z" fill="#E03137"/>'
+    };
+    var icon = icons[type];
+    var delay = (duration / 1000).toFixed(2);
+    _toast.classList.add("bm-toast", "bm-toast--".concat(type));
+    if (debug == false) {
+      _toast.style.animation = "slideInLeft ease .3s, fadeOut linear 1s ".concat(delay, "s forwards");
+    } else {
+      _toast.style.animation = "slideInLeft ease .3s";
+    }
+    _toast.innerHTML = "\n                            <div class=\"bm-toast__icon\">\n                                <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                                    ".concat(icon, "\n                                </svg>\n                            </div>\n                            <div class=\"bm-toast__body\">\n                                <h3 class=\"bm-toast__title\">").concat(title, "</h3>\n                            </div>\n                            <div class=\"bm-toast__close\">\n                                <svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                                    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M4.41058 4.41107C4.73614 4.08551 5.26384 4.08551 5.5894 4.41107L10 8.82167L14.4106 4.41107C14.7362 4.08551 15.2638 4.08551 15.5894 4.41107C15.915 4.73663 15.915 5.26433 15.5894 5.58989L11.1788 10.0005L15.5894 14.4111C15.915 14.7366 15.915 15.2643 15.5894 15.5899C15.2638 15.9155 14.7362 15.9155 14.4106 15.5899L10 11.1793L5.5894 15.5899C5.26384 15.9155 4.73614 15.9155 4.41058 15.5899C4.08502 15.2643 4.08502 14.7366 4.41058 14.4111L8.82117 10.0005L4.41058 5.58989C4.08502 5.26433 4.08502 4.73663 4.41058 4.41107Z\" fill=\"#333333\"/>\n                                </svg>\n                            </div>\n                        ");
+    // console.log(toast.querySelector('.bm-toast__close'));
+    if (showCloseButton) {
+      _toast.querySelector('.bm-toast__close').style.display = 'block';
+    }
+    main.appendChild(_toast);
+  }
+}
+function initializeCustomSelect(selectElement, customSelect) {
+  var styleColor = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+  var selected = selectElement.val();
+  var optionsList;
+  // Hide the default select box
+  selectElement.hide();
+
+  // Hàm đặt vị trí của danh sách dưới custom select
+  function positionOptionsList() {
+    if (optionsList) {
+      var customSelectOffset = customSelect.offset();
+      var customSelectHeight = customSelect.outerHeight();
+      var spacing = 4;
+      var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      var adjustedLeft;
+      var containerHeight = $('.rt-container').outerHeight();
+      var windowHeight = $(window).height();
+      if (containerHeight > windowHeight) {
+        adjustedLeft = customSelectOffset.left;
+      } else {
+        adjustedLeft = customSelectOffset.left + scrollbarWidth;
+      }
+      optionsList.css({
+        top: customSelectOffset.top + customSelectHeight + spacing,
+        left: adjustedLeft,
+        width: customSelect.outerWidth()
+      });
+
+      // Điều chỉnh nếu danh sách bị tràn màn hình
+      var dropdownWidth = optionsList.outerWidth();
+      var windowWidth = $(window).width();
+      if (customSelectOffset.left + dropdownWidth > windowWidth) {
+        optionsList.css({
+          left: windowWidth - dropdownWidth
+        });
+      }
+    }
+  }
+
+  // Click event để mở hoặc đóng danh sách
+  customSelect.find('.select-style').on('click', function (e) {
+    e.preventDefault();
+
+    // Nếu danh sách tùy chọn đã tồn tại và đang hiển thị, ấn lần nữa sẽ đóng nó
+    if (optionsList && optionsList.is(':visible')) {
+      optionsList.remove();
+      customSelect.find('.select-style').removeClass('show');
+      return;
+    }
+
+    // Tạo danh sách tùy chọn mới nếu nó chưa tồn tại hoặc bị ẩn
+    optionsList = $('<ul>', {
+      'class': 'custom-select-container options'
+    }).appendTo('body');
+
+    // Populate the options list
+    selectElement.find('option').each(function () {
+      var optionValue = $(this).val();
+      var optionText = $(this).text();
+
+      // Kiểm tra và đặt trạng thái "active" cho tùy chọn đang chọn
+      var attrClass = optionValue == selected ? 'class="active"' : '';
+      if (styleColor == true) {
+        var optionClass = $(this).data('class');
+        optionsList.append('<li ' + attrClass + ' data-value="' + optionValue + '" data-class="' + optionClass + '">' + optionText + '</li>');
+      } else {
+        optionsList.append('<li ' + attrClass + ' data-value="' + optionValue + '">' + optionText + '</li>');
+      }
+    });
+
+    // Đặt vị trí của danh sách dưới select
+    positionOptionsList();
+
+    // Click event để chọn một tùy chọn
+    optionsList.on('click', 'li', function (e) {
+      e.preventDefault();
+      var selectedOptionValue = $(this).attr('data-value');
+      var selectedOptionText = $(this).text();
+
+      // Cập nhật hiển thị của customSelect
+      customSelect.find('.select-style').removeClass('show');
+      customSelect.find('.select-style span').text(selectedOptionText);
+      selectElement.val(selectedOptionValue);
+
+      // Nếu có styleColor, cập nhật lớp CSS
+      if (styleColor == true) {
+        // var selectedBg = $(this).attr('data-bg');
+        // var selectedColor = $(this).attr('data-color');
+        // customSelect.find('.select-style').attr('style', '--bg-color:' + selectedBg + '; --color:' + selectedColor);
+        var selectedClass = $(this).attr('data-class');
+        customSelect.find('.select-style').attr('class', 'select-style' + ' ' + selectedClass);
+      }
+
+      // Cập nhật trạng thái active cho tùy chọn
+      optionsList.find('li').removeClass('active');
+      $(this).addClass('active');
+
+      // Ẩn danh sách sau khi chọn
+      optionsList.remove();
+
+      // Kích hoạt sự kiện change trên select bị ẩn
+      selectElement.trigger('change');
+
+      // Cập nhật giá trị selected
+      selected = selectedOptionValue;
+    });
+
+    // Thêm lớp 'show' để mở menu
+    customSelect.find('.select-style').addClass('show');
+  });
+
+  // Đóng danh sách khi click ra ngoài customSelect
+  $(document).on('click', function (event) {
+    if (!$(event.target).closest(customSelect).length && optionsList && optionsList.is(':visible')) {
+      customSelect.find('.select-style').removeClass('show');
+      optionsList.remove();
+    }
+  });
+
+  // Cập nhật vị trí khi cửa sổ bị thay đổi kích thước (resize)
+  $(window).on('resize', function () {
+    positionOptionsList();
+  });
+
+  // Khởi tạo trạng thái với tùy chọn đã chọn ban đầu
+  var initialSelectedOption = selectElement.find('option:selected');
+  if (initialSelectedOption.length && styleColor == true) {
+    // customSelect.find('.select-style').attr('style', '--bg-color:' + initialSelectedOption.attr('data-bg') + '; --color:' + initialSelectedOption.attr('data-color'));
+    customSelect.find('.select-style').attr('class', 'select-style' + ' ' + initialSelectedOption.attr('data-class'));
+    customSelect.find('.select-style span').text(initialSelectedOption.text());
+    // customSelect.find('.select-style').css({
+    //     'background-color': initialSelectedOption.attr('data-bg'),
+    //     'color': initialSelectedOption.attr('data-color') // Set the text color, you can adjust as needed
+    // }).text(initialSelectedOption.text());
+
+    var selectedValue = initialSelectedOption.val();
+    customSelect.find('.options li').each(function () {
+      if ($(this).attr('data-value') === selectedValue) {
+        $(this).addClass('active');
+      }
+    });
+  }
+}
+function handleSelectBox(selectors) {
+  var selectStatus = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+  if (selectors) {
+    $(selectors).each(function () {
+      var selectElement = $(this);
+      var customSelect = selectElement.closest('.custom-select');
+      initializeCustomSelect(selectElement, customSelect);
+    });
+  }
+  if (selectStatus) {
+    $('.select-status-table').each(function () {
+      var selectElement = $(this);
+      var customSelect = selectElement.closest('.select-status-edit');
+      initializeCustomSelect(selectElement, customSelect, true);
+    });
+  }
+}
+handleSelectBox('.rt-chart-dash .select-time, .rt-table-responsive .select-status-table');
+handleSelectBox('.select-time, .select-status, .select-show-entries');
 window.addEventListener('load', function () {
   var locomotiveScroll = new LocomotiveScroll({
     lenisOptions: {
@@ -379,7 +649,7 @@ window.addEventListener('load', function () {
     });
   }
   $(function () {
-    initializeCustomSelect('#select-1', '#select-position');
+    // initializeCustomSelect('#select-1', '#select-position');   
   });
 })(jQuery);
 (function ($) {
@@ -432,88 +702,6 @@ window.addEventListener('load', function () {
     });
   });
 })(jQuery);
-// (function ($) {
-//     const body = $('body');
-//     const scrollUp = "scroll-up";
-//     const scrollDown = "scroll-down";
-//     const clsException = "is-transparent";
-//     var lastScroll = 0;
-
-//     function handleNavCollapse() {
-//         $('.bm-header-toggler').on('click', function () {
-//             $(this).toggleClass('is-active');
-
-//             $('body').toggleClass('is-lock');
-//             // $('.bm-menu-header').toggleClass('is-active');
-//             $('header.bm-header ').toggleClass('is-active');
-//             $('.bm-header__desktop').toggleClass('is-show');
-
-//         });
-//     }
-
-//     function handleScrollMenu() {
-//         $(window).on('scroll', function () {
-//             calculateScroll();
-//         });
-//     }
-
-//     function calculateScroll() {
-//         var currentScroll = window.pageYOffset;
-
-//         // console.log(currentScroll);
-//         // console.log(lastScroll);
-//         if (body.hasClass(clsException)) {
-//             if (currentScroll > lastScroll && !body.hasClass(scrollDown)) {
-//                 // down
-//                 body.removeClass(scrollUp);
-//                 body.addClass(scrollDown);
-
-//             } else if (currentScroll < lastScroll && body.hasClass(scrollDown)) {
-//                 // up
-//                 body.removeClass(scrollDown);
-//                 body.addClass(scrollUp);
-//             }
-
-//             lastScroll = currentScroll;
-
-//             if (currentScroll <= 0) {
-//                 body.removeClass(scrollUp);
-//                 // return;
-//             }
-//         }
-//     }
-
-//     // function handleClickMenuButton() {
-//     //     $(document).on('click', '.bm-header__hamburger .btn', function(){
-//     //         if(document.body.classList.contains('opened-menu')) {
-//     //             $('body').removeClass('opened-menu is-lock');
-//     //             $(this).find('span').html(this.dataset.label);
-//     //             $(this).parents('.bm-header__head').each(function(){
-//     //                 $(this).removeClass('open');
-//     //                 $(this).removeAttr('style');
-//     //             });
-//     //         }
-//     //         else {
-//     //             $('body').addClass('opened-menu is-lock');
-//     //             $(this).find('span').html(this.dataset.close);
-//     //             $(this).parents('.bm-header__head').each(function(){
-//     //                 $(this).addClass('open');
-//     //                 $(this).css({
-//     //                     height: $('.bm-header__nav').height() + 150,
-//     //                     width: $('.bm-header__nav').outerWidth() + 60,
-//     //                 });
-//     //             });
-//     //         }
-//     //     });
-//     // }
-
-//     $(function () {
-//         handleNavCollapse();
-//         handleScrollMenu();
-//         calculateScroll();
-//     });
-
-// })(jQuery);
 (function ($) {
   function DemoAdminBarMode() {
     $('#enable-admin-bar').on('change', function () {
@@ -621,6 +809,88 @@ window.addEventListener('load', function () {
     calculateScroll();
   });
 })(jQuery);
+// (function ($) {
+//     const body = $('body');
+//     const scrollUp = "scroll-up";
+//     const scrollDown = "scroll-down";
+//     const clsException = "is-transparent";
+//     var lastScroll = 0;
+
+//     function handleNavCollapse() {
+//         $('.bm-header-toggler').on('click', function () {
+//             $(this).toggleClass('is-active');
+
+//             $('body').toggleClass('is-lock');
+//             // $('.bm-menu-header').toggleClass('is-active');
+//             $('header.bm-header ').toggleClass('is-active');
+//             $('.bm-header__desktop').toggleClass('is-show');
+
+//         });
+//     }
+
+//     function handleScrollMenu() {
+//         $(window).on('scroll', function () {
+//             calculateScroll();
+//         });
+//     }
+
+//     function calculateScroll() {
+//         var currentScroll = window.pageYOffset;
+
+//         // console.log(currentScroll);
+//         // console.log(lastScroll);
+//         if (body.hasClass(clsException)) {
+//             if (currentScroll > lastScroll && !body.hasClass(scrollDown)) {
+//                 // down
+//                 body.removeClass(scrollUp);
+//                 body.addClass(scrollDown);
+
+//             } else if (currentScroll < lastScroll && body.hasClass(scrollDown)) {
+//                 // up
+//                 body.removeClass(scrollDown);
+//                 body.addClass(scrollUp);
+//             }
+
+//             lastScroll = currentScroll;
+
+//             if (currentScroll <= 0) {
+//                 body.removeClass(scrollUp);
+//                 // return;
+//             }
+//         }
+//     }
+
+//     // function handleClickMenuButton() {
+//     //     $(document).on('click', '.bm-header__hamburger .btn', function(){
+//     //         if(document.body.classList.contains('opened-menu')) {
+//     //             $('body').removeClass('opened-menu is-lock');
+//     //             $(this).find('span').html(this.dataset.label);
+//     //             $(this).parents('.bm-header__head').each(function(){
+//     //                 $(this).removeClass('open');
+//     //                 $(this).removeAttr('style');
+//     //             });
+//     //         }
+//     //         else {
+//     //             $('body').addClass('opened-menu is-lock');
+//     //             $(this).find('span').html(this.dataset.close);
+//     //             $(this).parents('.bm-header__head').each(function(){
+//     //                 $(this).addClass('open');
+//     //                 $(this).css({
+//     //                     height: $('.bm-header__nav').height() + 150,
+//     //                     width: $('.bm-header__nav').outerWidth() + 60,
+//     //                 });
+//     //             });
+//     //         }
+//     //     });
+//     // }
+
+//     $(function () {
+//         handleNavCollapse();
+//         handleScrollMenu();
+//         calculateScroll();
+//     });
+
+// })(jQuery);
 (function ($) {
   var paged = 1;
   function handleLoadNewsMore() {
@@ -658,6 +928,36 @@ window.addEventListener('load', function () {
   });
 })(jQuery);
 (function ($) {
+  // Hàm để chuyển đổi trạng thái menu
+  var toggleMenu = function toggleMenu() {
+    window.addEventListener('load', function () {
+      // Chọn các phần tử
+      var menuToggleButton = document.querySelector('.menu-toggle');
+      var adminMenu = document.querySelector('.admin-menu');
+
+      // Kiểm tra sự tồn tại của các phần tử trước khi thêm sự kiện
+      if (menuToggleButton && adminMenu) {
+        // Thêm sự kiện click
+        menuToggleButton.addEventListener('click', function () {
+          if (adminMenu.classList.contains('collapsed')) {
+            adminMenu.classList.remove('collapsed');
+            adminMenu.classList.add('expanded');
+          } else {
+            adminMenu.classList.remove('expanded');
+            adminMenu.classList.add('collapsed');
+          }
+        });
+      } else {
+        console.log('Không tìm thấy phần tử menu-toggle hoặc admin-menu.');
+      }
+    });
+  };
+  $(function () {
+    toggleMenu();
+    $(window).on("resize", function () {});
+  });
+})(jQuery);
+(function ($) {
   var showPassword = function showPassword() {
     window.addEventListener("load", function () {
       var togglePassword = document.querySelector(".togglePassword");
@@ -687,33 +987,27 @@ window.addEventListener('load', function () {
     $(window).on("resize", function () {});
   });
 })(jQuery);
-(function ($) {
-  // Hàm để chuyển đổi trạng thái menu
-  var toggleMenu = function toggleMenu() {
-    window.addEventListener('load', function () {
-      // Chọn các phần tử
-      var menuToggleButton = document.querySelector('.menu-toggle');
-      var adminMenu = document.querySelector('.admin-menu');
-
-      // Kiểm tra sự tồn tại của các phần tử trước khi thêm sự kiện
-      if (menuToggleButton && adminMenu) {
-        // Thêm sự kiện click
-        menuToggleButton.addEventListener('click', function () {
-          if (adminMenu.classList.contains('collapsed')) {
-            adminMenu.classList.remove('collapsed');
-            adminMenu.classList.add('expanded');
-          } else {
-            adminMenu.classList.remove('expanded');
-            adminMenu.classList.add('collapsed');
-          }
-        });
-      } else {
-        console.log('Không tìm thấy phần tử menu-toggle hoặc admin-menu.');
-      }
-    });
-  };
-  $(function () {
-    toggleMenu();
-    $(window).on("resize", function () {});
+function showSuccessToast() {
+  toast({
+    // debug: true,
+    title: "Cập nhật trạng thái thành công",
+    type: "success",
+    duration: 5000,
+    position: "top-right",
+    dismissOthers: true,
+    showCloseButton: true
   });
+}
+function showErrorToast() {
+  toast({
+    title: "Thất bại",
+    type: "error",
+    duration: 5000,
+    position: "top-right",
+    dismissOthers: false,
+    showCloseButton: true
+  });
+}
+(function ($) {
+  $(function () {});
 })(jQuery);

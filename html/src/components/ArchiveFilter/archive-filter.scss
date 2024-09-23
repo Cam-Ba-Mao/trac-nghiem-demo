@@ -1,88 +1,88 @@
-.custom-select {
-    position: relative;
-    width: 200px;
+// .custom-select {
+//     position: relative;
+//     width: 200px;
 
-    &:not(:last-child) {
-        margin-bottom: 1rem;
-    }
+//     &:not(:last-child) {
+//         margin-bottom: 1rem;
+//     }
 
-    /* Add a bit of style for the down arrow when the options are active */
-    &.active .select-style:after {
-        color: #fff;
-    }
+//     /* Add a bit of style for the down arrow when the options are active */
+//     &.active .select-style:after {
+//         color: #fff;
+//     }
 
-    /* Style the custom select box */
-    .select-style {
-        position: relative;
-        padding: .75rem 1rem;
-        padding-right: 2rem;
-        background-color: #fff;
-        border: 1px solid $blue;
-        border-radius: 8px;
-        cursor: pointer;
-        user-select: none;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+//     /* Style the custom select box */
+//     .select-style {
+//         position: relative;
+//         padding: .75rem 1rem;
+//         padding-right: 2rem;
+//         background-color: #fff;
+//         border: 1px solid $blue;
+//         border-radius: 8px;
+//         cursor: pointer;
+//         user-select: none;
+//         overflow: hidden;
+//         text-overflow: ellipsis;
+//         white-space: nowrap;
 
-        /* Add a bit of style when hovering over the select box */
-        &:hover {
-            background-color: #e0e0e0;
-        }
+//         /* Add a bit of style when hovering over the select box */
+//         &:hover {
+//             background-color: #e0e0e0;
+//         }
 
-        /* Add a bit of style for the down arrow */
-        &:after {
-            content: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.9998 14.75C11.8078 14.75 11.6157 14.6771 11.4697 14.5301L7.46975 10.5301C7.17675 10.2371 7.17675 9.76202 7.46975 9.46902C7.76275 9.17602 8.23779 9.17602 8.53079 9.46902L12.0008 12.939L15.4707 9.46902C15.7637 9.17602 16.2388 9.17602 16.5318 9.46902C16.8248 9.76202 16.8248 10.2371 16.5318 10.5301L12.5318 14.5301C12.3838 14.6771 12.1918 14.75 11.9998 14.75Z' fill='%2325314C'/%3E%3C/svg%3E%0A");
-            position: absolute;
-            width: 1rem;
-            height: 1.5rem;
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%);
-            color: #555;
-        }
-    }
+//         /* Add a bit of style for the down arrow */
+//         &:after {
+//             content: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.9998 14.75C11.8078 14.75 11.6157 14.6771 11.4697 14.5301L7.46975 10.5301C7.17675 10.2371 7.17675 9.76202 7.46975 9.46902C7.76275 9.17602 8.23779 9.17602 8.53079 9.46902L12.0008 12.939L15.4707 9.46902C15.7637 9.17602 16.2388 9.17602 16.5318 9.46902C16.8248 9.76202 16.8248 10.2371 16.5318 10.5301L12.5318 14.5301C12.3838 14.6771 12.1918 14.75 11.9998 14.75Z' fill='%2325314C'/%3E%3C/svg%3E%0A");
+//             position: absolute;
+//             width: 1rem;
+//             height: 1.5rem;
+//             top: 50%;
+//             right: 10px;
+//             transform: translateY(-50%);
+//             color: #555;
+//         }
+//     }
 
-    /* Style the options container */
-    .options {
-        display: none;
-        position: absolute;
-        top: 108%;
-        right: 0;
-        border: 1px solid $blue;
-        border-radius: 8px;
-        background-color: $white;
-        max-height: 200px;
-        overflow-y: auto;
-        z-index: 4;
-        width: max-content;
-        @include reset-list;
+//     /* Style the options container */
+//     .options {
+//         display: none;
+//         position: absolute;
+//         top: 108%;
+//         right: 0;
+//         border: 1px solid $blue;
+//         border-radius: 8px;
+//         background-color: $white;
+//         max-height: 200px;
+//         overflow-y: auto;
+//         z-index: 4;
+//         width: max-content;
+//         @include reset-list;
 
-        /* Style the individual options */
-        li {
-            padding: .75rem 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
+//         /* Style the individual options */
+//         li {
+//             padding: .75rem 1rem;
+//             cursor: pointer;
+//             transition: background-color 0.3s;
 
-            /* Highlight option when hovering over it */
-            &:hover {
-                background-color: #e0e0e0;
-            }
+//             /* Highlight option when hovering over it */
+//             &:hover {
+//                 background-color: #e0e0e0;
+//             }
 
-            /* Style for the selected option */
-            &.active {
-                background-color: $blue;
-                color: $white;
-            }
-        }
-    }
+//             /* Style for the selected option */
+//             &.active {
+//                 background-color: $blue;
+//                 color: $white;
+//             }
+//         }
+//     }
 
-    /* Style for the selected option */
-    .options li[selected] {
-        background-color: #3498db;
-        color: #fff;
-    }
-}
+//     /* Style for the selected option */
+//     .options li[selected] {
+//         background-color: #3498db;
+//         color: #fff;
+//     }
+// }
 
 .isa-archive-filter {
     display: flex;

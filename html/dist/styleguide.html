@@ -102,8 +102,33 @@
                             <button class="bm-btn bm-btn-primary is-loading">Button primary</button>
                             <button class="bm-btn bm-btn-primary" disabled>Button disabled</button>
                             <button class="bm-btn bm-btn-link">Button link</button>
-                            <button class="bm-btn bm-btn-link" disabled>Button link disabled</button><a class="bm-link" href="#">link</a>
+                            <button class="bm-btn bm-btn-link" disabled>Button link disabled</button><a class="bm-link" href="#">link</a><div onclick="showSuccessToast();">Hiển thị thông báo thành công</div>
+<div onclick="showErrorToast();">Hiển thị thông báo thất bại</div>
                         </section>
+                        <div class="rt-table-manage__head--filter"> 
+                            <form action="" method="post">
+                                <div class="custom-select select-filter-time">
+                                    <select class="select-time">
+                                        <option value="thoi-gian">Thời gian</option>
+                                        <option value="7-ngay-truoc">7 Ngày trước</option>
+                                        <option value="1-thang-truoc">1 tháng trước</option>
+                                        <option value="3-thang-truoc">3 tháng trước</option>
+                                        <option value="6-thang-truoc">6 tháng tráng</option>
+                                        <option value="1-nam-truoc">1 năm trước</option>
+                                    </select>
+                                    <div class="select-style"> <span>Thời gian</span></div>
+                                </div>
+                                <div class="custom-select select-filter-status">
+                                    <select class="select-status">
+                                        <option value="trang-thai">Trạng thái</option>
+                                        <option value="da-lien-he">Đã liên hệ</option>
+                                        <option value="chua-lien-he">Chưa liên hệ</option>
+                                        <option value="chua-nghe-may">Chưa nghe máy</option>
+                                    </select>
+                                    <div class="select-style"> <span>Trạng thái</span></div>
+                                </div>
+                            </form>
+                        </div>
                         <section>
                             <h2>WPForms Forms</h2>
                             <div class="wpforms-container wpforms-container-full">

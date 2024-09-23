@@ -43,7 +43,32 @@ block container
                 button.bm-btn.bm-btn-link Button link
                 button.bm-btn.bm-btn-link(disabled) Button link disabled
                 a(href="#" class="bm-link") link
+                <div onclick="showSuccessToast();">Hiển thị thông báo thành công</div>
+                <div onclick="showErrorToast();">Hiển thị thông báo thất bại</div>
+            //- Custom Select
+            .rt-table-manage__head--filter 
+                form(action="" method="post")
+                    .custom-select.select-filter-time
+                        select(class="select-time")
+                            option(value="thoi-gian") Thời gian
+                            option(value="7-ngay-truoc") 7 Ngày trước
+                            option(value="1-thang-truoc") 1 tháng trước
+                            option(value="3-thang-truoc") 3 tháng trước
+                            option(value="6-thang-truoc") 6 tháng tráng
+                            option(value="1-nam-truoc") 1 năm trước
+                        .select-style 
+                            span Thời gian
+                       
 
+                    .custom-select.select-filter-status
+                        select(class="select-status")
+                            option(value="trang-thai") Trạng thái
+                            option(value="da-lien-he") Đã liên hệ
+                            option(value="chua-lien-he") Chưa liên hệ
+                            option(value="chua-nghe-may") Chưa nghe máy
+                        .select-style 
+                            span Trạng thái
+                        
             //- WPForms
             section
                 h2 WPForms Forms

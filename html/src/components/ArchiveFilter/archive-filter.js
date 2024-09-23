@@ -51,6 +51,6 @@
     }
     
     $(function () {
-        initializeCustomSelect('#select-1', '#select-position');   
+        // initializeCustomSelect('#select-1', '#select-position');   
     });
 })(jQuery);
