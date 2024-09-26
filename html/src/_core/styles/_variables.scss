@@ -27,12 +27,9 @@ $gray-4: #F8F9FC !default;
 $gray-5: #E9E9E9 !default;
 
 $white: #ffffff !default;
-$white-2: #F3F3F4 !default;
-$white-3: #f2f6ff !default;
 
 $black: #000000 !default;
 $black-1: #212121 !default;
-$black-2: #171717 !default;
 
 $blue: #040F49 !default;
 $red: #C33130 !default;
@@ -44,32 +41,25 @@ $color-B42928: #B42928 !default;
 $color-FBF5E7: #FBF5E7 !default;
 $color-005180: #005180;
 
-$primary: $color-040F49 !default;
-$secondary: $gray-3 !default;
-$danger: $red !default;
 $body-color: $black-1 !default;
 $placeholder-color: $black-1 !default;
 
-// Custom Colors
-
-
 // Forms
 $input-font-size: 1.125rem !default;
-$input-color: rgba($white, 0.5) !default;
+$input-color: $black !default;
 $input-background-color: transparent !default;
-$input-placeholder-color: rgba($white, 0.5) !default;
+$input-placeholder-color: $black !default;
 $input-height: 3rem !default;
 $input-border-radius: 0 !default;
-$input-border-color: transparent !default;
-$input-border-color-focus: $white !default;
+$input-border-color: $black !default;
 $input-border-width: thin !default;
-$input-padding-y: 0.25rem !default;
-$input-padding-x: 0 !default;
+$input-padding-y: 1rem !default;
+$input-padding-x: 1rem !default;
 $textarea-height: 150px !default;
 
 $label-font-size: 14px !default;
 $label-color: $black-1 !default;
-$label-spacing: 0 !default;
+$label-spacing: .5rem !default;
 $label-font-weight: 500 !default;
 
 $form-row-spacing: 16px !default;
@@ -115,7 +105,7 @@ $custom-switcher-label-font-size: 14px !default;
 $custom-switcher-label-gap: 10px !default;
 
 // Form float label
-$form-float: true !default;
+$form-float: false !default;
 $form-float-label-font-size: 0.625rem !default;
 $form-float-input-padding-top: 0.5rem !default;
 
@@ -125,7 +115,7 @@ $button-background-color: $red;
 $button-background-color-hover: $white;
 $button-disabled-background-color: $gray;
 $button-disabled-background-color-hover: $gray;
-$button-border-radius: 2.5rem !default;
+$button-border-radius: .5rem !default;
 
 $button-font-size: 1rem !default;
 $button-font-weight: 500 !default;

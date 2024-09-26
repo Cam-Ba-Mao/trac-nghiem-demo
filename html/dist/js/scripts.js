@@ -133,39 +133,76 @@ function toast(_ref) {
   }
 }
 function initializeCustomSelect(selectElement, customSelect) {
-  var styleColor = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+  var showSearch = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+  var styleColor = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
   var selected = selectElement.val();
-  var optionsList;
+  var containerOption, optionsList;
   // Hide the default select box
   selectElement.hide();
+  var convertStringToSlug = function convertStringToSlug(str) {
+    var slug;
+    slug = str.toLowerCase().trim();
+    slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
+    slug = slug.replace(/é|è|ẻ|ẹ|ẽ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
+    slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
+    slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
+    slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
+    slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
+    slug = slug.replace(/đ/gi, 'd');
+    slug = slug.replace(/\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi, '');
+    slug = slug.replace(/ /gi, "-");
+    slug = slug.replace(/\-\-\-\-\-/gi, '-');
+    slug = slug.replace(/\-\-\-\-/gi, '-');
+    slug = slug.replace(/\-\-\-/gi, '-');
+    slug = slug.replace(/\-\-/gi, '-');
+    slug = '@' + slug + '@';
+    slug = slug.replace(/\@\-|\-\@|\@/gi, '');
+    return slug;
+  };
 
   // Hàm đặt vị trí của danh sách dưới custom select
   function positionOptionsList() {
-    if (optionsList) {
+    if (containerOption) {
       var customSelectOffset = customSelect.offset();
       var customSelectHeight = customSelect.outerHeight();
       var spacing = 4;
       var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
       var adjustedLeft;
-      var containerHeight = $('.rt-container').outerHeight();
+      var containerHeight = $('body').outerHeight();
       var windowHeight = $(window).height();
       if (containerHeight > windowHeight) {
         adjustedLeft = customSelectOffset.left;
       } else {
         adjustedLeft = customSelectOffset.left + scrollbarWidth;
       }
-      optionsList.css({
-        top: customSelectOffset.top + customSelectHeight + spacing,
-        left: adjustedLeft,
-        width: customSelect.outerWidth()
-      });
 
       // Điều chỉnh nếu danh sách bị tràn màn hình
-      var dropdownWidth = optionsList.outerWidth();
+      var dropdownWidth = containerOption.outerWidth();
       var windowWidth = $(window).width();
       if (customSelectOffset.left + dropdownWidth > windowWidth) {
-        optionsList.css({
+        containerOption.css({
           left: windowWidth - dropdownWidth
+        });
+      }
+
+      // Adjust position of options list based on window height
+      var optionsHeight = containerOption.outerHeight(true);
+      var topCustomSelect = customSelectOffset.top - $(document).scrollTop();
+      if (windowHeight - topCustomSelect < optionsHeight) {
+        console.log('quay lên');
+        containerOption.css({
+          top: customSelectOffset.top - optionsHeight - spacing,
+          bottom: 'auto',
+          left: adjustedLeft,
+          width: customSelect.outerWidth()
+        });
+      } else {
+        console.log('quay xuống');
+        containerOption.css({
+          top: customSelectOffset.top + customSelectHeight + spacing,
+          bottom: 'auto',
+          left: adjustedLeft,
+          width: customSelect.outerWidth()
         });
       }
     }
@@ -176,16 +213,39 @@ function initializeCustomSelect(selectElement, customSelect) {
     e.preventDefault();
 
     // Nếu danh sách tùy chọn đã tồn tại và đang hiển thị, ấn lần nữa sẽ đóng nó
-    if (optionsList && optionsList.is(':visible')) {
-      optionsList.remove();
+    if (containerOption && containerOption.is(':visible')) {
+      containerOption.remove();
       customSelect.find('.select-style').removeClass('show');
       return;
     }
 
     // Tạo danh sách tùy chọn mới nếu nó chưa tồn tại hoặc bị ẩn
-    optionsList = $('<ul>', {
-      'class': 'custom-select-container options'
+    containerOption = $('<div>', {
+      'class': 'custom-select-container'
     }).appendTo('body');
+    if (showSearch) {
+      containerOption.append("\n                <div class=\"custom-select-container__search\">\n                    <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n                        <g opacity=\"0.5\">\n                            <path d=\"M21.354 20.646L17.345 16.637C18.681 15.135 19.501 13.164 19.501 11C19.501 6.313 15.688 2.5 11.001 2.5C6.31398 2.5 2.50098 6.313 2.50098 11C2.50098 15.687 6.31398 19.5 11.001 19.5C13.165 19.5 15.136 18.68 16.638 17.344L20.647 21.353C20.745 21.451 20.873 21.499 21.001 21.499C21.129 21.499 21.257 21.45 21.355 21.353C21.549 21.158 21.549 20.842 21.354 20.646ZM3.5 11C3.5 6.865 6.864 3.5 11 3.5C15.136 3.5 18.5 6.865 18.5 11C18.5 15.135 15.136 18.5 11 18.5C6.864 18.5 3.5 15.135 3.5 11Z\" fill=\"#000000\"></path>\n                        </g>\n                    </svg>\n                    <input class=\"tax-search\" type=\"text\" placeholder=\"T\xECm ki\u1EBFm...\">\n                </div>\n            ");
+
+      // Thêm sự kiện click vào input tìm kiếm để ngăn chặn việc ẩn danh sách
+      containerOption.find('.tax-search').on('click', function (e) {
+        e.stopPropagation(); // Ngăn sự kiện click lan lên document
+      });
+      $(document).on('keyup', '.custom-select-container .tax-search', function () {
+        var box = this.closest('.custom-select-container');
+        var value = convertStringToSlug(this.value);
+        $(box).find('.options > li').each(function (i, e) {
+          var name = convertStringToSlug(e.textContent);
+          if (name.search(value) != -1) {
+            e.style.display = 'list-item';
+          } else {
+            e.style.display = 'none';
+          }
+        });
+      });
+    }
+    optionsList = $('<ul>', {
+      'class': 'options'
+    }).appendTo(containerOption);
 
     // Populate the options list
     selectElement.find('option').each(function () {
@@ -230,7 +290,7 @@ function initializeCustomSelect(selectElement, customSelect) {
       $(this).addClass('active');
 
       // Ẩn danh sách sau khi chọn
-      optionsList.remove();
+      containerOption.remove();
 
       // Kích hoạt sự kiện change trên select bị ẩn
       selectElement.trigger('change');
@@ -245,9 +305,9 @@ function initializeCustomSelect(selectElement, customSelect) {
 
   // Đóng danh sách khi click ra ngoài customSelect
   $(document).on('click', function (event) {
-    if (!$(event.target).closest(customSelect).length && optionsList && optionsList.is(':visible')) {
+    if (!$(event.target).closest(customSelect).length && containerOption && containerOption.is(':visible')) {
       customSelect.find('.select-style').removeClass('show');
-      optionsList.remove();
+      containerOption.remove();
     }
   });
 
@@ -281,7 +341,7 @@ function handleSelectBox(selectors) {
     $(selectors).each(function () {
       var selectElement = $(this);
       var customSelect = selectElement.closest('.custom-select');
-      initializeCustomSelect(selectElement, customSelect);
+      initializeCustomSelect(selectElement, customSelect, true);
     });
   }
   if (selectStatus) {
@@ -292,8 +352,7 @@ function handleSelectBox(selectors) {
     });
   }
 }
-handleSelectBox('.rt-chart-dash .select-time, .rt-table-responsive .select-status-table');
-handleSelectBox('.select-time, .select-status, .select-show-entries');
+handleSelectBox('.select-time, .select-status', false);
 window.addEventListener('load', function () {
   var locomotiveScroll = new LocomotiveScroll({
     lenisOptions: {

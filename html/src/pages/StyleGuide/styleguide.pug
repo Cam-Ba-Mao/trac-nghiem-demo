@@ -43,10 +43,14 @@ block container
                 button.bm-btn.bm-btn-link Button link
                 button.bm-btn.bm-btn-link(disabled) Button link disabled
                 a(href="#" class="bm-link") link
+            
+            //- Toast
+            section
                 <div onclick="showSuccessToast();">Hiển thị thông báo thành công</div>
                 <div onclick="showErrorToast();">Hiển thị thông báo thất bại</div>
+            
             //- Custom Select
-            .rt-table-manage__head--filter 
+            section
                 form(action="" method="post")
                     .custom-select.select-filter-time
                         select(class="select-time")

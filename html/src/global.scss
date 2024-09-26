@@ -33,13 +33,10 @@ body {
         position: fixed;
     }
 
-    &:not(.is-transparent) {
+    &.is-transparent {
         .bm-content {
             padding-top: var(--mh);
         }
-    }
-
-    &.is-transparent {
 
         .bm-take-exam {
             &__answer {
@@ -775,12 +772,7 @@ input[type="search"] {
 .custom-select {
     position: relative;
     width: 166px;
-    display: inline-block;
-
-    /* Add a bit of style for the down arrow when the options are active */
-    &.active .select-style:after {
-        color: #fff;
-    }
+    display: inline-block;   
 
     select {
         display: none;
@@ -830,23 +822,23 @@ input[type="search"] {
 }
 
 .custom-select-container {
+    position: absolute;
+    top: 108%;
+    left: 0;
+    right: 0;
+    border: 1px solid rgba(#205CD4, 1);
+    border-radius: 8px;
+    background-color: #ffffff;
+    z-index: 1;
+    overflow: hidden;
+
     /* Style the options container */
-    &.options {
-        position: absolute;
-        top: 108%;
-        left: 0;
-        right: 0;
-        border: 1px solid $blue;
-        border-radius: 8px;
-        background-color: $white;
+    .options {
         max-height: 300px;
         overflow-y: auto;
-        z-index: 1;
-        @include reset-list;
-        padding: 1rem;
-        width: 100%;
-        min-width: max-content;
-        display: inline-block;
+        list-style: none;
+        margin: 0;
+        padding: 1rem .5rem;
 
         /* Style the individual options */
         li {
@@ -859,13 +851,12 @@ input[type="search"] {
 
             /* Highlight option when hovering over it */
             // &:hover {
-            //     background-color: $white-3;
-            //     font-weight: 500;
+            //     background-color: #f2f6ff;
             // }
 
             /* Style for the selected option */
             &.active {
-                background-color: $white-3;
+                background-color: #f2f6ff;
             }
 
             /* Style for the selected option */
@@ -873,6 +864,25 @@ input[type="search"] {
                 background-color: #3498db;
                 color: #fff;
             }
+        }
+
+    }
+
+    &__search {
+        gap: 0.5rem;
+        display: flex;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        transition: all 1s ease;
+        background: #f8f8f8;
+
+        svg {
+            flex-shrink: 0;
+        }
+
+        input.tax-search {
+            flex-grow: 1;
+            width: 100%;
         }
     }
 

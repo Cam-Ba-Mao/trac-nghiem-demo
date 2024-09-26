@@ -28,7 +28,7 @@
         z-index: 100;
         font-size: $input-font-size;
         line-height: 1;
-        color: $input-placeholder-color;
+        color: $black;
         pointer-events: none;
         transition: all 0.2s ease;
         padding: 0 $input-padding-x !important;
@@ -59,13 +59,13 @@
     border-style: solid;
     border-color: $input-border-color;
     border-width: $input-border-width;
-    border-bottom-color: rgba($color-FBF5E7, 0.2);
     font-family: inherit;
     font-size: $input-font-size;
     line-height: inherit;
     color: $input-color;
     outline: none;
     appearance: none;
+    
     @include reset-autofill;
 
     @include breakpoint-up(lg) {
@@ -74,7 +74,6 @@
 
     &:focus {
         box-shadow: none;
-        border-bottom-color: $input-border-color-focus;
     }
 
     @if ($form-float ==false) {
@@ -469,7 +468,7 @@ div.wpforms-container-full {
 
                     select {
                         font-weight: $label-font-weight;
-                        padding: 0.5rem 0;
+                        padding: 0.5rem 1rem;
 
                         &:has(option:active) {
                             padding: 0.5rem 1rem;
@@ -495,26 +494,11 @@ div.wpforms-container-full {
                             border-bottom-color: rgba($color-FBF5E7, 0.2);
                             padding: 0;
 
-                            // width: 100%;
-                            // height: $input-height;
-                            
-                            // border-radius: $input-border-radius;
-                            // border-style: solid;
-                            // border-color: $input-border-color;
-                            // border-width: $input-border-width;
-                            
-                            // font-family: inherit;
-                           
-                            // line-height: inherit;
-                          
-                            // outline: none;
-                            // appearance: none;
                             @include reset-autofill;
                         }
 
                         &__list {
                             &--single {
-                                // padding: 16px 16px 4px 10px;
                                 padding: 0 16px 0 0;
 
                                 .choices {
@@ -558,7 +542,6 @@ div.wpforms-container-full {
 
                     &.is-open {
                         &:after {
-                            // margin-top: -3.5px;
                             transform: rotate(180deg);
                         }
                     }
@@ -684,26 +667,15 @@ div.wpforms-container-full {
                     }
                 }
 
-                // &.is-icon {
-                //     padding: 14px 32px 14px 64px;
-                //     &::before {
-                //         content: '';
-                //         width: 22px;
-                //         height: 22px;
-                //         position: absolute;
-                //         left: 24px;
-                //         background-image: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21 1L6 13V20L9.6 15.7' stroke='white' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M1 9L21 1L17 21L1 9Z' stroke='white' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
-                //     }
-                //}
             }
         }
     }
 
-    // .wpforms-confirmation-container-full {
-    //     background: transparent;
-    //     border: 0;
-    //     padding: 0;
-    // }
+    .wpforms-confirmation-container-full {
+        background: transparent;
+        border: 0;
+        padding: 0;
+    }
 }
 
 // IEDG form
