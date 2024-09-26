@@ -643,15 +643,39 @@ window.addEventListener('load', function () {
       dynamicGallery.openGallery(index);
     });
   }
+  function handleRating() {
+    if ($('.is-rating select').length > 0) {
+      $('.is-rating select').hide().before('<div class="rt-stars">\
+                    <span>\
+                        <a class="star-1" href="#">1</a>\
+                        <a class="star-2" href="#">2</a>\
+                        <a class="star-3" href="#">3</a>\
+                        <a class="star-4" href="#">4</a>\
+                        <a class="star-5" href="#">5</a>\
+                    </span>\
+                </div>');
+    }
+    $(document).on('click', '.is-rating .rt-stars a', function (e) {
+      e.preventDefault();
+      var $star = $(this),
+        $rating = $(this).closest('.is-rating').find('select'),
+        $container = $(this).closest('.rt-stars');
+      $rating.val($star.text());
+      $star.siblings('a').removeClass('active');
+      $star.addClass('active');
+      $container.addClass('selected');
+    });
+  }
   $(function () {
     getRootVars();
     initLazyLoad();
-    initSelect2();
+    // initSelect2();
     initPopup();
     handleWordpressAdminMode();
     initFormFloatLabel();
     initAnchorScroll();
     handleLightGallery();
+    handleRating();
   });
   $(window).on('resize', function () {
     getRootVars();
@@ -762,40 +786,6 @@ window.addEventListener('load', function () {
   });
 })(jQuery);
 (function ($) {
-  function DemoAdminBarMode() {
-    $('#enable-admin-bar').on('change', function () {
-      var adminBarModeStatus = $(this).prop('checked');
-      if (adminBarModeStatus) {
-        $('html').addClass('admin-bar-html');
-        $('body').append('<div id="wpadminbar">WP Admin bar</div>').addClass('admin-bar');
-      } else {
-        $('html').removeClass('admin-bar-html');
-        $('body').removeClass('admin-bar');
-        $('#wpadminbar').remove();
-        $('.js-bm-navbar').css('margin-top', '');
-      }
-      if ($(window).width() <= 600) {
-        DemoNavbarMove();
-        $(window).on('scroll', function () {
-          DemoNavbarMove();
-        });
-      }
-      function DemoNavbarMove() {
-        var top = $(window).scrollTop(),
-          offsetTop = 46 - top > 0 ? 46 - top : 0;
-        if ($('#wpadminbar').length && $('.js-bm-navbar').length) {
-          $('.js-bm-navbar').css('margin-top', offsetTop);
-        } else {
-          $('.js-bm-navbar').css('margin-top', '');
-        }
-      }
-    });
-  }
-  $(function () {
-    DemoAdminBarMode();
-  });
-})(jQuery);
-(function ($) {
   var body = $('body');
   var scrollUp = "scroll-up";
   var scrollDown = "scroll-down";
@@ -866,6 +856,40 @@ window.addEventListener('load', function () {
     handleNavCollapse();
     handleScrollMenu();
     calculateScroll();
+  });
+})(jQuery);
+(function ($) {
+  function DemoAdminBarMode() {
+    $('#enable-admin-bar').on('change', function () {
+      var adminBarModeStatus = $(this).prop('checked');
+      if (adminBarModeStatus) {
+        $('html').addClass('admin-bar-html');
+        $('body').append('<div id="wpadminbar">WP Admin bar</div>').addClass('admin-bar');
+      } else {
+        $('html').removeClass('admin-bar-html');
+        $('body').removeClass('admin-bar');
+        $('#wpadminbar').remove();
+        $('.js-bm-navbar').css('margin-top', '');
+      }
+      if ($(window).width() <= 600) {
+        DemoNavbarMove();
+        $(window).on('scroll', function () {
+          DemoNavbarMove();
+        });
+      }
+      function DemoNavbarMove() {
+        var top = $(window).scrollTop(),
+          offsetTop = 46 - top > 0 ? 46 - top : 0;
+        if ($('#wpadminbar').length && $('.js-bm-navbar').length) {
+          $('.js-bm-navbar').css('margin-top', offsetTop);
+        } else {
+          $('.js-bm-navbar').css('margin-top', '');
+        }
+      }
+    });
+  }
+  $(function () {
+    DemoAdminBarMode();
   });
 })(jQuery);
 // (function ($) {

@@ -712,16 +712,45 @@ window.addEventListener('load', () => {
         
     }
     
+    function handleRating() {
+        if ($('.is-rating select').length > 0) {
+            $('.is-rating select').hide().before(
+                '<div class="rt-stars">\
+                    <span>\
+                        <a class="star-1" href="#">1</a>\
+                        <a class="star-2" href="#">2</a>\
+                        <a class="star-3" href="#">3</a>\
+                        <a class="star-4" href="#">4</a>\
+                        <a class="star-5" href="#">5</a>\
+                    </span>\
+                </div>'
+            );
+        }
+
+        $(document).on('click', '.is-rating .rt-stars a', function (e) {
+            e.preventDefault();
+
+            var $star = $(this),
+                $rating = $(this).closest('.is-rating').find('select'),
+                $container = $(this).closest('.rt-stars');
+
+            $rating.val($star.text());
+            $star.siblings('a').removeClass('active');
+            $star.addClass('active');
+            $container.addClass('selected');
+        });
+    }
     
     $(function () {
         getRootVars();
         initLazyLoad();
-        initSelect2();
+        // initSelect2();
         initPopup();
         handleWordpressAdminMode();
         initFormFloatLabel();
         initAnchorScroll();
         handleLightGallery();
+        handleRating();
 
     });
 

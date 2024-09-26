@@ -45,19 +45,19 @@ $body-color: $black-1 !default;
 $placeholder-color: $black-1 !default;
 
 // Forms
-$input-font-size: 1.125rem !default;
+$input-font-size: 14px !default;
 $input-color: $black !default;
 $input-background-color: transparent !default;
 $input-placeholder-color: $black !default;
-$input-height: 3rem !default;
-$input-border-radius: 0 !default;
+$input-height: 3.5rem !default;
+$input-border-radius: 10px !default;
 $input-border-color: $black !default;
 $input-border-width: thin !default;
 $input-padding-y: 1rem !default;
-$input-padding-x: 1rem !default;
+$input-padding-x: 1.25rem !default;
 $textarea-height: 150px !default;
 
-$label-font-size: 14px !default;
+$label-font-size: 16px !default;
 $label-color: $black-1 !default;
 $label-spacing: .5rem !default;
 $label-font-weight: 500 !default;
@@ -89,20 +89,6 @@ $select-dropdown-offset: 0;
 $validate-message-color: $red-2 !default;
 $validate-message-font-size: 10px !default;
 $validate-message-spacing: 6px !default;
-
-$custom-switcher-slider-width: 50px !default;
-$custom-switcher-slider-height: 16px !default;
-$custom-switcher-slider-color: $gray !default;
-$custom-switcher-slider-color-checked: $gray-2 !default;
-$custom-switcher-slider-cursor-size: 22px !default;
-$custom-switcher-slider-cursor-color: #424242 !default;
-$custom-switcher-slider-cursor-color-checked: $red !default;
-$custom-switcher-slider-label-font-size: 8px !default;
-$custom-switcher-slider-label-color: rgba($color: #000000, $alpha: 0.5) !default;
-$custom-switcher-slider-label-spacing: 2px !default;
-$custom-switcher-slider-gap: calc(($custom-switcher-slider-cursor-size - $custom-switcher-slider-height) / 2) !default;
-$custom-switcher-label-font-size: 14px !default;
-$custom-switcher-label-gap: 10px !default;
 
 // Form float label
 $form-float: false !default;

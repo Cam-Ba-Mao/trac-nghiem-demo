@@ -106,3 +106,29 @@ block container
                             input(type="checkbox")
                             span.bm-custom-switcher__slider
                             span.bm-custom-switcher__label Custom switcher
+                    .bm-form-group.is-rating.clear_label
+                        label(for="rating-1").rt-form-label Chương trình giảng dạy*
+                        .bm-form-group__inner
+                            select(select name="rating-1" id="rating-1" required)
+                                option(value="") Select rating
+                                option(value="5") Perfect
+                                option(value="4") Good
+                                option(value="3") Average
+                                option(value="2") Not that bad
+                                option(value="1") Very poor
+
+                    .bm-form-group.is-rating.clear_label
+                        label(for="rating-1").rt-form-label Cơ sở vật chất*
+                        .bm-form-group__inner
+                            select(select name="rating-1" id="rating-1" required)
+                                option(value="") Select rating
+                                option(value="5") Perfect
+                                option(value="4") Good
+                                option(value="3") Average
+                                option(value="2") Not that bad
+                                option(value="1") Very poor
+
+            section
+                h2 Star view
+                .rt-star-rating(role="img" aria-label="Rated 5.00 out of 5")
+                    span(style="width: 50%") Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">4.9</span> (26 Reviews)
