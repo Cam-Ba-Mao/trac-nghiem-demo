@@ -16,38 +16,38 @@ block container
     .bm-styleguide
         .container
             //- Slider
-            section
-                -
-                    demoSlider = [
-                        "https://images.unsplash.com/photo-1485546784815-e380f3297414?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-                        "https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-                    ]
-                ul.bm-demo-slider
-                    each val in demoSlider
-                        li
-                            img(data-lazy= val alt="")
-            //- Heading
-            section
-                h1.heading-primary 	h1. RT heading
-                h2.heading-primary 	h2. RT heading
-                h3.heading-primary 	h3. RT heading
-                h4.heading-primary 	h4. RT heading
-                h5.heading-primary 	h5. RT heading
-                h6.heading-primary 	h6. RT heading
-            //- Buttons
-            section
-                button.bm-btn.bm-btn-primary Button primary
-                button.bm-btn.bm-btn-outline-primary Button outline primary
-                button.bm-btn.bm-btn-primary.is-loading Button primary
-                button.bm-btn.bm-btn-primary(disabled) Button disabled
-                button.bm-btn.bm-btn-link Button link
-                button.bm-btn.bm-btn-link(disabled) Button link disabled
-                a(href="#" class="bm-link") link
+            //- section
+            //-     -
+            //-         demoSlider = [
+            //-             "https://images.unsplash.com/photo-1485546784815-e380f3297414?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+            //-             "https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+            //-         ]
+            //-     ul.bm-demo-slider
+            //-         each val in demoSlider
+            //-             li
+            //-                 img(data-lazy= val alt="")
+            //- //- Heading
+            //- section
+            //-     h1.heading-primary 	h1. RT heading
+            //-     h2.heading-primary 	h2. RT heading
+            //-     h3.heading-primary 	h3. RT heading
+            //-     h4.heading-primary 	h4. RT heading
+            //-     h5.heading-primary 	h5. RT heading
+            //-     h6.heading-primary 	h6. RT heading
+            //- //- Buttons
+            //- section
+            //-     button.bm-btn.bm-btn-primary Button primary
+            //-     button.bm-btn.bm-btn-outline-primary Button outline primary
+            //-     button.bm-btn.bm-btn-primary.is-loading Button primary
+            //-     button.bm-btn.bm-btn-primary(disabled) Button disabled
+            //-     button.bm-btn.bm-btn-link Button link
+            //-     button.bm-btn.bm-btn-link(disabled) Button link disabled
+            //-     a(href="#" class="bm-link") link
             
-            //- Toast
-            section
-                <div onclick="showSuccessToast();">Hiển thị thông báo thành công</div>
-                <div onclick="showErrorToast();">Hiển thị thông báo thất bại</div>
+            //- //- Toast
+            //- section
+            //-     <div onclick="showSuccessToast();">Hiển thị thông báo thành công</div>
+            //-     <div onclick="showErrorToast();">Hiển thị thông báo thất bại</div>
             
             //- Custom Select
             section
@@ -73,62 +73,62 @@ block container
                         .select-style 
                             span Trạng thái
                         
-            //- WPForms
-            section
-                h2 WPForms Forms
-                .wpforms-container.wpforms-container-full
-                    form(action="./styleguide.html" class="wpforms-validate wpforms-form wpforms-ajax-form")
-                        .wpforms-field-container
-                            +wpf-input("wpf-input-1", "Input label", "Input place holder", "Validation message")
-                            +wpf-textarea("Text area", "Type your message here", "Validation message")
-                            +wpf-select("Select box", "Option 1", "Option 2", "Option 3")
-                            +wpf-checkbox("wpf-checkbox", "Check box", "Validation message", "Item 1", "Item 2")
-                            +wpf-radio("wpf-radio", "Radio", "Validation message", "Item 1", "Item 2")
-                        .wpforms-submit-container
-                            button(type="submit" class="wpforms-submit" data-alt-text="Sending..." data-submit-text="Submit") Gửi thông tin
-            //- Forms
-            section
-                h2 Form
-                form(action="./styleguide.html")
-                    +v-input("text", "v-input-1", "Input label", "Input place holder", "Validation message")
-                    +v-input("text", "v-input-2", "Input disabled", "Input disabled")(disabled)
-                    +v-textarea("Text area", "Text area place holder")
-                    .bm-form-group.clear_label
-                        .bm-form-label Check box
-                        +v-checkbox("v-checkbox-1", "Check box 1")
-                    .bm-form-group.clear_label
-                        .bm-form-label Radio
-                        +v-radio("v-radio", "v-radio-1", "Radio 1")
-                        +v-radio("v-radio", "v-radio-2", "Radio 2")
-                    .bm-form-group.clear_label
-                        .bm-form-label Switcher
-                        label.bm-custom-switcher
-                            input(type="checkbox")
-                            span.bm-custom-switcher__slider
-                            span.bm-custom-switcher__label Custom switcher
-                    .bm-form-group.is-rating.clear_label
-                        label(for="rating-1").rt-form-label Chương trình giảng dạy*
-                        .bm-form-group__inner
-                            select(select name="rating-1" id="rating-1" required)
-                                option(value="") Select rating
-                                option(value="5") Perfect
-                                option(value="4") Good
-                                option(value="3") Average
-                                option(value="2") Not that bad
-                                option(value="1") Very poor
+            //- //- WPForms
+            //- section
+            //-     h2 WPForms Forms
+            //-     .wpforms-container.wpforms-container-full
+            //-         form(action="./styleguide.html" class="wpforms-validate wpforms-form wpforms-ajax-form")
+            //-             .wpforms-field-container
+            //-                 +wpf-input("wpf-input-1", "Input label", "Input place holder", "Validation message")
+            //-                 +wpf-textarea("Text area", "Type your message here", "Validation message")
+            //-                 +wpf-select("Select box", "Option 1", "Option 2", "Option 3")
+            //-                 +wpf-checkbox("wpf-checkbox", "Check box", "Validation message", "Item 1", "Item 2")
+            //-                 +wpf-radio("wpf-radio", "Radio", "Validation message", "Item 1", "Item 2")
+            //-             .wpforms-submit-container
+            //-                 button(type="submit" class="wpforms-submit" data-alt-text="Sending..." data-submit-text="Submit") Gửi thông tin
+            //- //- Forms
+            //- section
+            //-     h2 Form
+            //-     form(action="./styleguide.html")
+            //-         +v-input("text", "v-input-1", "Input label", "Input place holder", "Validation message")
+            //-         +v-input("text", "v-input-2", "Input disabled", "Input disabled")(disabled)
+            //-         +v-textarea("Text area", "Text area place holder")
+            //-         .bm-form-group.clear_label
+            //-             .bm-form-label Check box
+            //-             +v-checkbox("v-checkbox-1", "Check box 1")
+            //-         .bm-form-group.clear_label
+            //-             .bm-form-label Radio
+            //-             +v-radio("v-radio", "v-radio-1", "Radio 1")
+            //-             +v-radio("v-radio", "v-radio-2", "Radio 2")
+            //-         .bm-form-group.clear_label
+            //-             .bm-form-label Switcher
+            //-             label.bm-custom-switcher
+            //-                 input(type="checkbox")
+            //-                 span.bm-custom-switcher__slider
+            //-                 span.bm-custom-switcher__label Custom switcher
+            //-         .bm-form-group.is-rating.clear_label
+            //-             label(for="rating-1").rt-form-label Chương trình giảng dạy*
+            //-             .bm-form-group__inner
+            //-                 select(select name="rating-1" id="rating-1" required)
+            //-                     option(value="") Select rating
+            //-                     option(value="5") Perfect
+            //-                     option(value="4") Good
+            //-                     option(value="3") Average
+            //-                     option(value="2") Not that bad
+            //-                     option(value="1") Very poor
 
-                    .bm-form-group.is-rating.clear_label
-                        label(for="rating-1").rt-form-label Cơ sở vật chất*
-                        .bm-form-group__inner
-                            select(select name="rating-1" id="rating-1" required)
-                                option(value="") Select rating
-                                option(value="5") Perfect
-                                option(value="4") Good
-                                option(value="3") Average
-                                option(value="2") Not that bad
-                                option(value="1") Very poor
+            //-         .bm-form-group.is-rating.clear_label
+            //-             label(for="rating-1").rt-form-label Cơ sở vật chất*
+            //-             .bm-form-group__inner
+            //-                 select(select name="rating-1" id="rating-1" required)
+            //-                     option(value="") Select rating
+            //-                     option(value="5") Perfect
+            //-                     option(value="4") Good
+            //-                     option(value="3") Average
+            //-                     option(value="2") Not that bad
+            //-                     option(value="1") Very poor
 
-            section
-                h2 Star view
-                .rt-star-rating(role="img" aria-label="Rated 5.00 out of 5")
-                    span(style="width: 50%") Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">4.9</span> (26 Reviews)
+            //- section
+            //-     h2 Star view
+            //-     .rt-star-rating(role="img" aria-label="Rated 5.00 out of 5")
+            //-         span(style="width: 50%") Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">4.9</span> (26 Reviews)

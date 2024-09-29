@@ -539,8 +539,13 @@ input[type="search"] {
 
 .custom-select {
     position: relative;
-    width: 166px;
-    display: inline-block;   
+    width: 250px;
+    display: inline-block;
+
+    /* Add a bit of style for the down arrow when the options are active */
+    &.active .select-style:after {
+        color: #fff;
+    }
 
     select {
         display: none;
@@ -548,22 +553,30 @@ input[type="search"] {
 
     /* Style the custom select box */
     .select-style {
+        --customSelectBorder: rgba(32, 92, 212, 0.2);
+        --customSelectColor: #000000;
+        --customSelectColorHover: #000000;
+        --customSelectBackground: transparent;
+        --customSelectBackgroudHover: #f2f6ff;
+
         position: relative;
         padding: .75rem 1rem;
         padding-right: 2rem;
-        background-color: #fff;
-        border: 1px solid $blue;
+        background-color: var(--customSelectBackground);
+        border: 1px solid var(--customSelectBorder);
         border-radius: 10px;
         font-weight: 500;
+        color: var(--customSelectColor);
         cursor: pointer;
         user-select: none;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        margin: 0;
 
         /* Add a bit of style when hovering over the select box */
         &:hover {
-            background-color: #e0e0e0;
+            background-color: var(--customSelectBackgroudHover);
         }
 
         /* Add a bit of style for the down arrow */
@@ -594,11 +607,13 @@ input[type="search"] {
     top: 108%;
     left: 0;
     right: 0;
-    border: 1px solid rgba(#205CD4, 1);
+    border: 1px solid rgba(#205CD4, .2);
     border-radius: 8px;
     background-color: #ffffff;
     z-index: 1;
     overflow: hidden;
+    max-width: 100%;
+    box-sizing: border-box;
 
     /* Style the options container */
     .options {
@@ -606,51 +621,51 @@ input[type="search"] {
         overflow-y: auto;
         list-style: none;
         margin: 0;
-        padding: 1rem .5rem;
+        padding: .75rem .5rem;
 
         /* Style the individual options */
         li {
             padding: .75rem 1rem;
             cursor: pointer;
             transition: background-color 0.3s;
-            border-radius: 10px;
-            font-weight: 700;
             font-size: 14px;
-
-            /* Highlight option when hovering over it */
-            // &:hover {
-            //     background-color: #f2f6ff;
-            // }
 
             /* Style for the selected option */
             &.active {
-                background-color: #f2f6ff;
+                background-color: #e0e0e0;
             }
 
-            /* Style for the selected option */
-            [selected] {
-                background-color: #3498db;
-                color: #fff;
+            /* Highlight option when hovering over it */
+            &:hover {
+                background-color: #5897fb;
+                color: #ffffff;
             }
         }
-
     }
 
     &__search {
-        gap: 0.5rem;
-        display: flex;
         padding: 0.75rem;
-        border-radius: 0.5rem;
-        transition: all 1s ease;
-        background: #f8f8f8;
-
-        svg {
-            flex-shrink: 0;
-        }
+        background: #f2f6ff;
 
         input.tax-search {
-            flex-grow: 1;
+            font-size: 14px;
+            line-height: 1.5;
+            background: #E9EEF0;
+            border: 1px solid #C5CBD5;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><path fill='%238C92A0' d='M11.44 10.73l4.41 4.42a.5.5 0 1 1-.7.7l-4.42-4.41a6.5 6.5 0 1 1 .7-.7v-.01zM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11z'></path></svg>");
+            background-repeat: no-repeat;
+            background-position: 15px 10px;
+            background-size: 20px 20px;
+            border-radius: 100px;
+            padding: .5rem 1rem .5rem 3rem;
             width: 100%;
+            box-sizing: border-box;
+
+            &:focus {
+                outline: none;
+                background-color: #FFF;
+                border: 1px solid #84A2FA;
+            }
         }
     }
 
