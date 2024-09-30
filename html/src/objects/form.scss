@@ -22,7 +22,7 @@
 
     @else {
         position: absolute;
-        top: ceil(calc(($input-height - $input-font-size)/2));
+        top: calc(($input-height - $input-font-size) / 2);
         left: 0;
         width: 100%;
         z-index: 100;
@@ -100,7 +100,9 @@
     }
 
     @else {
-        padding: ceil(calc(($input-height - $input-font-size * 0.5) / 2)) $input-padding-x $input-padding-x;
+        // padding: ceil(calc(($input-height - $input-font-size * 0.5) / 2)) $input-padding-x $input-padding-x;
+        padding: calc(($input-height - $input-font-size * 0.5) / 2) $input-padding-x $input-padding-x;
+
 
         &::placeholder {
             color: transparent;
@@ -648,7 +650,7 @@ div.wpforms-container-full {
     &.clear_label {
         .bm-form-label {
             position: static;
-            padding: 0;
+            padding: 0 !important;
             margin-bottom: $label-spacing;
             color: $label-color;
         }
