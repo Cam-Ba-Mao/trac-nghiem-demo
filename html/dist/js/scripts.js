@@ -1032,36 +1032,6 @@ window.addEventListener('load', function () {
   });
 })(jQuery);
 (function ($) {
-  // Hàm để chuyển đổi trạng thái menu
-  var toggleMenu = function toggleMenu() {
-    window.addEventListener('load', function () {
-      // Chọn các phần tử
-      var menuToggleButton = document.querySelector('.menu-toggle');
-      var adminMenu = document.querySelector('.admin-menu');
-
-      // Kiểm tra sự tồn tại của các phần tử trước khi thêm sự kiện
-      if (menuToggleButton && adminMenu) {
-        // Thêm sự kiện click
-        menuToggleButton.addEventListener('click', function () {
-          if (adminMenu.classList.contains('collapsed')) {
-            adminMenu.classList.remove('collapsed');
-            adminMenu.classList.add('expanded');
-          } else {
-            adminMenu.classList.remove('expanded');
-            adminMenu.classList.add('collapsed');
-          }
-        });
-      } else {
-        console.log('Không tìm thấy phần tử menu-toggle hoặc admin-menu.');
-      }
-    });
-  };
-  $(function () {
-    toggleMenu();
-    $(window).on("resize", function () {});
-  });
-})(jQuery);
-(function ($) {
   var showPassword = function showPassword() {
     window.addEventListener("load", function () {
       var togglePassword = document.querySelector(".togglePassword");
@@ -1088,6 +1058,36 @@ window.addEventListener('load', function () {
   };
   $(function () {
     showPassword();
+    $(window).on("resize", function () {});
+  });
+})(jQuery);
+(function ($) {
+  // Hàm để chuyển đổi trạng thái menu
+  var toggleMenu = function toggleMenu() {
+    window.addEventListener('load', function () {
+      // Chọn các phần tử
+      var menuToggleButton = document.querySelector('.menu-toggle');
+      var adminMenu = document.querySelector('.admin-menu');
+
+      // Kiểm tra sự tồn tại của các phần tử trước khi thêm sự kiện
+      if (menuToggleButton && adminMenu) {
+        // Thêm sự kiện click
+        menuToggleButton.addEventListener('click', function () {
+          if (adminMenu.classList.contains('collapsed')) {
+            adminMenu.classList.remove('collapsed');
+            adminMenu.classList.add('expanded');
+          } else {
+            adminMenu.classList.remove('expanded');
+            adminMenu.classList.add('collapsed');
+          }
+        });
+      } else {
+        console.log('Không tìm thấy phần tử menu-toggle hoặc admin-menu.');
+      }
+    });
+  };
+  $(function () {
+    toggleMenu();
     $(window).on("resize", function () {});
   });
 })(jQuery);

@@ -37,7 +37,7 @@ $total_score = $score_per_question * $exam_result['score'];
 $wrong_answers = $total_questions - $exam_result['score'];
 
 $title = "Kết quả thi";
-
+$class = "page-template-results";
 include(__DIR__ . '/../header.php');
 ?>
 <section class="bm-results">
@@ -111,7 +111,7 @@ include(__DIR__ . '/../header.php');
 </section>
 
 <script>
-    $('a[href*="#"]:not([href="#"])').click(function () {
+    $('.bm-results a[href*="#"]:not([href="#"])').click(function () {
         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
             var target = $(this.hash);
             target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');

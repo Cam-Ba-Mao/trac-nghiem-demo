@@ -1,4 +1,4 @@
-.rt-404{
+.bm-404 {
     padding-top: 4rem;
     padding-bottom: 4rem;
 
@@ -7,31 +7,25 @@
         padding-bottom: 5rem;
     }
     
-    &__inner {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        height: 100%;
+    &__inner {        
         text-align: center;
     }
 
     &__image {
         margin-bottom: 1.5rem;
+        margin-left: auto;
+        margin-right: auto;
 
         @include breakpoint-up(lg) {
             margin-bottom: 2.25rem; 
         }
 
-        img {
-            @include breakpoint-up(sm) {
-                max-width: 367px;
-            }
+        @include breakpoint-up(sm) {
+            max-width: 500px;
         }
     }
 
-    .rt-title {
+    .bm-title {
         color: $blue;
         margin-bottom: .75rem;
     }

@@ -33,10 +33,14 @@ body {
         position: fixed;
     }
 
-    &.is-transparent {
+    &:not(.is-transparent) {
         .bm-content {
             padding-top: var(--mh);
         }
+    }
+
+    &.is-transparent {
+       
 
         .bm-take-exam {
             &__answer {

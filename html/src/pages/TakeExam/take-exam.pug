@@ -1,0 +1,51 @@
+extends ../../_core/layouts/layouts-default
+
+append vars
+    -bodyClass = "page-template-take-exam"
+    -typeMenu = ""
+
+block container
+    section.bm-take-exam
+        h1.bm-title Làm bài thi Đề 1
+        .bm-take-exam__wrap
+            .bm-take-left
+                .bm-take-exam__answer
+                    -
+                        items = [1,2,3,4,5]
+                    each val, key in items
+                        a(href="#quest-"+(key + 1)+"" class="menu-link") Câu #{key + 1}
+                            span(class="tick" id="tick-"+(key + 1)+"")                  
+           
+            .bm-take-middle
+                .bm-take-exam__content
+                    form(id="examForm")
+                        -
+                            items = [
+                                {
+                                    "question" : "Độ phủ lớn, tìm thông tin nhanh chóng",
+                                },
+                                {
+                                    "question" : "Công cụ tìm kiếm thông minh",
+                                },
+                                {
+                                    "question" : "Cộng đồng Phụ huynh trong khu vực",
+                                },
+                            ]
+                        each val, key in items
+                            div(id=`quest-${key + 1}`)
+                                p Câu 1: #{val.question}
+                                input(type="radio" name="question_1" value="A") 
+                                span Đáp án Test 1 <br>
+                                input(type="radio" name="question_2" value="B")
+                                span Đáp án Test 2 <br>
+                                input(type="radio" name="question_3" value="C")
+                                span Đáp án Test 3 <br>
+                                input(type="radio" name="question_4" value="D")
+                                span Đáp án Test 4 <br>
+                        input(type="submit" value="Nộp bài")
+                  
+            .bm-take-right
+                .student-info
+                    h3 Thông tin sinh viên:
+                    span
+                        strong Họ tên: IT Test

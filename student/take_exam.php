@@ -22,12 +22,12 @@ $min = $exam['exam_time'];
 $sec = 0;
 
 $title = "Làm bài thi";
-$class = "is-transparent";
+$class = "page-template-take-exam";
 
 include(__DIR__ . '/../header.php');
 ?>
     
-    <div class="bm-take-exam">
+    <section class="bm-take-exam">
         <h1 class="bm-title">Làm bài thi <?= $exam_name; ?></h1>
         <div class="bm-take-exam__wrap">
             <div class="bm-take-left">
@@ -71,7 +71,7 @@ include(__DIR__ . '/../header.php');
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <script>
         var min = <?= $min ?>;
         var sec = <?= $sec ?>;
