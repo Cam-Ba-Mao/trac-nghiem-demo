@@ -21,7 +21,7 @@
                     this.classList.toggle("fa-eye-slash");
                 });
             } else {
-                console.log('Không tìm thấy phần tử togglePassword.');
+                // console.log('Không tìm thấy phần tử togglePassword.');
             }
             
         });

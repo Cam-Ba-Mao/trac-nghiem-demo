@@ -5,7 +5,7 @@ mixin icon(name)
 
 //- WPform
 mixin wpf-input(id, label, placeholder, error=null, icon=null, required = false)
-    .wpforms-field.isa-datetime-picker(class=(icon && icon))&attributes(attributes)
+    .wpforms-field(class=(icon && icon))&attributes(attributes)
         label.wpforms-field-label(for=id)= label 
             if required
                 span.required *
@@ -103,32 +103,32 @@ mixin g-upload(name, label)
                 .ginput_preview debug.log
             .validation_message The uploaded file type is not allowed.
 
-//- Ven form
-mixin v-input(type, id, label, placeholder, error=null)
-    .bm-form-group(class=error && "iedg-form-group--error")&attributes(attributes)
+//- BM form
+mixin bm-input(type, id, label, placeholder, error=null)
+    .bm-form-group(class=error && "bm-form-group--error")&attributes(attributes)
         label.bm-form-label(for=id)= label
         input.bm-form-control(type=type, id=id, placeholder=placeholder)
         if error
             span.invalid-message= error
 
-mixin v-select(label, ...items)
+mixin bm-select(label, ...items)
     .bm-form-group&attributes(attributes)
         label.bm-form-label= label
         select
             each item in items
                 option= item
 
-mixin v-textarea(label, placeholder)
+mixin bm-textarea(label, placeholder)
     .bm-form-group&attributes(attributes)
         label.bm-form-label= label
         textarea.bm-form-control(placeholder=placeholder)
 
-mixin v-checkbox(id, label, checked=false)
+mixin bm-checkbox(id, label, checked=false)
     span.bm-custom-control
         input(type="checkbox" id=id checked=checked)
         label(for=id)= label
 
-mixin v-radio(name, id, label, checked=false)
+mixin bm-radio(name, id, label, checked=false)
     span.bm-custom-control
         input(type="radio" name=name id=id checked=checked)
         label(for=id)= label

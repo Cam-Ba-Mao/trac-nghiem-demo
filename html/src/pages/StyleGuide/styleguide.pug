@@ -100,16 +100,19 @@ block container
             section
                 h2 Form
                 form(action="./styleguide.html")
-                    +v-input("text", "v-input-1", "Input label", "Input place holder", "Validation message")
-                    +v-input("text", "v-input-2", "Input disabled", "Input disabled")(disabled)
-                    +v-textarea("Text area", "Text area place holder")
+                    +bm-input("text", "v-input-1", "Input label", "Input place holder", "Validation message")
+                    +bm-input("text", "v-input-2", "Input disabled", "Input disabled")(disabled)
+                    +bm-textarea("Text area", "Text area place holder")
                     .bm-form-group.clear_label
                         .bm-form-label Check box
-                        +v-checkbox("v-checkbox-1", "Check box 1")
+                        +bm-checkbox("v-checkbox-1", "Check box 1")
+                    .bm-form-group.remember-me
+                        +bm-checkbox("remember-me", "Nhớ tài khoản")
+                        
                     .bm-form-group.clear_label
                         .bm-form-label Radio
-                        +v-radio("v-radio", "v-radio-1", "Radio 1")
-                        +v-radio("v-radio", "v-radio-2", "Radio 2")
+                        +bm-radio("v-radio", "v-radio-1", "Radio 1")
+                        +bm-radio("v-radio", "v-radio-2", "Radio 2")
                     .bm-form-group.clear_label
                         .bm-form-label Switcher
                         label.bm-custom-switcher
