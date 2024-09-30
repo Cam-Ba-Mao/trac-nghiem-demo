@@ -201,23 +201,24 @@ function initializeCustomSelect({
             var adjustedLeft;
             var containerHeight = document.body.offsetHeight;
             var windowHeight = window.innerHeight;
-            
+            var marginBody = 8;
+            var scrollbarWidthDefault = 17;
 
-            const offsetLeft = customSelect.offsetLeft; // Lấy vị trí left so với container
-            const container = document.querySelector('.container');
-            const containerRect = container.getBoundingClientRect();
-            const correctedLeft = customSelectRect.left - containerRect.left;
-            
-            console.log(customSelectRect.left);
-            console.log(containerRect.left);
-            console.log(correctedLeft);
-         
+            if(scrollbarWidth !== scrollbarWidthDefault) {
+                scrollbarWidth = (scrollbarWidthDefault - scrollbarWidth)/2;               
+            } 
+
             if (containerHeight > windowHeight) {
-                adjustedLeft = customSelectRect.left + scrollbarWidth;
+                adjustedLeft = customSelectRect.left + window.scrollX;
             } else {
-                adjustedLeft = customSelectRect.left;
+                if(scrollbarWidth === scrollbarWidthDefault) {
+                    adjustedLeft = customSelectRect.left + window.scrollX + marginBody;
+                }
+                else {
+                    adjustedLeft = customSelectRect.left + window.scrollX + scrollbarWidth;
+                }
             }
-           
+
             // Điều chỉnh nếu danh sách bị tràn màn hình
             var dropdownWidth = containerOption.offsetWidth;
             var windowWidth = window.innerWidth;
@@ -226,34 +227,29 @@ function initializeCustomSelect({
             } else {
                 containerOption.style.left = adjustedLeft + "px"; // Cập nhật left tại đây
             }
-         
 
             // Adjust position of options list based on window height
             var optionsHeight = containerOption.offsetHeight;
-
-            // Thay vì dùng customSelectRect.top, tính toán chính xác vị trí so với tài liệu
             var topCustomSelect = customSelectRect.top + window.scrollY;
 
-            if (windowHeight - (customSelectRect.top - window.scrollY) < optionsHeight) {
+            if (windowHeight - customSelectRect.top  < optionsHeight) {
                 console.log('quay lên');
-                containerOption.style.top = (topCustomSelect - optionsHeight - spacing) + "px";
-                containerOption.style.left = customSelectRect.left + "px";
-                containerOption.style.width = customSelect.offsetWidth + "px";
+                containerOption.style.top = `${topCustomSelect - optionsHeight - spacing}px`;
+                containerOption.style.left = `${adjustedLeft}px`;
+                containerOption.style.width = `${customSelect.offsetWidth}px`;
             } else {
                 console.log('quay xuống');
-                containerOption.style.top = (topCustomSelect + customSelectHeight + spacing) + "px";
-                containerOption.style.left = customSelectRect.left + correctedLeft + "px";
-                containerOption.style.width = customSelect.offsetWidth + "px";
+                containerOption.style.top = `${topCustomSelect + customSelectHeight + spacing}px`;
+                containerOption.style.left = `${adjustedLeft}px`;
+                containerOption.style.width = `${customSelect.offsetWidth}px`;
             }
         }
     }
 
-
-
     // Click event để mở hoặc đóng danh sách
     customSelect.querySelector('.select-style').addEventListener('click', function (e) {
         e.preventDefault();
-
+        
         // Nếu danh sách tùy chọn đã tồn tại và đang hiển thị, ấn lần nữa sẽ đóng nó
         if (containerOption && containerOption.offsetWidth > 0 && containerOption.offsetHeight > 0) {     
             containerOption.remove();
@@ -354,13 +350,13 @@ function initializeCustomSelect({
     });
 
     // Đóng danh sách khi click ra ngoài customSelect
-    // document.addEventListener('click', function (event) {
-    //     if (!customSelect.contains(event.target) && containerOption.offsetWidth > 0 && containerOption.offsetHeight > 0) {
-    //         // Nếu không click vào customSelect hoặc containerOption, đóng danh sách
-    //         customSelect.querySelector('.select-style').classList.remove('show');
-    //         containerOption.remove();
-    //     }
-    // });
+    document.addEventListener('click', function (event) {
+        if (containerOption && containerOption.offsetWidth > 0 && containerOption.offsetHeight > 0 && !customSelect.contains(event.target)) {
+            // Nếu không click vào customSelect hoặc containerOption, đóng danh sách
+            customSelect.querySelector('.select-style').classList.remove('show');
+            containerOption.remove();
+        }
+    });
 
     // Cập nhật vị trí khi cửa sổ bị thay đổi kích thước (resize)
     window.addEventListener('resize', function () {
@@ -379,35 +375,33 @@ function initializeCustomSelect({
     }
 }
 
-// function handleSelectBox(selectors, selectStatus = true) {
-//     if (selectors) {
-//         document.querySelectorAll(selectors).forEach(function (element) {
-//             initializeCustomSelect({
-//                 selectElement: element,
-//                 customSelect: element.closest('.custom-select'),
-//                 showSearch: true
-//             });
-//         });
-//     }
-//     if (selectStatus) {
-//         document.querySelectorAll('.select-status-table').forEach(function (element) {
-//             initializeCustomSelect({
-//                 selectElement: element,
-//                 customSelect: element.closest('.select-status-edit')
-//             });
-//         });
-//     }
+function handleSelectBox(selectors, selectStatus = true) {
+    if (selectors) {
+        document.querySelectorAll(selectors).forEach(function (element) {
+            initializeCustomSelect({
+                selectElement: element,
+                customSelect: element.closest('.custom-select'),
+                showSearch: true
+            });
+        });
+    }
+    if (selectStatus) {
+        document.querySelectorAll('.select-status-table').forEach(function (element) {
+            initializeCustomSelect({
+                selectElement: element,
+                customSelect: element.closest('.select-status-edit')
+            });
+        });
+    }
+}
 
-   
-// }
+handleSelectBox('.select-time, .select-status');
 
-
-// handleSelectBox('.select-time, .select-status');
-initializeCustomSelect({
-    selectElement: document.querySelector('.select-time'),
-    customSelect: document.querySelector('.select-filter-time'),
-    showSearch: true
-});
+// initializeCustomSelect({
+//     selectElement: document.querySelector('.select-time'),
+//     customSelect: document.querySelector('.select-filter-time'),
+//     showSearch: true
+// });
 
 window.addEventListener('load', () => {   
 

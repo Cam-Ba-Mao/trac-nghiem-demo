@@ -15,6 +15,20 @@
     }
 }
 
+.toast-success, .toast-error {
+    padding: .75rem 1rem;
+    display: inline-block;
+    color: $white;
+}
+
+.toast-success {
+    background: #27A376;
+}
+
+.toast-error {
+    background: #E03137;
+}
+
 .bm-demo-slider {
     @include reset-list;
 
@@ -27,7 +41,6 @@
 
 .bm-banner-heading {
     font-weight: 600;
-    ;
     font-size: 150px;
     font-family: $font-family-secondary;
     color: $white;

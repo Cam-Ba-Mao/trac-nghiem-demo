@@ -1,0 +1,44 @@
+.bm-swiper-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 99;
+    color: $black-1;
+    width: 40px;
+    height: 40px;
+
+    @include breakpoint-up(lg) {
+        width: 48px;
+        height: 48px;
+    }
+
+    &__next {
+        right: 10px;
+        background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='24' cy='24' r='24' fill='%23F0EFEF'/%3E%3Cpath d='M21.6667 19.3337L26.3334 24.0003L21.6667 28.667' stroke='%23161F38' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+
+        &:hover {
+            background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='24' cy='24' r='24' fill='%23161F38'/%3E%3Cpath d='M21.6667 19.3337L26.3334 24.0003L21.6667 28.667' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        }
+      
+        @include breakpoint-up(md) {
+            right: 30px
+        }
+    }
+
+    &__prev {
+        left: 10px;
+        background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='24' cy='24' r='24' fill='%23F0EFEF'/%3E%3Cpath d='M26.3333 28.6663L21.6666 23.9997L26.3333 19.333' stroke='%23161F38' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+
+        &:hover {
+            background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='24' cy='24' r='24' fill='%23161F38'/%3E%3Cpath d='M26.3333 28.6663L21.6666 23.9997L26.3333 19.333' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        }
+
+        @include breakpoint-up(md) {
+            left: 30px
+        }
+    }
+
+    &[aria-disabled="true"] {
+        opacity: .8;
+    }
+}

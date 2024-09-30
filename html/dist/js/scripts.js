@@ -186,17 +186,19 @@ function initializeCustomSelect(_ref2) {
       var adjustedLeft;
       var containerHeight = document.body.offsetHeight;
       var windowHeight = window.innerHeight;
-      var offsetLeft = customSelect.offsetLeft; // Lấy vị trí left so với container
-      var container = document.querySelector('.container');
-      var containerRect = container.getBoundingClientRect();
-      var correctedLeft = customSelectRect.left - containerRect.left;
-      console.log(customSelectRect.left);
-      console.log(containerRect.left);
-      console.log(correctedLeft);
+      var marginBody = 8;
+      var scrollbarWidthDefault = 17;
+      if (scrollbarWidth !== scrollbarWidthDefault) {
+        scrollbarWidth = (scrollbarWidthDefault - scrollbarWidth) / 2;
+      }
       if (containerHeight > windowHeight) {
-        adjustedLeft = customSelectRect.left + scrollbarWidth;
+        adjustedLeft = customSelectRect.left + window.scrollX;
       } else {
-        adjustedLeft = customSelectRect.left;
+        if (scrollbarWidth === scrollbarWidthDefault) {
+          adjustedLeft = customSelectRect.left + window.scrollX + marginBody;
+        } else {
+          adjustedLeft = customSelectRect.left + window.scrollX + scrollbarWidth;
+        }
       }
 
       // Điều chỉnh nếu danh sách bị tràn màn hình
@@ -210,19 +212,17 @@ function initializeCustomSelect(_ref2) {
 
       // Adjust position of options list based on window height
       var optionsHeight = containerOption.offsetHeight;
-
-      // Thay vì dùng customSelectRect.top, tính toán chính xác vị trí so với tài liệu
       var topCustomSelect = customSelectRect.top + window.scrollY;
-      if (windowHeight - (customSelectRect.top - window.scrollY) < optionsHeight) {
+      if (windowHeight - customSelectRect.top < optionsHeight) {
         console.log('quay lên');
-        containerOption.style.top = topCustomSelect - optionsHeight - spacing + "px";
-        containerOption.style.left = customSelectRect.left + "px";
-        containerOption.style.width = customSelect.offsetWidth + "px";
+        containerOption.style.top = "".concat(topCustomSelect - optionsHeight - spacing, "px");
+        containerOption.style.left = "".concat(adjustedLeft, "px");
+        containerOption.style.width = "".concat(customSelect.offsetWidth, "px");
       } else {
         console.log('quay xuống');
-        containerOption.style.top = topCustomSelect + customSelectHeight + spacing + "px";
-        containerOption.style.left = customSelectRect.left + correctedLeft + "px";
-        containerOption.style.width = customSelect.offsetWidth + "px";
+        containerOption.style.top = "".concat(topCustomSelect + customSelectHeight + spacing, "px");
+        containerOption.style.left = "".concat(adjustedLeft, "px");
+        containerOption.style.width = "".concat(customSelect.offsetWidth, "px");
       }
     }
   }
@@ -324,13 +324,13 @@ function initializeCustomSelect(_ref2) {
   });
 
   // Đóng danh sách khi click ra ngoài customSelect
-  // document.addEventListener('click', function (event) {
-  //     if (!customSelect.contains(event.target) && containerOption.offsetWidth > 0 && containerOption.offsetHeight > 0) {
-  //         // Nếu không click vào customSelect hoặc containerOption, đóng danh sách
-  //         customSelect.querySelector('.select-style').classList.remove('show');
-  //         containerOption.remove();
-  //     }
-  // });
+  document.addEventListener('click', function (event) {
+    if (containerOption && containerOption.offsetWidth > 0 && containerOption.offsetHeight > 0 && !customSelect.contains(event.target)) {
+      // Nếu không click vào customSelect hoặc containerOption, đóng danh sách
+      customSelect.querySelector('.select-style').classList.remove('show');
+      containerOption.remove();
+    }
+  });
 
   // Cập nhật vị trí khi cửa sổ bị thay đổi kích thước (resize)
   window.addEventListener('resize', function () {
@@ -346,34 +346,34 @@ function initializeCustomSelect(_ref2) {
     customSelect.querySelector('.select-style').className = 'select-style ' + initialSelectedOption.getAttribute('data-class');
   }
 }
+function handleSelectBox(selectors) {
+  var selectStatus = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+  if (selectors) {
+    document.querySelectorAll(selectors).forEach(function (element) {
+      initializeCustomSelect({
+        selectElement: element,
+        customSelect: element.closest('.custom-select'),
+        showSearch: true
+      });
+    });
+  }
+  if (selectStatus) {
+    document.querySelectorAll('.select-status-table').forEach(function (element) {
+      initializeCustomSelect({
+        selectElement: element,
+        customSelect: element.closest('.select-status-edit')
+      });
+    });
+  }
+}
+handleSelectBox('.select-time, .select-status');
 
-// function handleSelectBox(selectors, selectStatus = true) {
-//     if (selectors) {
-//         document.querySelectorAll(selectors).forEach(function (element) {
-//             initializeCustomSelect({
-//                 selectElement: element,
-//                 customSelect: element.closest('.custom-select'),
-//                 showSearch: true
-//             });
-//         });
-//     }
-//     if (selectStatus) {
-//         document.querySelectorAll('.select-status-table').forEach(function (element) {
-//             initializeCustomSelect({
-//                 selectElement: element,
-//                 customSelect: element.closest('.select-status-edit')
-//             });
-//         });
-//     }
+// initializeCustomSelect({
+//     selectElement: document.querySelector('.select-time'),
+//     customSelect: document.querySelector('.select-filter-time'),
+//     showSearch: true
+// });
 
-// }
-
-// handleSelectBox('.select-time, .select-status');
-initializeCustomSelect({
-  selectElement: document.querySelector('.select-time'),
-  customSelect: document.querySelector('.select-filter-time'),
-  showSearch: true
-});
 window.addEventListener('load', function () {
   var locomotiveScroll = new LocomotiveScroll({
     lenisOptions: {
@@ -781,32 +781,6 @@ window.addEventListener('load', function () {
   });
 })(jQuery);
 (function ($) {
-  function handleScrollToTop() {
-    $(document).on('click', '.bm-scroll-to-top', function (e) {
-      e.preventDefault();
-      $('html, body').animate({
-        scrollTop: 0
-      }, 1000);
-    });
-  }
-  function handleDisplayScrollToTop() {
-    var scrollHeight = $(document).height();
-    var scrollPosition = $(window).height() + $(window).scrollTop();
-    if (scrollPosition >= scrollHeight - 100) {
-      $('.bm-scroll-to-top').addClass('is-active');
-    } else {
-      $('.bm-scroll-to-top').removeClass('is-active');
-    }
-  }
-  $(function () {
-    handleScrollToTop();
-    handleDisplayScrollToTop();
-    $(window).scroll(function () {
-      handleDisplayScrollToTop();
-    });
-  });
-})(jQuery);
-(function ($) {
   function DemoAdminBarMode() {
     $('#enable-admin-bar').on('change', function () {
       var adminBarModeStatus = $(this).prop('checked');
@@ -838,6 +812,32 @@ window.addEventListener('load', function () {
   }
   $(function () {
     DemoAdminBarMode();
+  });
+})(jQuery);
+(function ($) {
+  function handleScrollToTop() {
+    $(document).on('click', '.bm-scroll-to-top', function (e) {
+      e.preventDefault();
+      $('html, body').animate({
+        scrollTop: 0
+      }, 1000);
+    });
+  }
+  function handleDisplayScrollToTop() {
+    var scrollHeight = $(document).height();
+    var scrollPosition = $(window).height() + $(window).scrollTop();
+    if (scrollPosition >= scrollHeight - 100) {
+      $('.bm-scroll-to-top').addClass('is-active');
+    } else {
+      $('.bm-scroll-to-top').removeClass('is-active');
+    }
+  }
+  $(function () {
+    handleScrollToTop();
+    handleDisplayScrollToTop();
+    $(window).scroll(function () {
+      handleDisplayScrollToTop();
+    });
   });
 })(jQuery);
 (function ($) {
@@ -1032,36 +1032,6 @@ window.addEventListener('load', function () {
   });
 })(jQuery);
 (function ($) {
-  var showPassword = function showPassword() {
-    window.addEventListener("load", function () {
-      var togglePassword = document.querySelector(".togglePassword");
-      if (togglePassword) {
-        togglePassword.addEventListener("click", function () {
-          var input = this.previousElementSibling;
-          var inputType = input.getAttribute("type");
-
-          // Toggle input type
-          if (inputType === "password") {
-            input.setAttribute("type", "text");
-          } else {
-            input.setAttribute("type", "password");
-          }
-
-          // Toggle icon classes
-          this.classList.toggle("fa-eye");
-          this.classList.toggle("fa-eye-slash");
-        });
-      } else {
-        console.log('Không tìm thấy phần tử togglePassword.');
-      }
-    });
-  };
-  $(function () {
-    showPassword();
-    $(window).on("resize", function () {});
-  });
-})(jQuery);
-(function ($) {
   // Hàm để chuyển đổi trạng thái menu
   var toggleMenu = function toggleMenu() {
     window.addEventListener('load', function () {
@@ -1088,6 +1058,36 @@ window.addEventListener('load', function () {
   };
   $(function () {
     toggleMenu();
+    $(window).on("resize", function () {});
+  });
+})(jQuery);
+(function ($) {
+  var showPassword = function showPassword() {
+    window.addEventListener("load", function () {
+      var togglePassword = document.querySelector(".togglePassword");
+      if (togglePassword) {
+        togglePassword.addEventListener("click", function () {
+          var input = this.previousElementSibling;
+          var inputType = input.getAttribute("type");
+
+          // Toggle input type
+          if (inputType === "password") {
+            input.setAttribute("type", "text");
+          } else {
+            input.setAttribute("type", "password");
+          }
+
+          // Toggle icon classes
+          this.classList.toggle("fa-eye");
+          this.classList.toggle("fa-eye-slash");
+        });
+      } else {
+        console.log('Không tìm thấy phần tử togglePassword.');
+      }
+    });
+  };
+  $(function () {
+    showPassword();
     $(window).on("resize", function () {});
   });
 })(jQuery);
