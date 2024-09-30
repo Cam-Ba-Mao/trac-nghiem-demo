@@ -3,68 +3,82 @@
 session_start();
 include('./config/config.php');
 
+$username_error = '';
+$password_error = '';
+$error = '';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['your_name'];
     $password = $_POST['your_pass'];
 
-    // Kiểm tra thông tin đăng nhập
-    $query = "SELECT id, username, password, role FROM users WHERE username='$username'";
-    $result = mysqli_query($conn, $query);
+    // Kiểm tra nếu không nhập tên đăng nhập hoặc mật khẩu
+    if (empty($username)) {
+        $username_error = "Tên đăng nhập không được để trống.";
+    }
+    if (empty($password)) {
+        $password_error = "Mật khẩu không được để trống.";
+    }
 
-    if (mysqli_num_rows($result) == 1) {
-        $user = mysqli_fetch_assoc($result);
+    if (empty($username_error) && empty($password_error)) {
+        // Kiểm tra thông tin đăng nhập
+        $query = "SELECT id, username, password, role FROM users WHERE username='$username'";
+        $result = mysqli_query($conn, $query);
 
-        // Kiểm tra mật khẩu (cho phép plain text hoặc hashed)
-        if ($user['password'] === $password) {
-            // Mật khẩu là dạng plain text, chuyển đổi thành dạng băm
-            $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+        if (mysqli_num_rows($result) == 1) {
+            $user = mysqli_fetch_assoc($result);
 
-            // Cập nhật mật khẩu trong cơ sở dữ liệu
-            $update_query = "UPDATE users SET password='$hashed_password' WHERE id=" . $user['id'];
-            mysqli_query($conn, $update_query);
+            // Kiểm tra mật khẩu (cho phép plain text hoặc hashed)
+            if ($user['password'] === $password) {
+                // Mật khẩu là dạng plain text, chuyển đổi thành dạng băm
+                $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-            // Cập nhật thông tin phiên làm việc
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['role'] = $user['role'];
+                // Cập nhật mật khẩu trong cơ sở dữ liệu
+                $update_query = "UPDATE users SET password='$hashed_password' WHERE id=" . $user['id'];
+                mysqli_query($conn, $update_query);
 
-            // Nếu người dùng chọn "Nhớ tài khoản"
-            if (isset($_POST['remember-me']) && $_POST['remember-me'] == 'on') {
-                // Thiết lập cookie để nhớ tài khoản
-                setcookie('username', $username, time() + (86400 * 30), "/"); // Cookie có thời gian sống 30 ngày
-                setcookie('password', $password, time() + (86400 * 30), "/"); // Cookie có thời gian sống 30 ngày
+                // Cập nhật thông tin phiên làm việc
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['role'] = $user['role'];
+
+                // Nếu người dùng chọn "Nhớ tài khoản"
+                if (isset($_POST['remember-me']) && $_POST['remember-me'] == 'on') {
+                    // Thiết lập cookie để nhớ tài khoản
+                    setcookie('username', $username, time() + (86400 * 30), "/"); // Cookie có thời gian sống 30 ngày
+                    setcookie('password', $password, time() + (86400 * 30), "/"); // Cookie có thời gian sống 30 ngày
+                } else {
+                    // Xóa cookie nếu không chọn "Nhớ tài khoản"
+                    setcookie('username', '', time() - 3600, "/");
+                    setcookie('password', '', time() - 3600, "/");
+                }
+
+                header("Location: trang-chu");
+                exit();
+            } elseif (password_verify($password, $user['password'])) {
+                // Nếu mật khẩu đã được mã hóa
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['role'] = $user['role'];
+
+                // Nếu người dùng chọn "Nhớ tài khoản"
+                if (isset($_POST['remember-me']) && $_POST['remember-me'] == 'on') {
+                    // Thiết lập cookie để nhớ tài khoản
+                    setcookie('username', $username, time() + (86400 * 30), "/"); // Cookie có thời gian sống 30 ngày
+                    setcookie('password', $password, time() + (86400 * 30), "/"); // Cookie có thời gian sống 30 ngày
+                } else {
+                    // Xóa cookie nếu không chọn "Nhớ tài khoản"
+                    setcookie('username', '', time() - 3600, "/");
+                    setcookie('password', '', time() - 3600, "/");
+                }
+
+                header("Location: trang-chu");
+                exit();
             } else {
-                // Xóa cookie nếu không chọn "Nhớ tài khoản"
-                setcookie('username', '', time() - 3600, "/");
-                setcookie('password', '', time() - 3600, "/");
+                $error = "Sai mật khẩu.";
             }
-
-            header("Location: trang-chu");
-            exit();
-        } elseif (password_verify($password, $user['password'])) {
-            // Nếu mật khẩu đã được mã hóa
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['role'] = $user['role'];
-
-            // Nếu người dùng chọn "Nhớ tài khoản"
-            if (isset($_POST['remember-me']) && $_POST['remember-me'] == 'on') {
-                // Thiết lập cookie để nhớ tài khoản
-                setcookie('username', $username, time() + (86400 * 30), "/"); // Cookie có thời gian sống 30 ngày
-                setcookie('password', $password, time() + (86400 * 30), "/"); // Cookie có thời gian sống 30 ngày
-            } else {
-                // Xóa cookie nếu không chọn "Nhớ tài khoản"
-                setcookie('username', '', time() - 3600, "/");
-                setcookie('password', '', time() - 3600, "/");
-            }
-
-            header("Location: trang-chu");
-            exit();
         } else {
-            $error = "Tên đăng nhập hoặc mật khẩu không đúng.";
+            $error = "Tên đăng nhập không tồn tại.";
         }
-    } else {
-        $error = "Tên đăng nhập hoặc mật khẩu không đúng.";
     }
 }
 
@@ -88,17 +102,16 @@ include('header.php');
                 <div class="bm-sign-in__content--form">
                     <h2 class="form-title">Đăng nhập</h2>
                     <form method="POST">
-                  
-                        <div class="bm-form-group <?= isset($error) ? 'bm-form-group--error' : ''; ?>">
+                        <div class="bm-form-group <?= !empty($username_error) ? 'bm-form-group--error' : ''; ?>">
                             <label class="bm-form-label" for="your_name">
                                 <i class="fa-solid fa-user"></i>Tên đăng nhập
                             </label>
                             <input class="bm-form-control" type="text" name="your_name" id="your_name" placeholder="Nhập tên đăng nhập của bạn" value="<?php echo htmlspecialchars($saved_username); ?>">
-                            <?php if(isset($error)) : ?>
-                                <span class="invalid-message"><?= $error; ?></span>
+                            <?php if(!empty($username_error)) : ?>
+                                <span class="invalid-message"><?= $username_error; ?></span>
                             <?php endif; ?>
                         </div>
-                        <div class="bm-form-group input-password <?= isset($error) ? 'bm-form-group--error' : ''; ?>">
+                        <div class="bm-form-group input-password <?= !empty($password_error) ? 'bm-form-group--error' : ''; ?>">
                             <label class="bm-form-label" for="your_pass">
                                 <i class="fa-solid fa-lock"></i>Mật khẩu
                             </label>
@@ -106,8 +119,8 @@ include('header.php');
                                 <input class="bm-form-control" type="password" name="your_pass" id="your_pass" placeholder="Nhập Mật khẩu" value="<?php echo htmlspecialchars($saved_password); ?>">
                                 <i class="fa fa-eye togglePassword"></i>
                             </div>
-                            <?php if(isset($error)) : ?>
-                                <span class="invalid-message"><?= $error; ?></span>
+                            <?php if(!empty($password_error)) : ?>
+                                <span class="invalid-message"><?= $password_error; ?></span>
                             <?php endif; ?>
                         </div>
                         <div class="bm-form-group remember-me">
@@ -120,6 +133,9 @@ include('header.php');
                             <button class="form-submit" type="submit" name="signin" id="signin" value="Đăng nhập">Đăng nhập</button>
                         </div>
                     </form>
+                    <?php if (!empty($error)) : ?>
+                        <span class="invalid-message"><?= $error; ?></span>
+                    <?php endif; ?>
                     <div class="social-login">
                         <span class="social-login__label"> <span>Hoặc đăng nhập bằng</span></span>
                         <div class="social-login__wrap">
