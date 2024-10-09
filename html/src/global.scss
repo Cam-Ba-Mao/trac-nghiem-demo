@@ -557,20 +557,14 @@ input[type="search"] {
 
     /* Style the custom select box */
     .select-style {
-        --customSelectBorder: rgba(32, 92, 212, 0.2);
-        --customSelectColor: #000000;
-        --customSelectColorHover: #000000;
-        --customSelectBackground: transparent;
-        --customSelectBackgroudHover: #f2f6ff;
-
         position: relative;
         padding: .75rem 1rem;
         padding-right: 2rem;
-        background-color: var(--customSelectBackground);
-        border: 1px solid var(--customSelectBorder);
+        background-color: transparent;
+        border: 1px solid rgba(32, 92, 212, 0.2);
         border-radius: 10px;
         font-weight: 500;
-        color: var(--customSelectColor);
+        color: #000000;
         cursor: pointer;
         user-select: none;
         overflow: hidden;
@@ -580,7 +574,8 @@ input[type="search"] {
 
         /* Add a bit of style when hovering over the select box */
         &:hover {
-            background-color: var(--customSelectBackgroudHover);
+            background-color: #f2f6ff;
+            color: #000000;
         }
 
         /* Add a bit of style for the down arrow */
@@ -672,8 +667,6 @@ input[type="search"] {
             }
         }
     }
-
-    
 }
 
 /*---------------------------------

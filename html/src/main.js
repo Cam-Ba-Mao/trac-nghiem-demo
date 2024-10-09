@@ -25,7 +25,7 @@ function getRootVars() {
 }
 
 // Hàm tạo thông báo
-function toast({ debug = false, title = "", type = "info", duration = 3000, position = "top-right", dismissOthers = false, showCloseButton = false }) {
+function toast({ debug = false, title = "", type = "info", duration = 3000, position = "top-right", dismissOthers = false, showCloseButton = false, redirect = '' }) {
     let main = document.getElementById("bm-toast");
     
     if (! main) {
@@ -85,6 +85,9 @@ function toast({ debug = false, title = "", type = "info", duration = 3000, posi
                 if (main.contains(toast)) {
                     main.removeChild(toast);
                 }
+                if (typeof (redirect) !== 'undefined' && redirect !== '') {
+                    window.location.href = redirect;
+                }
             }, duration + 1000);
 
             // Xóa thông báo khi nhấp vào nút đóng
@@ -142,38 +145,13 @@ function toast({ debug = false, title = "", type = "info", duration = 3000, posi
 }
 
 function initializeCustomSelect({ 
-    selectElement, customSelect, showSearch = false, 
-    customStyles = {
-        customSelectBorder: 'rgba(32, 92, 212, 0.2)',
-        customSelectColor: '#000000',
-        customSelectColorHover: '#000000',
-        customSelectBackground: 'white',
-        customSelectBackgroudHover: '#f2f6ff',
-    }, 
-    styleColor = false 
+    selectElement, customSelect, showSearch = false, styleColor = false 
 }) {
     var selected = selectElement.value;
     var containerOption, optionsList;
 
     // Hide the default select box
     selectElement.style.display = 'none';
-
-    const {
-        customSelectBorder,
-        customSelectColor,
-        customSelectColorHover,
-        customSelectBackground,
-        customSelectBackgroudHover,
-    } = customStyles;
-
-    // Apply custom styles
-    customSelect.querySelector('.select-style').setAttribute('style', 
-        '--customSelectBorder:' + customSelectBorder + 
-        '; --customSelectColor:' + customSelectColor + 
-        '; --customSelectColorHover:' + customSelectColorHover + 
-        '; --customSelectBackground:' + customSelectBackground +
-        '; --customSelectBackgroudHover:' + customSelectBackgroudHover 
-    );
 
     const convertStringToSlug = (str) => {
         var slug;
@@ -678,6 +656,18 @@ window.addEventListener('load', () => {
                 }
             });
 
+            $dynamicGallery.addEventListener('lgAfterSlide', (event) => {
+                // const { index } = event.detail;
+                // console.log('Slide loaded:', event.detail);
+        
+                let videoElement = document.querySelectorAll('.lg-video-cont iframe');
+                videoElement.forEach((item) => {
+                    if (item && item.src.indexOf('mute=1') > -1) {
+                        item.src = item.src.replace('mute=1', 'mute=0');
+                    }
+                });                
+            });
+
             dynamicGallery.openGallery(0);
         });
 
@@ -715,7 +705,7 @@ window.addEventListener('load', () => {
             let dynamicGallery = window.lightGallery($dynamicGallery, {
                 dynamic: true,
                 // plugins: [lgZoom, lgVideo, lgThumbnail],
-                plugins: [lgVideo, lgAutoplay],
+                plugins: [lgVideo, lgAutoplay, lgThumbnail],
                 dynamicEl: sources,
                 download: false,
                 counter: false,

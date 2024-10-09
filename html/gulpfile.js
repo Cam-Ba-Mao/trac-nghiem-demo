@@ -18,6 +18,13 @@ const sass = require('gulp-sass')(require('sass'));
 const sassGlob = require('gulp-sass-glob');
 const svgstore = require('gulp-svgstore');
 const uglify = require('gulp-uglify');
+const paths = {
+    tiny: {
+        src: ['src/assets/tinymce/**/*', '!src/assets/tinymce/custom.scss'],
+        dest: 'dist/js/tinymce',
+        css: 'src/assets/tinymce/custom.scss'
+    }
+};
 
 /**
  * Define dependents
@@ -98,9 +105,27 @@ function fonts() {
 
 function bootstrap() {
     return src([SRC + 'assets/bootstrap/css/bootstrap.min.css'])
-        .pipe(dest(DEST + 'css'));
+        .pipe(dest(DEST + 'css'));    
+}
 
-    
+function tinymce() {
+    return src(paths.tiny.src)
+        // .pipe(fileInclude({
+        //     prefix: '@@',
+        //     basepath: '@file'
+        // }))
+        .pipe(dest(paths.tiny.dest))
+}
+
+function tinymceStyles() {
+    return src(paths.tiny.css, { sourcemaps: true })
+        .pipe(concat('custom.css'))
+        .pipe(cleanCSS())
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(dest(paths.tiny.dest , { sourcemaps: true }))
+        .pipe(browserSync.stream());
 }
 
 function html() {
@@ -176,6 +201,7 @@ function watcher() {
     watch(SRC + '**/*.pug', html);
     watch([SRC + '**/*.scss', '!' + SRC + 'assets/**/*.scss'], css);
     watch([SRC + 'main.js', SRC + 'components/**/*.js', SRC + 'pages/**/*.js'], js);
+    watch(SRC + 'assets/tinymce/*.scss', tinymceStyles);
 }
 
 /*
@@ -285,9 +311,9 @@ function adminWatcher() {
  * Specify if tasks run in series or parallel using `series` and `parallel`
  */
 
-const build = series(clean, icons, images, fonts, bootstrap, pluginsJs, bundleCss, bundleJs, html, css, js);
+const build = series(clean, icons, images, fonts, bootstrap, pluginsJs, bundleCss, bundleJs, html, css, js, tinymce, tinymceStyles);
 const start = series(icons, html, css, js, watcher);
-const plugins = parallel(pluginsJs, bundleCss, bundleJs);
+const plugins = parallel(pluginsJs, bundleCss, bundleJs, tinymce, tinymceStyles);
 const email = series(emailHtml, emailCss, emailWatcher);
 const admin = series(adminCss, adminJs, adminWatcher);
 const wassv1 = series(wassOldCss, wassOldWatcher);
