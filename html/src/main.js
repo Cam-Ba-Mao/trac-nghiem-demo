@@ -367,7 +367,9 @@ function handleSelectBox(selectors, selectStatus = true) {
         document.querySelectorAll('.select-status-table').forEach(function (element) {
             initializeCustomSelect({
                 selectElement: element,
-                customSelect: element.closest('.select-status-edit')
+                customSelect: element.closest('.select-status-edit'),
+                styleColor: true,
+
             });
         });
     }
