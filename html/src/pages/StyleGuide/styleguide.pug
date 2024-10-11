@@ -169,6 +169,103 @@ block container
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M13.442 12.1086C13.1979 12.3527 12.8022 12.3527 12.5581 12.1086L10.5001 10.0506L8.44202 12.1086C8.19795 12.3527 7.80222 12.3527 7.55814 12.1086C7.31406 11.8645 7.31406 11.4688 7.55814 11.2247L10.0581 8.72472C10.3022 8.48065 10.6979 8.48065 10.942 8.72472L13.442 11.2247C13.6861 11.4688 13.6861 11.8645 13.442 12.1086Z" fill="white"/>
                                     </svg>Thêm mới 
             
+            section.bm-dropzonejs-demo
+                .bm-dropzonejs-demo__head
+                    h2.bm-dropzonejs-demo__title Thư viện hình ảnh
+                    .dash-gallery__cta 
+                        a(href="#" class="bm-btn bm-btn-primary") 
+                            <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.1667 1.875C12.5119 1.875 12.7917 2.15482 12.7917 2.5V5.83333C12.7917 5.88859 12.8137 5.94158 12.8528 5.98065C12.8918 6.01972 12.9448 6.04167 13.0001 6.04167H16.3334C16.6786 6.04167 16.9584 6.32149 16.9584 6.66667C16.9584 7.01184 16.6786 7.29167 16.3334 7.29167H13.0001C12.6133 7.29167 12.2424 7.13802 11.9689 6.86453C11.6954 6.59104 11.5417 6.22011 11.5417 5.83333V2.5C11.5417 2.15482 11.8216 1.875 12.1667 1.875Z" fill="white"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.33341 3.125C6.05715 3.125 5.7922 3.23475 5.59685 3.4301C5.40149 3.62545 5.29175 3.8904 5.29175 4.16667V15.8333C5.29175 16.1096 5.40149 16.3746 5.59685 16.5699C5.7922 16.7653 6.05715 16.875 6.33341 16.875H14.6667C14.943 16.875 15.208 16.7653 15.4033 16.5699C15.5987 16.3746 15.7084 16.1096 15.7084 15.8333V6.92555L11.9079 3.125H6.33341ZM4.71296 2.54621C5.14273 2.11644 5.72563 1.875 6.33341 1.875H12.1667C12.3325 1.875 12.4915 1.94085 12.6087 2.05806L16.7754 6.22472C16.8926 6.34193 16.9584 6.50091 16.9584 6.66667V15.8333C16.9584 16.4411 16.717 17.024 16.2872 17.4538C15.8574 17.8836 15.2745 18.125 14.6667 18.125H6.33341C5.72563 18.125 5.14273 17.8836 4.71296 17.4538C4.28319 17.024 4.04175 16.4411 4.04175 15.8333V4.16667C4.04175 3.55888 4.28319 2.97598 4.71296 2.54621Z" fill="white"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5001 14.7917C10.1549 14.7917 9.87508 14.5118 9.87508 14.1667L9.87508 9.16667C9.87508 8.82149 10.1549 8.54167 10.5001 8.54167C10.8453 8.54167 11.1251 8.82149 11.1251 9.16667L11.1251 14.1667C11.1251 14.5118 10.8453 14.7917 10.5001 14.7917Z" fill="white"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.442 12.1086C13.1979 12.3527 12.8022 12.3527 12.5581 12.1086L10.5001 10.0506L8.44202 12.1086C8.19795 12.3527 7.80222 12.3527 7.55814 12.1086C7.31406 11.8645 7.31406 11.4688 7.55814 11.2247L10.0581 8.72472C10.3022 8.48065 10.6979 8.48065 10.942 8.72472L13.442 11.2247C13.6861 11.4688 13.6861 11.8645 13.442 12.1086Z" fill="white"/>
+                            </svg>Thêm mới 
+                .bm-dropzonejs-demo__body 
+                    .table-responsive
+                        table.table
+                            thead 
+                                tr 
+                                    th(id="image") Hình ảnh
+                                    th(id="size") Size
+                                    th(id="action") Action
+
+                            tbody(id="image-list" class="bm-light-gallery-list")
+                                tr(data-id="1")
+                                    td(class="column-image") 
+                                        img(src="./images/styleguide/campus-1.jpg" alt="Chương trình 1")
+                                    td(class="column-size") 2 mb
+                                    td(class="column-action") 
+                                        .action-buttons
+                                            button(class="btn-view-image") 
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.99999 7.64176C8.69517 7.64176 7.64166 8.69528 7.64166 10.0001C7.64166 11.3049 8.69517 12.3584 9.99999 12.3584C11.3048 12.3584 12.3583 11.3049 12.3583 10.0001C12.3583 8.69528 11.3048 7.64176 9.99999 7.64176ZM6.39166 10.0001C6.39166 8.00492 8.00481 6.39176 9.99999 6.39176C11.9952 6.39176 13.6083 8.00492 13.6083 10.0001C13.6083 11.9953 11.9952 13.6084 9.99999 13.6084C8.00481 13.6084 6.39166 11.9953 6.39166 10.0001Z" fill="white"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M1.88124 7.49757C3.87367 4.3656 6.79334 2.4751 9.99999 2.4751C13.2068 2.4751 16.1266 4.36576 18.119 7.49798C18.5732 8.20993 18.7792 9.1219 18.7792 9.99593C18.7792 10.87 18.5732 11.7819 18.119 12.4939C16.1266 15.6261 13.2068 17.5168 9.99999 17.5168C6.7932 17.5168 3.87341 15.6261 1.88098 12.4939C1.42683 11.7819 1.22083 10.87 1.22083 9.99593C1.22083 9.12173 1.42691 8.20958 1.88124 7.49757ZM9.99999 3.7251C7.32345 3.7251 4.7599 5.3011 2.93567 8.16888L2.93515 8.1697C2.63966 8.63263 2.47083 9.2953 2.47083 9.99593C2.47083 10.6966 2.63966 11.3592 2.93515 11.8222L2.93567 11.823C4.7599 14.6908 7.32345 16.2668 9.99999 16.2668C12.6765 16.2668 15.2401 14.6908 17.0643 11.823L17.0648 11.8222C17.3603 11.3592 17.5292 10.6966 17.5292 9.99593C17.5292 9.2953 17.3603 8.63263 17.0648 8.1697L17.0643 8.16888C15.2401 5.3011 12.6765 3.7251 9.99999 3.7251Z" fill="white"/>
+                                                </svg>
+
+                                            button(class="btn-delete" onclick="deleteRow(this)")
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.33331 3.125C8.27806 3.125 8.22507 3.14695 8.186 3.18602C8.14693 3.22509 8.12498 3.27808 8.12498 3.33333V5.20833H11.875V3.33333C11.875 3.27808 11.853 3.22509 11.814 3.18602C11.7749 3.14695 11.7219 3.125 11.6666 3.125H8.33331ZM4.8459 6.45833L5.62282 15.7814C5.62426 15.7987 5.62498 15.816 5.62498 15.8333C5.62498 16.1096 5.73473 16.3746 5.93008 16.5699C6.12543 16.7653 6.39038 16.875 6.66665 16.875H13.3333C13.6096 16.875 13.8745 16.7653 14.0699 16.5699C14.2652 16.3746 14.375 16.1096 14.375 15.8333C14.375 15.816 14.3757 15.7987 14.3771 15.7814L15.1541 6.45833H4.8459ZM16.4084 6.45833L15.6248 15.8614C15.6175 16.459 15.3769 17.0306 14.9538 17.4538C14.524 17.8836 13.9411 18.125 13.3333 18.125H6.66665C6.05886 18.125 5.47596 17.8836 5.04619 17.4538C4.62304 17.0306 4.38246 16.459 4.37515 15.8614L3.59156 6.45833H3.33331C2.98814 6.45833 2.70831 6.17851 2.70831 5.83333C2.70831 5.48816 2.98814 5.20833 3.33331 5.20833H6.87498V3.33333C6.87498 2.94656 7.02863 2.57563 7.30212 2.30214C7.57561 2.02865 7.94654 1.875 8.33331 1.875H11.6666C12.0534 1.875 12.4244 2.02865 12.6978 2.30214C12.9713 2.57563 13.125 2.94656 13.125 3.33333V5.20833H16.6666C17.0118 5.20833 17.2916 5.48816 17.2916 5.83333C17.2916 6.17851 17.0118 6.45833 16.6666 6.45833H16.4084ZM8.33331 8.54167C8.67849 8.54167 8.95831 8.82149 8.95831 9.16667V14.1667C8.95831 14.5118 8.67849 14.7917 8.33331 14.7917C7.98813 14.7917 7.70831 14.5118 7.70831 14.1667V9.16667C7.70831 8.82149 7.98813 8.54167 8.33331 8.54167ZM11.6666 8.54167C12.0118 8.54167 12.2916 8.82149 12.2916 9.16667V14.1667C12.2916 14.5118 12.0118 14.7917 11.6666 14.7917C11.3215 14.7917 11.0416 14.5118 11.0416 14.1667V9.16667C11.0416 8.82149 11.3215 8.54167 11.6666 8.54167Z" fill="white"/>
+                                                </svg>
+                                    td(class="toggle-btn" onclick="toggleRow(this)") 
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7 7C7 6.44772 7.44772 6 8 6H20C20.5523 6 21 6.44772 21 7C21 7.55228 20.5523 8 20 8H8C7.44772 8 7 7.55228 7 7Z" fill="#111827"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7 12C7 11.4477 7.44772 11 8 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H8C7.44772 13 7 12.5523 7 12Z" fill="#111827"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7 17C7 16.4477 7.44772 16 8 16H20C20.5523 16 21 16.4477 21 17C21 17.5523 20.5523 18 20 18H8C7.44772 18 7 17.5523 7 17Z" fill="#111827"/>
+                                        <path d="M5 7C5 7.55228 4.55228 8 4 8C3.44772 8 3 7.55228 3 7C3 6.44772 3.44772 6 4 6C4.55228 6 5 6.44772 5 7Z" fill="#111827"/>
+                                        <path d="M5 12C5 12.5523 4.55228 13 4 13C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11C4.55228 11 5 11.4477 5 12Z" fill="#111827"/>
+                                        <path d="M5 17C5 17.5523 4.55228 18 4 18C3.44772 18 3 17.5523 3 17C3 16.4477 3.44772 16 4 16C4.55228 16 5 16.4477 5 17Z" fill="#111827"/>
+                                        </svg>
+                                tr(data-id="2")
+                                    td(class="column-image") 
+                                        img(src="./images/styleguide/campus-2.jpg" alt="Chương trình 2")
+                                    td(class="column-size") 2 mb
+                                    td(class="column-action") 
+                                        .action-buttons
+                                            button(class="btn-view-image") 
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.99999 7.64176C8.69517 7.64176 7.64166 8.69528 7.64166 10.0001C7.64166 11.3049 8.69517 12.3584 9.99999 12.3584C11.3048 12.3584 12.3583 11.3049 12.3583 10.0001C12.3583 8.69528 11.3048 7.64176 9.99999 7.64176ZM6.39166 10.0001C6.39166 8.00492 8.00481 6.39176 9.99999 6.39176C11.9952 6.39176 13.6083 8.00492 13.6083 10.0001C13.6083 11.9953 11.9952 13.6084 9.99999 13.6084C8.00481 13.6084 6.39166 11.9953 6.39166 10.0001Z" fill="white"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M1.88124 7.49757C3.87367 4.3656 6.79334 2.4751 9.99999 2.4751C13.2068 2.4751 16.1266 4.36576 18.119 7.49798C18.5732 8.20993 18.7792 9.1219 18.7792 9.99593C18.7792 10.87 18.5732 11.7819 18.119 12.4939C16.1266 15.6261 13.2068 17.5168 9.99999 17.5168C6.7932 17.5168 3.87341 15.6261 1.88098 12.4939C1.42683 11.7819 1.22083 10.87 1.22083 9.99593C1.22083 9.12173 1.42691 8.20958 1.88124 7.49757ZM9.99999 3.7251C7.32345 3.7251 4.7599 5.3011 2.93567 8.16888L2.93515 8.1697C2.63966 8.63263 2.47083 9.2953 2.47083 9.99593C2.47083 10.6966 2.63966 11.3592 2.93515 11.8222L2.93567 11.823C4.7599 14.6908 7.32345 16.2668 9.99999 16.2668C12.6765 16.2668 15.2401 14.6908 17.0643 11.823L17.0648 11.8222C17.3603 11.3592 17.5292 10.6966 17.5292 9.99593C17.5292 9.2953 17.3603 8.63263 17.0648 8.1697L17.0643 8.16888C15.2401 5.3011 12.6765 3.7251 9.99999 3.7251Z" fill="white"/>
+                                                </svg>
+
+                                            button(class="btn-delete" onclick="deleteRow(this)")
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.33331 3.125C8.27806 3.125 8.22507 3.14695 8.186 3.18602C8.14693 3.22509 8.12498 3.27808 8.12498 3.33333V5.20833H11.875V3.33333C11.875 3.27808 11.853 3.22509 11.814 3.18602C11.7749 3.14695 11.7219 3.125 11.6666 3.125H8.33331ZM4.8459 6.45833L5.62282 15.7814C5.62426 15.7987 5.62498 15.816 5.62498 15.8333C5.62498 16.1096 5.73473 16.3746 5.93008 16.5699C6.12543 16.7653 6.39038 16.875 6.66665 16.875H13.3333C13.6096 16.875 13.8745 16.7653 14.0699 16.5699C14.2652 16.3746 14.375 16.1096 14.375 15.8333C14.375 15.816 14.3757 15.7987 14.3771 15.7814L15.1541 6.45833H4.8459ZM16.4084 6.45833L15.6248 15.8614C15.6175 16.459 15.3769 17.0306 14.9538 17.4538C14.524 17.8836 13.9411 18.125 13.3333 18.125H6.66665C6.05886 18.125 5.47596 17.8836 5.04619 17.4538C4.62304 17.0306 4.38246 16.459 4.37515 15.8614L3.59156 6.45833H3.33331C2.98814 6.45833 2.70831 6.17851 2.70831 5.83333C2.70831 5.48816 2.98814 5.20833 3.33331 5.20833H6.87498V3.33333C6.87498 2.94656 7.02863 2.57563 7.30212 2.30214C7.57561 2.02865 7.94654 1.875 8.33331 1.875H11.6666C12.0534 1.875 12.4244 2.02865 12.6978 2.30214C12.9713 2.57563 13.125 2.94656 13.125 3.33333V5.20833H16.6666C17.0118 5.20833 17.2916 5.48816 17.2916 5.83333C17.2916 6.17851 17.0118 6.45833 16.6666 6.45833H16.4084ZM8.33331 8.54167C8.67849 8.54167 8.95831 8.82149 8.95831 9.16667V14.1667C8.95831 14.5118 8.67849 14.7917 8.33331 14.7917C7.98813 14.7917 7.70831 14.5118 7.70831 14.1667V9.16667C7.70831 8.82149 7.98813 8.54167 8.33331 8.54167ZM11.6666 8.54167C12.0118 8.54167 12.2916 8.82149 12.2916 9.16667V14.1667C12.2916 14.5118 12.0118 14.7917 11.6666 14.7917C11.3215 14.7917 11.0416 14.5118 11.0416 14.1667V9.16667C11.0416 8.82149 11.3215 8.54167 11.6666 8.54167Z" fill="white"/>
+                                                </svg>
+                                    td(class="toggle-btn" onclick="toggleRow(this)") 
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7 7C7 6.44772 7.44772 6 8 6H20C20.5523 6 21 6.44772 21 7C21 7.55228 20.5523 8 20 8H8C7.44772 8 7 7.55228 7 7Z" fill="#111827"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7 12C7 11.4477 7.44772 11 8 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H8C7.44772 13 7 12.5523 7 12Z" fill="#111827"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7 17C7 16.4477 7.44772 16 8 16H20C20.5523 16 21 16.4477 21 17C21 17.5523 20.5523 18 20 18H8C7.44772 18 7 17.5523 7 17Z" fill="#111827"/>
+                                        <path d="M5 7C5 7.55228 4.55228 8 4 8C3.44772 8 3 7.55228 3 7C3 6.44772 3.44772 6 4 6C4.55228 6 5 6.44772 5 7Z" fill="#111827"/>
+                                        <path d="M5 12C5 12.5523 4.55228 13 4 13C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11C4.55228 11 5 11.4477 5 12Z" fill="#111827"/>
+                                        <path d="M5 17C5 17.5523 4.55228 18 4 18C3.44772 18 3 17.5523 3 17C3 16.4477 3.44772 16 4 16C4.55228 16 5 16.4477 5 17Z" fill="#111827"/>
+                                        </svg>
+                                tr(data-id="3")
+                                    td(class="column-image") 
+                                        img(src="./images/styleguide/campus-3.jpg" alt="Chương trình 3")
+                                    td(class="column-size") 2 mb
+                                    td(class="column-action") 
+                                        .action-buttons
+                                            button(class="btn-view-image") 
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.99999 7.64176C8.69517 7.64176 7.64166 8.69528 7.64166 10.0001C7.64166 11.3049 8.69517 12.3584 9.99999 12.3584C11.3048 12.3584 12.3583 11.3049 12.3583 10.0001C12.3583 8.69528 11.3048 7.64176 9.99999 7.64176ZM6.39166 10.0001C6.39166 8.00492 8.00481 6.39176 9.99999 6.39176C11.9952 6.39176 13.6083 8.00492 13.6083 10.0001C13.6083 11.9953 11.9952 13.6084 9.99999 13.6084C8.00481 13.6084 6.39166 11.9953 6.39166 10.0001Z" fill="white"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M1.88124 7.49757C3.87367 4.3656 6.79334 2.4751 9.99999 2.4751C13.2068 2.4751 16.1266 4.36576 18.119 7.49798C18.5732 8.20993 18.7792 9.1219 18.7792 9.99593C18.7792 10.87 18.5732 11.7819 18.119 12.4939C16.1266 15.6261 13.2068 17.5168 9.99999 17.5168C6.7932 17.5168 3.87341 15.6261 1.88098 12.4939C1.42683 11.7819 1.22083 10.87 1.22083 9.99593C1.22083 9.12173 1.42691 8.20958 1.88124 7.49757ZM9.99999 3.7251C7.32345 3.7251 4.7599 5.3011 2.93567 8.16888L2.93515 8.1697C2.63966 8.63263 2.47083 9.2953 2.47083 9.99593C2.47083 10.6966 2.63966 11.3592 2.93515 11.8222L2.93567 11.823C4.7599 14.6908 7.32345 16.2668 9.99999 16.2668C12.6765 16.2668 15.2401 14.6908 17.0643 11.823L17.0648 11.8222C17.3603 11.3592 17.5292 10.6966 17.5292 9.99593C17.5292 9.2953 17.3603 8.63263 17.0648 8.1697L17.0643 8.16888C15.2401 5.3011 12.6765 3.7251 9.99999 3.7251Z" fill="white"/>
+                                                </svg>
+
+                                            button(class="btn-delete" onclick="deleteRow(this)")
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.33331 3.125C8.27806 3.125 8.22507 3.14695 8.186 3.18602C8.14693 3.22509 8.12498 3.27808 8.12498 3.33333V5.20833H11.875V3.33333C11.875 3.27808 11.853 3.22509 11.814 3.18602C11.7749 3.14695 11.7219 3.125 11.6666 3.125H8.33331ZM4.8459 6.45833L5.62282 15.7814C5.62426 15.7987 5.62498 15.816 5.62498 15.8333C5.62498 16.1096 5.73473 16.3746 5.93008 16.5699C6.12543 16.7653 6.39038 16.875 6.66665 16.875H13.3333C13.6096 16.875 13.8745 16.7653 14.0699 16.5699C14.2652 16.3746 14.375 16.1096 14.375 15.8333C14.375 15.816 14.3757 15.7987 14.3771 15.7814L15.1541 6.45833H4.8459ZM16.4084 6.45833L15.6248 15.8614C15.6175 16.459 15.3769 17.0306 14.9538 17.4538C14.524 17.8836 13.9411 18.125 13.3333 18.125H6.66665C6.05886 18.125 5.47596 17.8836 5.04619 17.4538C4.62304 17.0306 4.38246 16.459 4.37515 15.8614L3.59156 6.45833H3.33331C2.98814 6.45833 2.70831 6.17851 2.70831 5.83333C2.70831 5.48816 2.98814 5.20833 3.33331 5.20833H6.87498V3.33333C6.87498 2.94656 7.02863 2.57563 7.30212 2.30214C7.57561 2.02865 7.94654 1.875 8.33331 1.875H11.6666C12.0534 1.875 12.4244 2.02865 12.6978 2.30214C12.9713 2.57563 13.125 2.94656 13.125 3.33333V5.20833H16.6666C17.0118 5.20833 17.2916 5.48816 17.2916 5.83333C17.2916 6.17851 17.0118 6.45833 16.6666 6.45833H16.4084ZM8.33331 8.54167C8.67849 8.54167 8.95831 8.82149 8.95831 9.16667V14.1667C8.95831 14.5118 8.67849 14.7917 8.33331 14.7917C7.98813 14.7917 7.70831 14.5118 7.70831 14.1667V9.16667C7.70831 8.82149 7.98813 8.54167 8.33331 8.54167ZM11.6666 8.54167C12.0118 8.54167 12.2916 8.82149 12.2916 9.16667V14.1667C12.2916 14.5118 12.0118 14.7917 11.6666 14.7917C11.3215 14.7917 11.0416 14.5118 11.0416 14.1667V9.16667C11.0416 8.82149 11.3215 8.54167 11.6666 8.54167Z" fill="white"/>
+                                                </svg>
+                                    td(class="toggle-btn" onclick="toggleRow(this)") 
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7 7C7 6.44772 7.44772 6 8 6H20C20.5523 6 21 6.44772 21 7C21 7.55228 20.5523 8 20 8H8C7.44772 8 7 7.55228 7 7Z" fill="#111827"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7 12C7 11.4477 7.44772 11 8 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H8C7.44772 13 7 12.5523 7 12Z" fill="#111827"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7 17C7 16.4477 7.44772 16 8 16H20C20.5523 16 21 16.4477 21 17C21 17.5523 20.5523 18 20 18H8C7.44772 18 7 17.5523 7 17Z" fill="#111827"/>
+                                        <path d="M5 7C5 7.55228 4.55228 8 4 8C3.44772 8 3 7.55228 3 7C3 6.44772 3.44772 6 4 6C4.55228 6 5 6.44772 5 7Z" fill="#111827"/>
+                                        <path d="M5 12C5 12.5523 4.55228 13 4 13C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11C4.55228 11 5 11.4477 5 12Z" fill="#111827"/>
+                                        <path d="M5 17C5 17.5523 4.55228 18 4 18C3.44772 18 3 17.5523 3 17C3 16.4477 3.44772 16 4 16C4.55228 16 5 16.4477 5 17Z" fill="#111827"/>
+                                        </svg>
+            
             section.bm-chart-demo
                 h2.bm-title Demo ChartJS 
                 .chart-request
@@ -186,11 +283,11 @@ block container
                         p Tập trung vào các môn học cốt lõi của chương trình giáo dục Mỹ, được giảng dạy bằng tiếng Anh, và kết hợp giữa các môn học năng khiếu theo chương trình Mỹ với chương trình giảng dạy bằng tiếng Việt của Bộ Giáo dục & Đào tạo Việt Nam. Sau năm lớp 8, học sinh có thể chọn tiếp tục học song ngữ và nhận bằng tốt nghiệp của Bộ Giáo dục & Đào tạo Việt Nam và tham gia các kỳ thi đánh giá năng lực như IELTS, SAT, ACT. Hoặc học sinh có thể chọn chuyển sang học lộ trình Tú tài Mỹ để nhận bằng Tú tài Trung học Greenville (Bang Pennsylvania, Mỹ).
                         p Hệ Quốc tế Mỹ tập trung vào các môn học cốt lõi và các môn năng khiếu được giảng dạy bằng tiếng Anh, được cấp phép bởi Sở giáo dục GreenVille, bang Pennsylvania. Học sinh tại PennSchool đạt điều kiện của Bộ giáo dục Bang Pennsylvania sẽ được cấp bằng tốt nghiệp chính thức từ Trường trung học công lập Greenville, Bang Pennsylvania, bằng cấp được công nhận tại tất cả các trường ở Mỹ, Úc, Canada và các trường giảng dạy bằng tiếng Anh khác trên toàn thế giới.
             
-            section.rt-table-admin.manage-request
-                .rt-table-manage
-                    .rt-table-manage__head 
-                        .rt-table-manage__head--title Quản lý yêu cầu
-                        .rt-table-manage__head--filter 
+            section.bm-table-admin.manage-request
+                .bm-table-manage
+                    .bm-table-manage__head 
+                        .bm-table-manage__head--title Quản lý yêu cầu
+                        .bm-table-manage__head--filter 
                             form(action="" method="post")
                                 .custom-select.select-filter-time
                                     select(class="select-time")
@@ -203,8 +300,8 @@ block container
                                     .select-style 
                                         span Thời gian
 
-                    .rt-table-manage__body
-                        .rt-table-responsive
+                    .bm-table-manage__body
+                        .bm-table-responsive
                             table.table.request-management
                                 thead.table-custom-style
                                     
@@ -222,62 +319,13 @@ block container
                                                 phone : '099 999 9999'
                                             },
                                             {
-                                                name : 'Nguyen Pham Binh',
+                                                name : 'Nguyen Van A',
                                                 phone: '096 345 2461'
                                             },
                                             {
-                                                name : 'Bui Minh Hieu',
+                                                name : 'Nguyen Van B',
                                                 phone : '099 923 9129'
-                                            },
-                                            {
-                                                name : 'Le Van Cui',
-                                                phone : '032 923 9129'
-                                            },
-                                            {
-                                                name : 'Cam Ba Mao',
-                                                phone : '096 923 9129'
-                                            },
-                                            {
-                                                name : 'Jennifer Law',
-                                                phone : '099 999 9999'
-                                            },
-                                            {
-                                                name : 'Nguyen Pham Binh',
-                                                phone: '096 345 2461'
-                                            },
-                                            {
-                                                name : 'Bui Minh Hieu',
-                                                phone : '099 923 9129'
-                                            },
-                                            {
-                                                name : 'Le Van Cui',
-                                                phone : '032 923 9129'
-                                            },
-                                            {
-                                                name : 'Cam Ba Mao',
-                                                phone : '096 923 9129'
-                                            },
-                                            {
-                                                name : 'Jennifer Law',
-                                                phone : '099 999 9999'
-                                            },
-                                            {
-                                                name : 'Nguyen Pham Binh',
-                                                phone: '096 345 2461'
-                                            },
-                                            {
-                                                name : 'Bui Minh Hieu',
-                                                phone : '099 923 9129'
-                                            },
-                                            {
-                                                name : 'Le Van Cui',
-                                                phone : '032 923 9129'
-                                            },
-                                            {
-                                                name : 'Cam Ba Mao',
-                                                phone : '096 923 9129'
-                                            },
-                                            
+                                            },                                            
                                         ]
                                     each item, key in requests_content
                                         tr.row-item
@@ -316,10 +364,10 @@ block container
                                                 <path d="M5 17C5 17.5523 4.55228 18 4 18C3.44772 18 3 17.5523 3 17C3 16.4477 3.44772 16 4 16C4.55228 16 5 16.4477 5 17Z" fill="#111827"/>
                                                 </svg>
                                     
-                    .rt-table-manage__footer 
+                    .bm-table-manage__footer 
                         include ../../components/Pagination/pagination
-                        .rt-show-entries
-                            .rt-show-entries__text Showing 1 to 5 of 50 entries
+                        .bm-show-entries
+                            .bm-show-entries__text Showing 1 to 5 of 50 entries
                             form(action="" method="post")
                                 .custom-select
                                     select(class="select-show-entries")
@@ -327,7 +375,7 @@ block container
                                         option(value="show-50") Show 50                                        
                                     .select-style 
                                         span Show 5
-
+    
         //- Demo Swiper and LightGalleryJS  
         section.bm-feeling-parent#feeling-parent
             .container 
@@ -377,6 +425,179 @@ block container
                                 <svg width="16" height="28" viewBox="0 0 16 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M2 26L14 14L2 2" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
+        //- Demo Swiper Custom Pagination
+        section.bm-time-regulations#quy-trinh-xet-tuyen
+            .container-fluid
+                .bm-time-regulations__wrap
+                    .bm-time-regulations__over 
+                        .bm-time-regulations__header 
+                            h3.bm-sub-title Demo Swiper Custom Pagination
+                            //- h2.bm-title.bm-title__medium Học bổng
+                                img.lazy.cornflower-left(data-src="./images/styleguide/title-cornflower-left.svg" alt="")
+                                img.lazy.cornflower-right(data-src="./images/styleguide/title-cornflower-right.svg" alt="")
+                        
+                        .bm-time-regulations__pagination
+                            button.bm-time-regulations-bullet.bm-time-regulations-bullet__active
+                                span.bm-time-regulations-bullet__image 
+                                    img(src="./images/styleguide/time-regulations-icon-1.svg" alt="")
+                                span.bm-time-regulations-bullet__title Nộp hồ sơ 
+                                span.bm-time-regulations-bullet__item 
+                                    span.line
+                                    span.bullet
+                                span.bm-time-regulations-bullet__time Thời gian:
+                                    br
+                                    span 20/04  - 02/05/2023
+                        
+
+                    .bm-time-regulations__slider
+                        .bm-time-regulations__list.swiper.swiper-container
+                            .swiper-wrapper 
+                                -
+                                    items = [1,2,3,1]
+                                
+                                each val in items
+                                    .swiper-slide
+                                        .bm-time-regulations__image 
+                                            .out 
+                                                .in
+                                                    .bm-img-drop
+                                                        img(src="./images/styleguide/feeling-parent-"+val+".jpg" alt="")
+
+        section.isa-prestigious-university
+            .container 
+                .isa-prestigious-university__header
+                    .isa-prestigious-university__header--sub-title Học tập và nhận bằng từ
+                    h2.isa-title Đại học Top 1% thế giới
+
+                .isa-prestigious-university__mobile
+                    .isa-prestigious-university__nav
+                        ul(class="nav nav-tabs" id="UniversityTab" role="tablist")
+                            -
+                                items = [
+                                    {
+                                        "img" : "america",
+                                        "title": "Mỹ"
+                                    },
+                                    {
+                                        "img" : "canada",
+                                        "title": "Canada"
+                                    },
+                                    {
+                                        "img" : "australia",
+                                        "title": "Úc"
+                                    },
+                                    {
+                                        "img" : "germany",
+                                        "title": "Đức"
+                                    },
+                                
+                                ]
+                            each val, key in items
+                                li(class="nav-item" role="presentation")
+                                    button(class=key === 0 ? 'nav-link active' : 'nav-link' id=`prestigious-university-tab-${key + 1}` data-bs-toggle="tab" data-bs-target=`#prestigious-university-tab-${key + 1}-content` type="button" role="tab" aria-controls=`prestigious-university-tab-${key + 1}-content` aria-selected=key === 0 ? 'true' : 'false') 
+                                        img(src="./images/styleguide/flag-"+val.img+".svg" alt="")
+                                        span #{val.title}
+                        
+            .container-fluid.px-0
+                div(class="tab-content" id="UniversityTabContent")
+                    -
+                        items = [1,2,3,4]
+                    each val, key in items
+                        div(class=`tab-pane fade ${key === 0 ? 'show active' : 'false'} ` id=`prestigious-university-tab-${key + 1}-content` role="tabpanel" aria-labelledby=`prestigious-university-tab-${key + 1}`)
+                            .isa-prestigious-university__list.swiper.swiper-container
+                                .swiper-wrapper 
+                                    -
+                                        slider = [
+                                            {
+                                                "img" : "2",
+                                                "title": "University of Wisconsin"
+                                            },
+                                            {
+                                                "img" : "3",
+                                                "title": "University of Wisconsin University of Wisconsin"
+                                            },
+                                            {
+                                                "img" : "1",
+                                                "title": "University of Wisconsin"
+                                            },
+                                            {
+                                                "img" : "3",
+                                                "title": "University of Wisconsin"
+                                            },
+                                        ]
+                                    
+                                    each val in slider
+                                        .swiper-slide
+                                            .isa-prestigious-university__scale(style = "background-image: url(../images/styleguide/prestigious-university-"+val.img+".jpg); ")
+                                                .isa-prestigious-university__wrap 
+                                                    .content-top
+                                                        .content-top__subtitle Trường đại học
+                                                        .content-top__title #{val.title}
+                                                        .content-top__cta 
+                                                            a(href="#" class="rt-btn rt-btn-primary") Xem chi tiết
+                                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M20.5 4V9C20.5 9.276 20.276 9.5 20 9.5C19.724 9.5 19.5 9.276 19.5 9V5.20703L11.354 13.353C11.256 13.451 11.128 13.499 11 13.499C10.872 13.499 10.744 13.45 10.646 13.353C10.451 13.158 10.451 12.841 10.646 12.646L18.792 4.5H15C14.724 4.5 14.5 4.276 14.5 4C14.5 3.724 14.724 3.5 15 3.5H20C20.065 3.5 20.1299 3.51306 20.1909 3.53906C20.3139 3.59006 20.4109 3.68706 20.4619 3.81006C20.4869 3.87006 20.5 3.935 20.5 4ZM20 12.5C19.724 12.5 19.5 12.724 19.5 13V17C19.5 18.729 18.729 19.5 17 19.5H7C5.271 19.5 4.5 18.729 4.5 17V7C4.5 5.271 5.271 4.5 7 4.5H11C11.276 4.5 11.5 4.276 11.5 4C11.5 3.724 11.276 3.5 11 3.5H7C4.71 3.5 3.5 4.71 3.5 7V17C3.5 19.29 4.71 20.5 7 20.5H17C19.29 20.5 20.5 19.29 20.5 17V13C20.5 12.724 20.276 12.5 20 12.5Z" fill="white"/>
+                                                                </svg>
+                                                    .content-bottom 
+                                                        .content-bottom__list 
+                                                            -
+                                                                items = [
+                                                                    {
+                                                                        "img": "globe-earth",
+                                                                        "title": "Quốc gia",
+                                                                        "desc": "Mỹ"
+                                                                    },
+                                                                    {
+                                                                        "img": "building-tree",
+                                                                        "title": "Tỉnh bang/Thành phố",
+                                                                        "desc": "Alabama"
+                                                                    },
+                                                                    {
+                                                                        "img": "graduation-cap",
+                                                                        "title": "Bậc học",
+                                                                        "desc": "Đại học"
+                                                                    },
+                                                                    {
+                                                                        "img": "invoice",
+                                                                        "title": "Học phí tham khảo",
+                                                                        "desc": "$25,000 - $27,000/year"
+                                                                    },
+                                                                    
+                                                                ]
+                                                            
+                                                            each val, key in items
+                                                                .content-bottom__item 
+                                                                    img.content-bottom__item--img(src="./images/styleguide/icon-"+val.img+".svg", alt="")
+                                                                    .content-bottom__item--title #{val.title}
+                                                                    .content-bottom__item--desc #{val.desc}
+                                                    
+                                .container.isa-slider-prestigious-university-container
+                                    .isa-prestigious-university__pagination
+                                        .isa-prestigious-university__pagination--nav
+                                            span
+                                        .isa-prestigious-university__pagination--count
+                                            span.current 1
+                                            span.fraction-divider &nbsp;-&nbsp;
+                                            span.total 5
+                                //- .isa-prestigious-university__arrow    
+                                .isa-swiper-prev        
+                                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="32" cy="32" r="32" fill="#FAF7F0"/>
+                                        <path d="M41.5 31.5L21.5 31.5" stroke="#212121" stroke-miterlimit="10"/>
+                                        <path d="M28.5 38.5L21.5 31.5L28.5 24.5" stroke="#212121" stroke-miterlimit="10" stroke-linecap="square"/>
+                                    </svg>
+
+                                .isa-swiper-next
+                                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="32" cy="32" r="32" fill="#FAF7F0"/>
+                                        <path d="M22.5 32.5H42.5" stroke="#212121" stroke-miterlimit="10"/>
+                                        <path d="M35.5 25.5L42.5 32.5L35.5 39.5" stroke="#212121" stroke-miterlimit="10" stroke-linecap="square"/>
+                                    </svg>
+
+        include ../../components/StrategicPartnership/strategic-partnership
+
+        include ../../components/FeaturedEvents/featured-events
+
         //- Demo Grid CSS and LightGalleryJS  
         section.bm-our-campus#our-campus
             .container 
@@ -399,5 +620,547 @@ block container
                     a(href="#contact" class="bm-btn bm-btn-primary js-anchor-scroll") 
                         span ĐẶT LỊCH THAM QUAN 
                         img.is-mobile(src="./images/styleguide/icon-btn-mobile.svg", alt="")
+        //- Demo GSAP 
+        section.bm-intro#intro
+            .bm-intro__container
+                .bm-intro__container--inner
+                    .bm-intro__wrap
+                        .bm-intro__inner.photo.left
+                            img(src="./images/styleguide/intro-left.jpg" alt="")
+                        .bm-intro__inner.is-content 
+                            .bm-intro__header 
+                                .bm-intro__header--label Chương trình tú tài
+                                h2.bm-title Canada tại Việt Nam
+                            .bm-intro__content
+                                p <strong>Là Chương trình hợp tác chiến lược giữa Trung tâm Ngoại ngữ Penn Academy và TOHS - trường THPT Trinity Ontario High School. Học sinh hoàn thành chương trình sẽ nhận được bằng tốt nghiệp Tú tài Canada OSSD (do Sở giáo dục bang Ontario cấp).</strong>
+                                p TOHS là Trường quốc tế Canada trực tuyến được thành lập tại Ontario. TOHS mang đến cơ hội học tập các chương trình giáo dục phổ thông chất lượng cao, với giáo trình học đã được kiểm định bởi tổ chức kiểm định giáo dục Quốc tế Cognia. Các chương trình học được giám sát và giảng dạy bởi đội ngũ giáo viên có bằng cấp và chuyên môn trong lĩnh vực giáo dục.
+                            .bm-intro__cta 
+                                a(href="#" class="bm-btn bm-btn-primary") Đăng ký ngay
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.9998 2.66675C8.63584 2.66675 2.6665 8.63608 2.6665 16.0001C2.6665 23.3641 8.63584 29.3334 15.9998 29.3334C23.3638 29.3334 29.3332 23.3641 29.3332 16.0001C29.3332 8.63608 23.3638 2.66675 15.9998 2.66675ZM19.3732 16.7068L15.3732 20.7068C15.1785 20.9015 14.9225 21.0001 14.6665 21.0001C14.4105 21.0001 14.1545 20.9028 13.9598 20.7068C13.5691 20.3161 13.5691 19.6827 13.9598 19.2921L17.2531 15.9988L13.9598 12.7055C13.5691 12.3148 13.5691 11.6814 13.9598 11.2908C14.3505 10.9001 14.9838 10.9001 15.3745 11.2908L19.3745 15.2908C19.7638 15.6841 19.7639 16.3161 19.3732 16.7068Z" fill="#F7C329"/>
+                                    </svg>
+                        .bm-intro__inner.photo.right
+                            img.lazy(data-src="./images/styleguide/intro-right.jpg" alt="")
         
+        //- Number
+        section.bm-number.lazy(data-src="./images/styleguide/number-counter.jpg" id="number")
+            .bm-number__overlay(style="opacity:0.7")
+            .container
+                .bm-number__list
+                    .row 
+                        .col-6.col-lg-3.bm-number__item
+                            .bm-number__item--wrap
+                                .bm-number__item--value
+                                    .bm-number__item--number 100
+                                    .bm-number__item--operator % 
+                                .bm-number__item--text Câu lạc bộ
+
+                        .col-6.col-lg-3.bm-number__item
+                            .bm-number__item--wrap
+                                .bm-number__item--value
+                                    .bm-number__item--number 7.5
+                                    .bm-number__item--operator 
+                                .bm-number__item--text Đội thể thao
+
+                        .col-6.col-lg-3.bm-number__item
+                            .bm-number__item--wrap
+                                .bm-number__item--value
+                                    .bm-number__item--number 100
+                                    .bm-number__item--operator %
+                                .bm-number__item--text Dự án cộng đồng
+
+                        .col-6.col-lg-3.bm-number__item
+                            .bm-number__item--wrap
+                                .bm-number__item--value
+                                    .bm-number__item--number 24
+                                    .bm-number__item--operator /24 
+                                .bm-number__item--text Sự kiện  
         
+        section.bm-why-join
+            .container 
+                .bm-why-join__wrap
+                    .bm-why-join__overlay
+                    .bm-why-join__image 
+                        img.lazy(data-src="./images/styleguide/bm-why-join.jpg")
+                    .bm-why-join__content 
+                        //- h3.sub-title Vì sao nên gia nhập
+                        h2.bm-title.bm-title__large Demo Tab Bootrap Hover Change
+                .bm-why-join__body
+                    div(class="d-flex")
+                        
+                        div(class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical")
+                            -
+                                tabs = [
+                                    {
+                                        "icon": "chinh-sach-dai-ngo",
+                                        "title": "Chính sách đãi ngộ",
+                                    },                                
+                                    {
+                                        "icon": "cham-soc-suc-khoe",
+                                        "title": "Chăm sóc sức khoẻ",
+                                    },                                
+                                    {
+                                        "icon": "moi-truong-lam-viec",
+                                        "title": "Môi trường làm việc",
+                                    },                                
+                                    {
+                                        "icon": "hoat-dong-tap-the",
+                                        "title": "Hoạt động tập thể",
+                                    },                                
+                                    {
+                                        "icon": "co-hoi-thang-tien",
+                                        "title": "Cơ hội thăng tiến",
+                                    },                                
+                                    {
+                                        "icon": "quyen-loi-khac",
+                                        "title": "Quyền lợi khác",
+                                    },                                
+                                ]
+                            each val, key in tabs
+                                button(class=key === 0 ? 'nav-link active' : 'nav-link' id=`why-join-${key + 1}-tab` data-bs-toggle="pill" data-bs-target=`#why-join-${key + 1}` type="button" role="tab" aria-controls=`why-join-${key + 1}` aria-selected=key === 0 ? 'true' : 'false') 
+                                    .wrap
+                                        img.lazy(data-src="./images/styleguide/"+val.icon+".svg")
+                                        span #{val.title}
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.7061 12.708L16.7071 16.7071C16.5121 16.9021 16.2561 17 16.0001 17C15.7441 17 15.4881 16.9021 15.2931 16.7071C14.9021 16.3161 14.9021 15.684 15.2931 15.293L17.586 13H4.00009C3.44709 13 3.00009 12.552 3.00009 12C3.00009 11.448 3.44709 11 4.00009 11H17.586L15.2931 8.70707C14.9021 8.31607 14.9021 7.68401 15.2931 7.29301C15.6841 6.90201 16.3161 6.90201 16.7071 7.29301L20.7061 11.292C20.7991 11.385 20.8722 11.495 20.9232 11.618C21.0242 11.862 21.0242 12.1381 20.9232 12.3821C20.8722 12.5051 20.7991 12.615 20.7061 12.708Z" fill="white"/>
+                                    </svg>
+
+                        div(class="tab-content" id="v-pills-tabContent")
+                            -
+                                tabs_content = [
+                                    {
+                                        "title": "Chính sách đãi ngộ",
+                                        "desc": "Mức lương cạnh tranh và chính sách đãi ngộ hấp dẫn, xứng đáng với nỗ lực và kinh nghiệm của các thành viên.",
+                                    },                                
+                                    {
+                                        "title": "Chăm sóc sức khoẻ",
+                                        "desc": "Người đứng đầu và là người đại diện của Hội đồng Học sinh, chịu trách nhiệm chỉ đạo các hoạt động của Hội đồng và đại diện cho tiếng nói của học sinh trước Ban Giám hiệu Nhà trường.",
+                                    },                                
+                                    {
+                                        "title": "Môi trường làm việc",
+                                        "desc": "Mức lương cạnh tranh và chính sách đãi ngộ hấp dẫn, xứng đáng với nỗ lực và kinh nghiệm của các thành viên. 2",
+                                    },                                
+                                    {
+                                        "title": "Hoạt động tập thể",
+                                        "desc": "Mức lương cạnh tranh và chính sách đãi ngộ hấp dẫn, xứng đáng với nỗ lực và kinh nghiệm của các thành viên. 3",
+                                    },                                
+                                    {
+                                        "title": "Cơ hội thăng tiến",
+                                        "desc": "Mức lương cạnh tranh và chính sách đãi ngộ hấp dẫn, xứng đáng với nỗ lực và kinh nghiệm của các thành viên. 4",
+                                    },                                
+                                    {
+                                        "title": "Cơ hội thăng tiến",
+                                        "desc": "Mức lương cạnh tranh và chính sách đãi ngộ hấp dẫn, xứng đáng với nỗ lực và kinh nghiệm của các thành viên. 5",
+                                    },                                
+                                                               
+                                ]
+                            each val, key in tabs_content
+                                div(class=`tab-pane fade ${key === 0 ? 'show active' : 'false'} ` id=`why-join-${key + 1}` role="tabpanel" aria-labelledby=`why-join-${key + 1}-tab`) 
+                                    h3 #{val.title}
+                                    p #{val.desc}
+                            .bm-why-join__arrow 
+                                a(href="javascript:void(0)" class="bm-why-join__arrow--prev")
+                                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="40" cy="40" r="40" fill="white" fill-opacity="0.2"/>
+                                        <g clip-path="url(#clip0_148_1152)">
+                                            <path d="M34 40C37.808 41.92 42.288 45.04 45.2 48.4L42.96 40L45.2 31.6C42.288 34.96 37.808 38.08 34 40Z" fill="#FAF7F0"/>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_148_1152">
+                                                <rect width="12" height="18" fill="white" transform="translate(34 31)"/>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+
+                                a(href="javascript:void(0)" class="bm-why-join__arrow--next")
+                                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="40" cy="40" r="40" fill="white" fill-opacity="0.2"/>
+                                        <g clip-path="url(#clip0_148_1148)">
+                                            <path d="M46 40C42.192 38.08 37.712 34.96 34.8 31.6L37.04 40L34.8 48.4C37.712 45.04 42.192 41.92 46 40Z" fill="#FAF7F0"/>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_148_1148">
+                                                <rect width="12" height="18" fill="white" transform="translate(46 49) rotate(-180)"/>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+        section.isa-why-us#isa-why-us
+            .container 
+                .row 
+                    .col-lg-6
+                        .isa-why-us__head
+                            img.heart-why-us.lazy(data-src="./images/styleguide/heart-why-us.svg" alt="")
+                            .isa-why-us__head--sub-title Tại sao chọn
+                            .isa-why-us__head--border
+                            .isa-title.isa-title__medium HIGH SCHOOL AMERICAN DIPLOMA PATHWAYS
+                            .isa-why-us__head--cta
+                                a(href="#consultation" class="bm-btn js-anchor-scroll isa-widget--button icon-primary icon-cursor-click")
+                                    span Đăng ký tư vấn 
+                    .col-lg-6
+                        .isa-why-us__list 
+                            -
+                                items = [
+                                    {
+                                        'icon' : '1',
+                                        'title' : 'Môi trường học tập năng động và đa dạng',
+                                        'content' : 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia.',
+                                    },
+                                    {
+                                        'icon' : '2',
+                                        'title' : 'Cơ hội giao lưu và kết nối bạn bè quốc tế',
+                                        'content' : 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virgini',
+                                    },
+                                    {
+                                        'icon' : '3',
+                                        'title' : 'Phát triển toàn diện các kỹ năng cần thiết',
+                                        'content' : 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia.',
+                                    },
+                                    {
+                                        'icon' : '4',
+                                        'title' : 'Xây dựng nền tảng học tập vững chắc',
+                                        'content' : 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virgini',
+                                    },                                                   
+                                    {
+                                        'icon' : '5',
+                                        'title' : 'Lộ trình học tập linh hoạt phù hợp với nhu cầu của từng học sinh',
+                                        'content' : 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia.',
+                                    },                                                   
+                                    {
+                                        'icon' : '6',
+                                        'title' : 'Chi phí học tập hợp lý',
+                                        'content' : 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia.',
+                                    },                                                   
+                                    {
+                                        'icon' : '7',
+                                        'title' : 'Cơ hội được nhận vào các trường đại học hàng đầu tại Mỹ',
+                                        'content' : 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia.',
+                                    },                                                   
+                                ]
+
+                            each val in items
+                                .isa-why-us__item
+                                    .isa-why-us__item--head 
+                                        .wrap
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M21.6919 12.2871C21.6539 12.3791 21.599 12.462 21.53 12.531L14.53 19.531C14.384 19.677 14.192 19.751 14 19.751C13.808 19.751 13.616 19.678 13.47 19.531C13.177 19.238 13.177 18.763 13.47 18.47L19.1899 12.75H3C2.586 12.75 2.25 12.414 2.25 12C2.25 11.586 2.586 11.25 3 11.25H19.189L13.469 5.53005C13.176 5.23705 13.176 4.76202 13.469 4.46902C13.762 4.17602 14.237 4.17602 14.53 4.46902L21.53 11.469C21.599 11.538 21.6539 11.6209 21.6919 11.7129C21.7679 11.8969 21.7679 12.1031 21.6919 12.2871Z" fill="white"/>
+                                            </svg>
+                                            .title #{val.title}
+                                        .icon 
+                                            img(src="./images/styleguide/why-us-icon-"+val.icon+".svg" alt="")
+                                    .isa-why-us__item--body #{val.content}
+        
+        section.siss-education-program     
+            .container
+                .siss-education-program__header
+                    h2.siss-title Chương trình đào tạo
+                    .siss-education-program__header--desc Thụ hưởng chương trình New South Wales đạt chuẩn Úc, học sinh từ Dự bị Tiểu học đến Lớp 12 <br> tại SISS có thể chọn chương trình thuộc Hệ Song ngữ Tích hợp hoặc Hệ Quốc tế Toàn phần.
+                .siss-education-program__body 
+                    .advant__tabs
+                        .advant__img-wrap(data-tabs='images')
+                            img.advant__img.active(src='https://assets.website-files.com/61b711f830d358f225addd55/61bcabbb00d520fba734812f_slider_01.jpg' alt='')
+                            img.advant__img.mod--2(src='https://assets.website-files.com/61b711f830d358f225addd55/61bcabbbf37240c48c853729_slider_02.jpg' alt='')
+                            img.advant__img.mod--3(src='https://assets.website-files.com/61b711f830d358f225addd55/61bcabbb8c69b773d05c28fa_slider_03.jpg' alt='')
+                            img.advant__img.mod--4(src='https://assets.website-files.com/61b711f830d358f225addd55/61bcabbcd640fb87be01a8e7_slider_04.jpg' alt='')
+
+                        .advant__card.active
+                            .advant__card-img-wrap
+                                img.advant__card-img.active(src='https://assets.website-files.com/61b711f830d358f225addd55/61b72a66c08f141b4270a9dc_advant_01-mini.jpg', alt='')
+                                img.advant__card-img.mod--2(src='https://assets.website-files.com/61b711f830d358f225addd55/61bcabbb22703a5137412068_advant_02-mini.jpg', alt='')
+                                img.advant__card-img.mod--3(src='https://assets.website-files.com/61b711f830d358f225addd55/61bcabbbf135aa24f4d05199_advant_03-mini.jpg', alt='')
+                                img.advant__card-img.mod--4(src='https://assets.website-files.com/61b711f830d358f225addd55/61bcabbbf3724083aa853727_advant_04-mini.jpg', alt='')
+                            
+                            .advant__card-txt-wrap
+                                .advant__card-txt.active
+                                    .advant__card-title Chương trình Tiểu học
+                                    p.advant__card-p Chương trình Trung học tại SISS được thiết kế dành cho học sinh từ Lớp 6 – Lớp 10, các môn học được phát triển theo các mô hình giáo dục hiện đại, bám sát khung chương trình New South Wales để học sinh có đủ cơ sở theo đuổi các chương trình quốc tế tại Lớp 11 và 12.
+                            
+                                .advant__card-txt.mod--2
+                                    .advant__card-title Chương trình Trung học
+                                    p.advant__card-p Chương trình Tiểu học tại SISS được phát triển một cách cân bằng và toàn diện để học sinh từ Dự bị Tiểu học – Lớp 5 có thể hình thành tư duy quốc tế ngay từ nhỏ.
+                                    
+                                .advant__card-txt.mod--3
+                                    .advant__card-title Institute
+                                    p.advant__card-p It’s modern, designed for a future. It’s very technological. You have wi-fi and video, a big screen and a window in each space. You can walk right out of one floor
+                                
+                                .advant__card-txt.mod--4
+                                    .advant__card-title Modern
+                                    p.advant__card-p Chicago-based Designers was the lead designer of the building, led by Will Radford and Matt Trott. They wanted a creative office that utilize the space and needed minimal
+                                                            
+                    .advant__tabs-nav(style='opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;')
+                        .btn-tag.active
+                            span.btn-tag__star &nbsp;
+                            | Chương trình Tiểu học
+                        .btn-tag
+                            span.btn-tag__star &nbsp;
+                            | Chương trình Trung học
+        
+        //- siss-promotion
+        section#siss-promotion.siss-promotion
+            .siss-promotion__inner
+                .container
+                    .siss-promotion__head
+                        .siss-title Các chương trình ưu đãi tuyển sinh
+                        
+                    .siss-promotion__body
+                        .siss-promotion__tabs--title
+                            ul.siss-tabs
+                                li
+                                    a.active(href="#siss-promotion-0") Kiểm tra năng lực đầu vào
+                                li
+                                    a(href="#siss-promotion-1") Chương trình “Year 1 Explorer”
+                        .siss-promotion__tabs--content
+                            #siss-promotion-0.siss-promotion__panel.active
+                                .siss-promotion__panel--inner.row.align-items-center
+                                    .col-lg-6
+                                        .siss-promotion__panel--left
+                                            h3.siss-promotion__block--heading.siss-title
+                                                    span Kiểm tra năng lực đầu vào tại SISS 1
+                                            .siss-promotion__block--editor
+                                                p Hệ thống Trường Sydney (SISS) sẵn sàng chào đón thế hệ học sinh đầu tiên trong năm học 2023 – 2024. Để giúp học sinh kiểm tra mức độ phù hợp của bản thân với chương trình Bang New South Wales, SISS sẽ tổ chức bài thi đánh giá năng lực đầu vào dành cho học sinh từ Lớp Dự bị Tiểu học (Prep) – Lớp 8. Bài thi sẽ được tổ chức miễn phí vào sáng thứ 7 hàng tuần.
+                                            .siss-promotion__block--button
+                                                a.js-anchor-scroll(href="#information")
+                                                    span Đăng ký sự kiện
+                                    .col-lg-6
+                                        .siss-promotion__panel--right
+                                            .siss-promotion__block--image
+                                                img.lazy(data-src="./images/styleguide/number-counter.jpg" alt="")
+                            #siss-promotion-1.siss-promotion__panel
+                                .siss-promotion__panel--inner.row.align-items-center
+                                    .col-lg-6
+                                        .siss-promotion__panel--left
+                                            h3.siss-promotion__block--heading.siss-title
+                                                    span Kiểm tra năng lực đầu vào tại SISS 2
+                                            .siss-promotion__block--editor
+                                                p Hệ thống Trường Sydney (SISS) sẵn sàng chào đón thế hệ học sinh đầu tiên trong năm học 2023 – 2024. Để giúp học sinh kiểm tra mức độ phù hợp của bản thân với chương trình Bang New South Wales, SISS sẽ tổ chức bài thi đánh giá năng lực đầu vào dành cho học sinh từ Lớp Dự bị Tiểu học (Prep) – Lớp 8. Bài thi sẽ được tổ chức miễn phí vào sáng thứ 7 hàng tuần.
+                                            .siss-promotion__block--button
+                                                a.js-anchor-scroll(href="#information")
+                                                    span Đăng ký sự kiện
+                                    .col-lg-6
+                                        .siss-promotion__panel--right
+                                            .siss-promotion__block--image
+                                                img.lazy(data-src="./images/styleguide/bm-why-join.jpg" alt="")
+        
+        //- Banner
+        section.rt-banner
+            .rt-banner__overlay
+            .rt-banner__image.bm-img-drop
+                picture.lazy
+                    data-src(srcset="./images/styleguide/banner.jpg" media="(min-width: 992px)")
+                    data-img(src="./images/styleguide/banner.jpg" alt="")
+
+            .rt-banner__wrap
+                .container
+                    .rt-banner__inner
+                        .rt-banner__detail
+                            .rt-banner__detail--subtitle A NEW WAY OF
+                            h1.rt-heading.rt-size-small discovering our world 
+                            .rt-banner__detail--cta 
+                                a(href="#" class="bm-btn bm-btn-primary") Explore our business field
+        
+        section.isa-home-banner 
+            .isa-home-banner__slider.swiper.swiper-container 
+                .swiper-wrapper 
+                    -
+                        banner = [
+                            {
+                                "category": "Công dân toàn cầu",
+                                "subtitle": "Trở thành công dân toàn cầu cùng 1",
+                                "title": "Du học ISA"
+                            },
+                            {
+                                "category": "Workshops",
+                                "subtitle": "Trở thành công dân toàn cầu cùng 2",
+                                "title": "Du học Canada"
+                            },
+                            {
+                                "category": "Du học hè Summer Camp 2024",
+                                "subtitle": "Trở thành công dân toàn cầu cùng 3",
+                                "title": "Du học mỹ"
+                            },
+                            {
+                                "category": "Kinh nghiệm du học",
+                                "subtitle": "Trở thành công dân toàn cầu cùng 4",
+                                "title": "Du học Úc"
+                            },
+                        ]
+                    
+                    each val, key in banner
+                        .swiper-slide(data-pager-category=`${val.category}`)
+                            .isa-home-banner__slider--container 
+                                .isa-home-banner__slider--overlay
+                                    .title-category #{val.subtitle}
+                                    if (0 == key)
+                                        h1.title #{val.title}
+                                    else
+                                        .title #{val.title}
+                                    
+                                    a(href="#" class="btn-text") Khám phá ngay
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21.353 12.354L14.353 19.354C14.255 19.452 14.127 19.5 13.999 19.5C13.871 19.5 13.743 19.451 13.645 19.354C13.45 19.159 13.45 18.842 13.645 18.647L19.791 12.501H3C2.724 12.501 2.5 12.277 2.5 12.001C2.5 11.725 2.724 11.501 3 11.501H19.793L13.647 5.35499C13.452 5.15999 13.452 4.84296 13.647 4.64796C13.842 4.45296 14.159 4.45296 14.354 4.64796L21.354 11.648C21.4 11.694 21.4369 11.75 21.4619 11.811C21.5129 11.933 21.5129 12.0711 21.4619 12.1931C21.4359 12.2521 21.399 12.308 21.353 12.354Z" fill="white"/>
+                                        </svg>
+                                //- img.bg(src=`./images/styleguide/banner-${key + 1}.jpg`, alt="")
+            .isa-home-banner__video
+                video(muted loop autoplay)
+                    source(src="./images/styleguide/banner-video.mp4" type="video/mp4")
+
+            .isa-home-banner__pager
+                button(class="pause" type="button" id="toggleButtonPause")
+                    span.icon
+                    <svg class="rt-progress over" xmlns="http://www.w3.org/2000/svg" width="34" height="34">
+                        <path d="M17 1.5c8.6 0 15.5 6.9 15.5 15.5S25.6 32.5 17 32.5 1.5 25.6 1.5 17 8.4 1.5 17 1.5" fill="none" stroke="#fff" stroke-width="3" stroke-miterlimit="10"></path>
+                    </svg>
+                    <svg class="rt-progress under" xmlns="http://www.w3.org/2000/svg" width="34" height="34">
+                        <path d="M17 1.5c8.6 0 15.5 6.9 15.5 15.5S25.6 32.5 17 32.5 1.5 25.6 1.5 17 8.4 1.5 17 1.5" fill="none" stroke="#fff" stroke-width="3" stroke-miterlimit="10"></path>
+                    </svg>
+                .slider-pagination-banner
+
+        section.rt-building-greatness
+            .container 
+                .row 
+                    .col-lg-6 
+                        .rt-heading-small BUILDING GREATNESS
+                        h2.rt-heading.rt-size-x-small RT HOLDINGS CANADA
+                    .col-lg-6 
+                        .rt-building-greatness__desc Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap.
+                .rt-building-greatness__scroll.d-none.d-md-block
+                    .rt-building-greatness__list 
+                        -
+                            items = [
+                                {
+                                    "title": "ABOUT US",
+                                    "thumb": "thumb-about-us",
+                                    "video": "https://backoffice.mirandabikeparts.com/wp-content/uploads/2022/08/urban_web.mp4"
+                                },
+                                {
+                                    "title": "BUSINESS FIELD",
+                                    "thumb": "thumb-business-field",
+                                    "video": "https://backoffice.mirandabikeparts.com/wp-content/uploads/2022/07/mtb_clip.mp4"
+                                },
+                                {
+                                    "title": "CAREER",
+                                    "thumb": "thumb-career",
+                                    "video": "https://backoffice.mirandabikeparts.com/wp-content/uploads/2022/08/urban_web.mp4"
+                                },
+                                {
+                                    "title": "CONTACT",
+                                    "thumb": "thumb-contact",
+                                    "video": "https://backoffice.mirandabikeparts.com/wp-content/uploads/2022/07/mtb_clip.mp4"
+                                },
+                            ]
+
+                        each val, index in items
+                            .rt-building-greatness__item(class=index === 0 ? 'is-active' : '')
+                                a(href="#" class="rt-building-greatness__item--inner")
+                                    .rt-building-greatness__item--video
+                                        video(width="100%" playsinline="" muted="" loop="" preload="none")
+                                            source(src=""+val.video+"" type="video/mp4")
+                                    .rt-building-greatness__item--thumb.bm-img-drop
+                                            img.lazy(data-src="./images/styleguide/"+val.thumb+".jpg")
+                                    .rt-building-greatness__item--overlay
+                                a(href="#" class="rt-building-greatness__item--wrap") 
+                                    .rt-building-greatness__item--title #{val.title}
+                                    .rt-building-greatness__item--cta EXPLORE
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20.353 12.354L16.353 16.354C16.255 16.452 16.127 16.5 15.999 16.5C15.871 16.5 15.743 16.451 15.645 16.354C15.45 16.159 15.45 15.842 15.645 15.647L18.791 12.501H4C3.724 12.501 3.5 12.277 3.5 12.001C3.5 11.725 3.724 11.501 4 11.501H18.793L15.647 8.35499C15.452 8.15999 15.452 7.84296 15.647 7.64796C15.842 7.45296 16.159 7.45296 16.354 7.64796L20.354 11.648C20.4 11.694 20.4369 11.75 20.4619 11.811C20.5129 11.933 20.5129 12.0711 20.4619 12.1931C20.4359 12.2521 20.399 12.308 20.353 12.354Z" fill="white"/>
+                                        </svg>      
+            .rt-building-greatness__mobile.d-md-none 
+                .container.rt-building-greatness__container
+                    .rt-building-greatness__slider.swiper  
+                        .swiper-wrapper 
+                            -
+                                items = [
+                                    {
+                                        "title": "ABOUT US",
+                                        "thumb": "thumb-about-us",
+                                        "video": "https://backoffice.mirandabikeparts.com/wp-content/uploads/2022/08/urban_web.mp4"
+                                    },
+                                    {
+                                        "title": "BUSINESS FIELD",
+                                        "thumb": "thumb-business-field",
+                                        "video": "https://backoffice.mirandabikeparts.com/wp-content/uploads/2022/07/mtb_clip.mp4"
+                                    },
+                                    {
+                                        "title": "CAREER",
+                                        "thumb": "thumb-career",
+                                        "video": "https://backoffice.mirandabikeparts.com/wp-content/uploads/2022/08/urban_web.mp4"
+                                    },
+                                    {
+                                        "title": "CONTACT",
+                                        "thumb": "thumb-contact",
+                                        "video": "https://backoffice.mirandabikeparts.com/wp-content/uploads/2022/07/mtb_clip.mp4"
+                                    },
+                                ]
+
+                            each val in items
+                                .swiper-slide
+                                    a(href="#" class="rt-building-greatness__item--inner")
+                                        .rt-building-greatness__item--video
+                                            video(width="100%" playsinline="" muted="" loop="" preload="none")
+                                                source(src=""+val.video+"" type="video/mp4")
+                                        .rt-building-greatness__item--thumb 
+                                            img(src="./images/styleguide/"+val.thumb+".jpg")
+                                        .rt-building-greatness__item--overlay
+                                        .rt-building-greatness__item--wrap 
+                                            .rt-building-greatness__item--title #{val.title}
+                                            .rt-building-greatness__item--cta EXPLORE
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M20.353 12.354L16.353 16.354C16.255 16.452 16.127 16.5 15.999 16.5C15.871 16.5 15.743 16.451 15.645 16.354C15.45 16.159 15.45 15.842 15.645 15.647L18.791 12.501H4C3.724 12.501 3.5 12.277 3.5 12.001C3.5 11.725 3.724 11.501 4 11.501H18.793L15.647 8.35499C15.452 8.15999 15.452 7.84296 15.647 7.64796C15.842 7.45296 16.159 7.45296 16.354 7.64796L20.354 11.648C20.4 11.694 20.4369 11.75 20.4619 11.811C20.5129 11.933 20.5129 12.0711 20.4619 12.1931C20.4359 12.2521 20.399 12.308 20.353 12.354Z" fill="white"/>
+                                                </svg>   
+        
+        include ../../components/MeetTheTeam/meet-the-team
+
+        section.rt-home-business-field(data-total-items="1" data-bg-color="white")        
+            .rt-home-business-field__inner 
+                .rt-home-business-field__header
+                    .container-fluid
+                        h2.rt-home-business-field__title Business Field
+                .container-fluid
+                    .row.h-100.justify-content-end
+                        .col-12.px-0.col-sm-7.d-flex.align-items-center.multi-cta-col
+                            .multi-cta-wrapper(style="transform: translateY(0px);")
+                                ul.multi-cta-list
+                                    -
+                                        items = [
+                                            {
+                                                "title": "TRINITY ONTARIO HIGH SCHOOL",
+                                                "image": "1",
+                                                "bg-color": "#0E2D22",
+                                                "color" : "#FFFFFF",
+                                                "btn-bg-color": "#FF4713",
+                                                "btn-color" : "#FFFFFF",
+                                            },
+                                            {
+                                                "title": "CANADIAN DEVELOPMENT GROUP (CDG)",
+                                                "image": "2",
+                                                "bg-color": "#004c97",
+                                                "color" : "#000000",
+                                                "btn-bg-color": "#FFFFFF",
+                                                "btn-color" : "#000000",
+                                            },
+                                        
+                                        ]
+
+                                    each val, index in items
+                                        li(data-bg-color=`${val['bg-color']}` data-color=`${val['color']}` class=index === 0 ? 'is-active' : '')
+                                            .wrap-content
+                                                a(href="#" class="wrap-content__title")
+                                                    .wrap-title
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.134" height="13.184" viewBox="0 0 13.134 13.184">
+                                                            <g transform="translate(-1.494 -0.864)">
+                                                                <path d="M2,2H14.45V14.5" transform="translate(-0.321 -0.636)" fill="none" stroke="#fff" stroke-width="1"></path>
+                                                                <line y1="12.331" x2="12.331" transform="translate(1.848 1.364)" fill="none" stroke="#fff" stroke-width="1"></line>
+                                                            </g>
+                                                        </svg> 
+                                                        <span data-title="0#{index + 1}"></span> #{val.title}
+                                                        
+                                                    .logo 
+                                                        img.lazy(data-src="./images/styleguide/logo-tohs.png")
+                                                .body 
+                                                    .body__content Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type. 
+                                                    .body__cta(style=`--btn-bg-color: ${val['btn-bg-color']}; --btn-color: ${val['btn-color']}`)
+                                                        a(href="#" class="rt-btn rt-btn-primary") Visit site
+                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M20.75 4V9C20.75 9.414 20.414 9.75 20 9.75C19.586 9.75 19.25 9.414 19.25 9V5.81104L11.53 13.531C11.384 13.677 11.192 13.751 11 13.751C10.808 13.751 10.616 13.678 10.47 13.531C10.177 13.238 10.177 12.763 10.47 12.47L18.1899 4.75H15C14.586 4.75 14.25 4.414 14.25 4C14.25 3.586 14.586 3.25 15 3.25H20C20.098 3.25 20.1951 3.27011 20.2871 3.30811C20.4701 3.38411 20.6161 3.53011 20.6931 3.71411C20.7301 3.80511 20.75 3.902 20.75 4ZM20 12.25C19.586 12.25 19.25 12.586 19.25 13V17C19.25 18.577 18.577 19.25 17 19.25H7C5.423 19.25 4.75 18.577 4.75 17V7C4.75 5.423 5.423 4.75 7 4.75H11C11.414 4.75 11.75 4.414 11.75 4C11.75 3.586 11.414 3.25 11 3.25H7C4.582 3.25 3.25 4.582 3.25 7V17C3.25 19.418 4.582 20.75 7 20.75H17C19.418 20.75 20.75 19.418 20.75 17V13C20.75 12.586 20.414 12.25 20 12.25Z" fill="white"/>
+                                                            </svg>
+                                                    
+                                            .image.lazy(data-src="./images/styleguide/business-field-"+val.image+".jpg")

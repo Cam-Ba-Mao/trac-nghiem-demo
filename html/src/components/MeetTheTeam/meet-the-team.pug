@@ -1,0 +1,164 @@
+section.rt-meet-the-team 
+    .container 
+        h2.rt-heading.rt-size-large MEET THE TEAM
+        .rt-meet-the-team__nav 
+            .rt-meet-the-team__nav--wrap 
+                p At RT Holdings Canada, we collaborate with clients and each other on all projects as one team across our locations.
+            .rt-meet-the-team__nav--wrap 
+                .rt-meet-the-team__nav--inner 
+                    .rt-meet-the-team__nav--count
+                        span 30
+                    .rt-meet-the-team__nav--tab 
+                        ul(class="nav" id="myTab" role="tablist")
+                            li(class="nav-item" role="presentation")
+                                button(class="nav-link active" id="category-1-tab" data-bs-toggle="tab" data-bs-target="#category-1" type="button" role="tab" aria-controls="category-1" aria-selected="true") Leadership
+                            li(class="nav-item" role="presentation")
+                                button(class="nav-link" id="category-2-tab" data-bs-toggle="tab" data-bs-target="#category-2" type="button" role="tab" aria-controls="category-2" aria-selected="false") All
+        div(class="tab-content" id="myTabContent") 
+            div(class="tab-pane fade show active" id="category-1" role="tabpanel" aria-labelledby="category-1-tab")
+                .rt-meet-the-team__list 
+                    -
+                        items = [
+                            {
+                                "image": "1",
+                                "title": "Fernando Ortiz-Ehmann",
+                                "position": "Executive Director, Strategy"
+                            },
+                            {
+                                "image": "2",
+                                "title": "Alfredo Fraile",
+                                "position": "Executive Director, Business Development"
+                            },
+                            {
+                                "image": "3",
+                                "title": "Jacob Benbunan",
+                                "position": "CHIEF EXECUTIVE OFFICER"
+                            },
+                            {
+                                "image": "4",
+                                "title": "Santiago Canosa",
+                                "position": "CHIEF FINANCIAL OFFICER"
+                            },
+                            {
+                                "image": "5",
+                                "title": "Luz Erhardt",
+                                "position": "CHIEF CLIENT OFFICER"
+                            },
+                        ]
+
+                    each val in items
+                        .rt-meet-the-team__item
+                            .d-none
+                                .rt-meet-the-team__item--img-popup 
+                                    img(src="./images/styleguide/team-detail-"+val.image+".jpg")
+                                .rt-meet-the-team__item--content 
+                                    h3 Alfredo connects RTHC with clients and partners around  the world. 234
+                                    p We work as one natively global team collaborating with clients on projects around the world. Sound interesting? Get in touch, we might have a role open for you.We work as one natively global team collaborating with clients on projects around the world. Sound interesting? Get in touch, we might have a role open for you. We work as one natively global team collaborating with clients on projects around the world. Sound interesting? Get in touch, we might have a role open for you.
+                            .d-none.d-lg-block
+                                .rt-meet-the-team__item--wrap 
+                                    .image 
+                                        img.lazy(data-src="./images/styleguide/team-"+val.image+".jpg")
+                                    .title #{val.title}
+                                    .position #{val.position}
+                            .d-lg-none
+                                .rt-meet-the-team__item--mobile 
+                                    .image 
+                                        img.lazy(data-src="./images/styleguide/team-"+val.image+".jpg")
+                                            
+                                    .wrap 
+                                        .title #{val.title}
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
+                                                <g stroke="currentColor" stroke-linecap="square" stroke-linejoin="round" stroke-width="1.5" clip-path="url(#a)">
+                                                    <path d="M2.5 8h11M8 2.5v11"></path>
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="a">
+                                                        <path fill="currentColor" d="M0 0h16v16H0z"></path>
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        .position #{val.position}
+
+            div(class="tab-pane fade" id="category-2" role="tabpanel" aria-labelledby="category-2-tab")
+                .rt-meet-the-team__list 
+                    -
+                        items = [
+                            {
+                                "image": "1",
+                                "title": "Fernando Ortiz-Ehmann",
+                                "position": "Executive Director, Strategy"
+                            },
+                            {
+                                "image": "2",
+                                "title": "Alfredo Fraile",
+                                "position": "Executive Director, Business Development"
+                            },
+                            {
+                                "image": "3",
+                                "title": "Jacob Benbunan",
+                                "position": "CHIEF EXECUTIVE OFFICER"
+                            },
+                            {
+                                "image": "4",
+                                "title": "Santiago Canosa",
+                                "position": "CHIEF FINANCIAL OFFICER"
+                            },
+                            {
+                                "image": "5",
+                                "title": "Luz Erhardt",
+                                "position": "CHIEF CLIENT OFFICER"
+                            },
+                        ]
+
+                    each val in items
+                        .rt-meet-the-team__item
+                            .d-none
+                                .rt-meet-the-team__item--img-popup 
+                                    img(src="./images/styleguide/team-detail-"+val.image+".jpg")
+                                .rt-meet-the-team__item--content 
+                                    h3 Alfredo connects RTHC with clients and partners around  the world. 234
+                                    p We work as one natively global team collaborating with clients on projects around the world. Sound interesting? Get in touch, we might have a role open for you.We work as one natively global team collaborating with clients on projects around the world. Sound interesting? Get in touch, we might have a role open for you. We work as one natively global team collaborating with clients on projects around the world. Sound interesting? Get in touch, we might have a role open for you.
+                            .d-none.d-lg-block
+                                .rt-meet-the-team__item--wrap 
+                                    .image 
+                                        img.lazy(data-src="./images/styleguide/team-"+val.image+".jpg")
+                                    .title #{val.title}
+                                    .position #{val.position}
+                            .d-lg-none
+                                .rt-meet-the-team__item--mobile 
+                                    .image 
+                                        img.lazy(data-src="./images/styleguide/team-"+val.image+".jpg")
+                                            
+                                    .wrap 
+                                        .title #{val.title}
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
+                                                <g stroke="currentColor" stroke-linecap="square" stroke-linejoin="round" stroke-width="1.5" clip-path="url(#a)">
+                                                    <path d="M2.5 8h11M8 2.5v11"></path>
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="a">
+                                                        <path fill="currentColor" d="M0 0h16v16H0z"></path>
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        .position #{val.position}
+                .rt-meet-the-team__cta 
+                    a(href="#" class="rt-btn is-loading") Load More  
+//-- Modal
+div(class="modal fade rt-popup-detail-team" id="popup-detail-team" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true")
+    .modal-dialog.modal-dialog-centered.modal-dialog-scrollable.modal-lg
+        .modal-content
+            .modal-header
+                h2.rt-popup-detail-team__title Alfredo Fraile
+                button(type='button' class="rt-popup-detail-team__close" data-bs-dismiss='modal' aria-label='Close')
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.3543 17.646C18.5493 17.841 18.5493 18.158 18.3543 18.353C18.2563 18.451 18.1283 18.499 18.0003 18.499C17.8723 18.499 17.7442 18.45 17.6462 18.353L12.0003 12.707L6.35426 18.353C6.25626 18.451 6.12825 18.499 6.00025 18.499C5.87225 18.499 5.74425 18.45 5.64625 18.353C5.45125 18.158 5.45125 17.841 5.64625 17.646L11.2923 12L5.64625 6.35401C5.45125 6.15901 5.45125 5.84198 5.64625 5.64698C5.84125 5.45198 6.15825 5.45198 6.35325 5.64698L11.9992 11.293L17.6453 5.64698C17.8403 5.45198 18.1573 5.45198 18.3523 5.64698C18.5473 5.84198 18.5473 6.15901 18.3523 6.35401L12.7073 12L18.3543 17.646Z" fill="#25314C"/>
+                    </svg>
+
+            .rt-popup-detail-team__image 
+                img.lazy(data-src="./images/styleguide/team-detail-1.jpg")
+
+            .modal-body
+                .rt-popup-detail-team__content 
+                    h3 Alfredo connects RTHC with clients and partners around  the world.
+                    p We work as one natively global team collaborating with clients on projects around the world. Sound interesting? Get in touch, we might have a role open for you.We work as one natively global team collaborating with clients on projects around the world. Sound interesting? Get in touch, we might have a role open for you. We work as one natively global team collaborating with clients on projects around the world. Sound interesting? Get in touch, we might have a role open for you.

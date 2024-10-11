@@ -388,57 +388,45 @@ input[type="search"] {
 **** Title
 -----------------------------------*/
 
-.isa-title {
-    font-family: $font-family-secondary;
-    font-size: 1.25rem;
-    font-weight: 700;
-    line-height: calc(40/30);
+.bm-sub-title {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: calc(48/32);
 
     @include breakpoint-up(sm) {
-        font-size: 1.75rem;
+        font-size: 24px;
+    }
+
+    @include breakpoint-up(md) {
+        font-size: 32px;
+    }
+}
+
+.bm-title {
+    font-family: $font-family-secondary;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: calc(64/48);
+
+    @include breakpoint-up(md) {
+        font-size: 32px;
     }
 
     @include breakpoint-up(lg) {
-        font-size: 2rem;
+        font-size: 48px;
     }
 
     &__medium {
-        font-size: 1.375rem;
-        line-height: calc(54/48);
-
-        @include breakpoint-up(sm) {
-            font-size: 1.75rem;
-        }
-
+        font-weight: 700;
+        font-size: 32px;
+        line-height: calc(100/72);
+        margin-bottom: 0;
+        
         @include breakpoint-up(md) {
-            font-size: 2.5rem;
-        }
-
-        @include breakpoint-up(lg) {
-            font-size: 3rem;
+            font-size: 48px;
         }
     }
 
-    &__large {
-        font-size: 1.5rem;
-        line-height: calc(80/64);
-
-        @include breakpoint-up(400px) {
-            font-size: 1.75rem;
-        }
-
-        @include breakpoint-up(sm) {
-            font-size: 2rem;
-        }
-
-        @include breakpoint-up(md) {
-            font-size: 3rem;
-        }
-
-        @include breakpoint-up(lg) {
-            font-size: 4rem;
-        }
-    }
 }
 
 /*---------------------------------
@@ -624,7 +612,7 @@ input[type="search"] {
 
         /* Style the individual options */
         li {
-            padding: .75rem 1rem;
+            padding: 0.5rem 0.75rem;
             cursor: pointer;
             transition: background-color 0.3s;
             font-size: 14px;
