@@ -149,6 +149,11 @@ function toggleRow(button) {
     }
 
     function chartInit(canvas, config) {
+        const ctx = document.getElementById(canvas);
+        if (!ctx) {
+            return; // Ngừng thực hiện nếu không có canvas
+        }
+
         if (!config) {
             config = {
                 chart: {
@@ -161,7 +166,6 @@ function toggleRow(button) {
         }
         var totalSum = config.chart.totalSum;
         var dataValues = config.chart.dataValues;
-        const ctx = document.getElementById(canvas);
         const legendElement = document.getElementById('my-legend-request');
         const centerTextPlugin = {
             id: 'centerTextPlugin',
@@ -302,6 +306,7 @@ function toggleRow(button) {
         handleUpload();
         initFeelingParentSlider();
         chartInit('doughnutChart');
+        
         handleRichEditors();
     });
 })(jQuery);

@@ -840,79 +840,6 @@ window.addEventListener('load', function () {
     DemoAdminBarMode();
   });
 })(jQuery);
-(function ($) {
-  var body = $('body');
-  var scrollUp = "scroll-up";
-  var scrollDown = "scroll-down";
-  var clsException = "is-transparent";
-  var lastScroll = 0;
-  function handleNavCollapse() {
-    $('.bm-header-toggler').on('click', function () {
-      $(this).toggleClass('is-active');
-      $('body').toggleClass('is-lock');
-      // $('.bm-menu-header').toggleClass('is-active');
-      $('header.bm-header ').toggleClass('is-active');
-      $('.bm-header__desktop').toggleClass('is-show');
-    });
-  }
-  function handleScrollMenu() {
-    $(window).on('scroll', function () {
-      calculateScroll();
-    });
-  }
-  function calculateScroll() {
-    var currentScroll = window.pageYOffset;
-
-    // console.log(currentScroll);
-    // console.log(lastScroll);
-    if (body.hasClass(clsException)) {
-      if (currentScroll > lastScroll && !body.hasClass(scrollDown)) {
-        // down
-        body.removeClass(scrollUp);
-        body.addClass(scrollDown);
-      } else if (currentScroll < lastScroll && body.hasClass(scrollDown)) {
-        // up
-        body.removeClass(scrollDown);
-        body.addClass(scrollUp);
-      }
-      lastScroll = currentScroll;
-      if (currentScroll <= 0) {
-        body.removeClass(scrollUp);
-        // return;
-      }
-    }
-  }
-
-  // function handleClickMenuButton() {
-  //     $(document).on('click', '.bm-header__hamburger .btn', function(){
-  //         if(document.body.classList.contains('opened-menu')) {
-  //             $('body').removeClass('opened-menu is-lock');
-  //             $(this).find('span').html(this.dataset.label);
-  //             $(this).parents('.bm-header__head').each(function(){
-  //                 $(this).removeClass('open');
-  //                 $(this).removeAttr('style');
-  //             });
-  //         }
-  //         else {
-  //             $('body').addClass('opened-menu is-lock');
-  //             $(this).find('span').html(this.dataset.close);
-  //             $(this).parents('.bm-header__head').each(function(){
-  //                 $(this).addClass('open');
-  //                 $(this).css({
-  //                     height: $('.bm-header__nav').height() + 150,
-  //                     width: $('.bm-header__nav').outerWidth() + 60,
-  //                 });
-  //             });
-  //         }
-  //     });
-  // }
-
-  $(function () {
-    handleNavCollapse();
-    handleScrollMenu();
-    calculateScroll();
-  });
-})(jQuery);
 // (function ($) {
 //     const body = $('body');
 //     const scrollUp = "scroll-up";
@@ -996,6 +923,79 @@ window.addEventListener('load', function () {
 
 // })(jQuery);
 (function ($) {
+  var body = $('body');
+  var scrollUp = "scroll-up";
+  var scrollDown = "scroll-down";
+  var clsException = "is-transparent";
+  var lastScroll = 0;
+  function handleNavCollapse() {
+    $('.bm-header-toggler').on('click', function () {
+      $(this).toggleClass('is-active');
+      $('body').toggleClass('is-lock');
+      // $('.bm-menu-header').toggleClass('is-active');
+      $('header.bm-header ').toggleClass('is-active');
+      $('.bm-header__desktop').toggleClass('is-show');
+    });
+  }
+  function handleScrollMenu() {
+    $(window).on('scroll', function () {
+      calculateScroll();
+    });
+  }
+  function calculateScroll() {
+    var currentScroll = window.pageYOffset;
+
+    // console.log(currentScroll);
+    // console.log(lastScroll);
+    if (body.hasClass(clsException)) {
+      if (currentScroll > lastScroll && !body.hasClass(scrollDown)) {
+        // down
+        body.removeClass(scrollUp);
+        body.addClass(scrollDown);
+      } else if (currentScroll < lastScroll && body.hasClass(scrollDown)) {
+        // up
+        body.removeClass(scrollDown);
+        body.addClass(scrollUp);
+      }
+      lastScroll = currentScroll;
+      if (currentScroll <= 0) {
+        body.removeClass(scrollUp);
+        // return;
+      }
+    }
+  }
+
+  // function handleClickMenuButton() {
+  //     $(document).on('click', '.bm-header__hamburger .btn', function(){
+  //         if(document.body.classList.contains('opened-menu')) {
+  //             $('body').removeClass('opened-menu is-lock');
+  //             $(this).find('span').html(this.dataset.label);
+  //             $(this).parents('.bm-header__head').each(function(){
+  //                 $(this).removeClass('open');
+  //                 $(this).removeAttr('style');
+  //             });
+  //         }
+  //         else {
+  //             $('body').addClass('opened-menu is-lock');
+  //             $(this).find('span').html(this.dataset.close);
+  //             $(this).parents('.bm-header__head').each(function(){
+  //                 $(this).addClass('open');
+  //                 $(this).css({
+  //                     height: $('.bm-header__nav').height() + 150,
+  //                     width: $('.bm-header__nav').outerWidth() + 60,
+  //                 });
+  //             });
+  //         }
+  //     });
+  // }
+
+  $(function () {
+    handleNavCollapse();
+    handleScrollMenu();
+    calculateScroll();
+  });
+})(jQuery);
+(function ($) {
   var paged = 1;
   function handleLoadNewsMore() {
     $(document).on('click', '.btn-ajax-read-more', function (e) {
@@ -1056,6 +1056,84 @@ window.addEventListener('load', function () {
       }
     });
   };
+  var googleLoginCallback = function googleLoginCallback(response) {
+    $('.bm-google-btn').addClass('is-loading');
+    var profile = decodeJwtResponse(response.credential);
+    console.log(profile);
+    var provide_id = profile.jti;
+    var first_name = profile.family_name;
+    var last_name = profile.given_name;
+    var name = profile.name;
+    var email = profile.email;
+    var picture = '';
+    if (provide_id == "" || email == "") {
+      alert('Không thể lấy được thông tin người dùng.');
+      return false;
+    }
+
+    // Gửi dữ liệu lên server để xác thực và đăng nhập
+    jQuery.ajax({
+      url: 'login-google.php',
+      type: 'POST',
+      data: {
+        "type": "google",
+        "id": provide_id,
+        "first_name": first_name,
+        "last_name": last_name,
+        "display_name": name,
+        "email": email,
+        "picture": picture
+      },
+      success: function success(response) {
+        var res = JSON.parse(response);
+        if (res.success) {
+          window.location.href = "trang-chu";
+        } else {
+          alert(res.message);
+        }
+      },
+      error: function error() {
+        alert('Đã xảy ra lỗi trong quá trình đăng nhập bằng Google.');
+      }
+    });
+  };
+  if (window.google && window.google.accounts) {
+    window.google.accounts.id.initialize({
+      client_id: '539559261576-2qhoqucptfova61pk3tomuclh74e9abp.apps.googleusercontent.com',
+      ux_mode: "popup",
+      callback: googleLoginCallback
+    });
+
+    // Tạo một nút ẩn (nếu cần) để kích hoạt đăng nhập
+    var createFakeGoogleWrapper = function createFakeGoogleWrapper() {
+      var googleLoginWrapper = document.createElement("div");
+      googleLoginWrapper.style.display = "none";
+      googleLoginWrapper.classList.add("custom-google-button");
+      document.body.appendChild(googleLoginWrapper);
+      window.google.accounts.id.renderButton(googleLoginWrapper, {
+        theme: 'outline',
+        size: 'large'
+      });
+      var googleLoginWrapperButton = googleLoginWrapper.querySelector("div[role=button]");
+      return {
+        click: function click() {
+          googleLoginWrapperButton.click();
+        }
+      };
+    };
+    var googleButtonWrapper = createFakeGoogleWrapper();
+    window.handleGoogleLogin = function () {
+      googleButtonWrapper.click(); // Kích hoạt đăng nhập Google
+    };
+  }
+  function decodeJwtResponse(token) {
+    var base64Url = token.split(".")[1];
+    var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    var jsonPayload = decodeURIComponent(atob(base64).split("").map(function (c) {
+      return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(""));
+    return JSON.parse(jsonPayload);
+  }
   $(function () {
     showPassword();
     $(window).on("resize", function () {});
@@ -1217,6 +1295,10 @@ function toggleRow(button) {
     return '<ul>' + legendHtml.join('') + '</ul>';
   }
   function chartInit(canvas, config) {
+    var ctx = document.getElementById(canvas);
+    if (!ctx) {
+      return; // Ngừng thực hiện nếu không có canvas
+    }
     if (!config) {
       config = {
         chart: {
@@ -1229,7 +1311,6 @@ function toggleRow(button) {
     }
     var totalSum = config.chart.totalSum;
     var dataValues = config.chart.dataValues;
-    var ctx = document.getElementById(canvas);
     var legendElement = document.getElementById('my-legend-request');
     var centerTextPlugin = {
       id: 'centerTextPlugin',
