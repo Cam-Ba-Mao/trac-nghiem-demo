@@ -32,7 +32,7 @@ if ($type == 'google') {
         if (mysqli_query($conn, $insert_query)) {
             $user_id = mysqli_insert_id($conn);
             $_SESSION['user_id'] = $user_id;
-            $_SESSION['username'] = $display_name;
+            $_SESSION['username'] = removeWhitespaceAndConvertToNoSign($display_name);
             $_SESSION['role'] = 'student';
 
             // Đáp ứng thành công

@@ -920,79 +920,6 @@ window.addEventListener('load', function () {
     DemoAdminBarMode();
   });
 })(jQuery);
-(function ($) {
-  var body = $('body');
-  var scrollUp = "scroll-up";
-  var scrollDown = "scroll-down";
-  var clsException = "is-transparent";
-  var lastScroll = 0;
-  function handleNavCollapse() {
-    $('.bm-header-toggler').on('click', function () {
-      $(this).toggleClass('is-active');
-      $('body').toggleClass('is-lock');
-      // $('.bm-menu-header').toggleClass('is-active');
-      $('header.bm-header ').toggleClass('is-active');
-      $('.bm-header__desktop').toggleClass('is-show');
-    });
-  }
-  function handleScrollMenu() {
-    $(window).on('scroll', function () {
-      calculateScroll();
-    });
-  }
-  function calculateScroll() {
-    var currentScroll = window.pageYOffset;
-
-    // console.log(currentScroll);
-    // console.log(lastScroll);
-    if (body.hasClass(clsException)) {
-      if (currentScroll > lastScroll && !body.hasClass(scrollDown)) {
-        // down
-        body.removeClass(scrollUp);
-        body.addClass(scrollDown);
-      } else if (currentScroll < lastScroll && body.hasClass(scrollDown)) {
-        // up
-        body.removeClass(scrollDown);
-        body.addClass(scrollUp);
-      }
-      lastScroll = currentScroll;
-      if (currentScroll <= 0) {
-        body.removeClass(scrollUp);
-        // return;
-      }
-    }
-  }
-
-  // function handleClickMenuButton() {
-  //     $(document).on('click', '.bm-header__hamburger .btn', function(){
-  //         if(document.body.classList.contains('opened-menu')) {
-  //             $('body').removeClass('opened-menu is-lock');
-  //             $(this).find('span').html(this.dataset.label);
-  //             $(this).parents('.bm-header__head').each(function(){
-  //                 $(this).removeClass('open');
-  //                 $(this).removeAttr('style');
-  //             });
-  //         }
-  //         else {
-  //             $('body').addClass('opened-menu is-lock');
-  //             $(this).find('span').html(this.dataset.close);
-  //             $(this).parents('.bm-header__head').each(function(){
-  //                 $(this).addClass('open');
-  //                 $(this).css({
-  //                     height: $('.bm-header__nav').height() + 150,
-  //                     width: $('.bm-header__nav').outerWidth() + 60,
-  //                 });
-  //             });
-  //         }
-  //     });
-  // }
-
-  $(function () {
-    handleNavCollapse();
-    handleScrollMenu();
-    calculateScroll();
-  });
-})(jQuery);
 // (function ($) {
 //     const body = $('body');
 //     const scrollUp = "scroll-up";
@@ -1110,6 +1037,79 @@ window.addEventListener('load', function () {
   }
   $(function () {
     handleDetailMeetTheTeam();
+  });
+})(jQuery);
+(function ($) {
+  var body = $('body');
+  var scrollUp = "scroll-up";
+  var scrollDown = "scroll-down";
+  var clsException = "is-transparent";
+  var lastScroll = 0;
+  function handleNavCollapse() {
+    $('.bm-header-toggler').on('click', function () {
+      $(this).toggleClass('is-active');
+      $('body').toggleClass('is-lock');
+      // $('.bm-menu-header').toggleClass('is-active');
+      $('header.bm-header ').toggleClass('is-active');
+      $('.bm-header__desktop').toggleClass('is-show');
+    });
+  }
+  function handleScrollMenu() {
+    $(window).on('scroll', function () {
+      calculateScroll();
+    });
+  }
+  function calculateScroll() {
+    var currentScroll = window.pageYOffset;
+
+    // console.log(currentScroll);
+    // console.log(lastScroll);
+    if (body.hasClass(clsException)) {
+      if (currentScroll > lastScroll && !body.hasClass(scrollDown)) {
+        // down
+        body.removeClass(scrollUp);
+        body.addClass(scrollDown);
+      } else if (currentScroll < lastScroll && body.hasClass(scrollDown)) {
+        // up
+        body.removeClass(scrollDown);
+        body.addClass(scrollUp);
+      }
+      lastScroll = currentScroll;
+      if (currentScroll <= 0) {
+        body.removeClass(scrollUp);
+        // return;
+      }
+    }
+  }
+
+  // function handleClickMenuButton() {
+  //     $(document).on('click', '.bm-header__hamburger .btn', function(){
+  //         if(document.body.classList.contains('opened-menu')) {
+  //             $('body').removeClass('opened-menu is-lock');
+  //             $(this).find('span').html(this.dataset.label);
+  //             $(this).parents('.bm-header__head').each(function(){
+  //                 $(this).removeClass('open');
+  //                 $(this).removeAttr('style');
+  //             });
+  //         }
+  //         else {
+  //             $('body').addClass('opened-menu is-lock');
+  //             $(this).find('span').html(this.dataset.close);
+  //             $(this).parents('.bm-header__head').each(function(){
+  //                 $(this).addClass('open');
+  //                 $(this).css({
+  //                     height: $('.bm-header__nav').height() + 150,
+  //                     width: $('.bm-header__nav').outerWidth() + 60,
+  //                 });
+  //             });
+  //         }
+  //     });
+  // }
+
+  $(function () {
+    handleNavCollapse();
+    handleScrollMenu();
+    calculateScroll();
   });
 })(jQuery);
 (function ($) {
@@ -1295,6 +1295,50 @@ window.addEventListener('load', function () {
       }
     });
   };
+  var facebookLogin = function facebookLogin(id, config) {
+    window.fbAsyncInit = function () {
+      FB.init(config);
+      FB.AppEvents.logPageView();
+    };
+    (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        return;
+      }
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, 'script', 'facebook-jssdk');
+    document.addEventListener('click', function (e) {
+      var element = document.getElementById(id);
+      if (element.contains(e.target)) {
+        e.preventDefault();
+        FB.login(function () {
+          FB.getLoginStatus(function (response) {
+            if ('connected' === response.status) {
+              FB.api('/me', {
+                fields: 'id,first_name,last_name,email,gender,picture'
+              }, function (profile) {
+                handleLogin({
+                  id: profile.id,
+                  login: profile.email,
+                  email: profile.email,
+                  last_name: profile.last_name,
+                  first_name: profile.first_name,
+                  avatar: profile.picture.data.url
+                });
+                FB.logout(response);
+              });
+            }
+          });
+        }, {
+          scope: 'email'
+        });
+      }
+    });
+  };
   var googleLoginCallback = function googleLoginCallback(response) {
     $('.bm-google-btn').addClass('is-loading');
     var profile = decodeJwtResponse(response.credential);
@@ -1375,6 +1419,12 @@ window.addEventListener('load', function () {
   }
   $(function () {
     showPassword();
+    facebookLogin('fbLogin', {
+      xfbml: true,
+      cookie: true,
+      appId: "1073491914479527",
+      version: "v21.0"
+    });
     $(window).on("resize", function () {});
   });
 })(jQuery);
@@ -1807,7 +1857,7 @@ function toggleRow(button) {
     if ($('.bm-intro__wrap').length > 0) {
       gsap.registerPlugin(ScrollTrigger);
       ScrollTrigger.matchMedia({
-        "(min-width: 768px)": function minWidth_768px() {
+        "(min-width: 768px)": function minWidth768px() {
           var tl2 = gsap.timeline({
             scrollTrigger: {
               trigger: ".bm-intro__wrap",
@@ -1826,7 +1876,7 @@ function toggleRow(button) {
             transform: "translate3d(10%, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(3deg) scale3d(1,1,1)"
           }, 0);
         },
-        "(max-width: 767px)": function maxWidth_767px() {
+        "(max-width: 767px)": function maxWidth767px() {
           var tl2 = gsap.timeline({
             scrollTrigger: {
               trigger: ".bm-intro__wrap",

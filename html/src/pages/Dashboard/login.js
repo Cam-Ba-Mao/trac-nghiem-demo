@@ -27,6 +27,48 @@
         });
     }
 
+    const facebookLogin = (id, config) => {
+        window.fbAsyncInit = () => {
+            FB.init(config);
+            FB.AppEvents.logPageView();
+        };
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        document.addEventListener('click', (e) => {
+            const element = document.getElementById(id);
+            if (element.contains(e.target)) {
+                e.preventDefault();
+                FB.login(() => {
+                    FB.getLoginStatus((response) => {
+                        if ('connected' === response.status) {
+                            FB.api('/me', {
+                                fields: 'id,first_name,last_name,email,gender,picture'
+                            }, (profile) => {
+                                handleLogin({
+                                    id: profile.id,
+                                    login: profile.email,
+                                    email: profile.email,
+                                    last_name: profile.last_name,
+                                    first_name: profile.first_name,
+                                    avatar: profile.picture.data.url,
+                                });
+                                FB.logout(response);
+                            });
+                        }
+                    });
+                }, {
+                    scope: 'email'
+                });
+            }
+        });
+    };
+
     const googleLoginCallback = (response) => {
         $('.bm-google-btn').addClass('is-loading');
         var profile = decodeJwtResponse(response.credential);
@@ -119,6 +161,12 @@
     
     $(function () {      
         showPassword();
+        facebookLogin('fbLogin', {
+            xfbml: true,
+            cookie: true,
+            appId: "1073491914479527",
+            version: "v21.0"
+        });
 
         $(window).on("resize", function () {
 
