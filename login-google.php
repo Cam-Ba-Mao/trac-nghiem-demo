@@ -25,7 +25,7 @@ if ($type == 'google') {
         $_SESSION['role'] = $user['role'];
 
         // Đáp ứng thành công
-        echo json_encode(['success' => true]);
+        echo json_encode(['success' => true , 'role' => $user['role']]);
     } else {
         // Người dùng chưa tồn tại, thêm mới vào cơ sở dữ liệu
         $insert_query = "INSERT INTO users (username, email, google_id, role) VALUES ('$display_name', '$email', '$provide_id', 'student')";

@@ -101,7 +101,11 @@
             success: function(response) {
                 var res = JSON.parse(response);
                 if (res.success) {
-                    window.location.href = "trang-chu";
+                    if (res.role == "admin") {
+                        window.location.href = "trang-quan-tri";
+                    } else {
+                        window.location.href = "trang-chu";
+                    }
                 } else {
                     alert(res.message);
                 }
@@ -161,12 +165,12 @@
     
     $(function () {      
         showPassword();
-        facebookLogin('fbLogin', {
-            xfbml: true,
-            cookie: true,
-            appId: "1073491914479527",
-            version: "v21.0"
-        });
+        // facebookLogin('fbLogin', {
+        //     xfbml: true,
+        //     cookie: true,
+        //     appId: "1073491914479527",
+        //     version: "v21.0"
+        // });
 
         $(window).on("resize", function () {
 

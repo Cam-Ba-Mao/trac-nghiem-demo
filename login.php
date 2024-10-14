@@ -71,7 +71,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     setcookie('password', '', time() - 3600, "/");
                 }
 
-                header("Location: trang-chu");
+                // Kiểm tra quyền (role)
+                if ($user['role'] == 'student') {
+                    header("Location: trang-chu"); // Chuyển hướng tới trang chủ cho sinh viên
+                } elseif ($user['role'] == 'admin') {
+                    header("Location: trang-quan-tri"); // Chuyển hướng tới trang quản trị cho admin
+                }
                 exit();
             } else {
                 $error = "Sai mật khẩu.";

@@ -1,0 +1,44 @@
+extends ../../_core/layouts/layouts-admin-panel
+
+append vars
+    -bodyClass = "page-template-admin-panel-setting"
+    -typeMenu = ""
+
+block container
+    .bm-admin-content
+        .bm-box-container__wrap-title
+            h1 Settings
+        .clear(style="height: 10px;")
+        .bm-box-container__wrap-title
+            form(action="" class="form label")
+                ul 
+                    li
+                        label(for="title") Site Title
+                        .form-content
+                            input(type="text" id="title")
+                    li 
+                        label(for="tag-line") Tag Line
+                        .form-content
+                            input(type="text" id="tag-line")
+                            p In a few words, explain what this site is about.
+                    li 
+                        label(for="description") Description
+                        .form-content
+                            textarea(name="description" id="description" cols="30" rows="5")
+                            p In a few words, explain what this site is about.
+                    li 
+                        .label Membership
+                        .form-content
+                            label(class="not" for="membership")
+                                input(type="checkbox" value="1" id="membership") 
+                                | Anyone can register
+                    li 
+                        label(for="select") New User Default Role
+                        .form-content
+                            select(name="select" id="select")
+                                option(value="") User
+                                option(value="") Admin
+                                option(value="") Moderator
+                            p In a few words, explain what this site is about.
+                    li(class="submit")
+                        button(type="submit") Save Changes

@@ -1,0 +1,44 @@
+extends ../../_core/layouts/layouts-admin-panel
+
+append vars
+    -bodyClass = "page-template-admin-panel-posts"
+    -typeMenu = ""
+
+block container
+    .bm-admin-content
+        div(class="bm-box-container__wrap-title")
+            h1 Add New Post
+        div(class="bm-admin-message error bm-box-container__wrap-title")
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque pariatur, culpa, iusto odit excepturi velit
+            | temporibus, praesentium assumenda dolore deleniti quibusdam molestiae minima reiciendis id repellendus
+            | obcaecati soluta voluptatibus impedit.
+        div(class="bm-admin-message success bm-box-container__wrap-title")
+            | Is everything alright?
+            a(href="#") link is here
+        div(class="bm-admin-message info bm-box-container__wrap-title")
+            | info minfo this kind of stuff
+        div(class="bm-admin-message warning bm-box-container__wrap-title")
+            | warning something has happened
+        .clear(style="height: 10px;")
+        .bm-box-container.post-content
+            div(class="bm-box-container__wrap-title")
+                form.form(action="")
+                    ul
+                        li
+                            input.big(type="text" placeholder="Enter title here")
+                        li
+                            textarea#editor(name="editor1" rows="10" cols="80")
+            div(class="bm-box-container__wrap")
+                h3
+                    | test et
+                div(class="bm-box-container__content")
+                    | test et bakalm
+        .bm-box-container.post-rightbar
+            div(class="bm-box-container__wrap")
+                h3
+                    | Publish
+                div(class="bm-box-container__content")
+                    a.btn.right(href="#") Preview
+                    a.btn(href="#") Save Draft
+                    .publish-content
+                        button(type="submit") Publish
