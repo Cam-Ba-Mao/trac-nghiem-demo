@@ -23,7 +23,8 @@ $hovercolor: #00b9eb;
     }
       
     ol, ul {
-        @include reset-list
+        @include reset-list;
+        border: none;
     }
 
     h1 {
@@ -255,7 +256,7 @@ $hovercolor: #00b9eb;
     
                             &.title {
                                 font-weight: 500;
-                                font-size: 16px;
+                                font-size: 14px;
                             }
                         }
     
@@ -399,6 +400,63 @@ $hovercolor: #00b9eb;
                 }
             }
         }
+    }
+
+    .my-account {
+        float: right;
+
+        &__nav {
+            span {
+                margin-right: 6px;
+            }
+
+            img {
+                width: 100%;
+                max-width: 28px;
+
+                @include breakpoint-up(901px) {
+                    max-width: 16px;
+                }
+            }
+        }
+
+        &__dropdown {
+            right: 0;
+            left: auto;
+            min-width: 100%;
+            width: max-content;
+
+            .info-user, .logout {
+                @include breakpoint-up(md) {
+                    margin-left: 88px;
+                }
+            }
+
+            .info-user {
+                position: relative;
+
+                a {
+                    min-width: 140px;
+
+                    span {
+                        display: block;
+                    }
+                }
+
+                img {
+                    position: absolute;
+                    left: -72px;
+                    top: 4px;
+                    width: 64px;
+                    height: 64px;
+
+                    @include breakpoint-down(767px) {
+                        display: none;
+                    }
+                }
+            }
+        }
+        
     }
 }
 

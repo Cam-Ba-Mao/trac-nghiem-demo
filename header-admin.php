@@ -1,7 +1,6 @@
 <?php
     include(__DIR__ .'/config/config.php');
 ?>
-<!-- https://fontawesome.com/v6/icons?o=r&m=free -->
 <!DOCTYPE html>
 <html class="admin-panel" lang="en">
     <head>
@@ -69,7 +68,7 @@
             <!-- START HEADER-->
             <div class="bm-admin-navbar">
                 <ul dropdown>
-                    <li><a href="#"><i class="fa-solid fa-home"></i><span class="title">ANOTHER WORDPRESS SITE</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-home"></i><span class="title">ANOTHER WEBSITE</span></a></li>
                     <li><a href="#"><i class="fa-solid fa-comment"></i>1</a></li>
                     <li><a href="#"><i class="fa-solid fa-plus"></i><span class="title">New</span></a>
                         <ul>
@@ -78,6 +77,35 @@
                             <li><a href="#">New Category</a></li>
                         </ul>
                     </li>
+                </ul>
+                <ul class="my-account" dropdown>
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                    <?php
+                        $user_id = $_SESSION['user_id'];
+                        $queryAvatar = "SELECT avatar FROM users WHERE id = $user_id";
+                        $resultAvatar = mysqli_query($conn, $queryAvatar);
+                        $user = mysqli_fetch_assoc($resultAvatar);
+                        $avatar = $user['avatar'] ? $user['avatar'] :  BASE_URL . '/html/dist/images/default-avatar.png';     
+                    ?>
+                    <li> 
+                        <a class="my-account__nav" href="#">
+                            <span class="title">Xin chào, <?php echo $_SESSION['username']; ?> </span>
+                            <img src="<?php echo BASE_URL; ?>/assets/upload/<?php echo $avatar; ?>" alt="avatar">
+                        </a>
+                        <ul class="my-account__dropdown">
+                            <li class="info-user">
+                                <a href="./bm-new-post.html"> 
+                                    <img src="<?php echo BASE_URL; ?>/assets/upload/<?php echo $avatar; ?>" alt="avatar">
+                                    <span class="title"><?php echo $_SESSION['username']; ?> </span>
+                                    <span class="edit-profile">Edit Profile </span>
+                                </a>
+                            </li>
+                            <li class="logout">
+                                <a href="logout.php">Đăng xuất</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <?php endif; ?>
                 </ul>
             </div>
             <div class="bm-admin-sidebar">
@@ -99,20 +127,60 @@
                             <span class="title">Quản lý học sinh</span>
                         </a>
                     </li>
-                    <li><a href="./admin/manage_questions.php"><i class="fa-solid fa-file"></i><span class="title">Quản lý câu hỏi</span></a></li>
-                    <li><a href="./admin/manage_exams.php"><i class="fa-solid fa-file"></i><span class="title">Quản lý đề thi</span></a></li>
-                    <li><a href="./admin/exam_questions.php"><i class="fa-solid fa-file"></i><span class="title">Quản lý câu hỏi cho từng đề thi</span></a></li>
-                    <li><a href="#"><i class="fa-solid fa-comment"></i><span class="title">Comments</span></a></li>
-                    <li><a href="#"><i class="fa-solid fa-plug"></i><span class="title">Plugins</span></a>
+                    <li>
+                        <a href="./admin/manage_questions.php">
+                            <i class="fa-solid fa-file"></i>
+                            <span class="title">Quản lý câu hỏi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./admin/manage_exams.php">
+                            <i class="fa-solid fa-file"></i>
+                            <span class="title">Quản lý đề thi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./admin/exam_questions.php">
+                            <i class="fa-solid fa-file"></i>
+                            <span class="title">Quản lý câu hỏi cho từng đề thi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-comment"></i>
+                            <span class="title">Comments</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-plug"></i>
+                            <span class="title">Plugins</span>
+                        </a>
                         <ul class="sub-menu">
                             <li><a href="#">Installed Plugins</a></li>
                             <li><a href="#">Add New</a></li>
                             <li><a href="#">Editor</a></li>
                         </ul>
                     </li>
-                    <li><a href="#"><i class="fa-solid fa-wrench"></i><span class="title">Tools</span></a></li>
-                    <li><a href="./bm-settings.html"><i class="fa-solid fa-cog"></i><span class="title">Settings</span></a></li>
-                    <li class="line"><span></span></li><a class="bm-collapse-admin-menu" href="#"><i class="fa-solid fa-arrow-circle-left"></i><span class="title">Collapse menu</span></a>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-wrench"></i>
+                            <span class="title">Tools</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./bm-settings.html">
+                            <i class="fa-solid fa-cog"></i>
+                            <span class="title">Settings</span>
+                        </a>
+                    </li>
+                    <li class="line">
+                        <span></span>
+                    </li>
+                    <a class="bm-collapse-admin-menu" href="#">
+                        <i class="fa-solid fa-arrow-circle-left"></i>
+                        <span class="title">Collapse menu</span>
+                    </a>
                 </ul>
             </div>
             <!-- CLOSE HEADER-->

@@ -708,30 +708,6 @@ window.addEventListener('load', function () {
   });
 })(jQuery);
 (function ($) {
-  function handleActiveMenu() {
-    $(document).ready(function () {
-      $(".caret").click(function () {
-        // Remove 'active' and 'caret-down' from all elements
-        $(".nested").removeClass("active");
-        $(".caret").removeClass("current-menu-parent");
-
-        // Add 'active' and 'caret-down' to the clicked element
-        $(this).find(".nested").addClass("active");
-        $(this).addClass("current-menu-parent");
-      });
-    });
-    if ($(".bm-archive-sidebar").find('.caret').hasClass('current-menu-parent')) {
-      $('.bm-archive-sidebar .current-menu-parent').find(".nested").addClass("active");
-    }
-    if ($(".bm-archive-sidebar").find('.caret').hasClass('current_page_item')) {
-      $('.bm-archive-sidebar .current_page_item').find(".nested").addClass("active");
-    }
-  }
-  $(function () {
-    handleActiveMenu();
-  });
-})(jQuery);
-(function ($) {
   function initializeCustomSelect(selectId, customSelectId) {
     var select = $(selectId);
     var customSelect = $(customSelectId);
@@ -783,6 +759,30 @@ window.addEventListener('load', function () {
   }
   $(function () {
     // initializeCustomSelect('#select-1', '#select-position');   
+  });
+})(jQuery);
+(function ($) {
+  function handleActiveMenu() {
+    $(document).ready(function () {
+      $(".caret").click(function () {
+        // Remove 'active' and 'caret-down' from all elements
+        $(".nested").removeClass("active");
+        $(".caret").removeClass("current-menu-parent");
+
+        // Add 'active' and 'caret-down' to the clicked element
+        $(this).find(".nested").addClass("active");
+        $(this).addClass("current-menu-parent");
+      });
+    });
+    if ($(".bm-archive-sidebar").find('.caret').hasClass('current-menu-parent')) {
+      $('.bm-archive-sidebar .current-menu-parent').find(".nested").addClass("active");
+    }
+    if ($(".bm-archive-sidebar").find('.caret').hasClass('current_page_item')) {
+      $('.bm-archive-sidebar .current_page_item').find(".nested").addClass("active");
+    }
+  }
+  $(function () {
+    handleActiveMenu();
   });
 })(jQuery);
 (function ($) {
@@ -861,6 +861,32 @@ window.addEventListener('load', function () {
   });
 })(jQuery);
 (function ($) {
+  function handleScrollToTop() {
+    $(document).on('click', '.bm-scroll-to-top', function (e) {
+      e.preventDefault();
+      $('html, body').animate({
+        scrollTop: 0
+      }, 1000);
+    });
+  }
+  function handleDisplayScrollToTop() {
+    var scrollHeight = $(document).height();
+    var scrollPosition = $(window).height() + $(window).scrollTop();
+    if (scrollPosition >= scrollHeight - 100) {
+      $('.bm-scroll-to-top').addClass('is-active');
+    } else {
+      $('.bm-scroll-to-top').removeClass('is-active');
+    }
+  }
+  $(function () {
+    handleScrollToTop();
+    handleDisplayScrollToTop();
+    $(window).scroll(function () {
+      handleDisplayScrollToTop();
+    });
+  });
+})(jQuery);
+(function ($) {
   function DemoAdminBarMode() {
     $('#enable-admin-bar').on('change', function () {
       var adminBarModeStatus = $(this).prop('checked');
@@ -892,32 +918,6 @@ window.addEventListener('load', function () {
   }
   $(function () {
     DemoAdminBarMode();
-  });
-})(jQuery);
-(function ($) {
-  function handleScrollToTop() {
-    $(document).on('click', '.bm-scroll-to-top', function (e) {
-      e.preventDefault();
-      $('html, body').animate({
-        scrollTop: 0
-      }, 1000);
-    });
-  }
-  function handleDisplayScrollToTop() {
-    var scrollHeight = $(document).height();
-    var scrollPosition = $(window).height() + $(window).scrollTop();
-    if (scrollPosition >= scrollHeight - 100) {
-      $('.bm-scroll-to-top').addClass('is-active');
-    } else {
-      $('.bm-scroll-to-top').removeClass('is-active');
-    }
-  }
-  $(function () {
-    handleScrollToTop();
-    handleDisplayScrollToTop();
-    $(window).scroll(function () {
-      handleDisplayScrollToTop();
-    });
   });
 })(jQuery);
 (function ($) {

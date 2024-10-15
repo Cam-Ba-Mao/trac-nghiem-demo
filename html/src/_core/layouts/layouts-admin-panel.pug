@@ -70,7 +70,7 @@ html(lang="en" class="admin-panel")
                 li
                     a(href="#")
                         i.fa-solid.fa-home
-                        span.title ANOTHER WORDPRESS SITE
+                        span.title ANOTHER WEBSITE
                 li
                     a(href="#")
                         i.fa-solid.fa-comment
@@ -86,6 +86,20 @@ html(lang="en" class="admin-panel")
                             a(href="#") New Page
                         li
                             a(href="#") New Category
+            ul(dropdown class="my-account")
+                li 
+                    a(href="#" class="my-account__nav")
+                        span.title Xin chào, maocam 
+                        img(src="./images/default-avatar.png", alt="avatar")
+                    ul.my-account__dropdown
+                        li.info-user
+                            a(href="./bm-new-post.html") 
+                                img(src="./images/default-avatar.png", alt="avatar")
+                                span.title maocam 
+                                span.edit-profile Edit Profile 
+                        li.logout
+                            a(href="#") Đăng xuất
+                
         .bm-admin-sidebar
             ul
                 li

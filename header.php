@@ -1,7 +1,6 @@
 <?php
     include(__DIR__ .'/config/config.php');
 ?>
-<!-- https://fontawesome.com/v6/icons?o=r&m=free -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
