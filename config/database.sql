@@ -60,12 +60,19 @@ CREATE TABLE user_answers (
     FOREIGN KEY (question_id) REFERENCES questions(id)
 );
 
+-- Bảng lưu thông tin Post type
 CREATE TABLE custom_post_types (
     id INT AUTO_INCREMENT PRIMARY KEY,
     post_type_name VARCHAR(255) NOT NULL,
     slug VARCHAR(255) NOT NULL UNIQUE
 );
 
+INSERT INTO custom_post_types (post_type_name, slug) VALUES
+('Blog', 'blog'),
+('Portfolio', 'portfolio'),
+('Testimonial', 'testimonial');
+
+-- Bảng lưu thông tin Post
 CREATE TABLE custom_posts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -75,12 +82,24 @@ CREATE TABLE custom_posts (
     FOREIGN KEY (post_type_id) REFERENCES custom_post_types(id)
 );
 
+INSERT INTO custom_posts (title, content, post_type_id) VALUES
+('Bài viết đầu tiên', 'Nội dung bài viết đầu tiên.', 1), -- post_type_id = 1 tương ứng với 'Blog'
+('Bài viết thứ hai', 'Nội dung bài viết thứ hai.', 1),
+('Dự án đầu tiên', 'Nội dung dự án đầu tiên.', 2), -- post_type_id = 2 tương ứng với 'Portfolio'
+('Lời chứng thực từ khách hàng', 'Khách hàng nói rằng sản phẩm rất tuyệt.', 3); -- post_type_id = 3 tương ứng với 'Testimonial'
+
+
 -- Bảng lưu thông tin taxonomy (phân loại)
 CREATE TABLE taxonomies (
     id INT AUTO_INCREMENT PRIMARY KEY,
     taxonomy_name VARCHAR(255) NOT NULL,
     slug VARCHAR(255) NOT NULL UNIQUE
 );
+
+INSERT INTO taxonomies (taxonomy_name, slug) VALUES
+('Danh mục', 'category'),
+('Thẻ', 'tag');
+
 
 -- Bảng lưu các terms (category, tag, v.v.)
 CREATE TABLE terms (
@@ -91,6 +110,13 @@ CREATE TABLE terms (
     FOREIGN KEY (taxonomy_id) REFERENCES taxonomies(id)
 );
 
+INSERT INTO terms (term_name, taxonomy_id, slug) VALUES
+('Tin tức', 1, 'tin-tuc'), -- taxonomy_id = 1 tương ứng với 'Danh mục'
+('Cập nhật', 1, 'cap-nhat'),
+('Thú vị', 2, 'thu-vi'), -- taxonomy_id = 2 tương ứng với 'Thẻ'
+('Hữu ích', 2, 'huu-ich');
+
+
 -- Bảng liên kết bài viết với các terms (term_relationships)
 CREATE TABLE term_relationships (
     post_id INT NOT NULL,
@@ -99,3 +125,12 @@ CREATE TABLE term_relationships (
     FOREIGN KEY (post_id) REFERENCES posts(id),
     FOREIGN KEY (term_id) REFERENCES terms(id)
 );
+
+INSERT INTO term_relationships (post_id, term_id) VALUES
+(1, 1), -- Bài viết đầu tiên thuộc 'Tin tức'
+(1, 2), -- Bài viết đầu tiên thuộc 'Cập nhật'
+(2, 1), -- Bài viết thứ hai thuộc 'Tin tức'
+(3, 1), -- Dự án đầu tiên thuộc 'Tin tức'
+(4, 2), -- Lời chứng thực từ khách hàng thuộc 'Thẻ thú vị'
+(4, 1); -- Lời chứng thực từ khách hàng thuộc 'Thẻ hữu ích'
+
