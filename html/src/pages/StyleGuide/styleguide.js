@@ -21,6 +21,12 @@ function showErrorToast() {
     });
 }
 
+BMplaceholderTypewriter('#search-animation', {
+    delay: 50,
+    pause: 1000,
+    text: ["Bạn cần tìm gì..", "Nhập tên sản phẩm.."]
+});
+
 function toggleRow(button) {
     let tr = button.closest('tr');
     let table = tr.closest('table');
@@ -61,6 +67,7 @@ function toggleRow(button) {
         });
     }
 }
+
 
 (function ($) {
     const handleUpload = () => {

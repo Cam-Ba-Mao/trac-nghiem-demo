@@ -73,14 +73,15 @@
         $('.bm-google-btn').addClass('is-loading');
         var profile = decodeJwtResponse(response.credential);
         console.log(profile);
-        var provide_id = profile.jti;
-        var first_name = profile.family_name;
-        var last_name = profile.given_name;
-        var name = profile.name;
-        var email = profile.email;
-        var picture = '';
+        
+        var provide_id = profile.jti || '';
+        var first_name = profile.family_name || '';
+        var last_name = profile.given_name || '';
+        var name = profile.name || '';
+        var email = profile.email || '';
+        var picture = profile.picture || '';
 
-        if (provide_id == "" || email == "") {
+        if (provide_id === "" || email === "") {
             alert('Không thể lấy được thông tin người dùng.');
             return false;
         }

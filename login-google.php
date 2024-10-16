@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('./config/config.php');
-
+header("Cross-Origin-Opener-Policy: same-origin-allow-popups");
 // Nhận dữ liệu từ AJAX
 $type = $_POST['type'];
 
