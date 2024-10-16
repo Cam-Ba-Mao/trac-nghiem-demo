@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th8 03, 2024 lúc 10:13 PM
--- Phiên bản máy phục vụ: 8.0.39-cll-lve
--- Phiên bản PHP: 8.1.29
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th10 16, 2024 lúc 08:35 AM
+-- Phiên bản máy phục vụ: 10.4.32-MariaDB
+-- Phiên bản PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `oninmgup_trac_nghiem`
+-- Cơ sở dữ liệu: `trac_nghiem`
 --
 
 -- --------------------------------------------------------
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `exams` (
-  `id` int NOT NULL,
-  `exam_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `exam_time` int NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `id` int(11) NOT NULL,
+  `exam_name` varchar(255) NOT NULL,
+  `exam_time` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -41,9 +41,9 @@ CREATE TABLE `exams` (
 --
 
 CREATE TABLE `exam_questions` (
-  `id` int NOT NULL,
-  `exam_id` int NOT NULL,
-  `question_id` int NOT NULL
+  `id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -53,13 +53,13 @@ CREATE TABLE `exam_questions` (
 --
 
 CREATE TABLE `questions` (
-  `id` int NOT NULL,
-  `question_text` text COLLATE utf8mb4_general_ci NOT NULL,
-  `option_a` text COLLATE utf8mb4_general_ci NOT NULL,
-  `option_b` text COLLATE utf8mb4_general_ci NOT NULL,
-  `option_c` text COLLATE utf8mb4_general_ci NOT NULL,
-  `option_d` text COLLATE utf8mb4_general_ci NOT NULL,
-  `correct_option` enum('A','B','C','D','Chưa chọn') COLLATE utf8mb4_general_ci NOT NULL
+  `id` int(11) NOT NULL,
+  `question_text` text NOT NULL,
+  `option_a` text NOT NULL,
+  `option_b` text NOT NULL,
+  `option_c` text NOT NULL,
+  `option_d` text NOT NULL,
+  `correct_option` enum('A','B','C','D','Chưa chọn') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -69,11 +69,11 @@ CREATE TABLE `questions` (
 --
 
 CREATE TABLE `results` (
-  `id` int NOT NULL,
-  `user_id` int NOT NULL,
-  `exam_id` int NOT NULL,
-  `score` int NOT NULL,
-  `submitted_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `score` int(11) NOT NULL,
+  `submitted_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -83,21 +83,22 @@ CREATE TABLE `results` (
 --
 
 CREATE TABLE `users` (
-  `id` int NOT NULL,
-  `username` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `avatar` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `role` enum('student','admin') COLLATE utf8mb4_general_ci NOT NULL
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `google_id` varchar(255) NOT NULL,
+  `avatar` varchar(255) NOT NULL,
+  `role` enum('student','admin') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `email`, `avatar`, `role`) VALUES
-(1, 'maocam', '$2y$10$KUQ5r3jPT4PgIUPF2wznZO1akd0.xvflTh4nWj6JtMs1AgRMpoxdm', 'cambamao98@gmail.com', 'IMG_3689.JPG', 'admin'),
-(2, 'phuongbui', '$2y$10$AQDdW.H..z8Smwou4BszV.q/WgOQRurJnIe6lJL7ix/eb5Uzj2G0a', 'phuonngthibui@gmail.com', 'Screenshot_20220309-195121_Instagram.jpg', 'student');
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `google_id`, `avatar`, `role`) VALUES
+(1, 'maocam', '$2y$10$KUQ5r3jPT4PgIUPF2wznZO1akd0.xvflTh4nWj6JtMs1AgRMpoxdm', 'cambamao98@gmail.com', '841712fdce9ecca3b4d0b03059a72789af91bebe', 'bm-avatar.gif', 'admin'),
+(2, 'phuongbui', '$2y$10$AQDdW.H..z8Smwou4BszV.q/WgOQRurJnIe6lJL7ix/eb5Uzj2G0a', 'phuonngthibui@gmail.com', '', 'Screenshot_20220309-195121_Instagram.jpg', 'student');
 
 -- --------------------------------------------------------
 
@@ -106,10 +107,10 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `avatar`, `role`) VA
 --
 
 CREATE TABLE `user_answers` (
-  `id` int NOT NULL,
-  `result_id` int NOT NULL,
-  `question_id` int NOT NULL,
-  `selected_option` enum('A','B','C','D') COLLATE utf8mb4_general_ci NOT NULL
+  `id` int(11) NOT NULL,
+  `result_id` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL,
+  `selected_option` enum('A','B','C','D') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -167,37 +168,37 @@ ALTER TABLE `user_answers`
 -- AUTO_INCREMENT cho bảng `exams`
 --
 ALTER TABLE `exams`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `exam_questions`
 --
 ALTER TABLE `exam_questions`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `results`
 --
 ALTER TABLE `results`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `user_answers`
 --
 ALTER TABLE `user_answers`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

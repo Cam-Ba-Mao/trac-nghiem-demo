@@ -6,13 +6,14 @@ CREATE TABLE users (
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
+    google_id VARCHAR(255) NOT NULL,
     avatar VARCHAR(255) NOT NULL,
     role ENUM('student', 'admin') NOT NULL
 );
 
-INSERT INTO users (id, username, password, email, avatar, role) VALUES
-(1, 'maocam', 'Magano123', 'cambamao98@gmail.com', '' 'admin'),
-(2, 'phuongbui', 'phuong@101220', 'phuongbui@gmail.com', '', 'student');
+INSERT INTO users (id, username, password, email, google_id, avatar, role) VALUES
+(1, 'maocam', 'Magano123', 'cambamao98@gmail.com', '', '', 'admin'),
+(2, 'phuongbui', 'phuong@101220', 'phuongbui@gmail.com', '', '', 'student');
 
 
 CREATE TABLE questions (
@@ -57,4 +58,44 @@ CREATE TABLE user_answers (
     selected_option ENUM('A', 'B', 'C', 'D') NOT NULL,
     FOREIGN KEY (result_id) REFERENCES results(id),
     FOREIGN KEY (question_id) REFERENCES questions(id)
+);
+
+CREATE TABLE custom_post_types (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    post_type_name VARCHAR(255) NOT NULL,
+    slug VARCHAR(255) NOT NULL UNIQUE
+);
+
+CREATE TABLE custom_posts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    post_type_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (post_type_id) REFERENCES custom_post_types(id)
+);
+
+-- Bảng lưu thông tin taxonomy (phân loại)
+CREATE TABLE taxonomies (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    taxonomy_name VARCHAR(255) NOT NULL,
+    slug VARCHAR(255) NOT NULL UNIQUE
+);
+
+-- Bảng lưu các terms (category, tag, v.v.)
+CREATE TABLE terms (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    term_name VARCHAR(255) NOT NULL,
+    taxonomy_id INT NOT NULL,
+    slug VARCHAR(255) NOT NULL UNIQUE,
+    FOREIGN KEY (taxonomy_id) REFERENCES taxonomies(id)
+);
+
+-- Bảng liên kết bài viết với các terms (term_relationships)
+CREATE TABLE term_relationships (
+    post_id INT NOT NULL,
+    term_id INT NOT NULL,
+    PRIMARY KEY (post_id, term_id),
+    FOREIGN KEY (post_id) REFERENCES posts(id),
+    FOREIGN KEY (term_id) REFERENCES terms(id)
 );

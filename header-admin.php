@@ -72,9 +72,9 @@
                     <li><a href="#"><i class="fa-solid fa-comment"></i>1</a></li>
                     <li><a href="#"><i class="fa-solid fa-plus"></i><span class="title">New</span></a>
                         <ul>
-                            <li><a href="./bm-new-post.html">New Post</a></li>
+                            <li><a href="add-post.php">New Post</a></li>
                             <li><a href="#">New Page</a></li>
-                            <li><a href="#">New Category</a></li>
+                            <li><a href="category.php">New Category</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -94,7 +94,7 @@
                         </a>
                         <ul class="my-account__dropdown">
                             <li class="info-user">
-                                <a href="./bm-new-post.html"> 
+                                <a href="#"> 
                                     <img src="<?php echo BASE_URL; ?>/assets/upload/<?php echo $avatar; ?>" alt="avatar">
                                     <span class="title"><?php echo $_SESSION['username']; ?> </span>
                                     <span class="edit-profile">Edit Profile </span>
@@ -114,8 +114,8 @@
                     <li class="active"><a href="./bm-posts.html"><i class="fa-solid fa-thumb-tack"></i><span class="title">Posts</span></a>
                         <ul class="sub-menu">
                             <li class="active"><a href="./bm-posts.html">All Posts</a></li>
-                            <li><a href="./bm-new-post.html">Add New</a></li>
-                            <li><a href="#">Categories</a></li>
+                            <li><a href="add-post.php">Add New</a></li>
+                            <li><a href="category.php">Categories</a></li>
                             <li><a href="#">Tags</a></li>
                         </ul>
                     </li>
