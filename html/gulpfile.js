@@ -280,8 +280,8 @@ function adminJs() {
 function adminWatcher() {
     browserSync.init({
         server: {
-            baseDir: ADMIN,
-            index: "bm-index.html"  
+            baseDir: [DEST, ADMIN],
+            index: "admin/bm-index.html"  
         },
         port: 8192
     });
@@ -299,7 +299,7 @@ const build = series(clean, icons, images, fonts, bootstrap, pluginsJs, bundleCs
 const start = series(icons, html, css, js, watcher);
 const plugins = parallel(pluginsJs, bundleCss, bundleJs, tinymce, tinymceStyles);
 const email = series(emailHtml, emailCss, emailWatcher);
-const admin = series(adminCss, adminHtml, adminJs, adminWatcher);
+const admin = series(fonts, adminCss, adminHtml, adminJs, adminWatcher);
 
 /*
  * You can use CommonJS `exports` module notation to declare tasks

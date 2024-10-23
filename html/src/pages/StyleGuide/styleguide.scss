@@ -1815,11 +1815,11 @@ body.page-template-styleguide {
 
     &__body {
         .d-flex {
+            background-color: $red;
+
             @include breakpoint-down(lg) {
                 flex-direction: column;
             }
-
-            background-color: $red;
         }
 
         .nav {
