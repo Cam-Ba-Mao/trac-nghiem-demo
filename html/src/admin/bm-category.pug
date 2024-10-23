@@ -1,0 +1,24 @@
+extends layouts-admin-panel
+
+append vars
+    -bodyClass = "page-template-admin-panel-category"
+    -typeMenu = ""
+
+block container
+
+    .bm-admin-content
+        .bm-box-container(style="width: 35%;")
+            .bm-box-container__wrap-title
+                h3 Thêm danh mục
+                form.form-admin(action="")
+                    ul
+                        li
+                            label.title(for="title") Title
+                            input#title(type="text")
+                        li
+                            label.title(for="bm-admin-message") Whats on your mind?
+                            textarea#bm-admin-message(name="", cols="30", rows="5")
+                        li
+                            button(type="submit") Submit
+
+        .bm-box-container(style="width: 65%;")

@@ -1,0 +1,49 @@
+extends layouts-admin-panel
+
+append vars
+    -bodyClass = "page-template-admin-panel-posts"
+    -typeMenu = ""
+
+block container
+    .bm-admin-content
+        div(class="bm-box-container__wrap-title")
+            h1 Add New Post
+        div(class="bm-admin-message error bm-box-container__wrap-title")
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque pariatur, culpa, iusto odit excepturi velit
+            | temporibus, praesentium assumenda dolore deleniti quibusdam molestiae minima reiciendis id repellendus
+            | obcaecati soluta voluptatibus impedit.
+        div(class="bm-admin-message success bm-box-container__wrap-title")
+            | Is everything alright?
+            a(href="#") link is here
+        div(class="bm-admin-message info bm-box-container__wrap-title")
+            | info minfo this kind of stuff
+        div(class="bm-admin-message warning bm-box-container__wrap-title")
+            | warning something has happened
+        .clear(style="height: 10px;")
+        .bm-box-container.post-content
+            div(class="bm-box-container__wrap-title")
+                form.form-admin(action="")
+                    ul
+                        li
+                            input.big(type="text" placeholder="Enter title here")
+                        li
+                            textarea(id="mytextarea-1" class="tinymce-editor d-none" name="editor1")
+                                p 
+                                    img(src="../images/uploading-icon.svg", alt="Intro")
+                                p Tập trung vào các môn học cốt lõi của chương trình giáo dục Mỹ, được giảng dạy bằng tiếng Anh, và kết hợp giữa các môn học năng khiếu theo chương trình Mỹ với chương trình giảng dạy bằng tiếng Việt của Bộ Giáo dục & Đào tạo Việt Nam. Sau năm lớp 8, học sinh có thể chọn tiếp tục học song ngữ và nhận bằng tốt nghiệp của Bộ Giáo dục & Đào tạo Việt Nam và tham gia các kỳ thi đánh giá năng lực như IELTS, SAT, ACT. Hoặc học sinh có thể chọn chuyển sang học lộ trình Tú tài Mỹ để nhận bằng Tú tài Trung học Greenville (Bang Pennsylvania, Mỹ).
+                                p Hệ Quốc tế Mỹ tập trung vào các môn học cốt lõi và các môn năng khiếu được giảng dạy bằng tiếng Anh, được cấp phép bởi Sở giáo dục GreenVille, bang Pennsylvania. Học sinh tại PennSchool đạt điều kiện của Bộ giáo dục Bang Pennsylvania sẽ được cấp bằng tốt nghiệp chính thức từ Trường trung học công lập Greenville, Bang Pennsylvania, bằng cấp được công nhận tại tất cả các trường ở Mỹ, Úc, Canada và các trường giảng dạy bằng tiếng Anh khác trên toàn thế giới.
+
+            div(class="bm-box-container__wrap")
+                h3
+                    | test et
+                div(class="bm-box-container__content")
+                    | test et bakalm
+        .bm-box-container.post-rightbar
+            div(class="bm-box-container__wrap")
+                h3
+                    | Publish
+                div(class="bm-box-container__content")
+                    a.btn-admin.right(href="#") Preview
+                    a.btn-admin(href="#") Save Draft
+                    .publish-content
+                        button(type="submit") Publish

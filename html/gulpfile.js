@@ -56,6 +56,7 @@ const filterPages = () => filter(['**/*.pug', '!**/_*.pug']);
 
 const SRC = 'src/';
 const DEST = 'dist/';
+const ADMIN = 'dist/admin/';
 
 /**
  * Define tasks using plain functions
@@ -238,53 +239,8 @@ function emailWatcher() {
 }
 
 /*
- * Settings for css wass v1 (wass old)
- */
-function wassOldCss() {
-
-    return src(SRC + 'wassv1/wass-v1.scss', { sourcemaps: true })
-        //.pipe(sassGlob())
-        .pipe(sass({
-            outputStyle: 'expanded'
-        }).on('error', sass.logError))
-        .pipe(autoprefixer({
-            cascade: false
-        }))
-        .pipe(dest(DEST + 'wassv1', { sourcemaps: true }))
-        .pipe(browserSync.stream())
-        .pipe(cleanCSS({ debug: true }, (details) => {
-            console.log(`${details.name}: ${details.stats.originalSize}`);
-            console.log(`${details.name}: ${details.stats.minifiedSize}`);
-        }))
-        .pipe(rename({
-            suffix: '.min'
-        }))
-        .pipe(dest(DEST + 'wassv1'));
-    
-    /* return src(SRC + 'wassv1/wass-v1.scss', { sourcemaps: true })
-        .pipe(sass({
-            outputStyle: 'expanded'
-        }).on('error', sass.logError))
-        .pipe(autoprefixer({
-            cascade: false
-        }))
-        .pipe(dest(DEST + 'wassv1', { sourcemaps: true }))
-        .pipe(browserSync.stream()); */
-}
-
-
-function wassOldWatcher() {
-    browserSync.init({
-        server: DEST,
-        port: 8193
-    });
-    watch(SRC + 'wassv1/*.scss', wassOldCss);
-}
-
-/*
  * Settings admin template
  */
-
 function adminCss() {
     return src(SRC + 'admin/*.scss', { sourcemaps: true })
         .pipe(sass({
@@ -293,17 +249,45 @@ function adminCss() {
         .pipe(autoprefixer({
             cascade: false
         }))
-        .pipe(dest(DEST + 'admin', { sourcemaps: true }))
+        .pipe(dest(DEST + 'admin/css', { sourcemaps: true }))
+        .pipe(browserSync.stream());
+}
+
+function adminHtml() {
+    return src(SRC + 'admin/*.pug')
+        .pipe(pug({ pretty: true }))
+        .pipe(rename({ dirname: '' })) // Để output ra đúng nơi
+        .pipe(dest(DEST + 'admin'))
         .pipe(browserSync.stream());
 }
 
 function adminJs() {
     return src(SRC + 'admin/*.js')
-        .pipe(dest(DEST + 'admin'));
+        .pipe(babel({ presets: ['@babel/preset-env'] }))
+        .pipe(dest(DEST + 'admin/js'))
+        .pipe(uglify()) // Nén file JS
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(dest(DEST + 'admin/js'))
+        .pipe(browserSync.stream());
 }
 
+
+// function adminJs() {
+//     return src(SRC + 'admin/*.js')
+//         .pipe(dest(DEST + 'admin'));
+// }
+
 function adminWatcher() {
+    browserSync.init({
+        server: {
+            baseDir: ADMIN,
+            index: "bm-index.html"  
+        },
+        port: 8192
+    });
+
     watch(SRC + 'admin/*.scss', adminCss);
+    watch(SRC + 'admin/*.pug', adminHtml);
     watch(SRC + 'admin/*.js', adminJs);
 }
 
@@ -311,15 +295,11 @@ function adminWatcher() {
  * Specify if tasks run in series or parallel using `series` and `parallel`
  */
 
-const build = series(clean, icons, images, fonts, bootstrap, pluginsJs, bundleCss, bundleJs, html, css, js, tinymce, tinymceStyles);
+const build = series(clean, icons, images, fonts, bootstrap, pluginsJs, bundleCss, bundleJs, html, css, js, tinymce, tinymceStyles, adminCss, adminHtml, adminJs, adminWatcher);
 const start = series(icons, html, css, js, watcher);
 const plugins = parallel(pluginsJs, bundleCss, bundleJs, tinymce, tinymceStyles);
 const email = series(emailHtml, emailCss, emailWatcher);
-const admin = series(adminCss, adminJs, adminWatcher);
-const wassv1 = series(wassOldCss, wassOldWatcher);
-
-
-
+const admin = series(adminCss, adminHtml, adminJs, adminWatcher);
 
 /*
  * You can use CommonJS `exports` module notation to declare tasks
@@ -340,8 +320,6 @@ exports.start = start;
 exports.plugins = plugins;
 exports.email = email;
 exports.admin = admin;
-exports.wassv1 = wassv1;
-
 
 /*
  * Define default task that can be called by just running `gulp` from cli

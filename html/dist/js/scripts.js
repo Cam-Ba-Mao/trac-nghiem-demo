@@ -25,8 +25,9 @@ function closePopupOverlay() {
 function getRootVars() {
   var root = document.querySelector(":root");
   root.style.setProperty("--vh", window.innerHeight / 100 + "px");
-  root.style.setProperty("--mh", $('header.bm-header').outerHeight() + "px");
-  root.style.setProperty("--gi", ($('#isa-gifts').length > 0 ? $('#isa-gifts').outerHeight() : 0) + "px");
+  if ($('header.bm-header').length > 0) {
+    root.style.setProperty("--mh", $('header.bm-header').outerHeight() + "px");
+  }
 }
 
 // Hàm tạo thông báo
@@ -368,34 +369,35 @@ handleSelectBox('.select-time, .select-status');
 //     showSearch: true
 // });
 
-window.addEventListener('load', function () {
-  var locomotiveScroll = new LocomotiveScroll({
-    lenisOptions: {
-      wrapper: window,
-      content: document.documentElement,
-      lerp: 0.1,
-      duration: 1.8,
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      smoothTouch: false,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-      normalizeWheel: true,
-      easing: function easing(t) {
-        return Math.min(1, 1.001 - Math.pow(2, -10 * t));
-      }
-    }
-  });
-  var homeClass = $('.page-template-home').length;
+// window.addEventListener('load', () => {   
 
-  // if (homeClass > 0) {
-  //     setTimeout(function(){
-  //         window.scrollTo(0, 0);
+//     const locomotiveScroll = new LocomotiveScroll({
+//         lenisOptions: {
+//             wrapper: window,
+//             content: document.documentElement,
+//             lerp: 0.1,
+//             duration: 1.8,
+//             orientation: 'vertical',
+//             gestureOrientation: 'vertical',
+//             smoothWheel: true,
+//             smoothTouch: false,
+//             wheelMultiplier: 1,
+//             touchMultiplier: 2,
+//             normalizeWheel: true,
+//             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+//         },
+//     });
 
-  //     }, 10);
-  // }
-});
+//     const homeClass = $('.page-template-home').length;
+
+//     // if (homeClass > 0) {
+//     //     setTimeout(function(){
+//     //         window.scrollTo(0, 0);
+
+//     //     }, 10);
+//     // }
+
+// });
 
 // Main functions
 (function ($) {
@@ -1271,78 +1273,6 @@ window.addEventListener('load', function () {
   });
 })(jQuery);
 (function ($) {
-  $('.bm-box-container__wrap >h3').append('<button type="button" class="toggle"><i class="fa-solid fa-caret-up"></i></button>');
-  $(document).on('click', 'button.toggle', function (e) {
-    var id = $(this).closest('.bm-box-container__wrap').attr('id');
-    $(this).parent().next().toggle();
-    if ($('.fa-solid', this).hasClass('fa-caret-up')) {
-      $('.fa-solid', this).removeClass('fa-caret-up').addClass('fa-caret-down');
-      if (id != 'undefined') {
-        localStorage.setItem('.bm-box-container__wrap-title' + id, true);
-      }
-    } else {
-      $('.fa-solid', this).removeClass('fa-caret-down').addClass('fa-caret-up');
-      if (id != 'undefined') {
-        delete localStorage['.bm-box-container__wrap-title' + id];
-      }
-    }
-    e.preventDefault();
-  });
-  function checkToggle() {
-    $.each(localStorage, function (key, val) {
-      if (!key.indexOf('.bm-box-container__wrap-title')) {
-        $('#' + key.replace('.bm-box-container__wrap-title', '') + ' .toggle').trigger('click');
-      }
-    });
-  }
-  checkToggle();
-  $('.bm-admin-sidebar >ul >li:not(.line)').hover(function () {
-    if (!$('.sub-menu:visible', this).length) {
-      $('.dropdown-menu', this).show();
-      $(this).addClass('hover');
-    }
-  }, function () {
-    $('.dropdown-menu', this).hide();
-    $(this).removeClass('hover');
-  });
-  $('[dropdown] >li').hover(function () {
-    $('ul', this).show();
-    $(this).addClass('active');
-    console.log('aaaaaaaaaa');
-  }, function () {
-    $('ul', this).hide();
-    $(this).removeClass('active');
-  });
-  $('.bm-admin-sidebar >ul >li').each(function () {
-    if ($('.sub-menu', this).length) {
-      var html = $('.sub-menu', this).html();
-      $(this).append('<ul dropdown class="dropdown-menu">' + html + '</ul>');
-    }
-  });
-  $('.bm-collapse-admin-menu').on('click', function (e) {
-    $('.bm-admin-sidebar').toggleClass('fix');
-    if ($('.fa-solid', this).hasClass('fa-arrow-circle-left')) {
-      $('.bm-admin-sidebar >ul >li.active .sub-menu').hide();
-      $('.fa-solid', this).removeClass('fa-arrow-circle-left').addClass('fa-arrow-circle-right');
-      localStorage.setItem('sidebar', true);
-    } else {
-      $('.fa-solid', this).removeClass('fa-arrow-circle-right').addClass('fa-arrow-circle-left');
-      $('.bm-admin-sidebar >ul >li.active .sub-menu').show();
-      delete localStorage['sidebar'];
-    }
-    e.preventDefault();
-  });
-  function sidebarCheck() {
-    if (localStorage.getItem('sidebar')) {
-      $('.bm-admin-sidebar .bm-collapse-admin-menu').trigger('click');
-    }
-  }
-  sidebarCheck();
-  $(function () {
-    $(window).on("resize", function () {});
-  });
-})(jQuery);
-(function ($) {
   var showPassword = function showPassword() {
     window.addEventListener("load", function () {
       var togglePassword = document.querySelector(".togglePassword");
@@ -1590,6 +1520,44 @@ function toggleRow(button) {
     });
   }
 }
+function handleRichEditors() {
+  var optionsById = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var elems = document.querySelectorAll(".tinymce-editor");
+  if (elems.length === 0) {
+    return null;
+  }
+  if (typeof themeUri === 'undefined') {
+    themeUri = '..';
+  }
+  elems.forEach(function (item) {
+    if (typeof tinymce !== 'undefined' && typeof themeUri !== 'undefined' && item.id !== '') {
+      // Các option mặc định chung
+      var defaultOptions = {
+        selector: '#' + item.id,
+        height: 400,
+        menubar: false,
+        resize: true,
+        language: 'vi',
+        plugins: 'lists link media image advlist anchor autolink autoresize autosave charmap code directionality emoticons fullscreen help preview quickbars save searchreplace table visualblocks wordcount',
+        toolbar: 'styles | bold italic underline | alignleft aligncenter alignright | bullist numlist | forecolor backcolor lists link media image advlist anchor autolink autoresize autosave charmap code directionality emoticons fullscreen help preview quickbars save searchreplace table visualblocks wordcount',
+        branding: false,
+        // content_css: [themeUri + '/assets/dist/js/tinymce/custom.min.css?' + new Date().getTime()],
+        setup: function setup(editor) {
+          editor.on('keyup', function (e) {
+            item.value = tinymce.activeEditor.getContent();
+          });
+        }
+      };
+
+      // Lấy các options riêng theo ID
+      var customOptions = optionsById[item.id] || {};
+
+      // Kết hợp các options mặc định với các options riêng
+      var editorOptions = Object.assign({}, defaultOptions, customOptions);
+      tinymce.init(editorOptions);
+    }
+  });
+}
 (function ($) {
   var handleUpload = function handleUpload() {
     var form = document.getElementById('demo-upload');
@@ -1770,35 +1738,6 @@ function toggleRow(button) {
     if (legendElement) {
       legendElement.innerHTML = createCustomLegend(myChart);
     }
-  }
-  function handleRichEditors() {
-    var elems = document.querySelectorAll(".tinymce-editor");
-    if (elems.length === 0) {
-      return null;
-    }
-    if (typeof themeUri == 'undefined') {
-      themeUri = '..';
-    }
-    elems.forEach(function (item) {
-      if (typeof tinymce !== 'undefined' && typeof themeUri !== 'undefined' && item.id !== '') {
-        //console.log("TRYING TO CREATE TINYMCE FOR INPUT " + item.id);
-        tinymce.init({
-          selector: '#' + item.id,
-          height: 400,
-          menubar: false,
-          resize: true,
-          plugins: 'lists link image',
-          toolbar: 'styles | bold italic underline | alignleft aligncenter alignright | bullist numlist | forecolor backcolor | link image',
-          branding: false,
-          content_css: [themeUri + '/assets/dist/js/tinymce/custom.min.css?' + new Date().getTime()],
-          setup: function setup(editor) {
-            editor.on('keyup', function (e) {
-              item.value = tinymce.activeEditor.getContent();
-            });
-          }
-        });
-      }
-    });
   }
   function handleButtonViewImage() {
     document.addEventListener('click', function (e) {

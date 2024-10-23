@@ -20,8 +20,10 @@ function closePopupOverlay(speed = 300) {
 function getRootVars() {
     var root = document.querySelector(":root");
     root.style.setProperty("--vh", window.innerHeight / 100 + "px");
-    root.style.setProperty("--mh", $('header.bm-header').outerHeight() + "px");
-    root.style.setProperty("--gi", ($('#isa-gifts').length > 0 ? $('#isa-gifts').outerHeight() : 0) + "px");
+    
+    if($('header.bm-header').length > 0) {
+        root.style.setProperty("--mh", $('header.bm-header').outerHeight() + "px");
+    }
 }
 
 // Hàm tạo thông báo
@@ -383,35 +385,35 @@ handleSelectBox('.select-time, .select-status');
 //     showSearch: true
 // });
 
-window.addEventListener('load', () => {   
+// window.addEventListener('load', () => {   
 
-    const locomotiveScroll = new LocomotiveScroll({
-        lenisOptions: {
-            wrapper: window,
-            content: document.documentElement,
-            lerp: 0.1,
-            duration: 1.8,
-            orientation: 'vertical',
-            gestureOrientation: 'vertical',
-            smoothWheel: true,
-            smoothTouch: false,
-            wheelMultiplier: 1,
-            touchMultiplier: 2,
-            normalizeWheel: true,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        },
-    });
+//     const locomotiveScroll = new LocomotiveScroll({
+//         lenisOptions: {
+//             wrapper: window,
+//             content: document.documentElement,
+//             lerp: 0.1,
+//             duration: 1.8,
+//             orientation: 'vertical',
+//             gestureOrientation: 'vertical',
+//             smoothWheel: true,
+//             smoothTouch: false,
+//             wheelMultiplier: 1,
+//             touchMultiplier: 2,
+//             normalizeWheel: true,
+//             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+//         },
+//     });
 
-    const homeClass = $('.page-template-home').length;
+//     const homeClass = $('.page-template-home').length;
 
-    // if (homeClass > 0) {
-    //     setTimeout(function(){
-    //         window.scrollTo(0, 0);
+//     // if (homeClass > 0) {
+//     //     setTimeout(function(){
+//     //         window.scrollTo(0, 0);
             
-    //     }, 10);
-    // }
+//     //     }, 10);
+//     // }
 
-});
+// });
 
 
 // Main functions
