@@ -1,0 +1,102 @@
+block vars
+    -title = "Trang quản trị"
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+        title=title
+        // Favicon
+        link(rel="icon" href="../images/favicon.png")
+        // Bootstrap
+        //- link(rel="stylesheet" href="../css/bootstrap.min.css")
+        // Plugins style
+        link(rel="stylesheet" href="../css/bundle.min.css")
+        // Template syle
+        link(rel="stylesheet" href="../admin/css/admin.min.css")
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css")
+        
+        // Admin bar demo ( Not include )
+        style.
+            .admin-bar-html {
+                margin-top: 32px !important;
+            }
+
+            @media screen and (max-width: 782px) {
+                .admin-bar-html {
+                    margin-top: 46px !important;
+                }
+            }
+
+            #wpadminbar {
+                direction: ltr;
+                color: #ccc;
+                font-size: 13px;
+                font-weight: 400;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+                height: 32px;
+                line-height: 32px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                min-width: 600px;
+                z-index: 99999;
+                background: #23282d;
+                padding: 0 15px;
+            }
+
+            @media screen and (max-width: 782px) {
+                html #wpadminbar {
+                    height: 46px;
+                    line-height: 46px;
+                    min-width: 240px;
+                }
+            }
+
+            @media screen and (max-width: 600px) {
+                #wpadminbar {
+                    position: absolute;
+                }
+            }
+
+    body(class=(bodyClass && bodyClass))
+
+        // START HEADER
+        include ../components/Header/header
+        // CLOSE HEADER
+
+        // START SIDEBAR
+        include ../components/SideBar/sidebar
+        // CLOSE SIDEBAR
+        
+        // START CONTENT
+        main.bm-admin-wrap
+            block container
+        // CLOSE CONTENT
+
+        // START FOOTER
+        include ../components/Footer/footer
+        // CLOSE FOOTER
+
+        // Jquery
+        script(src="../js/jquery.min.js")
+
+        //- <script src="https://apis.google.com/js/platform.js?onload=onLoadGoogleCallback" async defer></script>
+        <script data-src="https://maps.google.com/maps/api/js?libraries=places&amp;key=AIzaSyBrqJ3COcBz3ZY7ZHRx0N_Fd0Xq_ea49O4" id="google-map"></script>
+        
+        // Bootstrap
+        //- script(src="./js/popper.min.js")
+        //- script(src="./js/bootstrap.min.js")
+        // Plugins script
+        script(src="../js/bundle.min.js")
+        // TinyMCE
+        script(src="../js/tinymce/tinymce.min.js")
+        // Template script
+        script(src="../admin/js/admin.min.js")
+        // Common script
+        script(src="./admin/js/common.min.js")
+        // Scripts demo ( Not include )
+        block scripts_demo

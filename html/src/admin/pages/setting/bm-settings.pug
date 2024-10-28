@@ -1,0 +1,131 @@
+extends ../../../admin/layouts/layout-admin-panel
+
+append vars
+    -bodyClass = "page-template-admin-panel-setting"
+    -typeMenu = ""
+
+block container
+    .bm-admin-content
+        h1 Tùy chọn tổng quan
+        table.form-table
+            tr(id="field-blogname" class="form-field blogname")
+                th
+                    label(for="blogname") Tên website
+                td
+                    input(type="text" name="blogname" value="Trắc nghiệm Demo" id="blogname" class="form-control regular-text")
+            
+            tr(id="field-blogdescription" class="form-field blogdescription")
+                th
+                    label(for="blogdescription") Khẩu hiệu
+                td
+                    input(type="text" name="blogdescription" value="" id="blogdescription" class="form-control regular-text")
+                    p.description Trong một vài từ, giải thích về trang này viết về gì.
+                
+            tr(id="field-hotline" class="form-field hotline")
+                th
+                    label(for="hotline") Hotline
+                td
+                    input(type="text" name="hotline" value="096 181 4411" id="hotline" class="form-control regular-text")
+
+            tr(id="field-email" class="form-field email")
+                th
+                    label(for="email") Địa chỉ email quản trị
+                td
+                    input(type="email" name="email" value="cambamao98@gmail.com" id="email" class="form-control regular-text")
+                    p.description Địa chỉ email này được sử dụng cho mục đích quản trị.
+
+            tr(id="field-users_can_register" class="form-field users_can_register")
+                th
+                    label(for="users_can_register") Thành viên
+                td
+                    label(class="td-label")
+                        input(type="hidden" name="users_can_register" value="0")
+                        input(type="checkbox" name="users_can_register" value="1" id="users_can_register" class="form-control")
+                        label(for="users_can_register") Ai cũng có thể đăng ký
+            
+            tr(id="field-default_role" class="form-field default_role")
+                th 
+                    label(for="default_role") Vai trò thành viên mới
+                td
+                    select(name="default_role" id="default_role" class="form-control")
+                        option(value="administrator") Quản lý
+                        option(value="editor") Biên tập viên
+                        option(value="author") Tác giả
+                        option(value="contributor") Cộng tác viên
+                        option(value="subscriber" selected="selected" data-select2-id="16") Thành viên đăng ký
+                        
+            tr(id="field-langcp" class="form-field langcp")
+                th 
+                    label(for="langcp") Ngôn ngữ của trang 
+                    i(class="fa fa-language")
+                td
+                    select(name="langcp" id="langcp" class="form-control")
+                        option(value="vi" selected="selected") Tiếng Việt
+                        option(value="en") English (United States)
+            tr(id="field-start_of_week" class="form-field start_of_week")
+                th
+                    label(for="start_of_week") Tuần bắt đầu vào
+                td
+                    select(name="start_of_week" id="start_of_week" class="form-control")
+                        option(value="0") Chủ Nhật
+                        option(value="1" selected="selected") Thứ Hai
+                        option(value="2") Thứ Ba
+                        option(value="3") Thứ Tư
+                        option(value="4") Thứ Năm
+                        option(value="5") Thứ Sáu
+                        option(value="6") Thứ Bảy
+                        
+            tr(id="field-logo" class="form-field logo")
+                th 
+                    label(for="logo") Logo
+                td
+                    .small-text
+                        .upload-button-wrap
+                            .picture-wrap
+                                img(src="./images/Logo_TDMU_2024_nguyen_ban.svg" alt="")
+                            button(type="button" class="remove-thumbnail button") Xóa ảnh
+                            button(type="button" href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;multiple=0&amp;field_id=logo&amp;fldr=options&amp;akey=520e1262a69b803bfce6368b6303633e" class="set-thumbnail button btn-upload hide") Chọn ảnh
+                            input(type="hidden" name="logo" value="logo.webp" id="logo" onchange="changeUpload('#logo')")
+                        
+            tr(id="field-favicon" class="form-field favicon")
+                th
+                    label(for="favicon") Favicon
+                td
+                    .small-text
+                        .upload-button-wrap
+                            .picture-wrap
+                                img(src="./images/favicon.png" alt="")
+                            button(type="button" class="remove-thumbnail button") Xóa ảnh
+                            button(type="button" href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;multiple=0&amp;field_id=favicon&amp;fldr=options&amp;akey=520e1262a69b803bfce6368b6303633e" class="set-thumbnail button btn-upload hide") Chọn ảnh
+                            input(type="hidden" name="favicon" value="favicon.webp" id="favicon" onchange="changeUpload('#favicon')")
+                        
+            tr(id="field-editor" class="form-field editor")
+                th
+                    label(for="editor") Trình soạn thảo
+                td
+                    select(name="editor" id="editor" class="form-control")
+                        option(value="ckeditor" selected="selected") ckeditor
+                        option(value="tinymce") tinymce
+                        
+            tr(id="field-default_mod" class="form-field default_mod")
+                th
+                    label(for="default_mod") Bố cục trang chủ
+                td
+                    select(name="default_mod" id="default_mod" class="form-control")
+                        option(value="main" selected="selected") Trang chủ
+                        option(value="news") Tin tức
+                        option(value="product") Sản phẩm
+                        
+                    
+            tr(id="field-blog_public" class="form-field blog_public")
+                th
+                    label(for="blog_public") Hiển thị với công cụ tìm kiếm
+                td
+                    .td-label
+                        input(type="hidden" name="blog_public" value="0")
+                        input(type="checkbox" name="blog_public" value="1" checked="checked" id="blog_public" class="form-control")
+                        label(for="blog_public") Ngăn chặn các công cụ tìm kiếm đánh chỉ mục website này
+                    
+                    p.description Việc tuân thủ yêu cầu này hoàn toàn phụ thuộc vào các công cụ tìm kiếm.                    
+        <br>		
+        input(type="submit" name="form-submitted" value="Lưu thay đổi" class="button btn-submit")

@@ -1,0 +1,27 @@
+.main-footer {
+    background: white;
+    padding: 10px 15px;
+    color: #444;
+    border-top: 1px solid #d2d6de;
+    overflow: hidden;
+}
+
+.bm-admin-wrap,
+.right-side,
+.main-footer {
+	transition: transform 0.3s ease-in-out, margin 0.3s ease-in-out;
+	z-index: 820;
+    margin-left: 50px;
+    
+    @include breakpoint-up(md) {
+        margin-left: 180px;
+    }
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}

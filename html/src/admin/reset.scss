@@ -9,6 +9,7 @@ html {
 
 body {
     margin: 0;
+    padding-top: 40px;
 }
 
 article,
@@ -241,7 +242,7 @@ a::after {
 }
 
 a {
-color: inherit;
+    color: inherit;
     text-decoration: none
 }
 
@@ -255,8 +256,6 @@ a:focus {
 img {
     max-width: 100%;
     height: auto;
-    -moz-height: auto;
-    -webkit-height: auto;
 }
 
 ul {

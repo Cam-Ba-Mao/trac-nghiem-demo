@@ -241,24 +241,31 @@ function emailWatcher() {
 /*
  * Settings admin template
  */
+
 function adminCss() {
-    return src(SRC + 'admin/*.scss', { sourcemaps: true })
+    return src(SRC + 'admin/admin.scss', { sourcemaps: true })
+        .pipe(sassGlob())
         .pipe(sass({
             outputStyle: 'expanded'
         }).on('error', sass.logError))
         .pipe(autoprefixer({
             cascade: false
         }))
-        .pipe(dest(DEST + 'admin/css', { sourcemaps: true }))
+        .pipe(concat('admin.min.css')) // Gộp các file CSS lại thành một file
+        // .pipe(dest(DEST + 'admin/css', { sourcemaps: true }))
+        .pipe(dest(DEST + 'admin/css'))
         .pipe(browserSync.stream());
 }
 
 function adminHtml() {
-    return src(SRC + 'admin/*.pug')
+    return src(SRC + 'admin/**/*.pug')
+        .pipe(dependents(dependentsPugConfig))
+        .pipe(filterAllPages())
+        .pipe(filterPages())
         .pipe(pug({ pretty: true }))
         .pipe(rename({ dirname: '' })) // Để output ra đúng nơi
         .pipe(dest(DEST + 'admin'))
-        .pipe(browserSync.stream());
+        .pipe(browserSync.stream({once: true}));
 }
 
 function adminJs() {
@@ -289,6 +296,9 @@ function adminWatcher() {
     watch(SRC + 'admin/*.scss', adminCss);
     watch(SRC + 'admin/*.pug', adminHtml);
     watch(SRC + 'admin/*.js', adminJs);
+    watch(SRC + 'admin/**/*.pug', adminHtml);
+    watch(SRC + 'admin/**/*.scss', adminCss);
+    watch([SRC + 'admin/admin.js', SRC + 'admin/components/**/*.js', SRC + 'admin/pages/**/*.js'], js);
 }
 
 /*

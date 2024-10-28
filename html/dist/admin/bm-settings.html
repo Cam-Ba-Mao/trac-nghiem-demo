@@ -11,7 +11,8 @@
     <!-- Plugins style-->
     <link rel="stylesheet" href="../css/bundle.min.css">
     <!-- Template syle-->
-    <link rel="stylesheet" href="../admin/css/admin.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../admin/css/admin.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <!-- Admin bar demo ( Not include )-->
     <style>
       .admin-bar-html {
@@ -59,6 +60,7 @@
     </style>
   </head>
   <body class="page-template-admin-panel-setting">
+    <!-- START HEADER-->
     <div class="bm-admin-navbar">
       <ul dropdown>
         <li><a href="./bm-index.html"><i class="fa-solid fa-home"></i><span class="title">ANOTHER WEBSITE</span></a></li>
@@ -79,6 +81,8 @@
         </li>
       </ul>
     </div>
+    <!-- CLOSE HEADER-->
+    <!-- START SIDEBAR-->
     <div class="bm-admin-sidebar">
       <ul>
         <li><a href="./bm-index.html"><i class="fa-solid fa-tachometer"></i><span class="title">Trang quản trị</span></a></li>
@@ -105,61 +109,176 @@
         <li class="line"><span></span></li><a class="bm-collapse-admin-menu" href="#"><i class="fa-solid fa-arrow-circle-left"></i><span class="title">Thu gọn menu</span></a>
       </ul>
     </div>
+    <!-- CLOSE SIDEBAR-->
     <!-- START CONTENT-->
-    <div class="bm-admin-content">
-      <div class="bm-box-container__wrap-title">
-        <h1>Cài đặt chung</h1>
+    <main class="bm-admin-wrap">
+      <div class="bm-admin-content">
+        <h1>Tùy chọn tổng quan</h1>
+        <table class="form-table">
+          <tr class="form-field blogname" id="field-blogname">
+            <th>
+              <label for="blogname">Tên website</label>
+            </th>
+            <td>
+              <input class="form-control regular-text" type="text" name="blogname" value="Trắc nghiệm Demo" id="blogname">
+            </td>
+          </tr>
+          <tr class="form-field blogdescription" id="field-blogdescription">
+            <th>
+              <label for="blogdescription">Khẩu hiệu</label>
+            </th>
+            <td>
+              <input class="form-control regular-text" type="text" name="blogdescription" value="" id="blogdescription">
+              <p class="description">Trong một vài từ, giải thích về trang này viết về gì.</p>
+            </td>
+          </tr>
+          <tr class="form-field hotline" id="field-hotline">
+            <th>
+              <label for="hotline">Hotline</label>
+            </th>
+            <td>
+              <input class="form-control regular-text" type="text" name="hotline" value="096 181 4411" id="hotline">
+            </td>
+          </tr>
+          <tr class="form-field email" id="field-email">
+            <th>
+              <label for="email">Địa chỉ email quản trị</label>
+            </th>
+            <td>
+              <input class="form-control regular-text" type="email" name="email" value="cambamao98@gmail.com" id="email">
+              <p class="description">Địa chỉ email này được sử dụng cho mục đích quản trị.</p>
+            </td>
+          </tr>
+          <tr class="form-field users_can_register" id="field-users_can_register">
+            <th>
+              <label for="users_can_register">Thành viên</label>
+            </th>
+            <td>
+              <label class="td-label">
+                <input type="hidden" name="users_can_register" value="0">
+                <input class="form-control" type="checkbox" name="users_can_register" value="1" id="users_can_register">
+                <label for="users_can_register">Ai cũng có thể đăng ký</label>
+              </label>
+            </td>
+          </tr>
+          <tr class="form-field default_role" id="field-default_role">
+            <th> 
+              <label for="default_role">Vai trò thành viên mới</label>
+            </th>
+            <td>
+              <select class="form-control" name="default_role" id="default_role">
+                <option value="administrator">Quản lý</option>
+                <option value="editor">Biên tập viên</option>
+                <option value="author">Tác giả</option>
+                <option value="contributor">Cộng tác viên</option>
+                <option value="subscriber" selected="selected" data-select2-id="16">Thành viên đăng ký</option>
+              </select>
+            </td>
+          </tr>
+          <tr class="form-field langcp" id="field-langcp">
+            <th> 
+              <label for="langcp">Ngôn ngữ của trang </label><i class="fa fa-language"></i>
+            </th>
+            <td>
+              <select class="form-control" name="langcp" id="langcp">
+                <option value="vi" selected="selected">Tiếng Việt</option>
+                <option value="en">English (United States)</option>
+              </select>
+            </td>
+          </tr>
+          <tr class="form-field start_of_week" id="field-start_of_week">
+            <th>
+              <label for="start_of_week">Tuần bắt đầu vào</label>
+            </th>
+            <td>
+              <select class="form-control" name="start_of_week" id="start_of_week">
+                <option value="0">Chủ Nhật</option>
+                <option value="1" selected="selected">Thứ Hai</option>
+                <option value="2">Thứ Ba</option>
+                <option value="3">Thứ Tư</option>
+                <option value="4">Thứ Năm</option>
+                <option value="5">Thứ Sáu</option>
+                <option value="6">Thứ Bảy</option>
+              </select>
+            </td>
+          </tr>
+          <tr class="form-field logo" id="field-logo">
+            <th> 
+              <label for="logo">Logo</label>
+            </th>
+            <td>
+              <div class="small-text">
+                <div class="upload-button-wrap">
+                  <div class="picture-wrap"><img src="./images/Logo_TDMU_2024_nguyen_ban.svg" alt=""></div>
+                  <button class="remove-thumbnail button" type="button">Xóa ảnh</button>
+                  <button class="set-thumbnail button btn-upload hide" type="button" href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;amp;multiple=0&amp;amp;field_id=logo&amp;amp;fldr=options&amp;amp;akey=520e1262a69b803bfce6368b6303633e">Chọn ảnh</button>
+                  <input type="hidden" name="logo" value="logo.webp" id="logo" onchange="changeUpload('#logo')">
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr class="form-field favicon" id="field-favicon">
+            <th>
+              <label for="favicon">Favicon</label>
+            </th>
+            <td>
+              <div class="small-text">
+                <div class="upload-button-wrap">
+                  <div class="picture-wrap"><img src="./images/favicon.png" alt=""></div>
+                  <button class="remove-thumbnail button" type="button">Xóa ảnh</button>
+                  <button class="set-thumbnail button btn-upload hide" type="button" href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;amp;multiple=0&amp;amp;field_id=favicon&amp;amp;fldr=options&amp;amp;akey=520e1262a69b803bfce6368b6303633e">Chọn ảnh</button>
+                  <input type="hidden" name="favicon" value="favicon.webp" id="favicon" onchange="changeUpload('#favicon')">
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr class="form-field editor" id="field-editor">
+            <th>
+              <label for="editor">Trình soạn thảo</label>
+            </th>
+            <td>
+              <select class="form-control" name="editor" id="editor">
+                <option value="ckeditor" selected="selected">ckeditor</option>
+                <option value="tinymce">tinymce</option>
+              </select>
+            </td>
+          </tr>
+          <tr class="form-field default_mod" id="field-default_mod">
+            <th>
+              <label for="default_mod">Bố cục trang chủ</label>
+            </th>
+            <td>
+              <select class="form-control" name="default_mod" id="default_mod">
+                <option value="main" selected="selected">Trang chủ</option>
+                <option value="news">Tin tức</option>
+                <option value="product">Sản phẩm</option>
+              </select>
+            </td>
+          </tr>
+          <tr class="form-field blog_public" id="field-blog_public">
+            <th>
+              <label for="blog_public">Hiển thị với công cụ tìm kiếm</label>
+            </th>
+            <td>
+              <div class="td-label">
+                <input type="hidden" name="blog_public" value="0">
+                <input class="form-control" type="checkbox" name="blog_public" value="1" checked="checked" id="blog_public">
+                <label for="blog_public">Ngăn chặn các công cụ tìm kiếm đánh chỉ mục website này</label>
+              </div>
+              <p class="description">Việc tuân thủ yêu cầu này hoàn toàn phụ thuộc vào các công cụ tìm kiếm.                    </p>
+            </td>
+          </tr>
+        </table><br>		
+        <input class="button btn-submit" type="submit" name="form-submitted" value="Lưu thay đổi">
       </div>
-      <div class="clear" style="height: 10px;"></div>
-      <div class="bm-box-container__wrap-title">
-        <form class="form-admin label" action="">
-          <ul> 
-            <li>
-              <label for="title">Tiêu đề trang web</label>
-              <div class="form-content">
-                <input type="text" id="title">
-              </div>
-            </li>
-            <li> 
-              <label for="description">Mô tả</label>
-              <div class="form-content">
-                <textarea name="description" id="description" cols="30" rows="5"></textarea>
-                <p>Trong một vài từ, hãy giới thiệu trang web này nói về cái gì. Ví dụ: “Một trang web mới sử dụng WordPress.”</p>
-              </div>
-            </li>
-            <li> 
-              <label for="tag-line">Địa chỉ email quản trị</label>
-              <div class="form-content">
-                <input type="text" id="tag-line">
-                <p>Địa chỉ email này được sử dụng cho mục đích quản trị.</p>
-              </div>
-            </li>
-            <li> 
-              <div class="label">Thành viên</div>
-              <div class="form-content">
-                <label class="not" for="membership">
-                  <input type="checkbox" value="1" id="membership">Ai cũng có thể đăng ký
-                </label>
-              </div>
-            </li>
-            <li> 
-              <label for="select">Vai trò của thành viên mới	</label>
-              <div class="form-content">
-                <select name="select" id="select">
-                  <option value="">User</option>
-                  <option value="">Admin</option>
-                  <option value="">Moderator</option>
-                </select>
-              </div>
-            </li>
-            <li class="submit">
-              <button type="submit">Save Changes</button>
-            </li>
-          </ul>
-        </form>
-      </div>
-    </div>
+    </main>
     <!-- CLOSE CONTENT-->
+    <!-- START FOOTER-->
+    <footer class="main-footer">
+      <div class="pull-left"><span>© 2024 </span><a href="#" target="_blank"><strong>Trắc nghiệm demo</strong></a></div>
+      <div class="pull-right hidden-xs">Phiên bản 3.1.10	</div>
+    </footer>
+    <!-- CLOSE FOOTER-->
     <!-- Jquery-->
     <script src="../js/jquery.min.js"></script><script data-src="https://maps.google.com/maps/api/js?libraries=places&amp;key=AIzaSyBrqJ3COcBz3ZY7ZHRx0N_Fd0Xq_ea49O4" id="google-map"></script>
     <!-- Bootstrap-->

@@ -1,4 +1,4 @@
-extends layouts-admin-panel
+extends ../../../admin/layouts/layout-admin-panel
 
 append vars
     -bodyClass = "page-template-admin-panel-category"
@@ -10,13 +10,13 @@ block container
         .bm-box-container(style="width: 35%;")
             .bm-box-container__wrap-title
                 h3 Thêm danh mục
-                form.form-admin(action="")
+                form.form-admin.label(action="")
                     ul
                         li
-                            label.title(for="title") Title
+                            label(for="title") Title
                             input#title(type="text")
                         li
-                            label.title(for="bm-admin-message") Whats on your mind?
+                            label(for="bm-admin-message") Whats on your mind?
                             textarea#bm-admin-message(name="", cols="30", rows="5")
                         li
                             button(type="submit") Submit

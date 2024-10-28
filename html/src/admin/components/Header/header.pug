@@ -1,0 +1,33 @@
+.bm-admin-navbar
+    ul(dropdown)
+        li
+            a(href="./bm-index.html")
+                i.fa-solid.fa-home
+                span.title ANOTHER WEBSITE
+        li
+            a(href="#")
+                i.fa-solid.fa-comment
+                | 1
+        li
+            a(href="./bm-new-posts.html")
+                i.fa-solid.fa-plus
+                span.title Tạo mới
+            ul
+                li
+                    a(href="./bm-new-post.html") Bài viết
+                li
+                    a(href="#") Trang
+
+    ul(dropdown class="my-account")
+        li 
+            a(href="#" class="my-account__nav")
+                span.title Xin chào, maocam 
+                img(src="../images/default-avatar.png", alt="avatar")
+            ul.my-account__dropdown
+                li.info-user
+                    a(href="./bm-new-post.html") 
+                        img(src="../images/default-avatar.png", alt="avatar")
+                        span.title maocam 
+                        span.edit-profile Edit Profile 
+                li.logout
+                    a(href="#") Đăng xuất

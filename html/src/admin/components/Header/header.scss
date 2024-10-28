@@ -1,0 +1,132 @@
+// navbar
+.bm-admin-navbar {
+    height: 32px;
+    background-color: #23282d;
+    position: relative;
+    z-index: 3 ! important;
+    top: 0;
+    width: 100%;
+    position: fixed;
+
+    >ul {
+        >li {
+            float: left;
+            position: relative;
+
+            >a {
+                display: block;
+                color: #eee;
+                font-size: 14px;
+                line-height: 32px;
+                padding: 0 10px;
+
+                .fa-solid {
+                    color: #9ca1a6;
+                    margin-right: 5px;
+                    font-size: 16px;
+                    position: relative;
+                    top: 1px;
+                }
+
+                &:hover {
+                    background-color: #32373c;
+                    color: $hovercolor;
+
+                    .fa-solid {
+                        color: $hovercolor;
+                    }
+                }
+            }
+
+            &.active>a {
+                background-color: #32373c;
+                color: $hovercolor;
+
+                .fa-solid {
+                    color: $hovercolor;
+                }
+            }
+
+            ul {
+                display: none;
+                position: absolute;
+                top: 32px;
+                left: 0;
+                width: 160px;
+                padding: 3px 0;
+                background-color: #32373c;
+
+                li {
+                    a {
+                        padding: 0 10px;
+                        display: block;
+                        line-height: 30px;
+                        color: #aeb3b8;
+                        font-size: 14px;
+
+                        &:hover {
+                            color: $hovercolor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .my-account {
+        float: right;
+
+        &__nav {
+            span {
+                margin-right: 6px;
+            }
+
+            img {
+                width: 100%;
+                max-width: 28px;
+
+                @include breakpoint-up(901px) {
+                    max-width: 16px;
+                }
+            }
+        }
+
+        &__dropdown {
+            right: 0;
+            left: auto;
+            min-width: 100%;
+            width: max-content;
+
+            .info-user, .logout {
+                @include breakpoint-up(md) {
+                    margin-left: 88px;
+                }
+            }
+
+            .info-user {
+                position: relative;
+
+                a {
+                    min-width: 140px;
+
+                    span {
+                        display: block;
+                    }
+                }
+
+                img {
+                    position: absolute;
+                    left: -72px;
+                    top: 4px;
+                    width: 64px;
+                    height: 64px;
+
+                    @include breakpoint-down(767px) {
+                        display: none;
+                    }
+                }
+            }
+        }
+        
+    }
+}
