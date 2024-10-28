@@ -269,11 +269,13 @@ function adminHtml() {
 }
 
 function adminJs() {
-    return src(SRC + 'admin/*.js')
+    return src(SRC + 'admin/*.js', SRC + 'admin/components/**/*.js', SRC + 'admin/pages/**/*.js')
+        .pipe(concat('admin.js'))
         .pipe(babel({ presets: ['@babel/preset-env'] }))
         .pipe(dest(DEST + 'admin/js'))
         .pipe(uglify()) // Nén file JS
-        .pipe(rename({ suffix: '.min' }))
+        // .pipe(rename({ suffix: '.min' }))
+        .pipe(concat('admin.min.js'))
         .pipe(dest(DEST + 'admin/js'))
         .pipe(browserSync.stream());
 }
