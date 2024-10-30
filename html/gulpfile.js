@@ -130,7 +130,7 @@ function tinymceStyles() {
 }
 
 function html() {
-    return src(SRC + '**/*.pug', { since: lastRun(html) })
+    return src([SRC + '**/*.pug', '!' + SRC + 'admin/**/*.pug'], { since: lastRun(html) })
         .pipe(dependents(dependentsPugConfig))
         .pipe(filterAllPages())
         .pipe(filterPages())
@@ -139,6 +139,7 @@ function html() {
         .pipe(dest(DEST))
         .pipe(browserSync.stream({once: true}));
 }
+
 
 function css() {
     return src(SRC + 'main.scss', { sourcemaps: true })
@@ -258,11 +259,11 @@ function adminCss() {
 }
 
 function adminHtml() {
-    return src(SRC + 'admin/**/*.pug')
+    return src(SRC + 'admin/**/*.pug', { since: lastRun(html) })
         .pipe(dependents(dependentsPugConfig))
         .pipe(filterAllPages())
         .pipe(filterPages())
-        .pipe(pug({ pretty: true }))
+        .pipe(pug({ pretty: '    ' }))
         .pipe(rename({ dirname: '' })) // Để output ra đúng nơi
         .pipe(dest(DEST + 'admin'))
         .pipe(browserSync.stream({once: true}));
@@ -307,7 +308,7 @@ function adminWatcher() {
  * Specify if tasks run in series or parallel using `series` and `parallel`
  */
 
-const build = series(clean, icons, images, fonts, bootstrap, pluginsJs, bundleCss, bundleJs, html, css, js, tinymce, tinymceStyles, adminCss, adminHtml, adminJs, adminWatcher);
+const build = series(clean, icons, images, fonts, bootstrap, pluginsJs, bundleCss, bundleJs, html, css, js, tinymce, tinymceStyles);
 const start = series(icons, html, css, js, watcher);
 const plugins = parallel(pluginsJs, bundleCss, bundleJs, tinymce, tinymceStyles);
 const email = series(emailHtml, emailCss, emailWatcher);

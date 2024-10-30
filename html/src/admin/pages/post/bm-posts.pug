@@ -5,95 +5,231 @@ append vars
     -typeMenu = ""
 
 block container
+    
+    .bm-admin-title 
+        h1 Bài viết
+        #toolbar.toolbar
+            a.page-title-action.button.action-add(href="#") Viết bài mới
     .bm-admin-content
-        div(class="bm-box-container__wrap-title")
-            h1
-                | All Posts
-                a(href="#") Add New
-        .clear(style="height: 10px;")
-        .bm-admin-table
-            table
+        form(action="https://dienmaytonghop.com/ws-admin/?mod=news", name="manage", class="admin-tablelist", method="post", accept-charset="utf-8")
+            input(type="hidden", name="paged", value="")
+            input(type="hidden", name="action", value="search")
+            div#posts-filter(class="posts-filter")
+                ul(class="subsubsub")
+                    li
+                        a(href="https://dienmaytonghop.com/ws-admin/?mod=news", class="current") Tất cả 
+                            span(class="count") (4)
+                    li
+                        a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;post_status=publish") Đã xuất bản 
+                            span(class="count") (4)
+                div#search-box(class="search-box")
+                    input(type="text", name="keyword", value="", class="form-control text-search")
+                    input(type="submit", name="search", value="Tìm bài viết", class="button btn-search")
+            div(class="tablenav clearfix")
+                div(class="btn-group")
+                    div(class="actions bulkactions")
+                        select#doaction(name="doaction", class="form-control")
+                            option(value="", selected="selected") Hành động
+                            option(value="update") Cập nhật
+                            option(value="publish") Xuất bản
+                            option(value="draft") Bản nháp
+                            option(value="del") Xóa bài viết
+                    
+                        input(type="submit", value="Áp dụng", class="button")
+                    div(class="actions bulkfilters")
+                        select(name="cat_id", id="cat_id", class="form-control")
+                            option(value="0") Tất cả chuyên mục
+                            option(value="1") Tin tức
+                            option(value="10") Khuyến mãi
+                            option(value="9") Tuyển dụng
+
+                        select(name="filter_date", id="filter_date", class="form-control")
+                            option(value="", selected="selected") Tất cả các ngày
+                            option(value="today") Hôm nay
+                            option(value="yesterday") Hôm qua
+                            option(value="this_week") Tuần này
+                            option(value="this_month") Tháng này
+                            option(value="7_days_last") 7 ngày gần đây
+                            option(value="30_days_last") 30 ngày gần đây
+                            option(value="custom") Từ ngày... đến...
+                        
+                        input(type="submit", name="search", value="Lọc", class="button")
+                div(class="tablenav-pages")
+                    div(class="displaying-num") 4 mục
+            table#manage(class="table-list")
                 thead
                     tr
-                        th Title
-                        th.hide Author
-                        th.hide Categories
-                        th.hide Tags
-                        th
-                            i.fa-solid.fa-comment
-                        th Date
+                        th(class="manage-column column-checkbox")
+                            div(class="label-wrap")
+                                input(type="checkbox", name="checkall", value="")
+                        th(class="manage-column column-title")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;orderby=title&amp;order=desc", class="sorted desc") Tiêu đề
+                        th(class="manage-column column-picture")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;orderby=picture&amp;order=desc", class="sorted desc") Hình ảnh
+                        th(class="manage-column column-cat_id")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;orderby=cat_id&amp;order=desc", class="sorted desc") Chuyên mục
+                        th(class="manage-column column-date")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;orderby=date&amp;order=desc", class="sorted desc") Thời gian
+                        th(class="manage-column column-action")
+                            div(class="label-wrap") Tác vụ
                 tbody
+                    tr(id="row_4", class="row_item")
+                        td(class="manage-column column-checkbox")
+                            span
+                                input(type="checkbox", name="ids[]", value="4", class="checkbox")
+                        td(class="manage-column column-title")
+                            span
+                                a(href="#", class="title-link-edit") Sự khác biệt của gas R32 và gas R410A
+                                div(class="row-actions")
+                                    ul
+                                        li
+                                            a(href="#", class="row-action row-action-edit") Chỉnh sửa
+                                        li
+                                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;id=4&amp;action=hidden", onclick="do_check(4); do_submit('hidden')", class="row-action do-action row-action-hidden") Bản nháp
+                                        li
+                                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;sub=del&amp;id=4", class="row-action row-action-delete", onclick="return do_delete(4)") Xóa
+                                        li
+                                            a(href="https://dienmaytonghop.com/blog/su-khac-biet-cua-gas-r32-va-gas-r410a", class="preview-link", target="_blank") Xem
+                        td(class="manage-column column-picture")
+                            span
+                                img(src="https://dienmaytonghop.com/uploads/news/10-2024/su-khac-biet-cua-gas-r32-va-gas-r410a.webp", width="50", height="50", class="img-cover", alt="")
+                        td(class="manage-column column-cat_id")
+                            span
+                                a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;category_name=tin-tuc") Tin tức
+                        td(class="manage-column column-date")
+                            span Đã xuất bản
+                                br
+                                | 17/10/2024 lúc 10:53 chiều
+                        td(class="manage-column column-action")
+                            span
+                                div(class="row_action")
+                                    a(href="#", data-bs-toggle="tooltip", data-bs-title="Chỉnh sửa", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    button(type="button", data-bs-title="Đang hiện", data-bs-toggle="tooltip" class="btn-action btn-do-action action-display")
+                                    button(type="button", value="del", data-bs-title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(4)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
+                    tr(id="row_3", class="row_item")
+                        td(class="manage-column column-checkbox")
+                            span
+                                input(type="checkbox", name="ids[]", value="3", class="checkbox")
+                        td(class="manage-column column-title")
+                            span
+                                a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;sub=edit&amp;id=3", class="title-link-edit") Chế độ Econo là gì? Những ưu nhược điểm về Econo có thể bạn chưa biết?
+                                div(class="row-actions")
+                                    ul
+                                        li
+                                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;sub=edit&amp;id=3", class="row-action row-action-edit") Chỉnh sửa
+                                        li
+                                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;id=3&amp;action=hidden", onclick="do_check(3); do_submit('hidden')", class="row-action do-action row-action-hidden") Bản nháp
+                                        li
+                                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;sub=del&amp;id=3", class="row-action row-action-delete", onclick="return do_delete(3)") Xóa
+                                        li
+                                            a(href="https://dienmaytonghop.com/blog/che-do-econo-la-gi-nhung-uu-nhuoc-diem-ve-econo-co-the-ban-chua-biet", class="preview-link", target="_blank") Xem
+                        td(class="manage-column column-picture")
+                            span
+                                img(src="https://dienmaytonghop.com/uploads/news/10-2024/che-do-econo-la-gi-nhung-uu-nhuoc-diem-ve-econo-co-the-ban-chua-biet.webp", width="50", height="50", class="img-cover", alt="")
+                        td(class="manage-column column-cat_id")
+                            span
+                                a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;category_name=tin-tuc") Tin tức
+                        td(class="manage-column column-date")
+                            span Đã xuất bản
+                                br
+                                | 17/10/2024 lúc 10:53 chiều
+                        td(class="manage-column column-action")
+                            span
+                                div(class="row_action")
+                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;sub=edit&amp;id=3", data-bs-title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    button(type="button", data-bs-title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(3)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
+                                    button(type="button", value="del", data-bs-title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(3)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
+                    tr(id="row_2", class="row_item")
+                        td(class="manage-column column-checkbox")
+                            span
+                                input(type="checkbox", name="ids[]", value="2", class="checkbox")
+                        td(class="manage-column column-title")
+                            span
+                                a(href="#", class="title-link-edit") Lọc bụi bẩn, bảo vệ tối ưu cùng Multi Split Panasonic
+                                div(class="row-actions")
+                                    ul
+                                        li
+                                            a(href="#", class="row-action row-action-edit") Chỉnh sửa
+                                        li
+                                            a(href="#", onclick="do_check(2); do_submit('hidden')", class="row-action do-action row-action-hidden") Bản nháp
+                                        li
+                                            a(href="#", class="row-action row-action-delete", onclick="return do_delete(2)") Xóa
+                                        li
+                                            a(href="#", class="preview-link", target="_blank") Xem
+                        td(class="manage-column column-picture")
+                            span
+                                img(src="https://dienmaytonghop.com/uploads/news/10-2024/loc-bui-ban-bao-ve-toi-uu-cung-multi-split-panasonic.webp", width="50", height="50", class="img-cover", alt="")
+                        td(class="manage-column column-cat_id")
+                            span
+                                a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;category_name=tin-tuc") Tin tức
+                        td(class="manage-column column-date")
+                            span Đã xuất bản
+                                br
+                                | 17/10/2024 lúc 10:52 chiều
+                        td(class="manage-column column-action")
+                            span
+                                div(class="row_action")
+                                    a(href="#", data-bs-title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    button(type="button", data-bs-title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(2)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
+                                    button(type="button", value="del", data-bs-title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(2)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
+                    tr(id="row_1", class="row_item")
+                        td(class="manage-column column-checkbox")
+                            span
+                                input(type="checkbox", name="ids[]", value="1", class="checkbox")
+                        td(class="manage-column column-title")
+                            span
+                                a(href="#", class="title-link-edit") Daikin liên tiếp 4 năm được vinh danh “Thương hiệu điều hòa hiệu suất cao nhất”
+                                div(class="row-actions")
+                                    ul
+                                        li
+                                            a(href="#", class="row-action row-action-edit") Chỉnh sửa
+                                        li
+                                            a(href="#", onclick="do_check(1); do_submit('hidden')", class="row-action do-action row-action-hidden") Bản nháp
+                                        li
+                                            a(href="#", class="row-action row-action-delete", onclick="return do_delete(1)") Xóa
+                                        li
+                                            a(href="#", class="preview-link", target="_blank") Xem
+                        td(class="manage-column column-picture")
+                            span
+                                img(src="https://dienmaytonghop.com/uploads/news/10-2024/daikin-lien-tiep-4-nam-duoc-vinh-danh-thuong-hieu-dieu-hoa-hieu-suat-cao-nhat-hdd.webp", width="50", height="50", class="img-cover", alt="")
+                        td(class="manage-column column-cat_id")
+                            span
+                                a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;category_name=tin-tuc") Tin tức
+                        td(class="manage-column column-date")
+                            span Đã xuất bản
+                                br
+                                | 17/10/2024 lúc 10:47 chiều
+                        td(class="manage-column column-action")
+                            span
+                                div(class="row_action")
+                                    a(href="#", data-bs-title="Chỉnh sửa", data-bs-toggle="tooltip", data-bs-placement="top", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    button(type="button", data-bs-title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(1)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
+                                    button(type="button", value="del", data-bs-title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(1)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
+                tfoot
                     tr
-                        td
-                            a.title(href="#")
-                                | Video title here
-                            .magic-links
-                                a(href="#") Edit
-                                | |
-                                a.trash(href="#") Trash
-                                | |
-                                a(href="#") View
-                        td.hide
-                            a(href="#") admin
-                        td.hide
-                            a(href="#") Videos
-                        td.hide
-                            a(href="#") youtube
-                        td
-                            | —
-                        td
-                            span.date 21 hours ago
-                    tr
-                        td
-                            a.title(href="#")
-                                | Video title here
-                            .magic-links
-                                a(href="#") Edit
-                                | |
-                                a.trash(href="#") Trash
-                                | |
-                                a(href="#") View
-                        td.hide
-                            a(href="#") admin
-                        td.hide
-                            a(href="#") Videos
-                        td.hide
-                            a(href="#") youtube
-                        td
-                            | —
-                        td
-                            span.date 21 hours ago
-                    tr
-                        td
-                            a.title(href="#")
-                                | Video title here
-                            .magic-links
-                                a(href="#") Edit
-                                | |
-                                a.trash(href="#") Trash
-                                | |
-                                a(href="#") View
-                        td.hide
-                            a(href="#") admin
-                        td.hide
-                            a(href="#") Videos
-                        td.hide
-                            a(href="#") youtube
-                        td
-                            | —
-                        td
-                            span.date 21 hours ago
-        .bm-admin-pagination
-            ul
-                li
-                    a(href="#") 1
-                li
-                    a(href="#") 2
-                li.active
-                    a(href="#") 3
-                li
-                    a(href="#") 4
-                li
-                    a(href="#") 5
-                li
-                    a(href="#") 6
+                        td(class="manage-column column-checkbox")
+                            span(class="label-wrap")
+                                input(type="checkbox", name="checkall", value="")
+                        td(class="manage-column column-title")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;orderby=title&amp;order=desc", class="sorted desc") Tiêu đề
+                        td(class="manage-column column-picture")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;orderby=picture&amp;order=desc", class="sorted desc") Hình ảnh
+                        td(class="manage-column column-cat_id")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;orderby=cat_id&amp;order=desc", class="sorted desc") Chuyên mục
+                        td(class="manage-column column-date")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;orderby=date&amp;order=desc", class="sorted desc") Thời gian
+                        td(class="manage-column column-action")
+                            span(class="label-wrap") Tác vụ
+            div(class="tablenav")
+                div(class="btn-group")
+                    div(class="actions bulkactions")
+                        select#doaction2(name="doaction2", class="form-control")
+                            option(value="", selected="selected", data-select2-id="8") Hành động
+                            option(value="update") Cập nhật
+                            option(value="publish") Xuất bản
+                            option(value="draft") Bản nháp
+                            option(value="del") Xóa bài viết
+                       
+                        input(type="submit", value="Áp dụng", class="button")
+                div(class="tablenav-pages")
+                    div(class="displaying-num") 4 mục

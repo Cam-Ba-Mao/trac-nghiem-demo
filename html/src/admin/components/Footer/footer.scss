@@ -18,6 +18,13 @@
     }
 }
 
+.bm-admin-wrap,
+.right-side {
+	min-height: calc(100% - 42px);
+	background-color: #ecf0f5;
+	z-index: 800;
+}
+
 .pull-left {
     float: left;
 }

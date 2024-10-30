@@ -764,6 +764,56 @@ handleSelectBox('.select-time, .select-status');
   });
 })(jQuery);
 (function ($) {
+  function handleActiveMenu() {
+    $(document).ready(function () {
+      $(".caret").click(function () {
+        // Remove 'active' and 'caret-down' from all elements
+        $(".nested").removeClass("active");
+        $(".caret").removeClass("current-menu-parent");
+
+        // Add 'active' and 'caret-down' to the clicked element
+        $(this).find(".nested").addClass("active");
+        $(this).addClass("current-menu-parent");
+      });
+    });
+    if ($(".bm-archive-sidebar").find('.caret').hasClass('current-menu-parent')) {
+      $('.bm-archive-sidebar .current-menu-parent').find(".nested").addClass("active");
+    }
+    if ($(".bm-archive-sidebar").find('.caret').hasClass('current_page_item')) {
+      $('.bm-archive-sidebar .current_page_item').find(".nested").addClass("active");
+    }
+  }
+  $(function () {
+    handleActiveMenu();
+  });
+})(jQuery);
+(function ($) {
+  function handleScrollToTop() {
+    $(document).on('click', '.bm-scroll-to-top', function (e) {
+      e.preventDefault();
+      $('html, body').animate({
+        scrollTop: 0
+      }, 1000);
+    });
+  }
+  function handleDisplayScrollToTop() {
+    var scrollHeight = $(document).height();
+    var scrollPosition = $(window).height() + $(window).scrollTop();
+    if (scrollPosition >= scrollHeight - 100) {
+      $('.bm-scroll-to-top').addClass('is-active');
+    } else {
+      $('.bm-scroll-to-top').removeClass('is-active');
+    }
+  }
+  $(function () {
+    handleScrollToTop();
+    handleDisplayScrollToTop();
+    $(window).scroll(function () {
+      handleDisplayScrollToTop();
+    });
+  });
+})(jQuery);
+(function ($) {
   function initSliderFeaturedEvents() {
     if ($('.isa-featured-events__list').length < 1) return;
     var swiper = new Swiper('.isa-featured-events__list', {
@@ -835,56 +885,6 @@ handleSelectBox('.select-time, .select-status');
     $(window).on("resize", function () {});
     $(document).ready(function () {
       // handlePostMore();
-    });
-  });
-})(jQuery);
-(function ($) {
-  function handleActiveMenu() {
-    $(document).ready(function () {
-      $(".caret").click(function () {
-        // Remove 'active' and 'caret-down' from all elements
-        $(".nested").removeClass("active");
-        $(".caret").removeClass("current-menu-parent");
-
-        // Add 'active' and 'caret-down' to the clicked element
-        $(this).find(".nested").addClass("active");
-        $(this).addClass("current-menu-parent");
-      });
-    });
-    if ($(".bm-archive-sidebar").find('.caret').hasClass('current-menu-parent')) {
-      $('.bm-archive-sidebar .current-menu-parent').find(".nested").addClass("active");
-    }
-    if ($(".bm-archive-sidebar").find('.caret').hasClass('current_page_item')) {
-      $('.bm-archive-sidebar .current_page_item').find(".nested").addClass("active");
-    }
-  }
-  $(function () {
-    handleActiveMenu();
-  });
-})(jQuery);
-(function ($) {
-  function handleScrollToTop() {
-    $(document).on('click', '.bm-scroll-to-top', function (e) {
-      e.preventDefault();
-      $('html, body').animate({
-        scrollTop: 0
-      }, 1000);
-    });
-  }
-  function handleDisplayScrollToTop() {
-    var scrollHeight = $(document).height();
-    var scrollPosition = $(window).height() + $(window).scrollTop();
-    if (scrollPosition >= scrollHeight - 100) {
-      $('.bm-scroll-to-top').addClass('is-active');
-    } else {
-      $('.bm-scroll-to-top').removeClass('is-active');
-    }
-  }
-  $(function () {
-    handleScrollToTop();
-    handleDisplayScrollToTop();
-    $(window).scroll(function () {
-      handleDisplayScrollToTop();
     });
   });
 })(jQuery);
@@ -1237,42 +1237,6 @@ handleSelectBox('.select-time, .select-status');
   });
 })(jQuery);
 (function ($) {
-  var paged = 1;
-  function handleLoadNewsMore() {
-    $(document).on('click', '.btn-ajax-read-more', function (e) {
-      e.preventDefault();
-      var element = $(this);
-      var link = $(this).attr('data-url');
-      var total = $(this).attr('data-total');
-      paged++;
-      link += '/page/' + paged;
-      $.ajax({
-        url: link,
-        type: 'GET',
-        cache: false,
-        beforeSend: function beforeSend(xhr) {
-          element.addClass('is-loading');
-        }
-      }).done(function (res) {
-        var html = $(res);
-        $('.bm-blog__inner--posts .posts-wrapper').append(html.find('.bm-blog__inner--posts .posts-wrapper').html());
-        element.removeClass('is-loading');
-        $('.lazy').Lazy({
-          afterLoad: function afterLoad(elm) {
-            $(elm).css('visibility', 'visible');
-          }
-        });
-        if (parseInt(paged) >= parseInt(total)) {
-          element.closest('.btn-readmore').addClass('d-none');
-        }
-      }).fail(function (res) {});
-    });
-  }
-  $(function () {
-    handleLoadNewsMore();
-  });
-})(jQuery);
-(function ($) {
   var showPassword = function showPassword() {
     window.addEventListener("load", function () {
       var togglePassword = document.querySelector(".togglePassword");
@@ -1433,6 +1397,42 @@ handleSelectBox('.select-time, .select-status');
     // });
 
     $(window).on("resize", function () {});
+  });
+})(jQuery);
+(function ($) {
+  var paged = 1;
+  function handleLoadNewsMore() {
+    $(document).on('click', '.btn-ajax-read-more', function (e) {
+      e.preventDefault();
+      var element = $(this);
+      var link = $(this).attr('data-url');
+      var total = $(this).attr('data-total');
+      paged++;
+      link += '/page/' + paged;
+      $.ajax({
+        url: link,
+        type: 'GET',
+        cache: false,
+        beforeSend: function beforeSend(xhr) {
+          element.addClass('is-loading');
+        }
+      }).done(function (res) {
+        var html = $(res);
+        $('.bm-blog__inner--posts .posts-wrapper').append(html.find('.bm-blog__inner--posts .posts-wrapper').html());
+        element.removeClass('is-loading');
+        $('.lazy').Lazy({
+          afterLoad: function afterLoad(elm) {
+            $(elm).css('visibility', 'visible');
+          }
+        });
+        if (parseInt(paged) >= parseInt(total)) {
+          element.closest('.btn-readmore').addClass('d-none');
+        }
+      }).fail(function (res) {});
+    });
+  }
+  $(function () {
+    handleLoadNewsMore();
   });
 })(jQuery);
 (function ($) {

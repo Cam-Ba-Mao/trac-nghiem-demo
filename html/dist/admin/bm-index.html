@@ -1,193 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Trang quản trị</title>
-    <!-- Favicon-->
-    <link rel="icon" href="../images/favicon.png">
-    <!-- Bootstrap-->
-    <!-- Plugins style-->
-    <link rel="stylesheet" href="../css/bundle.min.css">
-    <!-- Template syle-->
-    <link rel="stylesheet" href="../admin/css/admin.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <!-- Admin bar demo ( Not include )-->
-    <style>
-      .admin-bar-html {
-          margin-top: 32px !important;
-      }
-      
-      @media screen and (max-width: 782px) {
-          .admin-bar-html {
-              margin-top: 46px !important;
-          }
-      }
-      
-      #wpadminbar {
-          direction: ltr;
-          color: #ccc;
-          font-size: 13px;
-          font-weight: 400;
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-          height: 32px;
-          line-height: 32px;
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          min-width: 600px;
-          z-index: 99999;
-          background: #23282d;
-          padding: 0 15px;
-      }
-      
-      @media screen and (max-width: 782px) {
-          html #wpadminbar {
-              height: 46px;
-              line-height: 46px;
-              min-width: 240px;
-          }
-      }
-      
-      @media screen and (max-width: 600px) {
-          #wpadminbar {
-              position: absolute;
-          }
-      }
-      
-    </style>
-  </head>
-  <body class="page-template-admin-panel-home">
-    <!-- START HEADER-->
-    <div class="bm-admin-navbar">
-      <ul dropdown>
-        <li><a href="./bm-index.html"><i class="fa-solid fa-home"></i><span class="title">ANOTHER WEBSITE</span></a></li>
-        <li><a href="#"><i class="fa-solid fa-comment"></i>1</a></li>
-        <li><a href="./bm-new-posts.html"><i class="fa-solid fa-plus"></i><span class="title">Tạo mới</span></a>
-          <ul>
-            <li><a href="./bm-new-post.html">Bài viết</a></li>
-            <li><a href="#">Trang</a></li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="my-account" dropdown>
-        <li> <a class="my-account__nav" href="#"><span class="title">Xin chào, maocam </span><img src="../images/default-avatar.png" alt="avatar"></a>
-          <ul class="my-account__dropdown">
-            <li class="info-user"><a href="./bm-new-post.html"> <img src="../images/default-avatar.png" alt="avatar"><span class="title">maocam </span><span class="edit-profile">Edit Profile </span></a></li>
-            <li class="logout"><a href="#">Đăng xuất</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <!-- CLOSE HEADER-->
-    <!-- START SIDEBAR-->
-    <div class="bm-admin-sidebar">
-      <ul>
-        <li><a href="./bm-index.html"><i class="fa-solid fa-tachometer"></i><span class="title">Trang quản trị</span></a></li>
-        <li class="active"><a href="./bm-posts.html"><i class="fa-solid fa-thumb-tack"></i><span class="title">Bài viết</span></a>
-          <ul class="sub-menu">
-            <li class="active"><a href="./bm-posts.html">Tất cả bài viết</a></li>
-            <li><a href="./bm-new-post.html">Thêm bài viết</a></li>
-            <li><a href="./bm-category.html">Danh mục</a></li>
-            <li><a href="#">Thẻ</a></li>
-          </ul>
-        </li>
-        <li><a href="#"><i class="fa-solid fa-file-image"></i><span class="title">Media<span class="pending-count">45</span></span></a></li>
-        <li><a href="#"><i class="fa-solid fa-file"></i><span class="title">Trang</span></a></li>
-        <li><a href="#"><i class="fa-solid fa-comment"></i><span class="title">Bình luận</span></a></li>
-        <li><a href="#"><i class="fa-solid fa-plug"></i><span class="title">Plugin</span></a>
-          <ul class="sub-menu">
-            <li><a href="#">Plugin đã cài đặt</a></li>
-            <li><a href="#">Cài Plugin</a></li>
-            <li><a href="#">Sửa tệp tin Plugin</a></li>
-          </ul>
-        </li>
-        <li><a href="#"><i class="fa-solid fa-wrench"></i><span class="title">Công cụ</span></a></li>
-        <li><a href="./bm-settings.html"><i class="fa-solid fa-cog"></i><span class="title">Cài đặt</span></a></li>
-        <li class="line"><span></span></li><a class="bm-collapse-admin-menu" href="#"><i class="fa-solid fa-arrow-circle-left"></i><span class="title">Thu gọn menu</span></a>
-      </ul>
-    </div>
-    <!-- CLOSE SIDEBAR-->
-    <!-- START CONTENT-->
-    <main class="bm-admin-wrap">
-      <div class="bm-admin-content">
-        <div class="bm-box-container">
-          <div class="bm-box-container__wrap" id="div-0">
-            <h3>Title was here!</h3>
-            <div class="bm-box-container__content">
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure aperiam blanditiis voluptatum molestias mollitia a nobis vel? Omnis, ex sit corporis similique magni saepe eveniet at nostrum! Consectetur, placeat aspernatur!</p>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Trang quản trị</title>
+        <!-- Favicon-->
+        <link rel="icon" href="../images/favicon.png">
+        <!-- Bootstrap-->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <!-- Plugins style-->
+        <link rel="stylesheet" href="../css/bundle.min.css">
+        <!-- Template syle-->
+        <link rel="stylesheet" href="../admin/css/admin.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <!-- Admin bar demo ( Not include )-->
+        <style>
+            .admin-bar-html {
+                margin-top: 32px !important;
+            }
+            
+            @media screen and (max-width: 782px) {
+                .admin-bar-html {
+                    margin-top: 46px !important;
+                }
+            }
+            
+            #wpadminbar {
+                direction: ltr;
+                color: #ccc;
+                font-size: 13px;
+                font-weight: 400;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+                height: 32px;
+                line-height: 32px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                min-width: 600px;
+                z-index: 99999;
+                background: #23282d;
+                padding: 0 15px;
+            }
+            
+            @media screen and (max-width: 782px) {
+                html #wpadminbar {
+                    height: 46px;
+                    line-height: 46px;
+                    min-width: 240px;
+                }
+            }
+            
+            @media screen and (max-width: 600px) {
+                #wpadminbar {
+                    position: absolute;
+                }
+            }
+            
+        </style>
+    </head>
+    <body class="page-template-admin-panel-home">
+        <!-- START HEADER-->
+        <div class="bm-admin-navbar">
+            <ul dropdown>
+                <li><a href="./bm-index.html"><i class="fa-solid fa-home"></i><span class="title">ANOTHER WEBSITE</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-comment"></i>1</a></li>
+                <li><a href="./bm-new-posts.html"><i class="fa-solid fa-plus"></i><span class="title">Tạo mới</span></a>
+                    <ul>
+                        <li><a href="./bm-new-post.html">Bài viết</a></li>
+                        <li><a href="#">Trang</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="my-account" dropdown>
+                <li> <a class="my-account__nav" href="#"><span class="title">Xin chào, maocam </span><img src="../images/default-avatar.png" alt="avatar"></a>
+                    <ul class="my-account__dropdown">
+                        <li class="info-user"><a href="./bm-new-post.html"> <img src="../images/default-avatar.png" alt="avatar"><span class="title">maocam </span><span class="edit-profile">Edit Profile </span></a></li>
+                        <li class="logout"><a href="#">Đăng xuất</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- CLOSE HEADER-->
+        <!-- START SIDEBAR-->
+        <div class="bm-admin-sidebar">
+            <ul>
+                <li><a href="./bm-index.html"><i class="fa-solid fa-tachometer"></i><span class="title">Trang quản trị</span></a></li>
+                <li class="active"><a href="./bm-posts.html"><i class="fa-solid fa-thumb-tack"></i><span class="title">Bài viết</span></a>
+                    <ul class="sub-menu">
+                        <li class="active"><a href="./bm-posts.html">Tất cả bài viết</a></li>
+                        <li><a href="./bm-new-post.html">Thêm bài viết</a></li>
+                        <li><a href="./bm-category.html">Danh mục</a></li>
+                        <li><a href="#">Thẻ</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-file-image"></i><span class="title">Media<span class="pending-count">45</span></span></a></li>
+                <li><a href="#"><i class="fa-solid fa-file"></i><span class="title">Trang</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-comment"></i><span class="title">Bình luận</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-plug"></i><span class="title">Plugin</span></a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Plugin đã cài đặt</a></li>
+                        <li><a href="#">Cài Plugin</a></li>
+                        <li><a href="#">Sửa tệp tin Plugin</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-wrench"></i><span class="title">Công cụ</span></a></li>
+                <li><a href="./bm-settings.html"><i class="fa-solid fa-cog"></i><span class="title">Cài đặt</span></a></li>
+                <li class="line"><span></span></li><a class="bm-collapse-admin-menu" href="#"><i class="fa-solid fa-arrow-circle-left"></i><span class="title">Thu gọn menu</span></a>
+            </ul>
+        </div>
+        <!-- CLOSE SIDEBAR-->
+        <!-- START CONTENT-->
+        <main class="bm-admin-wrap">
+            <div class="bm-admin-content">
+                <div class="bm-box-container">
+                    <div class="bm-box-container__wrap" id="div-0">
+                        <h3>Title was here!</h3>
+                        <div class="bm-box-container__content">
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure aperiam blanditiis voluptatum molestias mollitia a nobis vel? Omnis, ex sit corporis similique magni saepe eveniet at nostrum! Consectetur, placeat aspernatur!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bm-box-container container-25">
+                    <div class="bm-box-container__wrap" id="div-1">
+                        <h3>Quick Draft</h3>
+                        <div class="bm-box-container__content">
+                            <form class="form-admin" action="">
+                                <ul>
+                                    <li>
+                                        <input id="input" type="text" placeholder="Title">
+                                    </li>
+                                    <li>
+                                        <textarea name="" id="" cols="30" rows="5" placeholder="Whats on your mind?"></textarea>
+                                    </li>
+                                    <li>
+                                        <button type="submit">Submit</button>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="bm-box-container container-50">
+                    <div class="bm-box-container__wrap" id="div-2">
+                        <h3>Activity</h3>
+                        <div class="bm-box-container__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, officia consequatur? Est nisi assumenda atque accusantium omnis. Quae necessitatibus architecto explicabo quasi deleniti accusamus pariatur quos esse alias, sunt nesciunt!</div>
+                    </div>
+                </div>
+                <div class="bm-box-container container-25">
+                    <div class="bm-box-container__wrap" id="div-3">
+                        <h3>Quick Draft</h3>
+                        <div class="bm-box-container__content">
+                            <form class="form-admin" action="">
+                                <ul>
+                                    <li>
+                                        <label class="title" for="title">Title</label>
+                                        <input id="title" type="text">
+                                    </li>
+                                    <li>
+                                        <label class="title" for="bm-admin-message">Whats on your mind?</label>
+                                        <textarea id="bm-admin-message" name="" cols="30" rows="5"></textarea>
+                                    </li>
+                                    <li>
+                                        <button type="submit">Submit</button>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="bm-box-container container-25">
-          <div class="bm-box-container__wrap" id="div-1">
-            <h3>Quick Draft</h3>
-            <div class="bm-box-container__content">
-              <form class="form-admin" action="">
-                <ul>
-                  <li>
-                    <input id="input" type="text" placeholder="Title">
-                  </li>
-                  <li>
-                    <textarea name="" id="" cols="30" rows="5" placeholder="Whats on your mind?"></textarea>
-                  </li>
-                  <li>
-                    <button type="submit">Submit</button>
-                  </li>
-                </ul>
-              </form>
-            </div>
-          </div>
-        </div>
-        <div class="bm-box-container container-50">
-          <div class="bm-box-container__wrap" id="div-2">
-            <h3>Activity</h3>
-            <div class="bm-box-container__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, officia consequatur? Est nisi assumenda atque accusantium omnis. Quae necessitatibus architecto explicabo quasi deleniti accusamus pariatur quos esse alias, sunt nesciunt!</div>
-          </div>
-        </div>
-        <div class="bm-box-container container-25">
-          <div class="bm-box-container__wrap" id="div-3">
-            <h3>Quick Draft</h3>
-            <div class="bm-box-container__content">
-              <form class="form-admin" action="">
-                <ul>
-                  <li>
-                    <label class="title" for="title">Title</label>
-                    <input id="title" type="text">
-                  </li>
-                  <li>
-                    <label class="title" for="bm-admin-message">Whats on your mind?</label>
-                    <textarea id="bm-admin-message" name="" cols="30" rows="5"></textarea>
-                  </li>
-                  <li>
-                    <button type="submit">Submit</button>
-                  </li>
-                </ul>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-    <!-- CLOSE CONTENT-->
-    <!-- START FOOTER-->
-    <footer class="main-footer">
-      <div class="pull-left"><span>© 2024 </span><a href="#" target="_blank"><strong>Trắc nghiệm demo</strong></a></div>
-      <div class="pull-right hidden-xs">Phiên bản 3.1.10	</div>
-    </footer>
-    <!-- CLOSE FOOTER-->
-    <!-- Jquery-->
-    <script src="../js/jquery.min.js"></script><script data-src="https://maps.google.com/maps/api/js?libraries=places&amp;key=AIzaSyBrqJ3COcBz3ZY7ZHRx0N_Fd0Xq_ea49O4" id="google-map"></script>
-    <!-- Bootstrap-->
-    <!-- Plugins script-->
-    <script src="../js/bundle.min.js"></script>
-    <!-- TinyMCE-->
-    <script src="../js/tinymce/tinymce.min.js"></script>
-    <!-- Template script-->
-    <script src="../admin/js/admin.min.js"></script>
-    <!-- Common script-->
-    <!-- Scripts demo ( Not include )-->
-  </body>
+        </main>
+        <!-- CLOSE CONTENT-->
+        <!-- START FOOTER-->
+        <footer class="main-footer">
+            <div class="pull-left"><span>© 2024 </span><a href="#" target="_blank"><strong>Trắc nghiệm demo</strong></a></div>
+            <div class="pull-right hidden-xs">Phiên bản 3.1.10	</div>
+        </footer>
+        <!-- CLOSE FOOTER-->
+        <!-- Jquery-->
+        <script src="../js/jquery.min.js"></script><script data-src="https://maps.google.com/maps/api/js?libraries=places&amp;key=AIzaSyBrqJ3COcBz3ZY7ZHRx0N_Fd0Xq_ea49O4" id="google-map"></script>
+        <!-- Bootstrap-->
+        <script src="./js/popper.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+        <!-- Plugins script-->
+        <script src="../js/bundle.min.js"></script>
+        <!-- TinyMCE-->
+        <script src="../js/tinymce/tinymce.min.js"></script>
+        <!-- Template script-->
+        <script src="../admin/js/admin.min.js"></script>
+        <!-- Common script-->
+        <!-- Scripts demo ( Not include )-->
+    </body>
 </html>

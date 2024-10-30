@@ -1,137 +1,101 @@
 // content
 .bm-admin-content {
-    padding: 15px 15px 15px 15px;
-    height: calc(100% - 32px);
-
-    .bm-box-container {
-        width: 100%;
-        float: left;
-        zoom: 1;
-
-        &:before,
-        &:after {
-            content: "";
-            display: table;
-        }
-
-        &:after {
-            clear: both;
-        }
-
-        &.container-25 {
-            width: 25%;
-        }
-
-        &.container-50 {
-            width: 50%;
-        }
-
-        &.container-75 {
-            width: 75%;
-        }
-
-        &__wrap {
-            margin: 0 8px;
-            background-color: #fff;
-            box-sizing: border-box;
-            border: 1px solid #e5e5e5;
-            margin-bottom: 25px;
-            box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
-    
-            h3 {
-                line-height: 35px;
-                border-bottom: 1px solid #eee;
-                padding-left: 12px;
-                font-weight: bold;
-                letter-spacing: .5px;
-    
-                >.fa-solid {
-                    color: #606569;
-                    margin-right: 3px;
-                }
-    
-                button {
-                    float: right;
-                    width: 35px;
-                    height: 35px;
-                    background: transparent;
-                    cursor: pointer;
-                    color: #a0a5aa;
-    
-                    &:hover {
-                        color: #333;
-                    }
-                }
-            }    
-        }
-
-        &__wrap-title {
-            margin: 0 8px 15px;
-    
-            h1 {
-                a {
-                    margin-left: 4px;
-                    padding: 7px 8px;
-                    position: relative;
-                    top: -3px;
-                    text-decoration: none;
-                    border: none;
-                    -webkit-border-radius: 2px;
-                    border-radius: 2px;
-                    background: #e0e0e0;
-                    text-shadow: none;
-                    font-size: 13px;
-                    color: $basecolor;
-                    font-weight: 500;
-    
-                    &:hover {
-                        background-color: $basecolor;
-                        color: #fff;
-                    }
-                }
-            }
-        }
-
-        &__content {
-            padding: 15px;
-
-            p {
-                line-height: 20px;
-            }
-        }
-
-      
-    }
-
-    .post-rightbar {
-        float: right;
-        width: 280px;
-        margin-left: -300px;
-        position: relative;
-        z-index: 1;
-    }
-
-    .post-content {
-        width: 100%;
-        padding-right: 280px;
-        box-sizing: border-box;
-        float: left;
-    }
-
-    .publish-content {
-        margin: 15px -15px -15px;
-        background-color: #f5f5f5;
-        border-top: 1px solid #ddd;
-        padding: 10px;
-        text-align: right;
-    }
-
+    min-height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 20px 30px;
 }
 
-// ckeditor fix
-.cke_chrome {
-    border: 1px solid #ddd;
-    box-shadow: 0 0 3px rgba(0, 0, 0, .05);
+.bm-admin-content, .bm-admin-title {
+    @include breakpoint-down(767px) {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+.bm-admin-title {
+    gap: 10px;
+    width: 100%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding: 25px 20px 0;
+
+    > h1 {
+        margin: 0;
+        float: left;
+        font-size: 26px;
+        font-weight: 400;
+        line-height: 30px;
+    }
+    > h1 > small {
+        font-size: 15px;
+        display: inline-block;
+        padding-left: 4px;
+        font-weight: 300;
+    }
+    > .breadcrumb {
+        float: right;
+        background: transparent;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 12px;
+        padding: 7px 5px;
+        position: absolute;
+        top: 15px;
+        right: 10px;
+        border-radius: 2px;
+    }
+    > .breadcrumb > li > a {
+        color: #444;
+        text-decoration: none;
+        display: inline-block;
+    }
+    > .breadcrumb > li > a > .fa,
+    > .breadcrumb > li > a > .glyphicon,
+    > .breadcrumb > li > a > .ion {
+        margin-right: 5px;
+    }
+    > .breadcrumb > li + li:before {
+        content: '>\00a0';
+    }
+    @include breakpoint-down(991px) {
+        > .breadcrumb {
+            position: relative;
+            margin-top: 5px;
+            top: 0;
+            right: 0;
+            float: none;
+            background: #d2d6de;
+            padding-left: 10px;
+        }
+        > .breadcrumb li:before {
+            color: #97a0b3;
+        }
+    }
+}
+
+a.page-title-action {
+    font-weight: 500;
+}
+
+.category-box {
+    &__row {
+        display: flex;
+    }
+
+    &__left {
+        @include breakpoint-up(lg) {
+            left: 33.33333333%;
+            width: 66.66666667%;
+        }
+    }
+}
+
+a.button {
+    align-items: center;
+    display: inline-flex;
+    vertical-align: middle;
 }
 
 // pagination
@@ -377,33 +341,6 @@
     }
 }
 
-@media all and (max-width: 1300px) {
-    .bm-admin-content {
-        .bm-box-container {
-            &.container-25 {
-                width: 50%;
-            }
-        }
-    }
-}
-
-@media all and (max-width: 1100px) {
-    .bm-admin-content {
-        .bm-box-container {
-            width: 100% !important;
-        }
-    }
-
-    .post-content {
-        padding-right: 0 !important;
-        float: none !important;
-    }
-
-    .post-rightbar {
-        margin-left: 0 !important;
-        float: none !important;
-    }
-}
 
 @media all and (max-width: 900px) {
 
@@ -435,7 +372,6 @@
     .bm-admin-content,
     .bm-admin-sidebar {
         height: calc(100% - 50px);
-        height: -webkit-calc(100% - 50px);
     }
 
     .form-admin.label {

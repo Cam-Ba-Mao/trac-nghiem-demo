@@ -1,5 +1,17 @@
 (function ($) {
 
+    function enableAllTooltips()
+    {
+        let tooltipelements = 
+            document.querySelectorAll("[data-bs-toggle='tooltip']");
+        tooltipelements.forEach((el) => {
+            new bootstrap.Tooltip(el);
+        });
+    }
+      
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
     $('.bm-box-container__wrap >h3').append('<button type="button" class="toggle"><i class="fa-solid fa-caret-up"></i></button>');
 
     $(document).on('click', 'button.toggle', function (e) {
@@ -74,7 +86,7 @@
     }
 
     sidebarCheck();
-    
+    enableAllTooltips();
 
 
     $(function () {      

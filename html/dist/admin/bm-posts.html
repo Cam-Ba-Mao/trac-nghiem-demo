@@ -1,197 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Trang quản trị</title>
-    <!-- Favicon-->
-    <link rel="icon" href="../images/favicon.png">
-    <!-- Bootstrap-->
-    <!-- Plugins style-->
-    <link rel="stylesheet" href="../css/bundle.min.css">
-    <!-- Template syle-->
-    <link rel="stylesheet" href="../admin/css/admin.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <!-- Admin bar demo ( Not include )-->
-    <style>
-      .admin-bar-html {
-          margin-top: 32px !important;
-      }
-      
-      @media screen and (max-width: 782px) {
-          .admin-bar-html {
-              margin-top: 46px !important;
-          }
-      }
-      
-      #wpadminbar {
-          direction: ltr;
-          color: #ccc;
-          font-size: 13px;
-          font-weight: 400;
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-          height: 32px;
-          line-height: 32px;
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          min-width: 600px;
-          z-index: 99999;
-          background: #23282d;
-          padding: 0 15px;
-      }
-      
-      @media screen and (max-width: 782px) {
-          html #wpadminbar {
-              height: 46px;
-              line-height: 46px;
-              min-width: 240px;
-          }
-      }
-      
-      @media screen and (max-width: 600px) {
-          #wpadminbar {
-              position: absolute;
-          }
-      }
-      
-    </style>
-  </head>
-  <body class="page-template-admin-panel-posts">
-    <!-- START HEADER-->
-    <div class="bm-admin-navbar">
-      <ul dropdown>
-        <li><a href="./bm-index.html"><i class="fa-solid fa-home"></i><span class="title">ANOTHER WEBSITE</span></a></li>
-        <li><a href="#"><i class="fa-solid fa-comment"></i>1</a></li>
-        <li><a href="./bm-new-posts.html"><i class="fa-solid fa-plus"></i><span class="title">Tạo mới</span></a>
-          <ul>
-            <li><a href="./bm-new-post.html">Bài viết</a></li>
-            <li><a href="#">Trang</a></li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="my-account" dropdown>
-        <li> <a class="my-account__nav" href="#"><span class="title">Xin chào, maocam </span><img src="../images/default-avatar.png" alt="avatar"></a>
-          <ul class="my-account__dropdown">
-            <li class="info-user"><a href="./bm-new-post.html"> <img src="../images/default-avatar.png" alt="avatar"><span class="title">maocam </span><span class="edit-profile">Edit Profile </span></a></li>
-            <li class="logout"><a href="#">Đăng xuất</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <!-- CLOSE HEADER-->
-    <!-- START SIDEBAR-->
-    <div class="bm-admin-sidebar">
-      <ul>
-        <li><a href="./bm-index.html"><i class="fa-solid fa-tachometer"></i><span class="title">Trang quản trị</span></a></li>
-        <li class="active"><a href="./bm-posts.html"><i class="fa-solid fa-thumb-tack"></i><span class="title">Bài viết</span></a>
-          <ul class="sub-menu">
-            <li class="active"><a href="./bm-posts.html">Tất cả bài viết</a></li>
-            <li><a href="./bm-new-post.html">Thêm bài viết</a></li>
-            <li><a href="./bm-category.html">Danh mục</a></li>
-            <li><a href="#">Thẻ</a></li>
-          </ul>
-        </li>
-        <li><a href="#"><i class="fa-solid fa-file-image"></i><span class="title">Media<span class="pending-count">45</span></span></a></li>
-        <li><a href="#"><i class="fa-solid fa-file"></i><span class="title">Trang</span></a></li>
-        <li><a href="#"><i class="fa-solid fa-comment"></i><span class="title">Bình luận</span></a></li>
-        <li><a href="#"><i class="fa-solid fa-plug"></i><span class="title">Plugin</span></a>
-          <ul class="sub-menu">
-            <li><a href="#">Plugin đã cài đặt</a></li>
-            <li><a href="#">Cài Plugin</a></li>
-            <li><a href="#">Sửa tệp tin Plugin</a></li>
-          </ul>
-        </li>
-        <li><a href="#"><i class="fa-solid fa-wrench"></i><span class="title">Công cụ</span></a></li>
-        <li><a href="./bm-settings.html"><i class="fa-solid fa-cog"></i><span class="title">Cài đặt</span></a></li>
-        <li class="line"><span></span></li><a class="bm-collapse-admin-menu" href="#"><i class="fa-solid fa-arrow-circle-left"></i><span class="title">Thu gọn menu</span></a>
-      </ul>
-    </div>
-    <!-- CLOSE SIDEBAR-->
-    <!-- START CONTENT-->
-    <main class="bm-admin-wrap">
-      <div class="bm-admin-content">
-        <div class="bm-box-container__wrap-title">
-          <h1>All Posts<a href="#">Add New</a></h1>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Trang quản trị</title>
+        <!-- Favicon-->
+        <link rel="icon" href="../images/favicon.png">
+        <!-- Bootstrap-->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <!-- Plugins style-->
+        <link rel="stylesheet" href="../css/bundle.min.css">
+        <!-- Template syle-->
+        <link rel="stylesheet" href="../admin/css/admin.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <!-- Admin bar demo ( Not include )-->
+        <style>
+            .admin-bar-html {
+                margin-top: 32px !important;
+            }
+            
+            @media screen and (max-width: 782px) {
+                .admin-bar-html {
+                    margin-top: 46px !important;
+                }
+            }
+            
+            #wpadminbar {
+                direction: ltr;
+                color: #ccc;
+                font-size: 13px;
+                font-weight: 400;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+                height: 32px;
+                line-height: 32px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                min-width: 600px;
+                z-index: 99999;
+                background: #23282d;
+                padding: 0 15px;
+            }
+            
+            @media screen and (max-width: 782px) {
+                html #wpadminbar {
+                    height: 46px;
+                    line-height: 46px;
+                    min-width: 240px;
+                }
+            }
+            
+            @media screen and (max-width: 600px) {
+                #wpadminbar {
+                    position: absolute;
+                }
+            }
+            
+        </style>
+    </head>
+    <body class="page-template-admin-panel-posts">
+        <!-- START HEADER-->
+        <div class="bm-admin-navbar">
+            <ul dropdown>
+                <li><a href="./bm-index.html"><i class="fa-solid fa-home"></i><span class="title">ANOTHER WEBSITE</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-comment"></i>1</a></li>
+                <li><a href="./bm-new-posts.html"><i class="fa-solid fa-plus"></i><span class="title">Tạo mới</span></a>
+                    <ul>
+                        <li><a href="./bm-new-post.html">Bài viết</a></li>
+                        <li><a href="#">Trang</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="my-account" dropdown>
+                <li> <a class="my-account__nav" href="#"><span class="title">Xin chào, maocam </span><img src="../images/default-avatar.png" alt="avatar"></a>
+                    <ul class="my-account__dropdown">
+                        <li class="info-user"><a href="./bm-new-post.html"> <img src="../images/default-avatar.png" alt="avatar"><span class="title">maocam </span><span class="edit-profile">Edit Profile </span></a></li>
+                        <li class="logout"><a href="#">Đăng xuất</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-        <div class="clear" style="height: 10px;"></div>
-        <div class="bm-admin-table">
-          <table>
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th class="hide">Author</th>
-                <th class="hide">Categories</th>
-                <th class="hide">Tags</th>
-                <th><i class="fa-solid fa-comment"></i></th>
-                <th>Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><a class="title" href="#">Video title here</a>
-                  <div class="magic-links"><a href="#">Edit</a>|<a class="trash" href="#">Trash</a>|<a href="#">View</a></div>
-                </td>
-                <td class="hide"><a href="#">admin</a></td>
-                <td class="hide"><a href="#">Videos</a></td>
-                <td class="hide"><a href="#">youtube</a></td>
-                <td>—</td>
-                <td><span class="date">21 hours ago</span></td>
-              </tr>
-              <tr>
-                <td><a class="title" href="#">Video title here</a>
-                  <div class="magic-links"><a href="#">Edit</a>|<a class="trash" href="#">Trash</a>|<a href="#">View</a></div>
-                </td>
-                <td class="hide"><a href="#">admin</a></td>
-                <td class="hide"><a href="#">Videos</a></td>
-                <td class="hide"><a href="#">youtube</a></td>
-                <td>—</td>
-                <td><span class="date">21 hours ago</span></td>
-              </tr>
-              <tr>
-                <td><a class="title" href="#">Video title here</a>
-                  <div class="magic-links"><a href="#">Edit</a>|<a class="trash" href="#">Trash</a>|<a href="#">View</a></div>
-                </td>
-                <td class="hide"><a href="#">admin</a></td>
-                <td class="hide"><a href="#">Videos</a></td>
-                <td class="hide"><a href="#">youtube</a></td>
-                <td>—</td>
-                <td><span class="date">21 hours ago</span></td>
-              </tr>
-            </tbody>
-          </table>
+        <!-- CLOSE HEADER-->
+        <!-- START SIDEBAR-->
+        <div class="bm-admin-sidebar">
+            <ul>
+                <li><a href="./bm-index.html"><i class="fa-solid fa-tachometer"></i><span class="title">Trang quản trị</span></a></li>
+                <li class="active"><a href="./bm-posts.html"><i class="fa-solid fa-thumb-tack"></i><span class="title">Bài viết</span></a>
+                    <ul class="sub-menu">
+                        <li class="active"><a href="./bm-posts.html">Tất cả bài viết</a></li>
+                        <li><a href="./bm-new-post.html">Thêm bài viết</a></li>
+                        <li><a href="./bm-category.html">Danh mục</a></li>
+                        <li><a href="#">Thẻ</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-file-image"></i><span class="title">Media<span class="pending-count">45</span></span></a></li>
+                <li><a href="#"><i class="fa-solid fa-file"></i><span class="title">Trang</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-comment"></i><span class="title">Bình luận</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-plug"></i><span class="title">Plugin</span></a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Plugin đã cài đặt</a></li>
+                        <li><a href="#">Cài Plugin</a></li>
+                        <li><a href="#">Sửa tệp tin Plugin</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-wrench"></i><span class="title">Công cụ</span></a></li>
+                <li><a href="./bm-settings.html"><i class="fa-solid fa-cog"></i><span class="title">Cài đặt</span></a></li>
+                <li class="line"><span></span></li><a class="bm-collapse-admin-menu" href="#"><i class="fa-solid fa-arrow-circle-left"></i><span class="title">Thu gọn menu</span></a>
+            </ul>
         </div>
-        <div class="bm-admin-pagination">
-          <ul>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li class="active"><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">6</a></li>
-          </ul>
-        </div>
-      </div>
-    </main>
-    <!-- CLOSE CONTENT-->
-    <!-- START FOOTER-->
-    <footer class="main-footer">
-      <div class="pull-left"><span>© 2024 </span><a href="#" target="_blank"><strong>Trắc nghiệm demo</strong></a></div>
-      <div class="pull-right hidden-xs">Phiên bản 3.1.10	</div>
-    </footer>
-    <!-- CLOSE FOOTER-->
-    <!-- Jquery-->
-    <script src="../js/jquery.min.js"></script><script data-src="https://maps.google.com/maps/api/js?libraries=places&amp;key=AIzaSyBrqJ3COcBz3ZY7ZHRx0N_Fd0Xq_ea49O4" id="google-map"></script>
-    <!-- Bootstrap-->
-    <!-- Plugins script-->
-    <script src="../js/bundle.min.js"></script>
-    <!-- TinyMCE-->
-    <script src="../js/tinymce/tinymce.min.js"></script>
-    <!-- Template script-->
-    <script src="../admin/js/admin.min.js"></script>
-    <!-- Common script-->
-    <!-- Scripts demo ( Not include )-->
-  </body>
+        <!-- CLOSE SIDEBAR-->
+        <!-- START CONTENT-->
+        <main class="bm-admin-wrap">
+            <div class="bm-admin-title"> 
+                <h1>Bài viết</h1>
+                <div class="toolbar" id="toolbar"><a class="page-title-action button action-add" href="#">Viết bài mới</a></div>
+            </div>
+            <div class="bm-admin-content">
+                <form class="admin-tablelist" action="https://dienmaytonghop.com/ws-admin/?mod=news" name="manage" method="post" accept-charset="utf-8">
+                    <input type="hidden" name="paged" value="">
+                    <input type="hidden" name="action" value="search">
+                    <div class="posts-filter" id="posts-filter">
+                        <ul class="subsubsub">
+                            <li><a class="current" href="https://dienmaytonghop.com/ws-admin/?mod=news">Tất cả <span class="count">(4)</span></a></li>
+                            <li><a href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;post_status=publish">Đã xuất bản <span class="count">(4)</span></a></li>
+                        </ul>
+                        <div class="search-box" id="search-box">
+                            <input class="form-control text-search" type="text" name="keyword" value="">
+                            <input class="button btn-search" type="submit" name="search" value="Tìm bài viết">
+                        </div>
+                    </div>
+                    <div class="tablenav clearfix">
+                        <div class="btn-group">
+                            <div class="actions bulkactions">
+                                <select class="form-control" id="doaction" name="doaction">
+                                    <option value="" selected="selected">Hành động</option>
+                                    <option value="update">Cập nhật</option>
+                                    <option value="publish">Xuất bản</option>
+                                    <option value="draft">Bản nháp</option>
+                                    <option value="del">Xóa bài viết</option>
+                                </select>
+                                <input class="button" type="submit" value="Áp dụng">
+                            </div>
+                            <div class="actions bulkfilters">
+                                <select class="form-control" name="cat_id" id="cat_id">
+                                    <option value="0">Tất cả chuyên mục</option>
+                                    <option value="1">Tin tức</option>
+                                    <option value="10">Khuyến mãi</option>
+                                    <option value="9">Tuyển dụng</option>
+                                </select>
+                                <select class="form-control" name="filter_date" id="filter_date">
+                                    <option value="" selected="selected">Tất cả các ngày</option>
+                                    <option value="today">Hôm nay</option>
+                                    <option value="yesterday">Hôm qua</option>
+                                    <option value="this_week">Tuần này</option>
+                                    <option value="this_month">Tháng này</option>
+                                    <option value="7_days_last">7 ngày gần đây</option>
+                                    <option value="30_days_last">30 ngày gần đây</option>
+                                    <option value="custom">Từ ngày... đến...</option>
+                                </select>
+                                <input class="button" type="submit" name="search" value="Lọc">
+                            </div>
+                        </div>
+                        <div class="tablenav-pages">
+                            <div class="displaying-num">4 mục</div>
+                        </div>
+                    </div>
+                    <table class="table-list" id="manage">
+                        <thead>
+                            <tr>
+                                <th class="manage-column column-checkbox">
+                                    <div class="label-wrap">
+                                        <input type="checkbox" name="checkall" value="">
+                                    </div>
+                                </th>
+                                <th class="manage-column column-title"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;orderby=title&amp;amp;order=desc">Tiêu đề</a></th>
+                                <th class="manage-column column-picture"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;orderby=picture&amp;amp;order=desc">Hình ảnh</a></th>
+                                <th class="manage-column column-cat_id"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;orderby=cat_id&amp;amp;order=desc">Chuyên mục</a></th>
+                                <th class="manage-column column-date"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;orderby=date&amp;amp;order=desc">Thời gian</a></th>
+                                <th class="manage-column column-action">
+                                    <div class="label-wrap">Tác vụ</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="row_item" id="row_4">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="4"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="#">Sự khác biệt của gas R32 và gas R410A</a>
+                                        <div class="row-actions">
+                                            <ul>
+                                                <li><a class="row-action row-action-edit" href="#">Chỉnh sửa</a></li>
+                                                <li><a class="row-action do-action row-action-hidden" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;id=4&amp;amp;action=hidden" onclick="do_check(4); do_submit('hidden')">Bản nháp</a></li>
+                                                <li><a class="row-action row-action-delete" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;sub=del&amp;amp;id=4" onclick="return do_delete(4)">Xóa</a></li>
+                                                <li><a class="preview-link" href="https://dienmaytonghop.com/blog/su-khac-biet-cua-gas-r32-va-gas-r410a" target="_blank">Xem</a></li>
+                                            </ul>
+                                        </div></span></td>
+                                <td class="manage-column column-picture"><span><img class="img-cover" src="https://dienmaytonghop.com/uploads/news/10-2024/su-khac-biet-cua-gas-r32-va-gas-r410a.webp" width="50" height="50" alt=""></span></td>
+                                <td class="manage-column column-cat_id"><span><a href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;category_name=tin-tuc">Tin tức</a></span></td>
+                                <td class="manage-column column-date"><span>Đã xuất bản<br>17/10/2024 lúc 10:53 chiều</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="#" data-bs-toggle="tooltip" data-bs-title="Chỉnh sửa">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" data-bs-title="Đang hiện" data-bs-toggle="tooltip"></button>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" data-bs-title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(4)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_3">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="3"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;sub=edit&amp;amp;id=3">Chế độ Econo là gì? Những ưu nhược điểm về Econo có thể bạn chưa biết?</a>
+                                        <div class="row-actions">
+                                            <ul>
+                                                <li><a class="row-action row-action-edit" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;sub=edit&amp;amp;id=3">Chỉnh sửa</a></li>
+                                                <li><a class="row-action do-action row-action-hidden" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;id=3&amp;amp;action=hidden" onclick="do_check(3); do_submit('hidden')">Bản nháp</a></li>
+                                                <li><a class="row-action row-action-delete" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;sub=del&amp;amp;id=3" onclick="return do_delete(3)">Xóa</a></li>
+                                                <li><a class="preview-link" href="https://dienmaytonghop.com/blog/che-do-econo-la-gi-nhung-uu-nhuoc-diem-ve-econo-co-the-ban-chua-biet" target="_blank">Xem</a></li>
+                                            </ul>
+                                        </div></span></td>
+                                <td class="manage-column column-picture"><span><img class="img-cover" src="https://dienmaytonghop.com/uploads/news/10-2024/che-do-econo-la-gi-nhung-uu-nhuoc-diem-ve-econo-co-the-ban-chua-biet.webp" width="50" height="50" alt=""></span></td>
+                                <td class="manage-column column-cat_id"><span><a href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;category_name=tin-tuc">Tin tức</a></span></td>
+                                <td class="manage-column column-date"><span>Đã xuất bản<br>17/10/2024 lúc 10:53 chiều</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;sub=edit&amp;amp;id=3" data-bs-title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" data-bs-title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(3)" onclick="do_submit('hidden')"></button>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" data-bs-title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(3)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_2">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="2"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="#">Lọc bụi bẩn, bảo vệ tối ưu cùng Multi Split Panasonic</a>
+                                        <div class="row-actions">
+                                            <ul>
+                                                <li><a class="row-action row-action-edit" href="#">Chỉnh sửa</a></li>
+                                                <li><a class="row-action do-action row-action-hidden" href="#" onclick="do_check(2); do_submit('hidden')">Bản nháp</a></li>
+                                                <li><a class="row-action row-action-delete" href="#" onclick="return do_delete(2)">Xóa</a></li>
+                                                <li><a class="preview-link" href="#" target="_blank">Xem</a></li>
+                                            </ul>
+                                        </div></span></td>
+                                <td class="manage-column column-picture"><span><img class="img-cover" src="https://dienmaytonghop.com/uploads/news/10-2024/loc-bui-ban-bao-ve-toi-uu-cung-multi-split-panasonic.webp" width="50" height="50" alt=""></span></td>
+                                <td class="manage-column column-cat_id"><span><a href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;category_name=tin-tuc">Tin tức</a></span></td>
+                                <td class="manage-column column-date"><span>Đã xuất bản<br>17/10/2024 lúc 10:52 chiều</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="#" data-bs-title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" data-bs-title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(2)" onclick="do_submit('hidden')"></button>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" data-bs-title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(2)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_1">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="1"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="#">Daikin liên tiếp 4 năm được vinh danh “Thương hiệu điều hòa hiệu suất cao nhất”</a>
+                                        <div class="row-actions">
+                                            <ul>
+                                                <li><a class="row-action row-action-edit" href="#">Chỉnh sửa</a></li>
+                                                <li><a class="row-action do-action row-action-hidden" href="#" onclick="do_check(1); do_submit('hidden')">Bản nháp</a></li>
+                                                <li><a class="row-action row-action-delete" href="#" onclick="return do_delete(1)">Xóa</a></li>
+                                                <li><a class="preview-link" href="#" target="_blank">Xem</a></li>
+                                            </ul>
+                                        </div></span></td>
+                                <td class="manage-column column-picture"><span><img class="img-cover" src="https://dienmaytonghop.com/uploads/news/10-2024/daikin-lien-tiep-4-nam-duoc-vinh-danh-thuong-hieu-dieu-hoa-hieu-suat-cao-nhat-hdd.webp" width="50" height="50" alt=""></span></td>
+                                <td class="manage-column column-cat_id"><span><a href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;category_name=tin-tuc">Tin tức</a></span></td>
+                                <td class="manage-column column-date"><span>Đã xuất bản<br>17/10/2024 lúc 10:47 chiều</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="#" data-bs-title="Chỉnh sửa" data-bs-toggle="tooltip" data-bs-placement="top">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" data-bs-title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(1)" onclick="do_submit('hidden')"></button>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" data-bs-title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(1)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td class="manage-column column-checkbox"><span class="label-wrap">
+                                        <input type="checkbox" name="checkall" value=""></span></td>
+                                <td class="manage-column column-title"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;orderby=title&amp;amp;order=desc">Tiêu đề</a></td>
+                                <td class="manage-column column-picture"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;orderby=picture&amp;amp;order=desc">Hình ảnh</a></td>
+                                <td class="manage-column column-cat_id"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;orderby=cat_id&amp;amp;order=desc">Chuyên mục</a></td>
+                                <td class="manage-column column-date"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;orderby=date&amp;amp;order=desc">Thời gian</a></td>
+                                <td class="manage-column column-action"><span class="label-wrap">Tác vụ</span></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="tablenav">
+                        <div class="btn-group">
+                            <div class="actions bulkactions">
+                                <select class="form-control" id="doaction2" name="doaction2">
+                                    <option value="" selected="selected" data-select2-id="8">Hành động</option>
+                                    <option value="update">Cập nhật</option>
+                                    <option value="publish">Xuất bản</option>
+                                    <option value="draft">Bản nháp</option>
+                                    <option value="del">Xóa bài viết</option>
+                                </select>
+                                <input class="button" type="submit" value="Áp dụng">
+                            </div>
+                        </div>
+                        <div class="tablenav-pages">
+                            <div class="displaying-num">4 mục</div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <!-- CLOSE CONTENT-->
+        <!-- START FOOTER-->
+        <footer class="main-footer">
+            <div class="pull-left"><span>© 2024 </span><a href="#" target="_blank"><strong>Trắc nghiệm demo</strong></a></div>
+            <div class="pull-right hidden-xs">Phiên bản 3.1.10	</div>
+        </footer>
+        <!-- CLOSE FOOTER-->
+        <!-- Jquery-->
+        <script src="../js/jquery.min.js"></script><script data-src="https://maps.google.com/maps/api/js?libraries=places&amp;key=AIzaSyBrqJ3COcBz3ZY7ZHRx0N_Fd0Xq_ea49O4" id="google-map"></script>
+        <!-- Bootstrap-->
+        <script src="./js/popper.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+        <!-- Plugins script-->
+        <script src="../js/bundle.min.js"></script>
+        <!-- TinyMCE-->
+        <script src="../js/tinymce/tinymce.min.js"></script>
+        <!-- Template script-->
+        <script src="../admin/js/admin.min.js"></script>
+        <!-- Common script-->
+        <!-- Scripts demo ( Not include )-->
+    </body>
 </html>
