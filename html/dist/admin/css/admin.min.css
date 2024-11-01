@@ -587,6 +587,10 @@ textarea.form-control {
   display: none !important;
 }
 
+.select2-container .select2-selection--single {
+  height: 30px;
+}
+
 *, ::before, ::after {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;

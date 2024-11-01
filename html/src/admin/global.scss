@@ -249,3 +249,7 @@ textarea.form-control {
 .hide {
     display: none !important;
 }
+
+.select2-container .select2-selection--single {
+    height: 30px;
+}
