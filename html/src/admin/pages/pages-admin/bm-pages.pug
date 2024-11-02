@@ -12,7 +12,7 @@ block container
             a.page-title-action.button.action-add(href="#") Thêm trang   
 
     .bm-admin-content
-        form(action="https://dienmaytonghop.com/ws-admin/?mod=page", name="manage", class="admin-tablelist", method="post", accept-charset="utf-8")
+        form(action="#", name="manage", class="admin-tablelist", method="post", accept-charset="utf-8")
             input(type="hidden", name="action", value="search")
             input(type="hidden", name="modnow", value="page")
             input(type="hidden", name="pagenow", value="page")
@@ -20,10 +20,10 @@ block container
             div#posts-filter(class="posts-filter")
                 ul(class="subsubsub")
                     li
-                        a(href="https://dienmaytonghop.com/ws-admin/?mod=page", class="current") Tất cả 
+                        a(href="#", class="current") Tất cả 
                             span(class="count") (18)
                     li
-                        a(href="https://dienmaytonghop.com/ws-admin/?mod=page&amp;post_status=publish") Đã xuất bản 
+                        a(href="#") Đã xuất bản 
                             span(class="count") (18)
                 div#search-box(class="search-box")
                     input(type="text", name="keyword", value="", class="form-control text-search")
@@ -57,28 +57,28 @@ block container
                         th(scope="col", class="manage-column column-cb", data-colname="cb")
                             input(type="checkbox", name="checkall", value="")
                         th(scope="col", class="manage-column column-title", data-colname="title")
-                            a(href="https://dienmaytonghop.com/ws-admin/?mod=page&amp;orderby=title&amp;order=desc", class="sorted desc") Tiêu đề
+                            a(href="#", class="sorted desc") Tiêu đề
                         th(scope="col", class="manage-column column-picture", data-colname="picture")
-                            a(href="https://dienmaytonghop.com/ws-admin/?mod=page&amp;orderby=picture&amp;order=desc", class="sorted desc") Hình ảnh
+                            a(href="#", class="sorted desc") Hình ảnh
                         th(scope="col", class="manage-column column-slug", data-colname="slug")
-                            a(href="https://dienmaytonghop.com/ws-admin/?mod=page&amp;orderby=slug&amp;order=desc", class="sorted desc") Đường dẫn
+                            a(href="#", class="sorted desc") Đường dẫn
                         th(scope="col", class="manage-column column-date", data-colname="date")
-                            a(href="https://dienmaytonghop.com/ws-admin/?mod=page&amp;orderby=date&amp;order=desc", class="sorted desc") Thời gian
+                            a(href="#", class="sorted desc") Thời gian
                         th(scope="col", class="manage-column column-action", data-colname="action") Tác vụ
                 tbody
                     tr(id="row_25", class="row_item")
                         td(class="manage-column column-cb", data-colname="cb")
                             input(type="checkbox", name="ids[]", value="25", class="checkbox")
                         td(class="manage-column column-title", data-colname="title")
-                            a(href="https://dienmaytonghop.com/ws-admin/?mod=page&amp;sub=edit&amp;id=25", class="title-link-edit") Sản phẩm
+                            a(href="./bm-edit-page.html", class="title-link-edit") Sản phẩm
                             div(class="row-actions")
                                 ul
                                     li
-                                        a(href="https://dienmaytonghop.com/ws-admin/?mod=page&amp;sub=edit&amp;id=25", class="row-action row-action-edit") Chỉnh sửa
+                                        a(href="./bm-edit-page.html", class="row-action row-action-edit") Chỉnh sửa
                                     li
-                                        a(href="https://dienmaytonghop.com/ws-admin/?mod=page&amp;id=25&amp;action=hidden", onclick="do_check(25); do_submit('hidden')", class="row-action do-action row-action-hidden") Bản nháp
+                                        a(href="#", onclick="do_check(25); do_submit('hidden')", class="row-action do-action row-action-hidden") Bản nháp
                                     li
-                                        a(href="https://dienmaytonghop.com/ws-admin/?mod=page&amp;sub=del&amp;id=25", class="row-action row-action-delete", onclick="return do_delete(25)") Thùng rác
+                                        a(href="#", class="row-action row-action-delete", onclick="return do_delete(25)") Thùng rác
                                     li
                                         a(href="https://dienmaytonghop.com/san-pham", class="preview-link", target="_blank") Xem
                         td(class="manage-column column-picture", data-colname="picture")
@@ -91,7 +91,7 @@ block container
                             | 31/10/2024 lúc 11:25 chiều
                         td(class="manage-column column-action", data-colname="action")
                             div(class="row_action")
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=page&amp;sub=edit&amp;id=25", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                a(href="./bm-edit-page.html", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                 button(type="button", title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(25)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
                                 button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(25)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_24", class="row_item")

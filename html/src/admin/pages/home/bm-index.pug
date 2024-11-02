@@ -6,42 +6,265 @@ append vars
 
 block container
     
+    .bm-admin-title 
+        h1 Bảng tin
     .bm-admin-content
-        .bm-box-container
-            #div-0(class="bm-box-container__wrap")
-                h3 Title was here!
-                div(class="bm-box-container__content")
-                    p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure aperiam blanditiis voluptatum molestias mollitia a nobis vel? Omnis, ex sit corporis similique magni saepe eveniet at nostrum! Consectetur, placeat aspernatur!
-
-        .bm-box-container.container-25
-            #div-1(class="bm-box-container__wrap")
-                h3 Quick Draft
-                div(class="bm-box-container__content")
-                    form.form-admin(action="")
-                        ul
-                            li
-                                input#input(type="text", placeholder="Title")
-                            li
-                                textarea(name="", id="", cols="30", rows="5", placeholder="Whats on your mind?")
-                            li
-                                button(type="submit") Submit
-
-        .bm-box-container.container-50
-            #div-2(class="bm-box-container__wrap")
-                h3 Activity
-                div(class="bm-box-container__content") Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, officia consequatur? Est nisi assumenda atque accusantium omnis. Quae necessitatibus architecto explicabo quasi deleniti accusamus pariatur quos esse alias, sunt nesciunt!
-
-        .bm-box-container.container-25
-            #div-3(class="bm-box-container__wrap")
-                h3 Quick Draft
-                div(class="bm-box-container__content")
-                    form.form-admin(action="")
-                        ul
-                            li
-                                label.title(for="title") Title
-                                input#title(type="text")
-                            li
-                                label.title(for="bm-admin-message") Whats on your mind?
-                                textarea#bm-admin-message(name="", cols="30", rows="5")
-                            li
-                                button(type="submit") Submit
+        div#box-welcome(class="box-welcome")
+            | Chào mừng &nbsp;
+            b
+                font(color="red", size="+1") Bá Mão
+            | &nbsp; Lần đăng nhập gần đây vào lúc :
+            font(color="red") 11:23, 02/11/2024
+        div#box-count(class="box-count")
+            div(class="small-box bg-red")
+                div(class="inner")
+                    h3 1
+                    p Đơn hàng
+                div(class="icon")
+                    i(class="fa fa-shopping-cart")
+                a(href="?mod=order", class="small-box-footer")
+                    span Xem chi tiết&nbsp;
+                    i(class="fa fa-arrow-circle-right")
+            div(class="small-box bg-yellow")
+                div(class="inner")
+                    h3 0
+                    p Bình luận
+                div(class="icon")
+                    i(class="fa fa-commenting")
+                a(href="?mod=comment", class="small-box-footer")
+                    span Xem chi tiết&nbsp;
+                    i(class="fa fa-arrow-circle-right")
+            div(class="small-box bg-aqua")
+                div(class="inner")
+                    h3 1,577
+                    p Sản phẩm
+                div(class="icon")
+                    i(class="fa fa-product-hunt")
+                a(href="?mod=product", class="small-box-footer")
+                    span Xem chi tiết&nbsp;
+                    i(class="fa fa-arrow-circle-right")
+            div(class="small-box bg-green")
+                div(class="inner")
+                    h3 4
+                    p Bài viết
+                div(class="icon")
+                    i(class="fa fa-book")
+                a(href="?mod=news", class="small-box-footer")
+                    span Xem chi tiết&nbsp;
+                    i(class="fa fa-arrow-circle-right")
+        div#box-chart(class="box-chart metabox")
+            div(class="handlediv down")
+            h3 Thống kê truy cập
+            div(class="inside")
+                div(class="box")
+                    div(class="overlay", style="display: none;")
+                        i(class="fa fa-refresh fa-spin")
+                    div(class="chart")
+                        div(class="chartjs-size-monitor")
+                            div(class="chartjs-size-monitor-expand")
+                                div(class="")
+                            div(class="chartjs-size-monitor-shrink")
+                                div(class="")
+                        canvas#areaChartHits(style="height: 500px; display: block;", width="1512", height="625", class="chartjs-render-monitor")
+        div#box-visitors(class="box-visitors metabox")
+            div(class="handlediv down")
+            h3 Khách truy cập nhiều
+            div(class="inside no-padding")
+                table(class="table-list")
+                    thead
+                        tr
+                            th(class="manage-column hidden-xs") Thứ tự
+                            th(class="manage-column") Lượt
+                            th(class="manage-column hidden-xs") Trình duyệt
+                            th(class="manage-column") Hệ điều hành
+                            th(class="manage-column hidden-xs") Phiên bản
+                            th(class="manage-column column-action") Địa chỉ IP
+                    tbody(id="box_top_visitors")
+                        tr(class="row-1 row-item")
+                            td(class="manage-column hidden-xs") 1
+                            td(class="manage-column") 471
+                            td(class="manage-column hidden-xs") Chrome
+                            td(class="manage-column") Mac OS X
+                            td(class="manage-column hidden-xs") 130.0.0.0
+                            td(class="manage-column ip-address column-action") 171.243.49.163
+                        tr(class="row-2 row-item")
+                            td(class="manage-column hidden-xs") 2
+                            td(class="manage-column") 253
+                            td(class="manage-column hidden-xs") Mozilla
+                            td(class="manage-column") Unknown Platform
+                            td(class="manage-column hidden-xs") 5.0
+                            td(class="manage-column ip-address column-action") 158.220.123.113
+                        tr(class="row-3 row-item")
+                            td(class="manage-column hidden-xs") 3
+                            td(class="manage-column") 46
+                            td(class="manage-column hidden-xs") Safari
+                            td(class="manage-column") iOS
+                            td(class="manage-column hidden-xs") 604.1
+                            td(class="manage-column ip-address column-action") 172.224.240.108
+                        tr(class="row-4 row-item")
+                            td(class="manage-column hidden-xs") 4
+                            td(class="manage-column") 42
+                            td(class="manage-column hidden-xs") Mozilla
+                            td(class="manage-column") Unknown Platform
+                            td(class="manage-column hidden-xs") 5.0
+                            td(class="manage-column ip-address column-action") 135.181.74.243
+                        tr(class="row-5 row-item")
+                            td(class="manage-column hidden-xs") 5
+                            td(class="manage-column") 29
+                            td(class="manage-column hidden-xs") Chrome
+                            td(class="manage-column") Mac OS X
+                            td(class="manage-column hidden-xs") 130.0.0.0
+                            td(class="manage-column ip-address column-action") 103.89.86.190
+                        tr(class="row-6 row-item")
+                            td(class="manage-column hidden-xs") 6
+                            td(class="manage-column") 19
+                            td(class="manage-column hidden-xs") Chrome
+                            td(class="manage-column") Windows 10
+                            td(class="manage-column hidden-xs") 89.0.4389.114
+                            td(class="manage-column ip-address column-action") 87.120.116.68
+                        tr(class="row-7 row-item")
+                            td(class="manage-column hidden-xs") 7
+                            td(class="manage-column") 16
+                            td(class="manage-column hidden-xs") Chrome
+                            td(class="manage-column") Mac OS X
+                            td(class="manage-column hidden-xs") 119.0.0.0
+                            td(class="manage-column ip-address column-action") 171.243.49.163
+                        tr(class="row-8 row-item")
+                            td(class="manage-column hidden-xs") 8
+                            td(class="manage-column") 15
+                            td(class="manage-column hidden-xs") Chrome
+                            td(class="manage-column") Windows 10
+                            td(class="manage-column hidden-xs") 95.0.4638.69
+                            td(class="manage-column ip-address column-action") 174.138.30.203
+                        tr(class="row-9 row-item")
+                            td(class="manage-column hidden-xs") 9
+                            td(class="manage-column") 10
+                            td(class="manage-column hidden-xs") Chrome
+                            td(class="manage-column") Windows 10
+                            td(class="manage-column hidden-xs") 74.0.3729.169
+                            td(class="manage-column ip-address column-action") 52.187.192.174
+                        tr(class="row-10 row-item")
+                            td(class="manage-column hidden-xs") 10
+                            td(class="manage-column") 9
+                            td(class="manage-column hidden-xs")
+                            td(class="manage-column") Unknown Platform
+                            td(class="manage-column hidden-xs")
+                            td(class="manage-column ip-address column-action") 40.77.167.5
+        div#box-adminlogs(class="box-adminlogs metabox")
+            div(class="handlediv down")
+            h3 Hoạt động gần đây
+            div(class="inside no-padding")
+                table(class="table-list no-margin")
+                    thead
+                        tr
+                            th(class="manage-column") Tên đăng nhập
+                            th(class="manage-column") Thời gian
+                            th(class="manage-column") Địa chỉ IP
+                            th(class="manage-column") Trang
+                            th(class="manage-column") Tác vụ
+                            th(class="manage-column column-action") Name / ID
+                    tbody
+                        tr(class="row_item")
+                            td(class="manage-column text-bold") cambamao98
+                            td(class="manage-column") 14:20, 02/11/2024
+                            td(class="manage-column") 1.53.56.140
+                            td(class="manage-column") Oauth
+                            td(class="manage-column") login
+                            td(class="manage-column column-action last") 672
+                        tr(class="row_item")
+                            td(class="manage-column text-bold") cambamao98
+                            td(class="manage-column") 11:23, 02/11/2024
+                            td(class="manage-column") 103.89.86.190
+                            td(class="manage-column") Oauth
+                            td(class="manage-column") login
+                            td(class="manage-column column-action last") 672
+                        tr(class="row_item")
+                            td(class="manage-column text-bold") cambamao98
+                            td(class="manage-column") 11:21, 02/11/2024
+                            td(class="manage-column") 103.89.86.190
+                            td(class="manage-column") Oauth
+                            td(class="manage-column") logout
+                            td(class="manage-column column-action last") 672
+                        tr(class="row_item")
+                            td(class="manage-column text-bold") cambamao98
+                            td(class="manage-column") 17:01, 01/11/2024
+                            td(class="manage-column") 103.89.86.190
+                            td(class="manage-column") news
+                            td(class="manage-column") edit
+                            td(class="manage-column column-action last") 5
+                        tr(class="row_item")
+                            td(class="manage-column text-bold") cambamao98
+                            td(class="manage-column") 17:01, 01/11/2024
+                            td(class="manage-column") 103.89.86.190
+                            td(class="manage-column") news
+                            td(class="manage-column") add
+                            td(class="manage-column column-action last") 5
+                        tr(class="row_item")
+                            td(class="manage-column text-bold") cambamao98
+                            td(class="manage-column") 19:58, 28/10/2024
+                            td(class="manage-column") 1.53.56.113
+                            td(class="manage-column") users
+                            td(class="manage-column") update
+                            td(class="manage-column column-action last") 1
+                        tr(class="row_item")
+                            td(class="manage-column text-bold") cambamao98
+                            td(class="manage-column") 19:58, 28/10/2024
+                            td(class="manage-column") 1.53.56.113
+                            td(class="manage-column") users
+                            td(class="manage-column") update
+                            td(class="manage-column column-action last") 1
+                        tr(class="row_item")
+                            td(class="manage-column text-bold") cambamao98
+                            td(class="manage-column") 19:56, 28/10/2024
+                            td(class="manage-column") 1.53.56.113
+                            td(class="manage-column") users
+                            td(class="manage-column") update
+                            td(class="manage-column column-action last") 672
+                        tr(class="row_item")
+                            td(class="manage-column text-bold") cambamao98
+                            td(class="manage-column") 19:56, 28/10/2024
+                            td(class="manage-column") 1.53.56.113
+                            td(class="manage-column") Oauth
+                            td(class="manage-column") login
+                            td(class="manage-column column-action last") 672
+                        tr(class="row_item")
+                            td(class="manage-column text-bold") cambamao98
+                            td(class="manage-column") 13:51, 28/10/2024
+                            td(class="manage-column") 103.89.86.190
+                            td(class="manage-column") Oauth
+                            td(class="manage-column") login
+                            td(class="manage-column column-action last") 672
+        div#box-system(class="box-system metabox")
+            div(class="handlediv down")
+            h3 Thông tin hệ thống
+            div(class="inside")
+                strong
+                    i(class="fa fa-book margin-r-5")
+                    | Domain
+                p(class="text-muted") dienmaytonghop.com
+                hr(style="margin-top:10px; margin-bottom:10px")
+                strong
+                    i(class="fa fa-book margin-r-5")
+                    | PHP
+                p(class="text-muted") 7.4.33
+                hr(style="margin-top:10px; margin-bottom:10px")
+                strong
+                    i(class="fa fa-book margin-r-5")
+                    | MySQL
+                p(class="text-muted") 5.5.5-10.4.34-MariaDB
+                hr(style="margin-top:10px; margin-bottom:10px")
+                strong
+                    i(class="fa fa-book margin-r-5")
+                    | Server Software
+                p(class="text-muted")
+                    | LiteSpeed
+                hr(style="margin-top:10px; margin-bottom:10px")
+                strong
+                    i(class="fa fa-book margin-r-5")
+                    | Client IP
+                p(class="text-muted") 1.53.56.140
+                hr(style="margin-top:10px; margin-bottom:10px")
+                strong
+                    i(class="fa fa-book margin-r-5")
+                    | Clien Browser
+                p(class="text-muted no-margin") Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36

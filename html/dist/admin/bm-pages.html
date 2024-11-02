@@ -53,7 +53,12 @@
                     </ul>
                 </li>
                 <li><a href="#"><i class="fa-solid fa-file-image"></i><span class="title">Media<span class="pending-count">45</span></span></a></li>
-                <li><a href="#"><i class="fa-solid fa-file"></i><span class="title">Trang</span></a></li>
+                <li><a href="./bm-pages.html"><i class="fa-solid fa-file"></i><span class="title">Trang</span></a>
+                    <ul class="sub-menu">
+                        <li class="active"><a href="./bm-pages.html">Tất cả các Trang</a></li>
+                        <li><a href="./bm-new-page.html">Thêm trang mới</a></li>
+                    </ul>
+                </li>
                 <li><a href="#"><i class="fa-solid fa-comment"></i><span class="title">Bình luận</span></a></li>
                 <li><a href="#"><i class="fa-solid fa-plug"></i><span class="title">Plugin</span></a>
                     <ul class="sub-menu">
@@ -75,15 +80,15 @@
                 <div class="toolbar" id="toolbar"><a class="page-title-action button action-add" href="#">Thêm trang   </a></div>
             </div>
             <div class="bm-admin-content">
-                <form class="admin-tablelist" action="https://dienmaytonghop.com/ws-admin/?mod=page" name="manage" method="post" accept-charset="utf-8">
+                <form class="admin-tablelist" action="#" name="manage" method="post" accept-charset="utf-8">
                     <input type="hidden" name="action" value="search">
                     <input type="hidden" name="modnow" value="page">
                     <input type="hidden" name="pagenow" value="page">
                     <input type="hidden" name="typenow" value="manage">
                     <div class="posts-filter" id="posts-filter">
                         <ul class="subsubsub">
-                            <li><a class="current" href="https://dienmaytonghop.com/ws-admin/?mod=page">Tất cả <span class="count">(18)</span></a></li>
-                            <li><a href="https://dienmaytonghop.com/ws-admin/?mod=page&amp;amp;post_status=publish">Đã xuất bản <span class="count">(18)</span></a></li>
+                            <li><a class="current" href="#">Tất cả <span class="count">(18)</span></a></li>
+                            <li><a href="#">Đã xuất bản <span class="count">(18)</span></a></li>
                         </ul>
                         <div class="search-box" id="search-box">
                             <input class="form-control text-search" type="text" name="keyword" value="">
@@ -123,10 +128,10 @@
                                 <th class="manage-column column-cb" scope="col" data-colname="cb">
                                     <input type="checkbox" name="checkall" value="">
                                 </th>
-                                <th class="manage-column column-title" scope="col" data-colname="title"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=page&amp;amp;orderby=title&amp;amp;order=desc">Tiêu đề</a></th>
-                                <th class="manage-column column-picture" scope="col" data-colname="picture"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=page&amp;amp;orderby=picture&amp;amp;order=desc">Hình ảnh</a></th>
-                                <th class="manage-column column-slug" scope="col" data-colname="slug"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=page&amp;amp;orderby=slug&amp;amp;order=desc">Đường dẫn</a></th>
-                                <th class="manage-column column-date" scope="col" data-colname="date"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=page&amp;amp;orderby=date&amp;amp;order=desc">Thời gian</a></th>
+                                <th class="manage-column column-title" scope="col" data-colname="title"><a class="sorted desc" href="#">Tiêu đề</a></th>
+                                <th class="manage-column column-picture" scope="col" data-colname="picture"><a class="sorted desc" href="#">Hình ảnh</a></th>
+                                <th class="manage-column column-slug" scope="col" data-colname="slug"><a class="sorted desc" href="#">Đường dẫn</a></th>
+                                <th class="manage-column column-date" scope="col" data-colname="date"><a class="sorted desc" href="#">Thời gian</a></th>
                                 <th class="manage-column column-action" scope="col" data-colname="action">Tác vụ</th>
                             </tr>
                         </thead>
@@ -135,12 +140,12 @@
                                 <td class="manage-column column-cb" data-colname="cb">
                                     <input class="checkbox" type="checkbox" name="ids[]" value="25">
                                 </td>
-                                <td class="manage-column column-title" data-colname="title"><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=page&amp;amp;sub=edit&amp;amp;id=25">Sản phẩm</a>
+                                <td class="manage-column column-title" data-colname="title"><a class="title-link-edit" href="./bm-edit-page.html">Sản phẩm</a>
                                     <div class="row-actions">
                                         <ul>
-                                            <li><a class="row-action row-action-edit" href="https://dienmaytonghop.com/ws-admin/?mod=page&amp;amp;sub=edit&amp;amp;id=25">Chỉnh sửa</a></li>
-                                            <li><a class="row-action do-action row-action-hidden" href="https://dienmaytonghop.com/ws-admin/?mod=page&amp;amp;id=25&amp;amp;action=hidden" onclick="do_check(25); do_submit('hidden')">Bản nháp</a></li>
-                                            <li><a class="row-action row-action-delete" href="https://dienmaytonghop.com/ws-admin/?mod=page&amp;amp;sub=del&amp;amp;id=25" onclick="return do_delete(25)">Thùng rác</a></li>
+                                            <li><a class="row-action row-action-edit" href="./bm-edit-page.html">Chỉnh sửa</a></li>
+                                            <li><a class="row-action do-action row-action-hidden" href="#" onclick="do_check(25); do_submit('hidden')">Bản nháp</a></li>
+                                            <li><a class="row-action row-action-delete" href="#" onclick="return do_delete(25)">Thùng rác</a></li>
                                             <li><a class="preview-link" href="https://dienmaytonghop.com/san-pham" target="_blank">Xem</a></li>
                                         </ul>
                                     </div>
@@ -149,7 +154,7 @@
                                 <td class="manage-column column-slug" data-colname="slug">san-pham</td>
                                 <td class="manage-column column-date" data-colname="date">Đã xuất bản<br>31/10/2024 lúc 11:25 chiều</td>
                                 <td class="manage-column column-action" data-colname="action">
-                                    <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=page&amp;amp;sub=edit&amp;amp;id=25" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                    <div class="row_action"><a class="btn-action action-edit bg-blue" href="./bm-edit-page.html" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
                                         <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(25)" onclick="do_submit('hidden')"></button>
                                         <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(25)" onclick="return do_submit(this.value)"></button>
                                     </div>
@@ -597,7 +602,7 @@
         <!-- START FOOTER-->
         <footer class="main-footer">
             <div class="pull-left"><span>© 2024 </span><a href="#" target="_blank"><strong>Trắc nghiệm demo</strong></a></div>
-            <div class="pull-right hidden-xs">Phiên bản 3.1.10	</div>
+            <div class="pull-right d-none d-md-block">Phiên bản 3.1.10	</div>
         </footer>
         <!-- CLOSE FOOTER-->
         <!-- Bootstrap-->

@@ -17,7 +17,7 @@
         <!-- Jquery-->
         <script src="../js/jquery.min.js"></script>
     </head>
-    <body class="page-template-admin-panel-add-new-page">
+    <body class="page-template-admin-panel-editpost">
         <!-- START HEADER-->
         <div class="bm-admin-navbar">
             <ul dropdown>
@@ -76,27 +76,28 @@
         <!-- START CONTENT-->
         <main class="bm-admin-wrap">
             <div class="bm-admin-title"> 
-                <h1>Thêm Trang</h1>
+                <h1>Sửa bài viết</h1>
+                <div class="toolbar" id="toolbar"><a class="page-title-action button action-add" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;sub=add">Viết bài mới</a></div>
             </div>
             <div class="bm-admin-content">
-                <form action="https://dienmaytonghop.com/ws-admin/?mod=page&amp;amp;sub=add" method="post" accept-charset="utf-8">
+                <form action="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;sub=edit&amp;amp;id=4" method="post" accept-charset="utf-8">
                     <div id="poststuff">
                         <div class="metabox-holder columns-2" id="post-body">
                             <div id="post-left-content">
                                 <div id="post-title">
-                                    <input id="title" type="text" name="title" value="" placeholder="Nhập tiêu đề ở đây" autofocus="1" required="1" autocomplete="off">
+                                    <input id="title" type="text" name="title" value="Sự khác biệt của gas R32 và gas R410A" placeholder="Nhập tiêu đề ở đây" autofocus="1" required="1" autocomplete="off">
                                 </div>
-                                <div id="edit-slug-box" style="z-index:-1"><strong>Liên kết tĩnh:</strong><span id="sample-permalink"><a href="https://dienmaytonghop.com//" target="_blank">https://dienmaytonghop.com/<span id="editable-post-name"></span></a>
-                                        <input class="post-slug form-control" type="hidden" name="slug" value="" autocomplete="off"></span><span id="edit-slug-buttons">
+                                <div id="edit-slug-box" style="z-index:1"><strong>Liên kết tĩnh:</strong><span id="sample-permalink"><a href="https://dienmaytonghop.com/blog/su-khac-biet-cua-gas-r32-va-gas-r410a" target="_blank">https://dienmaytonghop.com/blog/<span id="editable-post-name">su-khac-biet-cua-gas-r32-va-gas-r410a</span></a>
+                                        <input class="post-slug form-control" type="hidden" name="slug" value="su-khac-biet-cua-gas-r32-va-gas-r410a" autocomplete="off"></span><span id="edit-slug-buttons">
                                         <button class="edit-slug button" type="button">Chỉnh sửa</button></span></div>
                                 <div class="post-content" id="post-content">
-                                    <textarea class="form-control" id="editor-description" name="description" data-editor="true" cols="40" rows="10" style="visibility: hidden; height: 212px; overflow: hidden; display: none;"></textarea>
+                                    <textarea class="form-control" id="editor-description" name="description" cols="40" rows="10" style="visibility: hidden; height: 212px; overflow: hidden; display: none;"></textarea>
                                 </div>
                                 <div class="metabox">
                                     <div class="handlediv" title="Click to toggle"></div>
                                     <h3>Mô tả ngắn</h3>
                                     <div class="inside">
-                                        <textarea class="form-control" id="short" name="short" cols="40" rows="3" value="" style="height: 72px; overflow: hidden;"></textarea>
+                                        <textarea class="form-control" id="short" name="short" data-editor="true" cols="40" rows="3" style="height: 72px; overflow: hidden;">Gas R32 và gas R410A&amp;nbsp;là hai loại môi chất lạnh thông dụng được sử dụng trong lĩnh vực điều hòa không khí, cả hai loại gas này đều có những ưu điểm về hiệu suất lạnh và sự thân thiện với môi trường, nhưng có sự khác nhau về thành phần hóa học, khả năng làm lạnh, giá cả và mức độ phổ biến.</textarea>
                                     </div>
                                 </div>
                                 <div class="metabox" id="post-seo">
@@ -109,7 +110,7 @@
                                                     <label for="friendly_title">Tiêu đề trang</label>
                                                 </div>
                                                 <div class="form-input">
-                                                    <input class="form-control" type="text" name="friendly_title" value="" id="friendly_title">
+                                                    <input class="form-control" type="text" name="friendly_title" value="Sự khác biệt của gas R32 và gas R410A" id="friendly_title">
                                                     <p class="description">Thẻ tiêu đề trang hiệu quả phải dài từ 10-70 ký tự, bao gồm cả dấu cách.</p>
                                                 </div>
                                             </div>
@@ -119,7 +120,7 @@
                                                     <label for="metadesc">Meta description</label>
                                                 </div>
                                                 <div class="form-input">
-                                                    <textarea class="form-control" id="metadesc" name="metadesc" cols="40" rows="3" style="height: 72px; overflow: hidden;"></textarea>
+                                                    <textarea class="form-control" id="metadesc" name="metadesc" cols="40" rows="3" style="height: 72px; overflow: hidden;">Sự khác biệt của gas R32 và gas R410A</textarea>
                                                     <p class="description">Thẻ meta description hiệu quả phải dài từ 160-300 ký tự, ngắn gọn và chứa các từ khóa tốt nhất.</p>
                                                 </div>
                                             </div>
@@ -129,7 +130,7 @@
                                                     <label for="metakey">Meta keywords</label>
                                                 </div>
                                                 <div class="form-input">
-                                                    <textarea class="form-control" id="metakey" name="metakey" cols="40" rows="3" style="height: 72px; overflow: hidden;"></textarea>
+                                                    <textarea class="form-control" id="metakey" name="metakey" cols="40" rows="3" style="height: 72px; overflow: hidden;">Sự khác biệt của gas R32 và gas R410A</textarea>
                                                     <p class="description">Thẻ meta keywords hiệu quả phải chứa các từ hoặc cụm từ liên quan đến nội dung của bài viết.</p>
                                                 </div>
                                             </div>
@@ -150,92 +151,89 @@
                             </div>
                             <!-- End #post-left-content-->
                             <div id="post-right-content">
-                                <div class="sticky-wrapper" id="sticky-wrapper" style="height: 428px;">
+                                <div class="sticky-wrapper" id="sticky-wrapper" style="height: 729px;">
                                     <div class="sticky">
-                                        <div class="metabox" id="post-attributes">
+                                        <div class="metabox" id="post-category">
                                             <div class="handlediv down" title="Click to toggle"></div>
-                                            <h3>Thuộc tính trang</h3>
+                                            <h3>Chuyên mục</h3>
                                             <div class="inside">
-                                                <div class="form-field">
-                                                    <div class="form-label">
-                                                        <label for="parentid">Cha mẹ</label>
-                                                    </div>
-                                                    <div class="form-input">
-                                                        <select class="form-control select2 select2-hidden-accessible" id="parentid" name="parentid" data-select2-id="parentid" tabindex="-1" aria-hidden="true">
-                                                            <option value="0" selected="selected" data-select2-id="2">(Không có cha mẹ)</option>
-                                                            <option value="25">Sản phẩm</option>
-                                                            <option value="24">Bảng giá</option>
-                                                            <option value="23">Dịch vụ</option>
-                                                            <option value="22">Quản lý đơn hàng</option>
-                                                            <option value="21">Đổi mật khẩu</option>
-                                                            <option value="20">Tài khoản</option>
-                                                            <option value="19">Đăng ký</option>
-                                                            <option value="18">Đăng nhập</option>
-                                                            <option value="17">Quên mật khẩu</option>
-                                                            <option value="16">Giỏ hàng</option>
-                                                            <option value="15">So sánh sản phẩm</option>
-                                                            <option value="14">Kiểm tra đơn hàng</option>
-                                                            <option value="12">Giới thiệu</option>
-                                                            <option value="7">Chính sách vận chuyển</option>
-                                                            <option value="4">Chính sách bảo mật</option>
-                                                            <option value="10">Mua trả góp</option>
-                                                            <option value="3">Chính sách đổi trả</option>
-                                                            <option value="5">Liên Hệ</option>
-                                                        </select>
-                                                    </div>
+                                                <div class="div-select">
+                                                    <input type="hidden" name="cat_id" value="1">
+                                                    <ul class="ul-select">
+                                                        <li>
+                                                            <label>
+                                                                <input type="checkbox" name="post_category[]" value="10">Khuyến mãi
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label>
+                                                                <input type="checkbox" name="post_category[]" value="1" checked="checked">Tin tức
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label>
+                                                                <input type="checkbox" name="post_category[]" value="9">Tuyển dụng
+                                                            </label>
+                                                        </li>
+                                                    </ul>
                                                 </div>
-                                                <!-- End div.form-field-->
-                                                <div class="form-field">
-                                                    <div class="form-label">
-                                                        <label for="template">Giao diện</label>
-                                                    </div>
-                                                    <div class="form-input">
-                                                        <select class="form-control select2-hidden-accessible" id="template" name="template" data-select2-id="template" tabindex="-1" aria-hidden="true">
-                                                            <option value="default" selected="selected" data-select2-id="4">Giao diện mặc định</option>
-                                                            <option value="page-changepass">Password Change Page</option>
-                                                            <option value="page-compare">Compare Page</option>
-                                                            <option value="page-contact">Contact Page</option>
-                                                            <option value="page-flashsale">Flashsale Page</option>
-                                                            <option value="page-home">Home Page</option>
-                                                            <option value="page-login">Login Page</option>
-                                                            <option value="page-lostpass">Forgot Password Page</option>
-                                                            <option value="page-member">Account Page</option>
-                                                            <option value="page-order">Cart Page</option>
-                                                            <option value="page-ordercheck">Order Check Page</option>
-                                                            <option value="page-register">Register Page</option>
-                                                            <option value="page-userorder">Order List Page</option>
-                                                        </select>
-                                                    </div>
+                                            </div>
+                                        </div>
+                                        <div class="metabox" id="post-tag">
+                                            <div class="handlediv down" title="Click to toggle"></div>
+                                            <h3>Thẻ</h3>
+                                            <div class="inside">
+                                                <div class="div-select">
+                                                    <ul class="ul-select">
+                                                        <li>
+                                                            <label>
+                                                                <input type="checkbox" name="tag_ids[]" value="1">Demo
+                                                            </label>
+                                                        </li>
+                                                    </ul>
                                                 </div>
-                                                <!-- End div.form-field-->
-                                                <div class="form-field">
-                                                    <div class="form-label">
-                                                        <label for="menu_order">Thứ tự</label>
-                                                    </div>
-                                                    <div class="form-input">
-                                                        <input class="menu_order form-control" type="text" name="menu_order" value="0" id="menu_order" onkeypress="return is_num(event)">
-                                                    </div>
-                                                </div>
-                                                <!-- End div.form-field-->
                                             </div>
                                         </div>
                                         <div class="metabox" id="post-thumbnail">
                                             <div class="handlediv"></div>
                                             <h3>Ảnh đại diện</h3>
                                             <div class="inside">
-                                                <div class="upload-button-wrap"><a class="remove-thumbnail hide" href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;amp;multiple=0&amp;amp;field_id=picture&amp;amp;fldr=page&amp;amp;filter=&amp;amp;akey=f44c2566077276cde6fcca190627ae95">Xóa ảnh đại diện</a><a class="set-thumbnail btn-upload" href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;amp;multiple=0&amp;amp;field_id=picture&amp;amp;fldr=page&amp;amp;filter=&amp;amp;akey=f44c2566077276cde6fcca190627ae95">Đặt ảnh đại điện</a>
-                                                    <input id="picture" type="hidden" name="picture" value="" onchange="changeUpload('#picture')">
+                                                <div class="upload-button-wrap">
+                                                    <div class="picture-wrap"><img src="https://dienmaytonghop.com/uploads/news/10-2024/su-khac-biet-cua-gas-r32-va-gas-r410a.webp" alt=""></div><a class="remove-thumbnail" href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;amp;multiple=0&amp;amp;field_id=picture&amp;amp;fldr=news/10-2024&amp;amp;filter=su-khac-biet-cua-gas-r32-va-gas-r410a.webp&amp;amp;akey=9284352da211545acf5f719fe4c16b05">Xóa ảnh đại diện</a><a class="set-thumbnail btn-upload hide" href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;amp;multiple=0&amp;amp;field_id=picture&amp;amp;fldr=news/10-2024&amp;amp;filter=su-khac-biet-cua-gas-r32-va-gas-r410a.webp&amp;amp;akey=9284352da211545acf5f719fe4c16b05">Đặt ảnh đại điện</a>
+                                                    <input id="picture" type="hidden" name="picture" value="news/10-2024/su-khac-biet-cua-gas-r32-va-gas-r410a.webp" onchange="changeUpload('#picture')">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="metabox" id="post-published">
-                                            <div class="handlediv down" title="Click to toggle"></div>
-                                            <h3>Đăng trang</h3>
+                                            <div class="handlediv down"></div>
+                                            <h3>Đăng bài viết</h3>
                                             <div class="inside">
                                                 <div class="published form-wrap">
+                                                    <div class="form-field">
+                                                        <div class="form-label">
+                                                            <label for="display">Trạng thái</label>
+                                                        </div>
+                                                        <div class="form-input">
+                                                            <select class="form-control select2-hidden-accessible" id="post-status" name="display" data-select2-id="post-status" tabindex="-1" aria-hidden="true">
+                                                                <option value="1" selected="selected" data-select2-id="2">Đã xuất bản</option>
+                                                                <option value="0">Bản nháp</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-field" id="post-date_post">
+                                                        <div class="form-label"><i class="fa fa-calendar"></i><span>Đã đăng lúc: <b>22:53, 17/10/2024</b></span><a class="show-datetime" href="javascript:void(0)">Chỉnh sửa</a></div>
+                                                        <div class="form-input">
+                                                            <div class="timestamp-wrap" style="display:none">
+                                                                <div class="input-group">
+                                                                    <input class="form-control datetime" type="text" name="date_post" value="22:53, 17/10/2024" id="date_post">
+                                                                    <label class="input-group-addon no-margin" for="date_post"><i class="fa fa-calendar"></i></label>
+                                                                </div>
+                                                                <p style="margin-top:10px"><a class="save-timestamp hide-if-no-js button" href="#edit_timestamp">Ok</a><a class="cancel-timestamp hide-if-no-js button-cancel" href="#edit_timestamp">Hủy</a></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <div class="btn-publish">
-                                                        <input type="hidden" name="display" value="1">
-                                                        <input class="button btn-submit" type="submit" name="form-submitted" value="Thêm trang">
+                                                        <input class="button btn-submit" type="submit" name="form-submitted" value="Cập nhật">
                                                     </div>
                                                 </div>
                                             </div>

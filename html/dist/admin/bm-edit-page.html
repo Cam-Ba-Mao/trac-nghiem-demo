@@ -76,18 +76,19 @@
         <!-- START CONTENT-->
         <main class="bm-admin-wrap">
             <div class="bm-admin-title"> 
-                <h1>Thêm Trang</h1>
+                <h1>Sửa Trang</h1>
+                <div class="toolbar" id="toolbar"><a class="page-title-action button action-add" href="https://dienmaytonghop.com/ws-admin/?mod=page&amp;amp;sub=add">Thêm trang</a></div>
             </div>
             <div class="bm-admin-content">
-                <form action="https://dienmaytonghop.com/ws-admin/?mod=page&amp;amp;sub=add" method="post" accept-charset="utf-8">
+                <form action="https://dienmaytonghop.com/ws-admin/?mod=page&amp;amp;sub=edit&amp;amp;id=25" method="post" accept-charset="utf-8">
                     <div id="poststuff">
                         <div class="metabox-holder columns-2" id="post-body">
                             <div id="post-left-content">
                                 <div id="post-title">
-                                    <input id="title" type="text" name="title" value="" placeholder="Nhập tiêu đề ở đây" autofocus="1" required="1" autocomplete="off">
+                                    <input id="title" type="text" name="title" value="Sản phẩm" placeholder="Nhập tiêu đề ở đây" autofocus="1" required="1" autocomplete="off">
                                 </div>
-                                <div id="edit-slug-box" style="z-index:-1"><strong>Liên kết tĩnh:</strong><span id="sample-permalink"><a href="https://dienmaytonghop.com//" target="_blank">https://dienmaytonghop.com/<span id="editable-post-name"></span></a>
-                                        <input class="post-slug form-control" type="hidden" name="slug" value="" autocomplete="off"></span><span id="edit-slug-buttons">
+                                <div id="edit-slug-box" style="z-index:1"><strong>Liên kết tĩnh:</strong><span id="sample-permalink"><a href="https://dienmaytonghop.com/san-pham" target="_blank">https://dienmaytonghop.com/<span id="editable-post-name">san-pham</span></a>
+                                        <input class="post-slug form-control" type="hidden" name="slug" value="san-pham" autocomplete="off"></span><span id="edit-slug-buttons">
                                         <button class="edit-slug button" type="button">Chỉnh sửa</button></span></div>
                                 <div class="post-content" id="post-content">
                                     <textarea class="form-control" id="editor-description" name="description" data-editor="true" cols="40" rows="10" style="visibility: hidden; height: 212px; overflow: hidden; display: none;"></textarea>
@@ -96,7 +97,7 @@
                                     <div class="handlediv" title="Click to toggle"></div>
                                     <h3>Mô tả ngắn</h3>
                                     <div class="inside">
-                                        <textarea class="form-control" id="short" name="short" cols="40" rows="3" value="" style="height: 72px; overflow: hidden;"></textarea>
+                                        <textarea class="form-control" id="short" name="short" cols="40" rows="3" style="height: 72px; overflow: hidden;"></textarea>
                                     </div>
                                 </div>
                                 <div class="metabox" id="post-seo">
@@ -109,7 +110,7 @@
                                                     <label for="friendly_title">Tiêu đề trang</label>
                                                 </div>
                                                 <div class="form-input">
-                                                    <input class="form-control" type="text" name="friendly_title" value="" id="friendly_title">
+                                                    <input class="form-control" type="text" name="friendly_title" value="Sản phẩm" id="friendly_title">
                                                     <p class="description">Thẻ tiêu đề trang hiệu quả phải dài từ 10-70 ký tự, bao gồm cả dấu cách.</p>
                                                 </div>
                                             </div>
@@ -129,7 +130,7 @@
                                                     <label for="metakey">Meta keywords</label>
                                                 </div>
                                                 <div class="form-input">
-                                                    <textarea class="form-control" id="metakey" name="metakey" cols="40" rows="3" style="height: 72px; overflow: hidden;"></textarea>
+                                                    <textarea class="form-control" id="metakey" name="metakey" cols="40" rows="3" style="height: 72px; overflow: hidden;">Sản phẩm</textarea>
                                                     <p class="description">Thẻ meta keywords hiệu quả phải chứa các từ hoặc cụm từ liên quan đến nội dung của bài viết.</p>
                                                 </div>
                                             </div>
@@ -150,7 +151,7 @@
                             </div>
                             <!-- End #post-left-content-->
                             <div id="post-right-content">
-                                <div class="sticky-wrapper" id="sticky-wrapper" style="height: 428px;">
+                                <div class="sticky-wrapper" id="sticky-wrapper" style="height: 591px;">
                                     <div class="sticky">
                                         <div class="metabox" id="post-attributes">
                                             <div class="handlediv down" title="Click to toggle"></div>
@@ -163,7 +164,6 @@
                                                     <div class="form-input">
                                                         <select class="form-control select2 select2-hidden-accessible" id="parentid" name="parentid" data-select2-id="parentid" tabindex="-1" aria-hidden="true">
                                                             <option value="0" selected="selected" data-select2-id="2">(Không có cha mẹ)</option>
-                                                            <option value="25">Sản phẩm</option>
                                                             <option value="24">Bảng giá</option>
                                                             <option value="23">Dịch vụ</option>
                                                             <option value="22">Quản lý đơn hàng</option>
@@ -223,8 +223,9 @@
                                             <div class="handlediv"></div>
                                             <h3>Ảnh đại diện</h3>
                                             <div class="inside">
-                                                <div class="upload-button-wrap"><a class="remove-thumbnail hide" href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;amp;multiple=0&amp;amp;field_id=picture&amp;amp;fldr=page&amp;amp;filter=&amp;amp;akey=f44c2566077276cde6fcca190627ae95">Xóa ảnh đại diện</a><a class="set-thumbnail btn-upload" href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;amp;multiple=0&amp;amp;field_id=picture&amp;amp;fldr=page&amp;amp;filter=&amp;amp;akey=f44c2566077276cde6fcca190627ae95">Đặt ảnh đại điện</a>
-                                                    <input id="picture" type="hidden" name="picture" value="" onchange="changeUpload('#picture')">
+                                                <div class="upload-button-wrap">
+                                                    <div class="picture-wrap"><img src="https://dienmaytonghop.com/uploads/page/noimage.jpg" alt=""></div><a class="remove-thumbnail" href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;amp;multiple=0&amp;amp;field_id=picture&amp;amp;fldr=page&amp;amp;filter=noimage.jpg&amp;amp;akey=feb0d17ef521e6cabe064baaf11a03eb">Xóa ảnh đại diện</a><a class="set-thumbnail btn-upload hide" href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;amp;multiple=0&amp;amp;field_id=picture&amp;amp;fldr=page&amp;amp;filter=noimage.jpg&amp;amp;akey=feb0d17ef521e6cabe064baaf11a03eb">Đặt ảnh đại điện</a>
+                                                    <input id="picture" type="hidden" name="picture" value="page/noimage.jpg" onchange="changeUpload('#picture')">
                                                 </div>
                                             </div>
                                         </div>
@@ -233,9 +234,9 @@
                                             <h3>Đăng trang</h3>
                                             <div class="inside">
                                                 <div class="published form-wrap">
-                                                    <div class="btn-publish">
+                                                    <div class="btn-publish" style="margin-top:-10px; border-top: 0">
                                                         <input type="hidden" name="display" value="1">
-                                                        <input class="button btn-submit" type="submit" name="form-submitted" value="Thêm trang">
+                                                        <input class="button btn-submit" type="submit" name="form-submitted" value="Cập nhật">
                                                     </div>
                                                 </div>
                                             </div>
