@@ -1,0 +1,156 @@
+extends ../../../admin/layouts/layout-admin-panel
+
+append vars
+    -bodyClass = "page-template-admin-panel-add-new-page"
+    -typeMenu = ""
+
+block container
+    .bm-admin-title 
+        h1 Thêm Trang
+    .bm-admin-content
+        form(action="https://dienmaytonghop.com/ws-admin/?mod=page&amp;sub=add", method="post", accept-charset="utf-8")
+    div#poststuff
+        div#post-body(class="metabox-holder columns-2")
+            div#post-left-content
+                div#post-title
+                    input#title(type="text", name="title", value="", placeholder="Nhập tiêu đề ở đây", autofocus="1", required="1", autocomplete="off")
+                div#edit-slug-box(style="z-index:-1")
+                    strong Liên kết tĩnh:
+                    span#sample-permalink
+                        a(href="https://dienmaytonghop.com//", target="_blank") https://dienmaytonghop.com/
+                            span#editable-post-name
+                        input(type="hidden", name="slug", value="", autocomplete="off", class="post-slug form-control")
+                    span#edit-slug-buttons
+                        button(type="button", class="edit-slug button") Chỉnh sửa
+                div#post-content(class="post-content")
+                    textarea#editor-description(name="description", cols="40", rows="10", class="form-control", style="visibility: hidden; height: 212px; overflow: hidden; display: none;")
+                                       
+                div(class="metabox")
+                    div(class="handlediv", title="Click to toggle")
+                    h3 Mô tả ngắn
+                    div(class="inside")
+                        textarea#short(name="short", cols="40", rows="3", value="", class="form-control", style="height: 72px; overflow: hidden;")
+                div#post-seo(class="metabox")
+                    div(class="handlediv", title="Click to toggle")
+                    h3 Thông tin thẻ SEO
+                    div(class="inside")
+                        div(class="form-wrap")
+                            div(class="form-field")
+                                div(class="form-label")
+                                    label(for="friendly_title") Tiêu đề trang
+                                div(class="form-input")
+                                    input(type="text", name="friendly_title", value="", id="friendly_title", class="form-control")
+                                    p(class="description") Thẻ tiêu đề trang hiệu quả phải dài từ 10-70 ký tự, bao gồm cả dấu cách.
+                            // End div.form-field
+                            div(class="form-field")
+                                div(class="form-label")
+                                    label(for="metadesc") Meta description
+                                div(class="form-input")
+                                    textarea#metadesc(name="metadesc", cols="40", rows="3", class="form-control", style="height: 72px; overflow: hidden;")
+                                    p(class="description") Thẻ meta description hiệu quả phải dài từ 160-300 ký tự, ngắn gọn và chứa các từ khóa tốt nhất.
+                            // End div.form-field
+                            div(class="form-field")
+                                div(class="form-label")
+                                    label(for="metakey") Meta keywords
+                                div(class="form-input")
+                                    textarea#metakey(name="metakey", cols="40", rows="3", class="form-control", style="height: 72px; overflow: hidden;")
+                                    p(class="description") Thẻ meta keywords hiệu quả phải chứa các từ hoặc cụm từ liên quan đến nội dung của bài viết.
+                            // End div.form-field
+                            script.
+                                $("#snippet").each(function(){
+                                var badJSON = this.value;
+                                if(badJSON) {
+                                var parseJSON = JSON.parse(badJSON);
+                                var JSONInPrettyFormat = JSON.stringify(parseJSON, undefined, 4);
+                                this.value = JSONInPrettyFormat;
+                                }
+                                });
+            // End #post-left-content
+            div#post-right-content
+                div#sticky-wrapper(class="sticky-wrapper", style="height: 428px;")
+                    div(class="sticky", style="")
+                        div#post-attributes(class="metabox")
+                            div(class="handlediv down", title="Click to toggle")
+                            h3 Thuộc tính trang
+                            div(class="inside")
+                                div(class="form-field")
+                                    div(class="form-label")
+                                        label(for="parentid") Cha mẹ
+                                    div(class="form-input")
+                                        select#parentid(name="parentid", class="form-control select2 select2-hidden-accessible", data-select2-id="parentid", tabindex="-1", aria-hidden="true")
+                                            option(value="0", selected="selected", data-select2-id="2") (Không có cha mẹ)
+                                            option(value="25") Sản phẩm
+                                            option(value="24") Bảng giá
+                                            option(value="23") Dịch vụ
+                                            option(value="22") Quản lý đơn hàng
+                                            option(value="21") Đổi mật khẩu
+                                            option(value="20") Tài khoản
+                                            option(value="19") Đăng ký
+                                            option(value="18") Đăng nhập
+                                            option(value="17") Quên mật khẩu
+                                            option(value="16") Giỏ hàng
+                                            option(value="15") So sánh sản phẩm
+                                            option(value="14") Kiểm tra đơn hàng
+                                            option(value="12") Giới thiệu
+                                            option(value="7") Chính sách vận chuyển
+                                            option(value="4") Chính sách bảo mật
+                                            option(value="10") Mua trả góp
+                                            option(value="3") Chính sách đổi trả
+                                            option(value="5") Liên Hệ
+                                        span(class="select2 select2-container select2-container--default", dir="ltr", data-select2-id="1", style="width: auto;")
+                                            span(class="selection")
+                                                span(class="select2-selection select2-selection--single", role="combobox", aria-haspopup="true", aria-expanded="false", tabindex="0", aria-disabled="false", aria-labelledby="select2-parentid-container")
+                                                    span#select2-parentid-container(class="select2-selection__rendered", role="textbox", aria-readonly="true", title="(Không có cha mẹ)") (Không có cha mẹ)
+                                                    span(class="select2-selection__arrow", role="presentation")
+                                                        b(role="presentation")
+                                            span(class="dropdown-wrapper", aria-hidden="true")
+                                // End div.form-field
+                                div(class="form-field")
+                                    div(class="form-label")
+                                        label(for="template") Giao diện
+                                    div(class="form-input")
+                                        select#template(name="template", class="form-control select2-hidden-accessible", data-select2-id="template", tabindex="-1", aria-hidden="true")
+                                            option(value="default", selected="selected", data-select2-id="4") Giao diện mặc định
+                                            option(value="page-changepass") Password Change Page
+                                            option(value="page-compare") Compare Page
+                                            option(value="page-contact") Contact Page
+                                            option(value="page-flashsale") Flashsale Page
+                                            option(value="page-home") Home Page
+                                            option(value="page-login") Login Page
+                                            option(value="page-lostpass") Forgot Password Page
+                                            option(value="page-member") Account Page
+                                            option(value="page-order") Cart Page
+                                            option(value="page-ordercheck") Order Check Page
+                                            option(value="page-register") Register Page
+                                            option(value="page-userorder") Order List Page
+                                        span(class="select2 select2-container select2-container--default", dir="ltr", data-select2-id="3", style="width: auto;")
+                                            span(class="selection")
+                                                span(class="select2-selection select2-selection--single", role="combobox", aria-haspopup="true", aria-expanded="false", tabindex="0", aria-disabled="false", aria-labelledby="select2-template-container")
+                                                    span#select2-template-container(class="select2-selection__rendered", role="textbox", aria-readonly="true", title="Giao diện mặc định") Giao diện mặc định
+                                                    span(class="select2-selection__arrow", role="presentation")
+                                                        b(role="presentation")
+                                            span(class="dropdown-wrapper", aria-hidden="true")
+                                // End div.form-field
+                                div(class="form-field")
+                                    div(class="form-label")
+                                        label(for="menu_order") Thứ tự
+                                    div(class="form-input")
+                                        input(type="text", name="menu_order", value="0", id="menu_order", class="menu_order form-control", onkeypress="return is_num(event)")
+                                // End div.form-field
+                        div#post-thumbnail(class="metabox")
+                            div(class="handlediv")
+                            h3 Ảnh đại diện
+                            div(class="inside")
+                                div(class="upload-button-wrap")
+                                    a(href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;multiple=0&amp;field_id=picture&amp;fldr=page&amp;filter=&amp;akey=f44c2566077276cde6fcca190627ae95", class="remove-thumbnail hide") Xóa ảnh đại diện
+                                    a(href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;multiple=0&amp;field_id=picture&amp;fldr=page&amp;filter=&amp;akey=f44c2566077276cde6fcca190627ae95", class="set-thumbnail btn-upload") Đặt ảnh đại điện
+                                    input#picture(type="hidden", name="picture", value="", onchange="changeUpload('#picture')")
+                        div#post-published(class="metabox")
+                            div(class="handlediv down", title="Click to toggle")
+                            h3 Đăng trang
+                            div(class="inside")
+                                div(class="published form-wrap")
+                                    div(class="btn-publish", style="margin-top:-10px; border-top: 0")
+                                        input(type="hidden", name="display", value="1")
+                                        input(type="submit", name="form-submitted", value="Thêm trang", class="button btn-submit")
+            // End #post-right-content

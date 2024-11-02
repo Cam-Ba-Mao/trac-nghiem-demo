@@ -19,6 +19,10 @@ html(lang="en")
         link(rel="stylesheet" href="../admin/css/admin.min.css")
         link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css")
 
+        
+        // Jquery
+        script(src="../js/jquery.min.js")
+
     body(class=(bodyClass && bodyClass))
 
         // START HEADER
@@ -38,8 +42,6 @@ html(lang="en")
         include ../components/Footer/footer
         // CLOSE FOOTER
 
-        // Jquery
-        script(src="../js/jquery.min.js")
 
         // Bootstrap
         script(src="./js/popper.min.js")
@@ -47,8 +49,10 @@ html(lang="en")
         // Plugins script
         script(src="../js/bundle.min.js")
         // TinyMCE
-        script(src="../js/tinymce/tinymce.min.js")
+        script(src="./editors/tinymce/tinymce.min.js")
+        // CKEditor
+        script(src="./editors/ckeditor/ckeditor.js")
         // Template script
         script(src="../admin/js/admin.min.js")
         // Common script
-        script(src="./admin/js/common.min.js")
+        //- script(src="./admin/js/common.min.js")

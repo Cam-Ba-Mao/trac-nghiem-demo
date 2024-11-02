@@ -1,0 +1,121 @@
+extends ../../../admin/layouts/layout-admin-panel
+
+append vars
+    -bodyClass = "page-template-admin-panel-tag"
+    -typeMenu = ""
+
+block container
+
+    .bm-admin-title 
+        h1 Thẻ
+        #toolbar.toolbar
+            a.page-title-action.button.action-sort(href="#") Sắp xếp     
+
+    .bm-admin-content
+        div#category-box(class="taxonomy")
+            .row.flex-lg-row-reverse
+                .col-lg-8
+                    form(action="#", name="manage", class="admin-tablelist", method="post", accept-charset="utf-8")
+                        input(type="hidden", name="action", value="search")
+                        div#posts-filter(class="posts-filter")
+                            div#search-box(class="search-box")
+                                input(type="text", name="keyword", value="", class="form-control text-search")
+                                input(type="submit", name="search", value="Tìm thẻ", class="button btn-search")
+                        div(class="tablenav clearfix")
+                            div(class="btn-group")
+                                div(class="actions bulkactions")
+                                    select#doaction(name="doaction", class="form-control")
+                                        option(value="", selected="selected") Hành động
+                                        option(value="update") Cập nhật
+                                        option(value="del") Xóa thẻ
+                                    
+                                    input(type="submit", value="Áp dụng", class="button")
+                            div(class="tablenav-pages")
+                                div(class="displaying-num") 1 mục
+                        table#manage(class="table-list")
+                            thead
+                                tr
+                                    th(class="manage-column column-checkbox")
+                                        div(class="label-wrap")
+                                            input(type="checkbox", name="checkall", value="")
+                                    th(class="manage-column column-name")
+                                        a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;act=tag&amp;orderby=name&amp;order=desc", class="sorted desc") Tên
+                                    th(class="manage-column column-slug")
+                                        a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;act=tag&amp;orderby=slug&amp;order=desc", class="sorted desc") Đường dẫn
+                                    th(class="manage-column column-count")
+                                        a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;act=tag&amp;orderby=count&amp;order=desc", class="sorted desc") Lượt
+                            tbody
+                                tr(id="row_1", class="row_item")
+                                    td(class="manage-column column-checkbox")
+                                        span
+                                            input(type="checkbox", name="ids[]", value="1", class="checkbox")
+                                    td(class="manage-column column-name")
+                                        span
+                                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;act=tag&amp;sub=edit&amp;id=1", class="title-link-edit") Demo
+                                            div(class="row-actions")
+                                                ul
+                                                    li
+                                                        a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;act=tag&amp;sub=edit&amp;id=1", class="row-action row-action-edit") Chỉnh sửa
+                                                    li
+                                                        a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;act=tag&amp;sub=del&amp;id=1", class="row-action row-action-delete", onclick="return do_delete(1)") Thùng rác
+                                                    li
+                                                        a(href="https://dienmaytonghop.com/tag/demo", class="preview-link", target="_blank") Xem
+                                    td(class="manage-column column-slug")
+                                        span demo
+                                    td(class="manage-column column-count")
+                                        span
+                                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;tag_name=demo") 0
+                            tfoot
+                                tr
+                                    td(class="manage-column column-checkbox")
+                                        span(class="label-wrap")
+                                            input(type="checkbox", name="checkall", value="")
+                                    td(class="manage-column column-name")
+                                        a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;act=tag&amp;orderby=name&amp;order=desc", class="sorted desc") Tên
+                                    td(class="manage-column column-slug")
+                                        a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;act=tag&amp;orderby=slug&amp;order=desc", class="sorted desc") Đường dẫn
+                                    td(class="manage-column column-count")
+                                        a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;act=tag&amp;orderby=count&amp;order=desc", class="sorted desc") Lượt
+                        div(class="tablenav")
+                            div(class="btn-group")
+                                div(class="actions bulkactions")
+                                    select#doaction2(name="doaction2", class="form-control select2-hidden-accessible")
+                                        option(value="", selected="selected") Hành động
+                                        option(value="update") Cập nhật
+                                        option(value="del") Xóa thẻ
+                                    
+                                    input(type="submit", value="Áp dụng", class="button")
+                            div(class="tablenav-pages")
+                                div(class="displaying-num") 1 mục
+                .col-md-4
+                    form#add-taxonomy(action="https://dienmaytonghop.com/ws-admin/?mod=news&amp;act=tag", method="post", accept-charset="utf-8")
+                        table(class="form-table")
+                            tbody
+                                tr#field-title-1(class="form-field")
+                                    th(scope="row", class="field-title")
+                                        | Thêm thẻ
+                                tr#field-title(class="form-field")
+                                    th(scope="row")
+                                        label(for="title") Tiêu đề
+                                    td
+                                        input#title(type="text", name="title", value="", class="form-control", autofocus="1", required="1")
+                                        p(class="description") Tiêu đề sẽ hiển thị trên trang mạng của bạn.
+                                tr#field-slug(class="form-field")
+                                    th(scope="row")
+                                        label(for="slug") Đường dẫn
+                                    td
+                                        input#slug(type="text", name="slug", value="", class="form-control")
+                                        p(class="description") Chuỗi cho đường dẫn tĩnh là phiên bản của tên hợp chuẩn với Đường dẫn (URL). Chuỗi này bao gồm chữ cái thường, số và dấu gạch ngang (-).
+                                tr#field-description(class="form-field")
+                                    th(scope="row")
+                                        label(for="description") Mô tả
+                                    td
+                                        //- textarea#description5(name="textarea34", cols="40", rows="4", class="form-control d-none")
+                                        //- textarea#description1(name="description3", data-editor="true", cols="40", rows="4", class="form-control")
+                                        textarea#description(name="description", data-editor="false", cols="40", rows="4", class="form-control")
+                                        p(class="description") Mô tả bình thường không được sử dụng trong giao diện, tuy nhiên có vài giao diện hiện thị mô tả này.
+                                tr#field-button(class="form-field")
+                                    th(scope="row", class="hide")
+                                    td
+                                        input(type="submit", name="form-submitted", value="Thêm thẻ", class="button btn-submit")
+

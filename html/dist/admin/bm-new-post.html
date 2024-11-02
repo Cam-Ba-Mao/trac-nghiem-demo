@@ -14,6 +14,8 @@
         <!-- Template syle-->
         <link rel="stylesheet" href="../admin/css/admin.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <!-- Jquery-->
+        <script src="../js/jquery.min.js"></script>
     </head>
     <body class="page-template-admin-panel-posts">
         <!-- START HEADER-->
@@ -47,7 +49,7 @@
                         <li class="active"><a href="./bm-posts.html">Tất cả bài viết</a></li>
                         <li><a href="./bm-new-post.html">Thêm bài viết</a></li>
                         <li><a href="./bm-category.html">Danh mục</a></li>
-                        <li><a href="#">Thẻ</a></li>
+                        <li><a href="./tag.html">Thẻ</a></li>
                     </ul>
                 </li>
                 <li><a href="#"><i class="fa-solid fa-file-image"></i><span class="title">Media<span class="pending-count">45</span></span></a></li>
@@ -68,50 +70,153 @@
         <!-- CLOSE SIDEBAR-->
         <!-- START CONTENT-->
         <main class="bm-admin-wrap">
+            <div class="bm-admin-title"> 
+                <h1>Thêm bài viết</h1>
+            </div>
             <div class="bm-admin-content">
-                <div class="bm-box-container__wrap-title">
-                    <h1>Add New Post</h1>
-                </div>
-                <div class="bm-admin-message error bm-box-container__wrap-title">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque pariatur, culpa, iusto odit excepturi velit
-                    temporibus, praesentium assumenda dolore deleniti quibusdam molestiae minima reiciendis id repellendus
-                    obcaecati soluta voluptatibus impedit.
-                </div>
-                <div class="bm-admin-message success bm-box-container__wrap-title">Is everything alright?<a href="#">link is here</a></div>
-                <div class="bm-admin-message info bm-box-container__wrap-title">info minfo this kind of stuff</div>
-                <div class="bm-admin-message warning bm-box-container__wrap-title">warning something has happened</div>
-                <div class="clear" style="height: 10px;"></div>
-                <div class="bm-box-container post-content">
-                    <div class="bm-box-container__wrap-title">
-                        <form class="form-admin" action="">
-                            <ul>
-                                <li>
-                                    <input class="big" type="text" placeholder="Enter title here">
-                                </li>
-                                <li>
-                                    <textarea class="tinymce-editor d-none" id="mytextarea-1" name="editor1">
-                                        <p> <img src="../images/uploading-icon.svg" alt="Intro"></p>
-                                        <p>Tập trung vào các môn học cốt lõi của chương trình giáo dục Mỹ, được giảng dạy bằng tiếng Anh, và kết hợp giữa các môn học năng khiếu theo chương trình Mỹ với chương trình giảng dạy bằng tiếng Việt của Bộ Giáo dục & Đào tạo Việt Nam. Sau năm lớp 8, học sinh có thể chọn tiếp tục học song ngữ và nhận bằng tốt nghiệp của Bộ Giáo dục & Đào tạo Việt Nam và tham gia các kỳ thi đánh giá năng lực như IELTS, SAT, ACT. Hoặc học sinh có thể chọn chuyển sang học lộ trình Tú tài Mỹ để nhận bằng Tú tài Trung học Greenville (Bang Pennsylvania, Mỹ).</p>
-                                        <p>Hệ Quốc tế Mỹ tập trung vào các môn học cốt lõi và các môn năng khiếu được giảng dạy bằng tiếng Anh, được cấp phép bởi Sở giáo dục GreenVille, bang Pennsylvania. Học sinh tại PennSchool đạt điều kiện của Bộ giáo dục Bang Pennsylvania sẽ được cấp bằng tốt nghiệp chính thức từ Trường trung học công lập Greenville, Bang Pennsylvania, bằng cấp được công nhận tại tất cả các trường ở Mỹ, Úc, Canada và các trường giảng dạy bằng tiếng Anh khác trên toàn thế giới.</p></textarea>
-                                </li>
-                            </ul>
-                        </form>
-                    </div>
-                    <div class="bm-box-container__wrap">
-                        <h3>test et</h3>
-                        <div class="bm-box-container__content">test et bakalm</div>
-                    </div>
-                </div>
-                <div class="bm-box-container post-rightbar">
-                    <div class="bm-box-container__wrap">
-                        <h3>Publish</h3>
-                        <div class="bm-box-container__content"><a class="btn-admin right" href="#">Preview</a><a class="btn-admin" href="#">Save Draft</a>
-                            <div class="publish-content">
-                                <button type="submit">Publish</button>
+                <form action="#" method="post" accept-charset="utf-8">
+                    <div id="poststuff">
+                        <div class="metabox-holder columns-2" id="post-body">
+                            <div id="post-left-content">
+                                <div id="post-title">
+                                    <input id="title" type="text" name="title" value="" placeholder="Nhập tiêu đề ở đây" autofocus="1" required="1" autocomplete="off">
+                                </div>
+                                <div id="edit-slug-box" style="z-index:-1"><strong>Liên kết tĩnh:</strong><span id="sample-permalink"><a href="#" target="_blank">https://trac-nghiem.io.vn<span id="editable-post-name"></span></a>
+                                        <input class="post-slug form-control" type="hidden" name="slug" value="" autocomplete="off"></span><span id="edit-slug-buttons">
+                                        <button class="edit-slug button" type="button">Chỉnh sửa</button></span></div>
+                                <div class="post-content" id="post-content">
+                                    <textarea class="form-control d-none" id="editor-description" name="description" data-editor="true" cols="40" rows="10"></textarea>
+                                </div>
+                                <div class="metabox" id="post-seo">
+                                    <div class="handlediv" title="Click to toggle"></div>
+                                    <h3>Thông tin thẻ SEO</h3>
+                                    <div class="inside">
+                                        <div class="form-wrap">
+                                            <div class="form-field">
+                                                <div class="form-label">
+                                                    <label for="friendly_title">Tiêu đề trang</label>
+                                                </div>
+                                                <div class="form-input">
+                                                    <input class="form-control" type="text" name="friendly_title" value="" id="friendly_title">
+                                                    <p class="description">Thẻ tiêu đề trang hiệu quả phải dài từ 10-70 ký tự, bao gồm cả dấu cách.</p>
+                                                </div>
+                                            </div>
+                                            <!-- End div.form-field-->
+                                            <div class="form-field">
+                                                <div class="form-label">
+                                                    <label for="metadesc">Meta description</label>
+                                                </div>
+                                                <div class="form-input">
+                                                    <textarea class="form-control" id="metadesc" name="metadesc" cols="40" rows="3" style="height: 72px; overflow: hidden;"></textarea>
+                                                    <p class="description">Thẻ meta description hiệu quả phải dài từ 160-300 ký tự, ngắn gọn và chứa các từ khóa tốt nhất.</p>
+                                                </div>
+                                            </div>
+                                            <!-- End div.form-field-->
+                                            <div class="form-field">
+                                                <div class="form-label">
+                                                    <label for="metakey">Meta keywords</label>
+                                                </div>
+                                                <div class="form-input">
+                                                    <textarea class="form-control" id="metakey" name="metakey" cols="40" rows="3" style="height: 72px; overflow: hidden;"></textarea>
+                                                    <p class="description">Thẻ meta keywords hiệu quả phải chứa các từ hoặc cụm từ liên quan đến nội dung của bài viết.</p>
+                                                </div>
+                                            </div>
+                                            <!-- End div.form-field-->
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                            <!-- End #post-left-content-->
+                            <div id="post-right-content">
+                                <div class="metabox" id="post-category">
+                                    <div class="handlediv down" title="Click to toggle"></div>
+                                    <h3>Chuyên mục</h3>
+                                    <div class="inside">
+                                        <div class="div-select">
+                                            <input type="hidden" name="cat_id" value="0">
+                                            <ul class="ul-select">
+                                                <li>
+                                                    <label>
+                                                        <input type="checkbox" name="post_category[]" value="10">Khuyến mãi
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label>
+                                                        <input type="checkbox" name="post_category[]" value="1">Tin tức
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label>
+                                                        <input type="checkbox" name="post_category[]" value="9">Tuyển dụng
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="metabox" id="post-tag">
+                                    <div class="handlediv down" title="Click to toggle"></div>
+                                    <h3>Thẻ</h3>
+                                    <div class="inside">
+                                        <div class="div-select">
+                                            <ul class="ul-select">
+                                                <li>
+                                                    <label>
+                                                        <input type="checkbox" name="tag_ids[]" value="1">Demo
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="metabox" id="post-thumbnail">
+                                    <div class="handlediv"></div>
+                                    <h3>Ảnh đại diện</h3>
+                                    <div class="inside">
+                                        <div class="upload-button-wrap"><a class="remove-thumbnail hide" href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;amp;multiple=0&amp;amp;field_id=picture&amp;amp;fldr=news/11-2024&amp;amp;filter=&amp;amp;akey=feb0d17ef521e6cabe064baaf11a03eb">Xóa ảnh đại diện</a><a class="set-thumbnail btn-upload" href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;amp;multiple=0&amp;amp;field_id=picture&amp;amp;fldr=news/11-2024&amp;amp;filter=&amp;amp;akey=feb0d17ef521e6cabe064baaf11a03eb">Đặt ảnh đại điện</a>
+                                            <input id="picture" type="hidden" name="picture" value="" onchange="changeUpload('#picture')">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="metabox" id="post-published">
+                                    <div class="handlediv down"></div>
+                                    <h3>Đăng bài viết</h3>
+                                    <div class="inside">
+                                        <div class="published form-wrap">
+                                            <div class="form-field">
+                                                <div class="form-label">
+                                                    <label for="display">Trạng thái</label>
+                                                </div>
+                                                <div class="form-input">
+                                                    <select class="form-control" id="post-status" name="display">
+                                                        <option value="1" selected="selected" data-select2-id="2">Đã xuất bản</option>
+                                                        <option value="0">Bản nháp</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-field" id="post-date_post">
+                                                <div class="form-label"><i class="fa fa-calendar"></i><span>Đăng <b>ngay lập tức</b></span><a class="show-datetime" href="javascript:void(0)">Chỉnh sửa</a></div>
+                                                <div class="form-input">
+                                                    <div class="timestamp-wrap" style="display:none">
+                                                        <div class="input-group">
+                                                            <input class="form-control datetime" type="text" name="date_post" value="07:48, 02/11/2024" id="date_post">
+                                                            <label class="input-group-addon no-margin" for="date_post"><i class="fa fa-calendar"></i></label>
+                                                        </div>
+                                                        <p style="margin-top:10px"><a class="save-timestamp hide-if-no-js button" href="#edit_timestamp">Ok</a><a class="cancel-timestamp hide-if-no-js button-cancel" href="#edit_timestamp">Hủy</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="btn-publish">
+                                                <input class="button btn-submit" type="submit" name="form-submitted" value="Đăng bài viết">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End #post-right-content-->
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </main>
         <!-- CLOSE CONTENT-->
@@ -121,18 +226,17 @@
             <div class="pull-right hidden-xs">Phiên bản 3.1.10	</div>
         </footer>
         <!-- CLOSE FOOTER-->
-        <!-- Jquery-->
-        <script src="../js/jquery.min.js"></script>
         <!-- Bootstrap-->
         <script src="./js/popper.min.js"></script>
         <script src="./js/bootstrap.min.js"></script>
         <!-- Plugins script-->
         <script src="../js/bundle.min.js"></script>
         <!-- TinyMCE-->
-        <script src="../js/tinymce/tinymce.min.js"></script>
+        <script src="./editors/tinymce/tinymce.min.js"></script>
+        <!-- CKEditor-->
+        <script src="./editors/ckeditor/ckeditor.js"></script>
         <!-- Template script-->
         <script src="../admin/js/admin.min.js"></script>
         <!-- Common script-->
-        <script src="./admin/js/common.min.js"></script>
     </body>
 </html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no">
+        <title>Trang quản trị</title>
+        <!-- Favicon-->
+        <link rel="icon" href="../images/favicon.png">
+        <!-- Bootstrap-->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <!-- Plugins style-->
+        <link rel="stylesheet" href="../css/bundle.min.css">
+        <!-- Template syle-->
+        <link rel="stylesheet" href="../admin/css/admin.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <!-- Jquery-->
+        <script src="../js/jquery.min.js"></script>
+    </head>
+    <body class="page-template-admin-panel-tag">
+        <!-- START HEADER-->
+        <div class="bm-admin-navbar">
+            <ul dropdown>
+                <li><a href="./bm-index.html"><i class="fa-solid fa-home"></i><span class="title">ANOTHER WEBSITE</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-comment"></i>1</a></li>
+                <li><a href="./bm-new-posts.html"><i class="fa-solid fa-plus"></i><span class="title">Tạo mới</span></a>
+                    <ul>
+                        <li><a href="./bm-new-post.html">Bài viết</a></li>
+                        <li><a href="#">Trang</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="my-account" dropdown>
+                <li> <a class="my-account__nav" href="#"><span class="title">Xin chào, maocam </span><img src="../images/default-avatar.png" alt="avatar"></a>
+                    <ul class="my-account__dropdown">
+                        <li class="info-user"><a href="./bm-new-post.html"> <img src="../images/default-avatar.png" alt="avatar"><span class="title">maocam </span><span class="edit-profile">Edit Profile </span></a></li>
+                        <li class="logout"><a href="#">Đăng xuất</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- CLOSE HEADER-->
+        <!-- START SIDEBAR-->
+        <div class="bm-admin-sidebar">
+            <ul>
+                <li><a href="./bm-index.html"><i class="fa-solid fa-tachometer"></i><span class="title">Trang quản trị</span></a></li>
+                <li class="active"><a href="./bm-posts.html"><i class="fa-solid fa-thumb-tack"></i><span class="title">Bài viết</span></a>
+                    <ul class="sub-menu">
+                        <li class="active"><a href="./bm-posts.html">Tất cả bài viết</a></li>
+                        <li><a href="./bm-new-post.html">Thêm bài viết</a></li>
+                        <li><a href="./bm-category.html">Danh mục</a></li>
+                        <li><a href="./tag.html">Thẻ</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-file-image"></i><span class="title">Media<span class="pending-count">45</span></span></a></li>
+                <li><a href="#"><i class="fa-solid fa-file"></i><span class="title">Trang</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-comment"></i><span class="title">Bình luận</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-plug"></i><span class="title">Plugin</span></a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Plugin đã cài đặt</a></li>
+                        <li><a href="#">Cài Plugin</a></li>
+                        <li><a href="#">Sửa tệp tin Plugin</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-wrench"></i><span class="title">Công cụ</span></a></li>
+                <li><a href="./bm-settings.html"><i class="fa-solid fa-cog"></i><span class="title">Cài đặt</span></a></li>
+                <li class="line"><span></span></li><a class="bm-collapse-admin-menu" href="#"><i class="fa-solid fa-arrow-circle-left"></i><span class="title">Thu gọn menu</span></a>
+            </ul>
+        </div>
+        <!-- CLOSE SIDEBAR-->
+        <!-- START CONTENT-->
+        <main class="bm-admin-wrap">
+            <div class="bm-admin-title"> 
+                <h1>Thẻ</h1>
+                <div class="toolbar" id="toolbar"><a class="page-title-action button action-sort" href="#">Sắp xếp     </a></div>
+            </div>
+            <div class="bm-admin-content">
+                <div class="taxonomy" id="category-box">
+                    <div class="row flex-lg-row-reverse">
+                        <div class="col-lg-8">
+                            <form class="admin-tablelist" action="#" name="manage" method="post" accept-charset="utf-8">
+                                <input type="hidden" name="action" value="search">
+                                <div class="posts-filter" id="posts-filter">
+                                    <div class="search-box" id="search-box">
+                                        <input class="form-control text-search" type="text" name="keyword" value="">
+                                        <input class="button btn-search" type="submit" name="search" value="Tìm thẻ">
+                                    </div>
+                                </div>
+                                <div class="tablenav clearfix">
+                                    <div class="btn-group">
+                                        <div class="actions bulkactions">
+                                            <select class="form-control" id="doaction" name="doaction">
+                                                <option value="" selected="selected">Hành động</option>
+                                                <option value="update">Cập nhật</option>
+                                                <option value="del">Xóa thẻ</option>
+                                            </select>
+                                            <input class="button" type="submit" value="Áp dụng">
+                                        </div>
+                                    </div>
+                                    <div class="tablenav-pages">
+                                        <div class="displaying-num">1 mục</div>
+                                    </div>
+                                </div>
+                                <table class="table-list" id="manage">
+                                    <thead>
+                                        <tr>
+                                            <th class="manage-column column-checkbox">
+                                                <div class="label-wrap">
+                                                    <input type="checkbox" name="checkall" value="">
+                                                </div>
+                                            </th>
+                                            <th class="manage-column column-name"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;act=tag&amp;amp;orderby=name&amp;amp;order=desc">Tên</a></th>
+                                            <th class="manage-column column-slug"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;act=tag&amp;amp;orderby=slug&amp;amp;order=desc">Đường dẫn</a></th>
+                                            <th class="manage-column column-count"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;act=tag&amp;amp;orderby=count&amp;amp;order=desc">Lượt</a></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="row_item" id="row_1">
+                                            <td class="manage-column column-checkbox"><span>
+                                                    <input class="checkbox" type="checkbox" name="ids[]" value="1"></span></td>
+                                            <td class="manage-column column-name"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;act=tag&amp;amp;sub=edit&amp;amp;id=1">Demo</a>
+                                                    <div class="row-actions">
+                                                        <ul>
+                                                            <li><a class="row-action row-action-edit" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;act=tag&amp;amp;sub=edit&amp;amp;id=1">Chỉnh sửa</a></li>
+                                                            <li><a class="row-action row-action-delete" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;act=tag&amp;amp;sub=del&amp;amp;id=1" onclick="return do_delete(1)">Thùng rác</a></li>
+                                                            <li><a class="preview-link" href="https://dienmaytonghop.com/tag/demo" target="_blank">Xem</a></li>
+                                                        </ul>
+                                                    </div></span></td>
+                                            <td class="manage-column column-slug"><span>demo</span></td>
+                                            <td class="manage-column column-count"><span><a href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;tag_name=demo">0</a></span></td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td class="manage-column column-checkbox"><span class="label-wrap">
+                                                    <input type="checkbox" name="checkall" value=""></span></td>
+                                            <td class="manage-column column-name"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;act=tag&amp;amp;orderby=name&amp;amp;order=desc">Tên</a></td>
+                                            <td class="manage-column column-slug"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;act=tag&amp;amp;orderby=slug&amp;amp;order=desc">Đường dẫn</a></td>
+                                            <td class="manage-column column-count"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;act=tag&amp;amp;orderby=count&amp;amp;order=desc">Lượt</a></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <div class="tablenav">
+                                    <div class="btn-group">
+                                        <div class="actions bulkactions">
+                                            <select class="form-control select2-hidden-accessible" id="doaction2" name="doaction2">
+                                                <option value="" selected="selected">Hành động</option>
+                                                <option value="update">Cập nhật</option>
+                                                <option value="del">Xóa thẻ</option>
+                                            </select>
+                                            <input class="button" type="submit" value="Áp dụng">
+                                        </div>
+                                    </div>
+                                    <div class="tablenav-pages">
+                                        <div class="displaying-num">1 mục</div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-4">
+                            <form id="add-taxonomy" action="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;act=tag" method="post" accept-charset="utf-8">
+                                <table class="form-table">
+                                    <tbody>
+                                        <tr class="form-field" id="field-title-1">
+                                            <th class="field-title" scope="row">Thêm thẻ</th>
+                                        </tr>
+                                        <tr class="form-field" id="field-title">
+                                            <th scope="row">
+                                                <label for="title">Tiêu đề</label>
+                                            </th>
+                                            <td>
+                                                <input class="form-control" id="title" type="text" name="title" value="" autofocus="1" required="1">
+                                                <p class="description">Tiêu đề sẽ hiển thị trên trang mạng của bạn.</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="form-field" id="field-slug">
+                                            <th scope="row">
+                                                <label for="slug">Đường dẫn</label>
+                                            </th>
+                                            <td>
+                                                <input class="form-control" id="slug" type="text" name="slug" value="">
+                                                <p class="description">Chuỗi cho đường dẫn tĩnh là phiên bản của tên hợp chuẩn với Đường dẫn (URL). Chuỗi này bao gồm chữ cái thường, số và dấu gạch ngang (-).</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="form-field" id="field-description">
+                                            <th scope="row">
+                                                <label for="description">Mô tả</label>
+                                            </th>
+                                            <td>
+                                                <textarea class="form-control" id="description" name="description" data-editor="false" cols="40" rows="4"></textarea>
+                                                <p class="description">Mô tả bình thường không được sử dụng trong giao diện, tuy nhiên có vài giao diện hiện thị mô tả này.</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="form-field" id="field-button">
+                                            <th class="hide" scope="row"></th>
+                                            <td>
+                                                <input class="button btn-submit" type="submit" name="form-submitted" value="Thêm thẻ">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- CLOSE CONTENT-->
+        <!-- START FOOTER-->
+        <footer class="main-footer">
+            <div class="pull-left"><span>© 2024 </span><a href="#" target="_blank"><strong>Trắc nghiệm demo</strong></a></div>
+            <div class="pull-right hidden-xs">Phiên bản 3.1.10	</div>
+        </footer>
+        <!-- CLOSE FOOTER-->
+        <!-- Bootstrap-->
+        <script src="./js/popper.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+        <!-- Plugins script-->
+        <script src="../js/bundle.min.js"></script>
+        <!-- TinyMCE-->
+        <script src="./editors/tinymce/tinymce.min.js"></script>
+        <!-- CKEditor-->
+        <script src="./editors/ckeditor/ckeditor.js"></script>
+        <!-- Template script-->
+        <script src="../admin/js/admin.min.js"></script>
+        <!-- Common script-->
+    </body>
+</html>

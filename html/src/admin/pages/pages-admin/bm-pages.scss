@@ -1,0 +1,20 @@
+.tablenav::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+span.post-state {
+    color: #50575e;
+    font-weight: 500;
+}
+span.post-state::before {
+    content: "—";
+    margin: 0 3px;
+}
+.row-actions .row-action-hidden {
+    color: #996800;
+}
+.row-actions .row-action-display {
+    color: #007017;
+}

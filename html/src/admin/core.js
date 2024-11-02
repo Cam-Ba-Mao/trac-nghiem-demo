@@ -275,10 +275,30 @@ var core = {
 		}
 		return core.handle(cb, isMobile);
 	},
+	formEditor: function(name, options){
+		let config = {
+			toolbar : 'Normal',
+			height : '400',
+			allowedContent: true,
+			autoParagraph : false,
+			language : 'vi',
+			filebrowserBrowseUrl : 'https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&editor=ckeditor&fldr=news/11-2024&akey=feb0d17ef521e6cabe064baaf11a03eb',
+			filebrowserUploadUrl : 'https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&editor=ckeditor&fldr=news/11-2024&akey=feb0d17ef521e6cabe064baaf11a03eb',
+			filebrowserImageBrowseUrl : 'https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&editor=ckeditor&fldr=news/11-2024&akey=feb0d17ef521e6cabe064baaf11a03eb&multiple=0'
+		}
+		if(options) {
+			config = Object.assign({}, config, options);
+		}
+		console.log(config);
+
+		CKEDITOR.replace(name, config);
+	},
+
 	init: function(mod, cb){
 		core.loader(300, (doc) => {
 			cb(doc, mod);
 			$("main").animate({opacity: 1});
 		});
 	},
+
 };

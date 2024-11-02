@@ -19,10 +19,10 @@ const sassGlob = require('gulp-sass-glob');
 const svgstore = require('gulp-svgstore');
 const uglify = require('gulp-uglify');
 const paths = {
-    tiny: {
-        src: ['src/assets/tinymce/**/*', '!src/assets/tinymce/custom.scss'],
-        dest: 'dist/js/tinymce',
-        css: 'src/assets/tinymce/custom.scss'
+    editors: {
+        src: ['src/assets/editors/**/**/*' , '!src/assets/tinymce/custom.scss'],
+        dest: 'dist/editors',
+        // css: 'src/assets/tinymce/custom.scss'
     }
 };
 
@@ -109,25 +109,25 @@ function bootstrap() {
         .pipe(dest(DEST + 'css'));    
 }
 
-function tinymce() {
-    return src(paths.tiny.src)
+function editors() {
+    return src(paths.editors.src)
         // .pipe(fileInclude({
         //     prefix: '@@',
         //     basepath: '@file'
         // }))
-        .pipe(dest(paths.tiny.dest))
+        .pipe(dest(paths.editors.dest))
 }
 
-function tinymceStyles() {
-    return src(paths.tiny.css, { sourcemaps: true })
-        .pipe(concat('custom.css'))
-        .pipe(cleanCSS())
-        .pipe(rename({
-            suffix: '.min'
-        }))
-        .pipe(dest(paths.tiny.dest , { sourcemaps: true }))
-        .pipe(browserSync.stream());
-}
+// function tinymceStyles() {
+//     return src(paths.tiny.css, { sourcemaps: true })
+//         .pipe(concat('custom.css'))
+//         .pipe(cleanCSS())
+//         .pipe(rename({
+//             suffix: '.min'
+//         }))
+//         .pipe(dest(paths.tiny.dest , { sourcemaps: true }))
+//         .pipe(browserSync.stream());
+// }
 
 function html() {
     return src([SRC + '**/*.pug', '!' + SRC + 'admin/**/*.pug'], { since: lastRun(html) })
@@ -203,7 +203,7 @@ function watcher() {
     watch(SRC + '**/*.pug', html);
     watch([SRC + '**/*.scss', '!' + SRC + 'assets/**/*.scss'], css);
     watch([SRC + 'main.js', SRC + 'components/**/*.js', SRC + 'pages/**/*.js'], js);
-    watch(SRC + 'assets/tinymce/*.scss', tinymceStyles);
+    
 }
 
 /*
@@ -302,15 +302,16 @@ function adminWatcher() {
     watch(SRC + 'admin/**/*.pug', adminHtml);
     watch(SRC + 'admin/**/*.scss', adminCss);
     watch([SRC + 'admin/admin.js', SRC + 'admin/components/**/*.js', SRC + 'admin/pages/**/*.js'], js);
+    // watch(SRC + 'assets/tinymce/*.scss', tinymceStyles);
 }
 
 /*
  * Specify if tasks run in series or parallel using `series` and `parallel`
  */
 
-const build = series(clean, icons, images, fonts, bootstrap, pluginsJs, bundleCss, bundleJs, html, css, js, tinymce, tinymceStyles);
+const build = series(clean, icons, images, fonts, bootstrap, pluginsJs, bundleCss, bundleJs, html, css, js, editors);
 const start = series(icons, html, css, js, watcher);
-const plugins = parallel(pluginsJs, bundleCss, bundleJs, tinymce, tinymceStyles);
+const plugins = parallel(pluginsJs, bundleCss, bundleJs, editors);
 const email = series(emailHtml, emailCss, emailWatcher);
 const admin = series(fonts, adminCss, adminHtml, adminJs, adminWatcher);
 

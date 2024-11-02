@@ -14,6 +14,8 @@
         <!-- Template syle-->
         <link rel="stylesheet" href="../admin/css/admin.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <!-- Jquery-->
+        <script src="../js/jquery.min.js"></script>
     </head>
     <body class="page-template-admin-panel-setting">
         <!-- START HEADER-->
@@ -47,7 +49,7 @@
                         <li class="active"><a href="./bm-posts.html">Tất cả bài viết</a></li>
                         <li><a href="./bm-new-post.html">Thêm bài viết</a></li>
                         <li><a href="./bm-category.html">Danh mục</a></li>
-                        <li><a href="#">Thẻ</a></li>
+                        <li><a href="./tag.html">Thẻ</a></li>
                     </ul>
                 </li>
                 <li><a href="#"><i class="fa-solid fa-file-image"></i><span class="title">Media<span class="pending-count">45</span></span></a></li>
@@ -68,8 +70,10 @@
         <!-- CLOSE SIDEBAR-->
         <!-- START CONTENT-->
         <main class="bm-admin-wrap">
-            <div class="bm-admin-content">
+            <div class="bm-admin-title"> 
                 <h1>Tùy chọn tổng quan</h1>
+            </div>
+            <div class="bm-admin-content">
                 <table class="form-table">
                     <tr class="form-field blogname" id="field-blogname">
                         <th>
@@ -235,18 +239,17 @@
             <div class="pull-right hidden-xs">Phiên bản 3.1.10	</div>
         </footer>
         <!-- CLOSE FOOTER-->
-        <!-- Jquery-->
-        <script src="../js/jquery.min.js"></script>
         <!-- Bootstrap-->
         <script src="./js/popper.min.js"></script>
         <script src="./js/bootstrap.min.js"></script>
         <!-- Plugins script-->
         <script src="../js/bundle.min.js"></script>
         <!-- TinyMCE-->
-        <script src="../js/tinymce/tinymce.min.js"></script>
+        <script src="./editors/tinymce/tinymce.min.js"></script>
+        <!-- CKEditor-->
+        <script src="./editors/ckeditor/ckeditor.js"></script>
         <!-- Template script-->
         <script src="../admin/js/admin.min.js"></script>
         <!-- Common script-->
-        <script src="./admin/js/common.min.js"></script>
     </body>
 </html>

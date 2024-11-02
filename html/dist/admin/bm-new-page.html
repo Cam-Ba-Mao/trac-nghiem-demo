@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no">
+        <title>Trang quản trị</title>
+        <!-- Favicon-->
+        <link rel="icon" href="../images/favicon.png">
+        <!-- Bootstrap-->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <!-- Plugins style-->
+        <link rel="stylesheet" href="../css/bundle.min.css">
+        <!-- Template syle-->
+        <link rel="stylesheet" href="../admin/css/admin.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <!-- Jquery-->
+        <script src="../js/jquery.min.js"></script>
+    </head>
+    <body class="page-template-admin-panel-add-new-page">
+        <!-- START HEADER-->
+        <div class="bm-admin-navbar">
+            <ul dropdown>
+                <li><a href="./bm-index.html"><i class="fa-solid fa-home"></i><span class="title">ANOTHER WEBSITE</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-comment"></i>1</a></li>
+                <li><a href="./bm-new-posts.html"><i class="fa-solid fa-plus"></i><span class="title">Tạo mới</span></a>
+                    <ul>
+                        <li><a href="./bm-new-post.html">Bài viết</a></li>
+                        <li><a href="#">Trang</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="my-account" dropdown>
+                <li> <a class="my-account__nav" href="#"><span class="title">Xin chào, maocam </span><img src="../images/default-avatar.png" alt="avatar"></a>
+                    <ul class="my-account__dropdown">
+                        <li class="info-user"><a href="./bm-new-post.html"> <img src="../images/default-avatar.png" alt="avatar"><span class="title">maocam </span><span class="edit-profile">Edit Profile </span></a></li>
+                        <li class="logout"><a href="#">Đăng xuất</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- CLOSE HEADER-->
+        <!-- START SIDEBAR-->
+        <div class="bm-admin-sidebar">
+            <ul>
+                <li><a href="./bm-index.html"><i class="fa-solid fa-tachometer"></i><span class="title">Trang quản trị</span></a></li>
+                <li class="active"><a href="./bm-posts.html"><i class="fa-solid fa-thumb-tack"></i><span class="title">Bài viết</span></a>
+                    <ul class="sub-menu">
+                        <li class="active"><a href="./bm-posts.html">Tất cả bài viết</a></li>
+                        <li><a href="./bm-new-post.html">Thêm bài viết</a></li>
+                        <li><a href="./bm-category.html">Danh mục</a></li>
+                        <li><a href="./tag.html">Thẻ</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-file-image"></i><span class="title">Media<span class="pending-count">45</span></span></a></li>
+                <li><a href="#"><i class="fa-solid fa-file"></i><span class="title">Trang</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-comment"></i><span class="title">Bình luận</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-plug"></i><span class="title">Plugin</span></a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Plugin đã cài đặt</a></li>
+                        <li><a href="#">Cài Plugin</a></li>
+                        <li><a href="#">Sửa tệp tin Plugin</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-wrench"></i><span class="title">Công cụ</span></a></li>
+                <li><a href="./bm-settings.html"><i class="fa-solid fa-cog"></i><span class="title">Cài đặt</span></a></li>
+                <li class="line"><span></span></li><a class="bm-collapse-admin-menu" href="#"><i class="fa-solid fa-arrow-circle-left"></i><span class="title">Thu gọn menu</span></a>
+            </ul>
+        </div>
+        <!-- CLOSE SIDEBAR-->
+        <!-- START CONTENT-->
+        <main class="bm-admin-wrap">
+            <div class="bm-admin-title"> 
+                <h1>Thêm Trang</h1>
+            </div>
+            <div class="bm-admin-content">
+                <form action="https://dienmaytonghop.com/ws-admin/?mod=page&amp;amp;sub=add" method="post" accept-charset="utf-8"></form>
+            </div>
+            <div id="poststuff">
+                <div class="metabox-holder columns-2" id="post-body">
+                    <div id="post-left-content">
+                        <div id="post-title">
+                            <input id="title" type="text" name="title" value="" placeholder="Nhập tiêu đề ở đây" autofocus="1" required="1" autocomplete="off">
+                        </div>
+                        <div id="edit-slug-box" style="z-index:-1"><strong>Liên kết tĩnh:</strong><span id="sample-permalink"><a href="https://dienmaytonghop.com//" target="_blank">https://dienmaytonghop.com/<span id="editable-post-name"></span></a>
+                                <input class="post-slug form-control" type="hidden" name="slug" value="" autocomplete="off"></span><span id="edit-slug-buttons">
+                                <button class="edit-slug button" type="button">Chỉnh sửa</button></span></div>
+                        <div class="post-content" id="post-content">
+                            <textarea class="form-control" id="editor-description" name="description" cols="40" rows="10" style="visibility: hidden; height: 212px; overflow: hidden; display: none;"></textarea>
+                        </div>
+                        <div class="metabox">
+                            <div class="handlediv" title="Click to toggle"></div>
+                            <h3>Mô tả ngắn</h3>
+                            <div class="inside">
+                                <textarea class="form-control" id="short" name="short" cols="40" rows="3" value="" style="height: 72px; overflow: hidden;"></textarea>
+                            </div>
+                        </div>
+                        <div class="metabox" id="post-seo">
+                            <div class="handlediv" title="Click to toggle"></div>
+                            <h3>Thông tin thẻ SEO</h3>
+                            <div class="inside">
+                                <div class="form-wrap">
+                                    <div class="form-field">
+                                        <div class="form-label">
+                                            <label for="friendly_title">Tiêu đề trang</label>
+                                        </div>
+                                        <div class="form-input">
+                                            <input class="form-control" type="text" name="friendly_title" value="" id="friendly_title">
+                                            <p class="description">Thẻ tiêu đề trang hiệu quả phải dài từ 10-70 ký tự, bao gồm cả dấu cách.</p>
+                                        </div>
+                                    </div>
+                                    <!-- End div.form-field-->
+                                    <div class="form-field">
+                                        <div class="form-label">
+                                            <label for="metadesc">Meta description</label>
+                                        </div>
+                                        <div class="form-input">
+                                            <textarea class="form-control" id="metadesc" name="metadesc" cols="40" rows="3" style="height: 72px; overflow: hidden;"></textarea>
+                                            <p class="description">Thẻ meta description hiệu quả phải dài từ 160-300 ký tự, ngắn gọn và chứa các từ khóa tốt nhất.</p>
+                                        </div>
+                                    </div>
+                                    <!-- End div.form-field-->
+                                    <div class="form-field">
+                                        <div class="form-label">
+                                            <label for="metakey">Meta keywords</label>
+                                        </div>
+                                        <div class="form-input">
+                                            <textarea class="form-control" id="metakey" name="metakey" cols="40" rows="3" style="height: 72px; overflow: hidden;"></textarea>
+                                            <p class="description">Thẻ meta keywords hiệu quả phải chứa các từ hoặc cụm từ liên quan đến nội dung của bài viết.</p>
+                                        </div>
+                                    </div>
+                                    <!-- End div.form-field-->
+                                    <script>
+                                        $("#snippet").each(function(){
+                                        var badJSON = this.value;
+                                        if(badJSON) {
+                                        var parseJSON = JSON.parse(badJSON);
+                                        var JSONInPrettyFormat = JSON.stringify(parseJSON, undefined, 4);
+                                        this.value = JSONInPrettyFormat;
+                                        }
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End #post-left-content-->
+                    <div id="post-right-content">
+                        <div class="sticky-wrapper" id="sticky-wrapper" style="height: 428px;">
+                            <div class="sticky">
+                                <div class="metabox" id="post-attributes">
+                                    <div class="handlediv down" title="Click to toggle"></div>
+                                    <h3>Thuộc tính trang</h3>
+                                    <div class="inside">
+                                        <div class="form-field">
+                                            <div class="form-label">
+                                                <label for="parentid">Cha mẹ</label>
+                                            </div>
+                                            <div class="form-input">
+                                                <select class="form-control select2 select2-hidden-accessible" id="parentid" name="parentid" data-select2-id="parentid" tabindex="-1" aria-hidden="true">
+                                                    <option value="0" selected="selected" data-select2-id="2">(Không có cha mẹ)</option>
+                                                    <option value="25">Sản phẩm</option>
+                                                    <option value="24">Bảng giá</option>
+                                                    <option value="23">Dịch vụ</option>
+                                                    <option value="22">Quản lý đơn hàng</option>
+                                                    <option value="21">Đổi mật khẩu</option>
+                                                    <option value="20">Tài khoản</option>
+                                                    <option value="19">Đăng ký</option>
+                                                    <option value="18">Đăng nhập</option>
+                                                    <option value="17">Quên mật khẩu</option>
+                                                    <option value="16">Giỏ hàng</option>
+                                                    <option value="15">So sánh sản phẩm</option>
+                                                    <option value="14">Kiểm tra đơn hàng</option>
+                                                    <option value="12">Giới thiệu</option>
+                                                    <option value="7">Chính sách vận chuyển</option>
+                                                    <option value="4">Chính sách bảo mật</option>
+                                                    <option value="10">Mua trả góp</option>
+                                                    <option value="3">Chính sách đổi trả</option>
+                                                    <option value="5">Liên Hệ</option>
+                                                </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="1" style="width: auto;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-parentid-container"><span class="select2-selection__rendered" id="select2-parentid-container" role="textbox" aria-readonly="true" title="(Không có cha mẹ)">(Không có cha mẹ)</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                            </div>
+                                        </div>
+                                        <!-- End div.form-field-->
+                                        <div class="form-field">
+                                            <div class="form-label">
+                                                <label for="template">Giao diện</label>
+                                            </div>
+                                            <div class="form-input">
+                                                <select class="form-control select2-hidden-accessible" id="template" name="template" data-select2-id="template" tabindex="-1" aria-hidden="true">
+                                                    <option value="default" selected="selected" data-select2-id="4">Giao diện mặc định</option>
+                                                    <option value="page-changepass">Password Change Page</option>
+                                                    <option value="page-compare">Compare Page</option>
+                                                    <option value="page-contact">Contact Page</option>
+                                                    <option value="page-flashsale">Flashsale Page</option>
+                                                    <option value="page-home">Home Page</option>
+                                                    <option value="page-login">Login Page</option>
+                                                    <option value="page-lostpass">Forgot Password Page</option>
+                                                    <option value="page-member">Account Page</option>
+                                                    <option value="page-order">Cart Page</option>
+                                                    <option value="page-ordercheck">Order Check Page</option>
+                                                    <option value="page-register">Register Page</option>
+                                                    <option value="page-userorder">Order List Page</option>
+                                                </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="3" style="width: auto;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-template-container"><span class="select2-selection__rendered" id="select2-template-container" role="textbox" aria-readonly="true" title="Giao diện mặc định">Giao diện mặc định</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                            </div>
+                                        </div>
+                                        <!-- End div.form-field-->
+                                        <div class="form-field">
+                                            <div class="form-label">
+                                                <label for="menu_order">Thứ tự</label>
+                                            </div>
+                                            <div class="form-input">
+                                                <input class="menu_order form-control" type="text" name="menu_order" value="0" id="menu_order" onkeypress="return is_num(event)">
+                                            </div>
+                                        </div>
+                                        <!-- End div.form-field-->
+                                    </div>
+                                </div>
+                                <div class="metabox" id="post-thumbnail">
+                                    <div class="handlediv"></div>
+                                    <h3>Ảnh đại diện</h3>
+                                    <div class="inside">
+                                        <div class="upload-button-wrap"><a class="remove-thumbnail hide" href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;amp;multiple=0&amp;amp;field_id=picture&amp;amp;fldr=page&amp;amp;filter=&amp;amp;akey=f44c2566077276cde6fcca190627ae95">Xóa ảnh đại diện</a><a class="set-thumbnail btn-upload" href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;amp;multiple=0&amp;amp;field_id=picture&amp;amp;fldr=page&amp;amp;filter=&amp;amp;akey=f44c2566077276cde6fcca190627ae95">Đặt ảnh đại điện</a>
+                                            <input id="picture" type="hidden" name="picture" value="" onchange="changeUpload('#picture')">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="metabox" id="post-published">
+                                    <div class="handlediv down" title="Click to toggle"></div>
+                                    <h3>Đăng trang</h3>
+                                    <div class="inside">
+                                        <div class="published form-wrap">
+                                            <div class="btn-publish" style="margin-top:-10px; border-top: 0">
+                                                <input type="hidden" name="display" value="1">
+                                                <input class="button btn-submit" type="submit" name="form-submitted" value="Thêm trang">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End #post-right-content-->
+                </div>
+            </div>
+        </main>
+        <!-- CLOSE CONTENT-->
+        <!-- START FOOTER-->
+        <footer class="main-footer">
+            <div class="pull-left"><span>© 2024 </span><a href="#" target="_blank"><strong>Trắc nghiệm demo</strong></a></div>
+            <div class="pull-right hidden-xs">Phiên bản 3.1.10	</div>
+        </footer>
+        <!-- CLOSE FOOTER-->
+        <!-- Bootstrap-->
+        <script src="./js/popper.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+        <!-- Plugins script-->
+        <script src="../js/bundle.min.js"></script>
+        <!-- TinyMCE-->
+        <script src="./editors/tinymce/tinymce.min.js"></script>
+        <!-- CKEditor-->
+        <script src="./editors/ckeditor/ckeditor.js"></script>
+        <!-- Template script-->
+        <script src="../admin/js/admin.min.js"></script>
+        <!-- Common script-->
+    </body>
+</html>
