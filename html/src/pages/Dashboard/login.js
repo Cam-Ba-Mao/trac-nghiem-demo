@@ -103,7 +103,7 @@
                 var res = JSON.parse(response);
                 if (res.success) {
                     if (res.role == "admin") {
-                        window.location.href = "trang-quan-tri";
+                        window.location.href = "bm-admin";
                     } else {
                         window.location.href = "trang-chu";
                     }
