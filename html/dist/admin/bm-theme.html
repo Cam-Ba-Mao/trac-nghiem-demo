@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no">
+        <title>Trang quản trị</title>
+        <!-- Favicon-->
+        <link rel="icon" href="../images/favicon.png">
+        <!-- Bootstrap-->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <!-- Plugins style-->
+        <link rel="stylesheet" href="../css/bundle.min.css">
+        <!-- Template syle-->
+        <link rel="stylesheet" href="../admin/css/admin.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <!-- Jquery-->
+        <script src="../js/jquery.min.js"></script>
+    </head>
+    <body class="page-template-admin-panel-theme">
+        <!-- START HEADER-->
+        <div class="bm-admin-navbar">
+            <ul dropdown>
+                <li> <a class="bm-collapse-menu-mobile d-md-none" href="javascript:void(0)"><i class="fa-solid fa-bars"></i></a></li>
+                <li><a href="./bm-index.html"><i class="fa-solid fa-home"></i><span class="title name-web">ANOTHER WEBSITE</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-comment"></i>1</a></li>
+                <li><a href="./bm-new-posts.html"><i class="fa-solid fa-plus"></i><span class="title">Tạo mới</span></a>
+                    <ul>
+                        <li><a href="./bm-new-post.html">Bài viết</a></li>
+                        <li><a href="#">Trang</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="my-account" dropdown>
+                <li> <a class="my-account__nav" href="#"><span class="title">Xin chào, maocam </span><img src="../images/default-avatar.png" alt="avatar"></a>
+                    <ul class="my-account__dropdown">
+                        <li class="info-user"><a href="./bm-new-post.html"> <img src="../images/default-avatar.png" alt="avatar"><span class="title">maocam </span><span class="edit-profile">Edit Profile </span></a></li>
+                        <li class="logout"><a href="#">Đăng xuất</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- CLOSE HEADER-->
+        <!-- START SIDEBAR-->
+        <div class="bm-admin-sidebar">
+            <ul>
+                <li><a href="./bm-index.html"><i class="fa-solid fa-tachometer"></i><span class="title">Trang quản trị</span></a></li>
+                <li class="active"><a href="./bm-posts.html"><i class="fa-solid fa-thumb-tack"></i><span class="title">Bài viết</span></a>
+                    <ul class="sub-menu">
+                        <li class="active"><a href="./bm-posts.html">Tất cả bài viết</a></li>
+                        <li><a href="./bm-new-post.html">Thêm bài viết</a></li>
+                        <li><a href="./bm-category.html">Danh mục</a></li>
+                        <li><a href="./tag.html">Thẻ</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-file-image"></i><span class="title">Media<span class="pending-count">45</span></span></a></li>
+                <li><a href="./bm-pages.html"><i class="fa-solid fa-file"></i><span class="title">Trang</span></a>
+                    <ul class="sub-menu">
+                        <li class="active"><a href="./bm-pages.html">Tất cả các Trang</a></li>
+                        <li><a href="./bm-new-page.html">Thêm trang mới</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-comment"></i><span class="title">Bình luận</span></a></li>
+                <li><a href="./bm-theme.html"><i class="fa-solid fa-paintbrush"></i><span class="title">Giao diện</span></a>
+                    <ul class="sub-menu">
+                        <li class="active"><a href="./bm-theme.html">Giao diện</a></li>
+                        <li><a href="./bm-menu.html">Menu   </a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-plug"></i><span class="title">Plugin</span></a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Plugin đã cài đặt</a></li>
+                        <li><a href="#">Cài Plugin</a></li>
+                        <li><a href="#">Sửa tệp tin Plugin</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-wrench"></i><span class="title">Công cụ</span></a></li>
+                <li><a href="./bm-seo.html"><i class="fa-brands fa-superpowers"></i><span class="title">SEO</span></a>
+                    <ul class="sub-menu">
+                        <li><a href="./bm-seo.html">Hiển thị khi tìm kiếm</a></li>
+                        <li><a href="./bm-sitemap.html">XML Sitemaps</a></li>
+                        <li><a href="./bm-redirects.html">Redirects</a></li>
+                    </ul>
+                </li>
+                <li><a href="./bm-user.html"><i class="fa-solid fa-user"></i><span class="title">Thành viên</span></a>
+                    <ul class="sub-menu">
+                        <li><a href="./bm-user.html">Tất cả người dùng</a></li>
+                        <li><a href="./bm-add-user.html">Thêm mới</a></li>
+                        <li><a href="./bm-edit-user.html">Hồ sơ</a></li>
+                    </ul>
+                </li>
+                <li><a href="./bm-settings.html"><i class="fa-solid fa-cog"></i><span class="title">Cài đặt</span></a></li>
+                <li class="line"><span></span></li><a class="bm-collapse-admin-menu" href="#"><i class="fa-solid fa-arrow-circle-left"></i><span class="title">Thu gọn menu</span></a>
+            </ul>
+        </div>
+        <!-- CLOSE SIDEBAR-->
+        <!-- START CONTENT-->
+        <main class="bm-admin-wrap">
+            <div class="bm-admin-title"> 
+                <h1>Giao diện</h1><span class="title-count theme-count">1</span>
+            </div>
+            <div class="bm-admin-content">
+                <div class="theme-browser rendered">
+                    <div class="themes wp-clearfix single-theme">
+                        <div class="theme-overlay active">
+                            <div class="theme-backdrop"></div>
+                            <div class="theme-wrap wp-clearfix" role="document">
+                                <div class="theme-header hide">
+                                    <button class="left dashicons dashicons-no disabled"><span class="screen-reader-text">Xem giao diện trước</span></button>
+                                    <button class="right dashicons dashicons-no disabled"><span class="screen-reader-text">Xem giao diện tiếp theo</span></button>
+                                    <button class="close dashicons dashicons-no"><span class="screen-reader-text">Đóng bảng biểu chi tiết</span></button>
+                                </div>
+                                <div class="theme-about wp-clearfix">
+                                    <div class="theme-screenshots">
+                                        <div class="screenshot"><img src="https://dienmaytonghop.com/ws-content/themes/gbo/screenshot.png" alt=""></div>
+                                    </div>
+                                    <div class="theme-info"><span class="current-label">Giao diện đang dùng</span>
+                                        <h2 class="theme-name">GBO<span class="theme-version">Phiên bản: 1.0</span></h2>
+                                        <p class="theme-author">Bởi&nbsp;<a href="https://webstore.com.vn">Cầm Bá Mão</a></p>
+                                        <p class="theme-description">Dịch vụ sửa chữa điện nhà-điện tử-điện công nghiệp. Dịch vụ sửa chữa mặt hàng điện gia dụng; bảo trì công trình điện, điện lạnh, điện công nghiệp, viễn thông (không gia công cơ khí, tái chế phế thải, xi mạ điện tại trụ sở).</p>
+                                    </div>
+                                </div>
+                                <div class="theme-actions hide">
+                                    <div class="active-theme"><a class="button button-primary customize load-customize hide-if-no-customize btn-submit" href="">Tùy biến</a><a class="button" href="widgets.php">Widget</a><a class="button" href="nav-menus.php">Menu</a><a class="button" href="">Nền</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- CLOSE CONTENT-->
+        <!-- START FOOTER-->
+        <footer class="main-footer">
+            <div class="pull-left"><span>© 2024 </span><a href="#" target="_blank"><strong>Trắc nghiệm demo</strong></a></div>
+            <div class="pull-right d-none d-md-block">Phiên bản 3.1.10	</div>
+        </footer>
+        <!-- CLOSE FOOTER-->
+        <!-- Bootstrap-->
+        <script src="./js/popper.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+        <!-- Plugins script-->
+        <script src="../js/bundle.min.js"></script>
+        <!-- TinyMCE-->
+        <script src="./editors/tinymce/tinymce.min.js"></script>
+        <!-- CKEditor-->
+        <script src="./editors/ckeditor/ckeditor.js"></script>
+        <!-- Template script-->
+        <script src="../admin/js/admin.min.js"></script>
+        <!-- Common script-->
+    </body>
+</html>

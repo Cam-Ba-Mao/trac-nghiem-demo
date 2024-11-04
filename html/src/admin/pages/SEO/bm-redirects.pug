@@ -1,0 +1,71 @@
+extends ../../../admin/layouts/layout-admin-panel
+
+append vars
+    -bodyClass = "page-template-admin-panel-redirects-page"
+    -typeMenu = ""
+
+block container
+    .bm-admin-title 
+        h1 Chuyển hướng URL
+        div#toolbar(class="toolbar")
+            a(href="#", class="page-title-action button action-add") Thêm mới
+
+    .bm-admin-content
+        form(action="#", name="manage", method="post", accept-charset="utf-8" class="bm-redirects")
+            input(type="hidden", name="action", value="search")
+            div#posts-filter(class="posts-filter")
+                ul(class="subsubsub")
+                div(class="search-box")
+                    input#keyword(type="text", name="keyword", value="", autocomplete="off", class="form-control text-search")
+                    input(type="submit", name="search", value="Tìm kiếm", class="button btn-search")
+            div(class="tablenav clearfix")
+                div(class="btn-group pull-left")
+                    div
+                        button(name="display", type="button", class="button", onclick="do_submit(this.name)") Hiển thị
+                        button(name="hidden", type="button", class="button", onclick="do_submit(this.name)") Tạm ẩn
+                        button(name="del", type="button", class="button", onclick="do_submit(this.name)") Xóa chuyển hướng URL
+                div(class="tablenav-pages pull-right")
+                    span(class="displaying-num") 0 mục
+            table#manage(class="table-list")
+                thead
+                    tr
+                        th(class="manage-column column-checkbox")
+                            div(class="label-wrap")
+                                input(type="checkbox", name="checkall", value="")
+                        th(class="manage-column column-old_url")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=redirect&amp;orderby=old_url&amp;order=desc", class="sorted desc") URL cũ
+                        th(class="manage-column column-new_url")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=redirect&amp;orderby=new_url&amp;order=desc", class="sorted desc") URL mới
+                        th(class="manage-column column-method")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=redirect&amp;orderby=method&amp;order=desc", class="sorted desc") Phương thức
+                        th(class="manage-column column-code")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=redirect&amp;orderby=code&amp;order=desc", class="sorted desc") Mã phản hồi
+                        th(class="manage-column column-display")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=redirect&amp;orderby=display&amp;order=desc", class="sorted desc") Tắt / Bật
+                tbody
+                    tr(class="empty-row")
+                        td(class="manage-column column-empty", colspan="10")
+                            div(class="description") Không tìm thấy chuyển hướng URL nào.
+                tfoot
+                    tr
+                        td(class="manage-column column-checkbox")
+                            span(class="label-wrap")
+                                input(type="checkbox", name="checkall", value="")
+                        td(class="manage-column column-old_url")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=redirect&amp;orderby=old_url&amp;order=desc", class="sorted desc") URL cũ
+                        td(class="manage-column column-new_url")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=redirect&amp;orderby=new_url&amp;order=desc", class="sorted desc") URL mới
+                        td(class="manage-column column-method")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=redirect&amp;orderby=method&amp;order=desc", class="sorted desc") Phương thức
+                        td(class="manage-column column-code")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=redirect&amp;orderby=code&amp;order=desc", class="sorted desc") Mã phản hồi
+                        td(class="manage-column column-display")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=redirect&amp;orderby=display&amp;order=desc", class="sorted desc") Tắt / Bật
+            div(class="tablenav")
+                div(class="btn-group pull-left")
+                    div
+                        button(name="display", type="button", class="button", onclick="do_submit(this.name)") Hiển thị
+                        button(name="hidden", type="button", class="button", onclick="do_submit(this.name)") Tạm ẩn
+                        button(name="del", type="button", class="button", onclick="do_submit(this.name)") Xóa chuyển hướng URL
+                div(class="tablenav-pages pull-right")
+                    span(class="displaying-num") 0 mục

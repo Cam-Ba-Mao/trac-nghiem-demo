@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no">
+        <title>Trang quản trị</title>
+        <!-- Favicon-->
+        <link rel="icon" href="../images/favicon.png">
+        <!-- Bootstrap-->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <!-- Plugins style-->
+        <link rel="stylesheet" href="../css/bundle.min.css">
+        <!-- Template syle-->
+        <link rel="stylesheet" href="../admin/css/admin.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <!-- Jquery-->
+        <script src="../js/jquery.min.js"></script>
+    </head>
+    <body class="page-template-admin-panel-add-user">
+        <!-- START HEADER-->
+        <div class="bm-admin-navbar">
+            <ul dropdown>
+                <li> <a class="bm-collapse-menu-mobile d-md-none" href="javascript:void(0)"><i class="fa-solid fa-bars"></i></a></li>
+                <li><a href="./bm-index.html"><i class="fa-solid fa-home"></i><span class="title name-web">ANOTHER WEBSITE</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-comment"></i>1</a></li>
+                <li><a href="./bm-new-posts.html"><i class="fa-solid fa-plus"></i><span class="title">Tạo mới</span></a>
+                    <ul>
+                        <li><a href="./bm-new-post.html">Bài viết</a></li>
+                        <li><a href="#">Trang</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="my-account" dropdown>
+                <li> <a class="my-account__nav" href="#"><span class="title">Xin chào, maocam </span><img src="../images/default-avatar.png" alt="avatar"></a>
+                    <ul class="my-account__dropdown">
+                        <li class="info-user"><a href="./bm-new-post.html"> <img src="../images/default-avatar.png" alt="avatar"><span class="title">maocam </span><span class="edit-profile">Edit Profile </span></a></li>
+                        <li class="logout"><a href="#">Đăng xuất</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- CLOSE HEADER-->
+        <!-- START SIDEBAR-->
+        <div class="bm-admin-sidebar">
+            <ul>
+                <li><a href="./bm-index.html"><i class="fa-solid fa-tachometer"></i><span class="title">Trang quản trị</span></a></li>
+                <li class="active"><a href="./bm-posts.html"><i class="fa-solid fa-thumb-tack"></i><span class="title">Bài viết</span></a>
+                    <ul class="sub-menu">
+                        <li class="active"><a href="./bm-posts.html">Tất cả bài viết</a></li>
+                        <li><a href="./bm-new-post.html">Thêm bài viết</a></li>
+                        <li><a href="./bm-category.html">Danh mục</a></li>
+                        <li><a href="./tag.html">Thẻ</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-file-image"></i><span class="title">Media<span class="pending-count">45</span></span></a></li>
+                <li><a href="./bm-pages.html"><i class="fa-solid fa-file"></i><span class="title">Trang</span></a>
+                    <ul class="sub-menu">
+                        <li class="active"><a href="./bm-pages.html">Tất cả các Trang</a></li>
+                        <li><a href="./bm-new-page.html">Thêm trang mới</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-comment"></i><span class="title">Bình luận</span></a></li>
+                <li><a href="./bm-theme.html"><i class="fa-solid fa-paintbrush"></i><span class="title">Giao diện</span></a>
+                    <ul class="sub-menu">
+                        <li class="active"><a href="./bm-theme.html">Giao diện</a></li>
+                        <li><a href="./bm-menu.html">Menu   </a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-plug"></i><span class="title">Plugin</span></a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Plugin đã cài đặt</a></li>
+                        <li><a href="#">Cài Plugin</a></li>
+                        <li><a href="#">Sửa tệp tin Plugin</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-wrench"></i><span class="title">Công cụ</span></a></li>
+                <li><a href="./bm-seo.html"><i class="fa-brands fa-superpowers"></i><span class="title">SEO</span></a>
+                    <ul class="sub-menu">
+                        <li><a href="./bm-seo.html">Hiển thị khi tìm kiếm</a></li>
+                        <li><a href="./bm-sitemap.html">XML Sitemaps</a></li>
+                        <li><a href="./bm-redirects.html">Redirects</a></li>
+                    </ul>
+                </li>
+                <li><a href="./bm-user.html"><i class="fa-solid fa-user"></i><span class="title">Thành viên</span></a>
+                    <ul class="sub-menu">
+                        <li><a href="./bm-user.html">Tất cả người dùng</a></li>
+                        <li><a href="./bm-add-user.html">Thêm mới</a></li>
+                        <li><a href="./bm-edit-user.html">Hồ sơ</a></li>
+                    </ul>
+                </li>
+                <li><a href="./bm-settings.html"><i class="fa-solid fa-cog"></i><span class="title">Cài đặt</span></a></li>
+                <li class="line"><span></span></li><a class="bm-collapse-admin-menu" href="#"><i class="fa-solid fa-arrow-circle-left"></i><span class="title">Thu gọn menu</span></a>
+            </ul>
+        </div>
+        <!-- CLOSE SIDEBAR-->
+        <!-- START CONTENT-->
+        <main class="bm-admin-wrap">
+            <div class="bm-admin-title"> 
+                <h1>Thêm người dùng mới</h1>
+            </div>
+            <div class="bm-admin-content">
+                <form id="add-new-user" action="#" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+                    <input type="hidden" name="pagenow" value="users">
+                    <input type="hidden" name="typenow" value="user">
+                    <input type="hidden" name="_ws_http_referer" value="?mod=users&amp;amp;sub=add">
+                    <input type="hidden" name="admin_color" value="blue">
+                    <div>Tạo một người sử dụng mới và thêm vào trang mạng này.</div>
+                    <table class="form-table">
+                        <tbody>
+                            <tr class="form-field user_login" id="field-user_login">
+                                <th>
+                                    <label for="user_login">Tên người dùng</label>
+                                </th>
+                                <td>
+                                    <input class="form-control regular-text" type="text" name="user_login" value="" required="1" minlength="3" id="user_login">
+                                </td>
+                            </tr>
+                            <tr class="form-field user_email" id="field-user_email">
+                                <th>
+                                    <label for="user_email">Email</label>
+                                </th>
+                                <td>
+                                    <input class="form-control regular-text" type="email" name="user_email" value="" required="1" id="user_email">
+                                </td>
+                            </tr>
+                            <tr class="form-field phone" id="field-phone">
+                                <th>
+                                    <label for="phone">Điện thoại</label>
+                                </th>
+                                <td>
+                                    <input class="form-control regular-text" id="phone" type="text" name="phone" value="" required="1">
+                                </td>
+                            </tr>
+                            <tr class="form-field display_name" id="field-display_name">
+                                <th>
+                                    <label for="display_name">Tên hiển thị</label>
+                                </th>
+                                <td>
+                                    <input class="form-control regular-text" type="text" name="display_name" value="" required="1" minlength="2" id="display_name">
+                                </td>
+                            </tr>
+                            <tr class="form-field user_url" id="field-user_url">
+                                <th>
+                                    <label for="user_url">Trang web</label>
+                                </th>
+                                <td>
+                                    <input class="form-control regular-text" type="text" name="user_url" value="" id="user_url">
+                                </td>
+                            </tr>
+                            <tr class="form-field admin_bar_front" id="field-admin_bar_front">
+                                <th>
+                                    <label for="admin_bar_front">Thanh công cụ</label>
+                                </th>
+                                <td>
+                                    <div>
+                                        <input type="checkbox" name="admin_bar_front" value="1" id="admin_bar_front">
+                                        <label for="admin_bar_front" style="font-weight: 400">Hiển thị thanh công cụ khi xem trang</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="form-field locale" id="field-locale">
+                                <th>
+                                    <label for="locale">Ngôn ngữ <i class="fa fa-language"></i></label>
+                                </th>
+                                <td>
+                                    <select class="form-control" id="locale" name="locale">
+                                        <option value="site-default">Trang web mặc định</option>
+                                        <option value="vi">Tiếng Việt</option>
+                                        <option value="en">English (United States)</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="form-field field-title user_contact" id="field-user_contact">
+                                <th>
+                                    <h4>Thông tin liên hệ</h4>
+                                </th>
+                            </tr>
+                            <tr class="form-field facebook" id="field-facebook">
+                                <th>
+                                    <label for="facebook">URL hồ sơ Facebook</label>
+                                </th>
+                                <td>
+                                    <input class="form-control regular-text" id="facebook" type="text" name="facebook" value="">
+                                </td>
+                            </tr>
+                            <tr class="form-field twitter" id="field-twitter">
+                                <th>
+                                    <label for="twitter">URL hồ sơ trên X</label>
+                                </th>
+                                <td>
+                                    <input class="form-control regular-text" id="twitter" type="text" name="twitter" value="">
+                                </td>
+                            </tr>
+                            <tr class="form-field linkedin" id="field-linkedin">
+                                <th>
+                                    <label for="linkedin">URL hồ sơ trên LinkedIn</label>
+                                </th>
+                                <td>
+                                    <input class="form-control regular-text" id="linkedin" type="text" name="linkedin" value="">
+                                </td>
+                            </tr>
+                            <tr class="form-field field-title user_bio" id="field-user_bio">
+                                <th>
+                                    <h4>Tự bạch</h4>
+                                </th>
+                            </tr>
+                            <tr class="form-field description" id="field-description">
+                                <th>
+                                    <label for="description">Tiểu sử</label>
+                                </th>
+                                <td>
+                                    <textarea class="form-control" id="editor-description" name="description" cols="40" rows="10" style="visibility: hidden; height: 212px; overflow: hidden; display: none;"></textarea>
+                                    <script language="javascript" type="text/javascript">
+                                        var editor_description = CKEDITOR.replace('editor-description', {
+                                        allowedContent: true,
+                                        autoParagraph: false,
+                                        height: 200,
+                                        toolbar: 'Normal',
+                                        language: 'vi',
+                                        toolbarGroups: [{
+                                        name: 'paragraph',
+                                        groups: [
+                                        'basicstyles',
+                                        'list',
+                                        'align',
+                                        'links',
+                                        'colors',
+                                        ]
+                                        }],
+                                        removeButtons: 'Save,NewPage,Preview,Print,Cut,Copy,Find,Replace,SelectAll,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Outdent,Indent,BidiLtr,BidiRtl,Language,Flash,Smiley,SpecialChar,About,Subscript,Superscript,HorizontalRule,PageBreak,Strike,RemoveFormat,Anchor,Paste,PasteFromWord,CreateDiv,ShowBlocks,Youtube,NumberedList'
+                                        });
+                                    </script>
+                                </td>
+                            </tr>
+                            <tr class="form-field avatar" id="field-avatar">
+                                <th>
+                                    <label for="avatar">Ảnh đại diện</label>
+                                </th>
+                                <td>
+                                    <div class="pull-left small-text">
+                                        <div class="upload-button-wrap">
+                                            <button class="remove-thumbnail button hide" type="button">Xóa ảnh</button>
+                                            <button class="set-thumbnail button btn-upload" type="button" href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;amp;multiple=0&amp;amp;field_id=avatar&amp;amp;fldr=users&amp;amp;akey=feb0d17ef521e6cabe064baaf11a03eb">Chọn ảnh</button>
+                                            <input id="avatar" type="hidden" name="avatar" value="" onchange="changeUpload('#avatar')">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="form-field user_pass" id="field-user_pass">
+                                <th>
+                                    <label for="generate-pw">Mật khẩu</label>
+                                </th>
+                                <td>
+                                    <div id="user-pass-wrap">
+                                        <div class="form-input">
+                                            <button class="button" id="generate-pw" type="button">Tạo mật khẩu</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="form-field send_user_notification" id="field-send_user_notification">
+                                <th>
+                                    <label for="send_user_notification">Gửi thông báo</label>
+                                </th>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 7px">
+                                        <input type="checkbox" name="send_user_notification" value="1" checked="checked" id="send_user_notification">
+                                        <label for="send_user_notification" style="font-weight: 400; line-height: 1">Gửi cho thành viên mới đăng ký một email chứa thông tin tài khoản của họ.</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="form-field role" id="field-role">
+                                <th>
+                                    <label for="role">Vai trò</label>
+                                </th>
+                                <td>
+                                    <select class="form-control" id="role" name="role">
+                                        <option value="administrator">Quản lý</option>
+                                        <option value="editor">Biên tập viên</option>
+                                        <option value="author">Tác giả</option>
+                                        <option value="contributor">Cộng tác viên</option>
+                                        <option value="subscriber" selected="selected" data-select2-id="4">Thành viên đăng ký</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table><br>
+                    <input class="button btn-submit" type="submit" name="form-submitted" value="Thêm người dùng mới">
+                </form>
+            </div>
+        </main>
+        <!-- CLOSE CONTENT-->
+        <!-- START FOOTER-->
+        <footer class="main-footer">
+            <div class="pull-left"><span>© 2024 </span><a href="#" target="_blank"><strong>Trắc nghiệm demo</strong></a></div>
+            <div class="pull-right d-none d-md-block">Phiên bản 3.1.10	</div>
+        </footer>
+        <!-- CLOSE FOOTER-->
+        <!-- Bootstrap-->
+        <script src="./js/popper.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+        <!-- Plugins script-->
+        <script src="../js/bundle.min.js"></script>
+        <!-- TinyMCE-->
+        <script src="./editors/tinymce/tinymce.min.js"></script>
+        <!-- CKEditor-->
+        <script src="./editors/ckeditor/ckeditor.js"></script>
+        <!-- Template script-->
+        <script src="../admin/js/admin.min.js"></script>
+        <!-- Common script-->
+    </body>
+</html>

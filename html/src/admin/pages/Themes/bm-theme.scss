@@ -1,0 +1,192 @@
+/**********************************************************/
+#posts-filter.metabox  .search-form {
+    gap: 10px;
+    padding: 10px;
+    display: grid;
+    align-items: center;
+}
+#posts-filter.metabox .form-field {
+    margin: 0;
+    display: flex;
+    min-height: 30px;
+    align-items: center;
+}
+#posts-filter.metabox .form-label {
+    width: 20%;
+}
+#posts-filter.metabox .form-label label {
+    margin-bottom: 0;
+	white-space: nowrap;
+}
+#posts-filter.metabox .form-field .form-input {
+    gap: 5px;
+	display: flex;
+	align-items: center;
+}
+#posts-filter.metabox .form-field .select2,
+#posts-filter.metabox .form-field .text-search {
+	margin: 0;
+}
+
+.filter-count .count,
+.title-count {
+    display: inline-block;
+    position: relative;
+    padding: 4px 10px;
+    border-radius: 30px;
+    background: #646970;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+}
+.title-count {
+    display: inline;
+    margin-left: 5px;
+    margin-right: 20px;
+    padding: 4px 9px;
+    min-width: 28px;
+}
+.theme-browser .themes {
+    clear: both;
+}
+.single-theme {
+    .theme-overlay {
+        .theme-wrap {
+            clear: both;
+            min-height: 330px;
+            position: relative;
+            left: auto;
+            right: auto;
+            top: auto;
+            bottom: auto;
+            background: #fff;
+            box-shadow: 0 1px 20px 5px rgb(0 0 0 / 10%);
+            box-sizing: border-box;
+        }
+
+        .theme-about {
+            padding: 30px 30px 30px;
+            position: static;
+            top: 49px;
+            bottom: 57px;
+            left: 0;
+            right: 0;
+            overflow: auto;
+        }
+
+        .theme-actions {
+            position: absolute;
+            text-align: center;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 10px 25px;
+            background: #f6f7f7;
+            z-index: 30;
+            box-sizing: border-box;
+            border-top: 1px solid #f0f0f1;
+        }
+
+        .theme-screenshots {
+            float: left;
+            margin: 0 30px 0 0;
+            width: 55%;
+            max-width: 1200px;
+            text-align: center;
+        }
+
+        .theme-info {
+            width: 40%;
+            float: left;
+        }
+
+        .screenshot {
+            border: 1px solid #fff;
+            box-sizing: border-box;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 0 1px rgb(0 0 0 / 20%);
+
+            img {
+                height: auto;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+
+            &:after {
+                content: "";
+                display: block;
+                padding-top: 75%;
+            }
+        }
+
+        .current-label {
+            background: #2c3338;
+            color: #fff;
+            font-size: 11px;
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 2px;
+            margin: 0 0 -10px;
+            user-select: none;
+        }
+
+        .theme-name {
+            color: #1d2327;
+            font-size: 32px;
+            font-weight: 100;
+            margin: 10px 0 0;
+            line-height: 1.3;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .theme-version {
+            color: #646970;
+            font-size: 13px;
+            font-weight: 400;
+            float: none;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .theme-author {
+            margin: 15px 0 25px;
+            color: #646970;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: inherit;
+
+            a {
+                text-decoration: underline;
+            }
+        }
+
+        .theme-description {
+            color: #50575e;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.5;
+            margin: 30px 0 0 0;
+        }
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .single-theme .theme-overlay .theme-about {
+        padding: 20px;
+    }
+    .theme-overlay .theme-screenshots {
+        float: none;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 20px;
+    }
+    .theme-overlay .theme-info {
+        width: 100%;
+        float: none;
+    }
+}

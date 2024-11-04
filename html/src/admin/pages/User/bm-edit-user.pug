@@ -1,0 +1,143 @@
+extends ../../../admin/layouts/layout-admin-panel
+
+append vars
+    -bodyClass = "page-template-admin-panel-edit-user"
+    -typeMenu = ""
+
+block container
+    
+    .bm-admin-title 
+        h1 Hồ sơ
+       
+    .bm-admin-content
+        form#your-profile(action="#", enctype="multipart/form-data", method="post", accept-charset="utf-8")
+            input(type="hidden", name="pagenow", value="profile")
+            input(type="hidden", name="typenow", value="profile")
+            input(type="hidden", name="_ws_http_referer", value="?mod=profile")
+            input(type="hidden", name="admin_color", value="blue")
+            table(class="form-table")
+                tbody
+                    tr(id="field-user_info", class="form-field field-title user_info")
+                        th
+                            h4 Thông tin tài khoản
+                    tr(id="field-user_login", class="form-field user_login")
+                        th
+                            label(for="user_login") Tên người dùng
+                        td
+                            input(type="text", value="cambamao98", disabled="1", id="user_login", class="form-control regular-text")
+                            p(class="description") Tài khoản không thể thay đổi.
+                    tr(id="field-display_name", class="form-field display_name")
+                        th
+                            label(for="display_name") Tên hiển thị
+                        td
+                            input(type="text", name="display_name", value="Bá Mão", required="1", minlength="2", id="display_name", class="form-control regular-text")
+                    tr(id="field-user_email", class="form-field user_email")
+                        th
+                            label(for="user_email") Email
+                        td
+                            input(type="email", name="user_email", value="cambamao98@gmail.com", required="1", id="user_email", class="form-control regular-text")
+                            p(class="description") Nếu bạn thay đổi, chúng tôi sẽ gửi một email xác nhận đến địa chỉ email mới. 
+                                b Địa chỉ mới sẽ không được kích hoạt cho đến khi bạn xác nhận.
+                    tr#field-phone(class="form-field phone")
+                        th
+                            label(for="phone") Số điện thoại
+                        td
+                            input#phone(type="text", name="phone", value="0961814411", required="1", class="form-control regular-text")
+                    tr(id="field-user_url", class="form-field user_url")
+                        th
+                            label(for="user_url") Trang web
+                        td
+                            input(type="text", name="user_url", value="", id="user_url", class="form-control regular-text")
+                    tr(id="field-admin_bar_front", class="form-field admin_bar_front")
+                        th
+                            label(for="admin_bar_front") Thanh công cụ
+                        td
+                            div
+                                input(type="checkbox", name="admin_bar_front", value="1", id="admin_bar_front")
+                                label(for="admin_bar_front", style="font-weight: 400") Hiển thị thanh công cụ khi xem trang
+                    tr#field-locale(class="form-field locale")
+                        th
+                            label(for="locale") Ngôn ngữ 
+                                i(class="fa fa-language")
+                        td
+                            select#locale(name="locale", class="form-control")
+                                option(value="site-default", selected="selected") Trang web mặc định
+                                option(value="vi") Tiếng Việt
+                                option(value="en") English (United States)
+                           
+                    tr(id="field-user_contact", class="form-field field-title user_contact")
+                        th
+                            h4 Thông tin liên hệ
+                    tr#field-facebook(class="form-field facebook")
+                        th
+                            label(for="facebook") URL hồ sơ Facebook
+                        td
+                            input#facebook(type="text", name="facebook", value="", class="form-control regular-text")
+                    tr#field-twitter(class="form-field twitter")
+                        th
+                            label(for="twitter") URL hồ sơ trên X
+                        td
+                            input#twitter(type="text", name="twitter", value="", class="form-control regular-text")
+                    tr#field-linkedin(class="form-field linkedin")
+                        th
+                            label(for="linkedin") URL hồ sơ trên LinkedIn
+                        td
+                            input#linkedin(type="text", name="linkedin", value="", class="form-control regular-text")
+                    tr(id="field-user_bio", class="form-field field-title user_bio")
+                        th
+                            h4 Tự bạch
+                    script(src="https://dienmaytonghop.com/plugins/editors/ckeditor/ckeditor.js?v=241104050309", language="javascript")
+                    tr#field-description(class="form-field description")
+                        th
+                            label(for="description") Tiểu sử
+                        td
+                            textarea#editor-description(name="description", cols="40", rows="10", class="form-control", style="visibility: hidden; height: 212px; overflow: hidden; display: none;")
+                            
+                            script(language="javascript", type="text/javascript").
+                                var editor_description = CKEDITOR.replace('editor-description', {
+                                allowedContent: true,
+                                autoParagraph: false,
+                                height: 200,
+                                toolbar: 'Normal',
+                                language: 'vi',
+                                toolbarGroups: [{
+                                name: 'paragraph',
+                                groups: [
+                                'basicstyles',
+                                'list',
+                                'align',
+                                'links',
+                                'colors',
+                                ]
+                                }],
+                                removeButtons: 'Save,NewPage,Preview,Print,Cut,Copy,Find,Replace,SelectAll,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Outdent,Indent,BidiLtr,BidiRtl,Language,Flash,Smiley,SpecialChar,About,Subscript,Superscript,HorizontalRule,PageBreak,Strike,RemoveFormat,Anchor,Paste,PasteFromWord,CreateDiv,ShowBlocks,Youtube,NumberedList'
+                                });
+                    tr#field-avatar(class="form-field avatar")
+                        th
+                            label(for="avatar") Ảnh đại diện
+                        td
+                            div(class="pull-left small-text")
+                                div(class="upload-button-wrap")
+                                    div(class="picture-wrap")
+                                        img(src="https://dienmaytonghop.com/uploads/avatar.jpg", alt="")
+                                    button(type="button", class="remove-thumbnail button") Xóa ảnh
+                                    button(type="button", href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;multiple=0&amp;field_id=avatar&amp;fldr=profile&amp;akey=feb0d17ef521e6cabe064baaf11a03eb", class="set-thumbnail button btn-upload hide") Chọn ảnh
+                                    input#avatar(type="hidden", name="avatar", value="avatar.jpg", onchange="changeUpload('#avatar')")
+                    tr(id="field-user_manage", class="form-field field-title user_manage")
+                        th
+                            h4 Quản lý tài khoản
+                    tr(id="field-user_pass", class="form-field user_pass")
+                        th
+                            label(for="generate-pw") Mật khẩu mới
+                        td
+                            div#user-pass-wrap
+                                div(class="form-input")
+                                    button#generate-pw(type="button", class="button") Đặt mật khẩu mới
+                    tr(id="field-destroy_sessions", class="form-field destroy_sessions")
+                        th
+                            label(for="destroy_sessions") Phiên đăng nhập
+                        td
+                            button(type="button", class="button", id="destroy_sessions") Đăng xuất khỏi những nơi khác
+                            p(class="description") Bạn chỉ có thể đăng nhập ở khu vực này.
+            br
+            input(type="submit", name="form-submitted", value="Cập nhật hồ sơ", class="button btn-submit")

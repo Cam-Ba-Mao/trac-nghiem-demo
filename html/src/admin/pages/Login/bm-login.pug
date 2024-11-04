@@ -1,0 +1,35 @@
+extends ../../../admin/layouts/layout-admin-login
+
+append vars
+    -bodyClass = "page-template-admin-panel-login"
+    -typeMenu = ""
+
+block container
+    div#login(class="login")
+        h1(class="logo")
+            a(href="#", title="Điện Máy Tổng Hợp")
+                img(alt="Điện Máy Tổng Hợp", src="../images/favicon.png")
+        form(action="#", method="post", accept-charset="utf-8")
+            div#field-log(class="form-field field-log")
+                label(for="log") Tên người dùng hoặc Địa chỉ Email
+                div(class="form-input")
+                    input#log(type="text", name="log", value="", tabindex="1", autofocus="1", autocomplete="off", class="form-control")
+            div#field-pwd(class="form-field field-pwd")
+                label(for="pwd") Mật khẩu
+                div(class="form-input")
+                    input#pwd(type="password", name="pwd", value="", tabindex="2", class="form-control")
+                    button(type="button", tabindex="3", class="button")
+                        i(class="fa fa-eye")
+            div#field-sec(class="form-field field-pwd")
+                label(for="sec") Mật khẩu bảo vệ
+                div(class="form-input")
+                    input#sec(type="password", name="sec", value="", tabindex="4", class="form-control")
+                    button(type="button", tabindex="5", class="button")
+                        i(class="fa fa-eye")
+            div#field-btn(class="form-field field-btn")
+                p(class="forgetmenot")
+                    label
+                        input(type="checkbox", name="rememberme", value="1", tabindex="6")
+                        span Tự động đăng nhập
+                div(class="form-input")
+                    input(type="submit", name="form-submitted", value="Đăng nhập", tabindex="7", class="btn btn-submit")

@@ -1,0 +1,43 @@
+extends ../../../admin/layouts/layout-admin-panel
+
+append vars
+    -bodyClass = "page-template-admin-panel-theme"
+    -typeMenu = ""
+
+block container
+    
+    .bm-admin-title 
+        h1 Giao diện
+        span(class="title-count theme-count") 1
+    .bm-admin-content
+        div(class="theme-browser rendered")
+            div(class="themes wp-clearfix single-theme")
+                div(class="theme-overlay active")
+                    div(class="theme-backdrop")
+                    div(class="theme-wrap wp-clearfix", role="document")
+                        div(class="theme-header hide")
+                            button(class="left dashicons dashicons-no disabled")
+                                span(class="screen-reader-text") Xem giao diện trước
+                            button(class="right dashicons dashicons-no disabled")
+                                span(class="screen-reader-text") Xem giao diện tiếp theo
+                            button(class="close dashicons dashicons-no")
+                                span(class="screen-reader-text") Đóng bảng biểu chi tiết
+                        div(class="theme-about wp-clearfix")
+                            div(class="theme-screenshots")
+                                div(class="screenshot")
+                                    img(src="https://dienmaytonghop.com/ws-content/themes/gbo/screenshot.png", alt="")
+                            div(class="theme-info")
+                                span(class="current-label") Giao diện đang dùng
+                                h2(class="theme-name")
+                                    | GBO
+                                    span(class="theme-version") Phiên bản: 1.0
+                                p(class="theme-author")
+                                    | Bởi&nbsp;
+                                    a(href="https://webstore.com.vn") Cầm Bá Mão
+                                p(class="theme-description") Dịch vụ sửa chữa điện nhà-điện tử-điện công nghiệp. Dịch vụ sửa chữa mặt hàng điện gia dụng; bảo trì công trình điện, điện lạnh, điện công nghiệp, viễn thông (không gia công cơ khí, tái chế phế thải, xi mạ điện tại trụ sở).
+                        div(class="theme-actions hide")
+                            div(class="active-theme")
+                                a(href="", class="button button-primary customize load-customize hide-if-no-customize btn-submit") Tùy biến
+                                a(class="button", href="widgets.php") Widget
+                                a(class="button", href="nav-menus.php") Menu
+                                a(class="button", href="") Nền

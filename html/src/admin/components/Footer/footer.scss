@@ -11,9 +11,10 @@
 .main-footer {
 	transition: transform 0.3s ease-in-out, margin 0.3s ease-in-out;
 	z-index: 820;
-    margin-left: 50px;
+   
     
     @include breakpoint-up(md) {
+        margin-left: 50px;
         margin-left: 180px;
     }
 }

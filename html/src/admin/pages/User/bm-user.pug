@@ -1,0 +1,162 @@
+extends ../../../admin/layouts/layout-admin-panel
+
+append vars
+    -bodyClass = "page-template-admin-panel-user"
+    -typeMenu = ""
+
+block container
+    
+    .bm-admin-title 
+        h1 Thành viên
+        #toolbar.toolbar
+            a.page-title-action.button.action-add(href="#") Thêm mới
+    .bm-admin-content
+        form(action="#", name="manage", class="admin-tablelist", method="post", accept-charset="utf-8")
+            input(type="hidden", name="pagenow", value="users")
+            input(type="hidden", name="typenow", value="user")
+            input(type="hidden", name="_ws_http_referer", value="?mod=users")
+            input(type="hidden", name="action", value="search")
+            div#posts-filter(class="posts-filter")
+                ul(class="subsubsub")
+                    li
+                        a(href="#", class="current") Tất cả 
+                            span(class="count") (3)
+                    li
+                        a(href="https://dienmaytonghop.com/ws-admin/?mod=users&amp;role=administrator") Quản lý 
+                            span(class="count") (3)
+                div#search-box(class="search-box")
+                    input(type="text", name="keyword", value="", class="form-control text-search")
+                    input(type="submit", name="search", value="Tìm người dùng", class="button btn-search")
+            div(class="tablenav top")
+                div(class="btn-group")
+                    div(class="actions bulkactions")
+                        select#doaction(name="doaction", class="form-control")
+                            option(value="", selected="selected") Hành động
+                            option(value="suspend") Đình chỉ
+                            option(value="actived") Kích hoạt
+                            option(value="delete") Xóa người dùng
+                        
+                        input(type="submit", value="Áp dụng", class="button")
+                    div(class="actions bulknewrole")
+                        select(name="new_role", id="new_role", class="form-control", label="Đổi thành…")
+                            option(value="0") Đổi thành…
+                            option(value="administrator") Quản lý
+                            option(value="editor") Biên tập viên
+                            option(value="author") Tác giả
+                            option(value="contributor") Cộng tác viên
+                            option(value="subscriber") Thành viên đăng ký
+                        
+                        input(type="submit", value="Thay đổi", class="button")
+                div(class="tablenav-pages")
+                    span(class="displaying-num") 3 mục
+            table#manage(class="table-list ws-list-table table-view-list users")
+                thead
+                    tr
+                        th#checkbox(scope="col", class="manage-column column-checkbox")
+                            input(type="checkbox", name="checkall", value="")
+                        th#login(scope="col", class="manage-column column-login")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=users&amp;orderby=login&amp;order=desc", class="sorted desc") Tên người dùng
+                        th#name(scope="col", class="manage-column column-name") Tên
+                        th#email(scope="col", class="manage-column column-email")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=users&amp;orderby=email&amp;order=desc", class="sorted desc") Email
+                        th#role(scope="col", class="manage-column column-role") Vai trò
+                        th#action(scope="col", class="manage-column column-action") Tác vụ
+                tbody#the-list(data-ws-lists="list:user")
+                    tr(id="row_1", class="row_item")
+                        td(class="manage-column column-checkbox")
+                            input(type="checkbox", name="users[]", value="1", class="checkbox")
+                        td(class="manage-column column-login")
+                            a(href="#", class="title-link-edit") admin
+                            div(class="row-actions")
+                                ul
+                                    li
+                                        a(href="#", class="row-action row-action-suspend", style="color: #996800") Đình chỉ
+                                    li
+                                        a(href="#", class="row-action row-action-edit") Chỉnh sửa
+                                    li
+                                        a(href="#", target="_blank", class="row-action row-action-view") Xem
+                                    li
+                                        a(href="#", class="row-action row-action-delete") Xóa
+                        td(class="manage-column column-name") Admin
+                        td(class="manage-column column-email")
+                            a(href="mailto:dienmaytonghop.com@gmail.com") dienmaytonghop.com@gmail.com
+                        td(class="manage-column column-role") administrator
+                        td(class="manage-column column-action")
+                            div(class="row_action")
+                                a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                a(href="#", data-bs-toggle="tooltip", title="", style="background: gray", class="btn-action action-suspend fa-eye") Kích hoạt
+                                a(href="#", title="", data-bs-toggle="tooltip", class="btn-action action-delete bg-red", onclick="return do_delete(1)") Xóa
+                    tr(id="row_672", class="row_item")
+                        td(class="manage-column column-checkbox")
+                        td(class="manage-column column-login")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=profile", class="title-link-edit") cambamao98
+                            div(class="row-actions")
+                                ul
+                                    li
+                                        a(href="https://dienmaytonghop.com/ws-admin/?mod=profile", class="row-action row-action-profile") Chỉnh sửa
+                                    li
+                                        a(href="https://dienmaytonghop.com/tac-gia-cambamao98", target="_blank", class="row-action row-action-view") Xem
+                        td(class="manage-column column-name") Bá Mão
+                        td(class="manage-column column-email")
+                            a(href="mailto:cambamao98@gmail.com") cambamao98@gmail.com
+                        td(class="manage-column column-role") administrator
+                        td(class="manage-column column-action")
+                            div(class="row_action")
+                                a(href="https://dienmaytonghop.com/ws-admin/?mod=profile", title="Hồ sơ", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Hồ sơ
+                    tr(id="row_29", class="row_item")
+                        td(class="manage-column column-checkbox")
+                            input(type="checkbox", name="users[]", value="29", class="checkbox")
+                        td(class="manage-column column-login")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=users&amp;sub=edit&amp;id=29", class="title-link-edit") lecui
+                            div(class="row-actions")
+                                ul
+                                    li
+                                        a(href="https://dienmaytonghop.com/ws-admin/?mod=users&amp;action=suspend&amp;user=29", class="row-action row-action-suspend", style="color: #996800") Đình chỉ
+                                    li
+                                        a(href="https://dienmaytonghop.com/ws-admin/?mod=users&amp;sub=edit&amp;id=29", class="row-action row-action-edit") Chỉnh sửa
+                                    li
+                                        a(href="https://dienmaytonghop.com/tac-gia-lecui", target="_blank", class="row-action row-action-view") Xem
+                                    li
+                                        a(href="https://dienmaytonghop.com/ws-admin/?mod=users&amp;action=delete&amp;user=29", class="row-action row-action-delete") Xóa
+                        td(class="manage-column column-name") Lê Cụi
+                        td(class="manage-column column-email")
+                            a(href="mailto:dev.lecui@gmail.com") dev.lecui@gmail.com
+                        td(class="manage-column column-role") administrator
+                        td(class="manage-column column-action")
+                            div(class="row_action")
+                                a(href="https://dienmaytonghop.com/ws-admin/?mod=users&amp;sub=edit&amp;id=29", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                a(href="https://dienmaytonghop.com/ws-admin/?mod=users&amp;action=suspend&amp;user=29", data-bs-toggle="tooltip", title="Kích hoạt", style="background: gray", class="btn-action action-suspend fa-eye") Kích hoạt
+                                a(href="https://dienmaytonghop.com/ws-admin/?mod=users&amp;action=delete&amp;user=29", title="Xóa", data-bs-toggle="tooltip", class="btn-action action-delete bg-red", onclick="return do_delete(29)") Xóa
+                tfoot
+                    tr
+                        td(scope="col", class="manage-column column-checkbox")
+                            input(type="checkbox", name="checkall", value="")
+                        td(scope="col", class="manage-column column-login")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=users&amp;orderby=login&amp;order=desc", class="sorted desc") Tên người dùng
+                        td(scope="col", class="manage-column column-name") Tên
+                        td(scope="col", class="manage-column column-email")
+                            a(href="https://dienmaytonghop.com/ws-admin/?mod=users&amp;orderby=email&amp;order=desc", class="sorted desc") Email
+                        td(scope="col", class="manage-column column-role") Vai trò
+                        td(scope="col", class="manage-column column-action") Tác vụ
+            div(class="tablenav bottom")
+                div(class="btn-group")
+                    div(class="actions bulkactions")
+                        select#doaction2(name="doaction2", class="form-control")
+                            option(value="", selected="selected") Hành động
+                            option(value="suspend") Đình chỉ
+                            option(value="actived") Kích hoạt
+                            option(value="delete") Xóa người dùng
+                       
+                        input(type="submit", value="Áp dụng", class="button")
+                    div(class="actions bulknewrole")
+                        select(name="new_role2", id="new_role2", class="form-control", label="Đổi thành…")
+                            option(value="0") Đổi thành…
+                            option(value="administrator") Quản lý
+                            option(value="editor") Biên tập viên
+                            option(value="author") Tác giả
+                            option(value="contributor") Cộng tác viên
+                            option(value="subscriber") Thành viên đăng ký
+                        
+                        input(type="submit", value="Thay đổi", class="button")
+                div(class="tablenav-pages")
+                    span(class="displaying-num") 3 mục

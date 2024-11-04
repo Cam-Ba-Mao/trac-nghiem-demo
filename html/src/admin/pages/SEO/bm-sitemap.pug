@@ -1,0 +1,18 @@
+extends ../../../admin/layouts/layout-admin-panel
+
+append vars
+    -bodyClass = "page-template-admin-panel-sitemap-page"
+    -typeMenu = ""
+
+block container
+    .bm-admin-title 
+        h1 XML Sitemaps
+    .bm-admin-content
+        form(action="https://dienmaytonghop.com/ws-admin/?mod=setting&amp;act=sitemap", method="post", accept-charset="utf-8")
+            table(class="form-table")
+                tbody
+                    tr
+                        th(scope="row")
+                            label Sitemap URL
+                        td(class="text-bold")
+                            a(href="https://dienmaytonghop.com/sitemap.xml", target="_blank") https://dienmaytonghop.com/sitemap.xml

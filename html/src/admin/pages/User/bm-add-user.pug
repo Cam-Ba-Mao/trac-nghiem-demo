@@ -1,0 +1,144 @@
+extends ../../../admin/layouts/layout-admin-panel
+
+append vars
+    -bodyClass = "page-template-admin-panel-add-user"
+    -typeMenu = ""
+
+block container
+    
+    .bm-admin-title 
+        h1 Thêm người dùng mới
+       
+    .bm-admin-content
+        form#add-new-user(action="#", enctype="multipart/form-data", method="post", accept-charset="utf-8")
+            input(type="hidden", name="pagenow", value="users")
+            input(type="hidden", name="typenow", value="user")
+            input(type="hidden", name="_ws_http_referer", value="?mod=users&amp;sub=add")
+            input(type="hidden", name="admin_color", value="blue")
+            div Tạo một người sử dụng mới và thêm vào trang mạng này.
+            table(class="form-table")
+                tbody
+                    tr(id="field-user_login", class="form-field user_login")
+                        th
+                            label(for="user_login") Tên người dùng
+                        td
+                            input(type="text", name="user_login", value="", required="1", minlength="3", id="user_login", class="form-control regular-text")
+                    tr(id="field-user_email", class="form-field user_email")
+                        th
+                            label(for="user_email") Email
+                        td
+                            input(type="email", name="user_email", value="", required="1", id="user_email", class="form-control regular-text")
+                    tr#field-phone(class="form-field phone")
+                        th
+                            label(for="phone") Điện thoại
+                        td
+                            input#phone(type="text", name="phone", value="", required="1", class="form-control regular-text")
+                    tr(id="field-display_name", class="form-field display_name")
+                        th
+                            label(for="display_name") Tên hiển thị
+                        td
+                            input(type="text", name="display_name", value="", required="1", minlength="2", id="display_name", class="form-control regular-text")
+                    tr(id="field-user_url", class="form-field user_url")
+                        th
+                            label(for="user_url") Trang web
+                        td
+                            input(type="text", name="user_url", value="", id="user_url", class="form-control regular-text")
+                    tr(id="field-admin_bar_front", class="form-field admin_bar_front")
+                        th
+                            label(for="admin_bar_front") Thanh công cụ
+                        td
+                            div
+                                input(type="checkbox", name="admin_bar_front", value="1", id="admin_bar_front")
+                                label(for="admin_bar_front", style="font-weight: 400") Hiển thị thanh công cụ khi xem trang
+                    tr#field-locale(class="form-field locale")
+                        th
+                            label(for="locale") Ngôn ngữ 
+                                i(class="fa fa-language")
+                        td
+                            select#locale(name="locale", class="form-control")
+                                option(value="site-default") Trang web mặc định
+                                option(value="vi") Tiếng Việt
+                                option(value="en") English (United States)
+                           
+                    tr(id="field-user_contact", class="form-field field-title user_contact")
+                        th
+                            h4 Thông tin liên hệ
+                    tr#field-facebook(class="form-field facebook")
+                        th
+                            label(for="facebook") URL hồ sơ Facebook
+                        td
+                            input#facebook(type="text", name="facebook", value="", class="form-control regular-text")
+                    tr#field-twitter(class="form-field twitter")
+                        th
+                            label(for="twitter") URL hồ sơ trên X
+                        td
+                            input#twitter(type="text", name="twitter", value="", class="form-control regular-text")
+                    tr#field-linkedin(class="form-field linkedin")
+                        th
+                            label(for="linkedin") URL hồ sơ trên LinkedIn
+                        td
+                            input#linkedin(type="text", name="linkedin", value="", class="form-control regular-text")
+                    tr(id="field-user_bio", class="form-field field-title user_bio")
+                        th
+                            h4 Tự bạch
+                    tr#field-description(class="form-field description")
+                        th
+                            label(for="description") Tiểu sử
+                        td
+                            textarea#editor-description(name="description", cols="40", rows="10", class="form-control", style="visibility: hidden; height: 212px; overflow: hidden; display: none;")
+                           
+                            script(language="javascript", type="text/javascript").
+                                var editor_description = CKEDITOR.replace('editor-description', {
+                                allowedContent: true,
+                                autoParagraph: false,
+                                height: 200,
+                                toolbar: 'Normal',
+                                language: 'vi',
+                                toolbarGroups: [{
+                                name: 'paragraph',
+                                groups: [
+                                'basicstyles',
+                                'list',
+                                'align',
+                                'links',
+                                'colors',
+                                ]
+                                }],
+                                removeButtons: 'Save,NewPage,Preview,Print,Cut,Copy,Find,Replace,SelectAll,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Outdent,Indent,BidiLtr,BidiRtl,Language,Flash,Smiley,SpecialChar,About,Subscript,Superscript,HorizontalRule,PageBreak,Strike,RemoveFormat,Anchor,Paste,PasteFromWord,CreateDiv,ShowBlocks,Youtube,NumberedList'
+                                });
+                    tr#field-avatar(class="form-field avatar")
+                        th
+                            label(for="avatar") Ảnh đại diện
+                        td
+                            div(class="pull-left small-text")
+                                div(class="upload-button-wrap")
+                                    button(type="button", class="remove-thumbnail button hide") Xóa ảnh
+                                    button(type="button", href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;multiple=0&amp;field_id=avatar&amp;fldr=users&amp;akey=feb0d17ef521e6cabe064baaf11a03eb", class="set-thumbnail button btn-upload") Chọn ảnh
+                                    input#avatar(type="hidden", name="avatar", value="", onchange="changeUpload('#avatar')")
+                    tr(id="field-user_pass", class="form-field user_pass")
+                        th
+                            label(for="generate-pw") Mật khẩu
+                        td
+                            div#user-pass-wrap
+                                div(class="form-input")
+                                    button#generate-pw(type="button", class="button") Tạo mật khẩu
+                    tr(id="field-send_user_notification", class="form-field send_user_notification")
+                        th
+                            label(for="send_user_notification") Gửi thông báo
+                        td
+                            div(style="display: flex; align-items: center; gap: 7px")
+                                input(type="checkbox", name="send_user_notification", value="1", checked="checked", id="send_user_notification")
+                                label(for="send_user_notification", style="font-weight: 400; line-height: 1") Gửi cho thành viên mới đăng ký một email chứa thông tin tài khoản của họ.
+                    tr#field-role(class="form-field role")
+                        th
+                            label(for="role") Vai trò
+                        td
+                            select#role(name="role", class="form-control")
+                                option(value="administrator") Quản lý
+                                option(value="editor") Biên tập viên
+                                option(value="author") Tác giả
+                                option(value="contributor") Cộng tác viên
+                                option(value="subscriber", selected="selected", data-select2-id="4") Thành viên đăng ký
+                           
+            br
+            input(type="submit", name="form-submitted", value="Thêm người dùng mới", class="button btn-submit")

@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no">
+        <title>Trang quản trị</title>
+        <!-- Favicon-->
+        <link rel="icon" href="../images/favicon.png">
+        <!-- Bootstrap-->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <!-- Plugins style-->
+        <link rel="stylesheet" href="../css/bundle.min.css">
+        <!-- Template syle-->
+        <link rel="stylesheet" href="../admin/css/admin.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <!-- Jquery-->
+        <script src="../js/jquery.min.js"></script>
+    </head>
+    <body class="page-template-admin-panel-menu">
+        <!-- START HEADER-->
+        <div class="bm-admin-navbar">
+            <ul dropdown>
+                <li> <a class="bm-collapse-menu-mobile d-md-none" href="javascript:void(0)"><i class="fa-solid fa-bars"></i></a></li>
+                <li><a href="./bm-index.html"><i class="fa-solid fa-home"></i><span class="title name-web">ANOTHER WEBSITE</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-comment"></i>1</a></li>
+                <li><a href="./bm-new-posts.html"><i class="fa-solid fa-plus"></i><span class="title">Tạo mới</span></a>
+                    <ul>
+                        <li><a href="./bm-new-post.html">Bài viết</a></li>
+                        <li><a href="#">Trang</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="my-account" dropdown>
+                <li> <a class="my-account__nav" href="#"><span class="title">Xin chào, maocam </span><img src="../images/default-avatar.png" alt="avatar"></a>
+                    <ul class="my-account__dropdown">
+                        <li class="info-user"><a href="./bm-new-post.html"> <img src="../images/default-avatar.png" alt="avatar"><span class="title">maocam </span><span class="edit-profile">Edit Profile </span></a></li>
+                        <li class="logout"><a href="#">Đăng xuất</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- CLOSE HEADER-->
+        <!-- START SIDEBAR-->
+        <div class="bm-admin-sidebar">
+            <ul>
+                <li><a href="./bm-index.html"><i class="fa-solid fa-tachometer"></i><span class="title">Trang quản trị</span></a></li>
+                <li class="active"><a href="./bm-posts.html"><i class="fa-solid fa-thumb-tack"></i><span class="title">Bài viết</span></a>
+                    <ul class="sub-menu">
+                        <li class="active"><a href="./bm-posts.html">Tất cả bài viết</a></li>
+                        <li><a href="./bm-new-post.html">Thêm bài viết</a></li>
+                        <li><a href="./bm-category.html">Danh mục</a></li>
+                        <li><a href="./tag.html">Thẻ</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-file-image"></i><span class="title">Media<span class="pending-count">45</span></span></a></li>
+                <li><a href="./bm-pages.html"><i class="fa-solid fa-file"></i><span class="title">Trang</span></a>
+                    <ul class="sub-menu">
+                        <li class="active"><a href="./bm-pages.html">Tất cả các Trang</a></li>
+                        <li><a href="./bm-new-page.html">Thêm trang mới</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-comment"></i><span class="title">Bình luận</span></a></li>
+                <li><a href="./bm-theme.html"><i class="fa-solid fa-paintbrush"></i><span class="title">Giao diện</span></a>
+                    <ul class="sub-menu">
+                        <li class="active"><a href="./bm-theme.html">Giao diện</a></li>
+                        <li><a href="./bm-menu.html">Menu   </a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-plug"></i><span class="title">Plugin</span></a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Plugin đã cài đặt</a></li>
+                        <li><a href="#">Cài Plugin</a></li>
+                        <li><a href="#">Sửa tệp tin Plugin</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-wrench"></i><span class="title">Công cụ</span></a></li>
+                <li><a href="./bm-seo.html"><i class="fa-brands fa-superpowers"></i><span class="title">SEO</span></a>
+                    <ul class="sub-menu">
+                        <li><a href="./bm-seo.html">Hiển thị khi tìm kiếm</a></li>
+                        <li><a href="./bm-sitemap.html">XML Sitemaps</a></li>
+                        <li><a href="./bm-redirects.html">Redirects</a></li>
+                    </ul>
+                </li>
+                <li><a href="./bm-user.html"><i class="fa-solid fa-user"></i><span class="title">Thành viên</span></a>
+                    <ul class="sub-menu">
+                        <li><a href="./bm-user.html">Tất cả người dùng</a></li>
+                        <li><a href="./bm-add-user.html">Thêm mới</a></li>
+                        <li><a href="./bm-edit-user.html">Hồ sơ</a></li>
+                    </ul>
+                </li>
+                <li><a href="./bm-settings.html"><i class="fa-solid fa-cog"></i><span class="title">Cài đặt</span></a></li>
+                <li class="line"><span></span></li><a class="bm-collapse-admin-menu" href="#"><i class="fa-solid fa-arrow-circle-left"></i><span class="title">Thu gọn menu</span></a>
+            </ul>
+        </div>
+        <!-- CLOSE SIDEBAR-->
+        <!-- START CONTENT-->
+        <main class="bm-admin-wrap">
+            <div class="bm-admin-title"> 
+                <h1>Menu</h1>
+                <div class="toolbar" id="toolbar"><a class="page-title-action button action-add" href="#">Thêm mới</a></div>
+            </div>
+            <div class="bm-admin-content">
+                <div class="metabox" id="posts-filter">
+                    <div class="handlediv"></div>
+                    <h3>Bộ lọc tìm kiếm</h3>
+                    <div class="inside no-padding">
+                        <form class="search-form" action="https://dienmaytonghop.com/ws-admin/?mod=menu" method="post" accept-charset="utf-8">
+                            <input type="hidden" name="do_search" value="1">
+                            <div class="form-field">
+                                <div class="form-label">
+                                    <label for="totals">Tổng cộng</label>
+                                </div>
+                                <div class="form-input"><b class="badge bg-red">12</b></div>
+                            </div>
+                            <!-- End div.form-field-->
+                            <div class="form-field-wrap form-field-0">
+                                <div class="form-field">
+                                    <div class="form-label">
+                                        <label for="pos">Vị trí</label>
+                                    </div>
+                                    <div class="form-input">
+                                        <select class="form-control" id="pos" name="pos" onchange="submit()">
+                                            <option value="primary" selected="selected">Menu ngang</option>
+                                            <option value="footer">Menu cuối trang</option>
+                                            <option value="mobile">Menu trên điện thoại</option>
+                                            <option value="tags">Menu danh mục, nhãn hàng</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-field">
+                                <div class="form-label">
+                                    <label for="keyword">Từ khóa</label>
+                                </div>
+                                <div class="form-input">
+                                    <input class="text-search form-control" id="keyword" type="text" name="keyword" value="" autocomplete="off">
+                                    <button class="btn-search button" type="submit">Tìm menu</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <form action="https://dienmaytonghop.com/ws-admin/?mod=menu" name="manage" method="post" accept-charset="utf-8">
+                    <input type="hidden" name="pos" value="primary">
+                    <input type="hidden" name="action" value="">
+                    <div class="tablenav clearfix">
+                        <div class="btn-group pull-left">
+                            <button class="form-button button" id="bulk-action-update-1" name="update" type="button" value="" onclick="do_submit(this.name)">Cập nhật</button>
+                            <button class="form-button button" id="bulk-action-display-1" name="display" type="button" value="" onclick="do_submit(this.name)">Hiển thị</button>
+                            <button class="form-button button" id="bulk-action-hidden-1" name="hidden" type="button" value="" onclick="do_submit(this.name)">Tạm ẩn</button>
+                            <button class="form-button button" id="bulk-action-del-1" name="del" type="button" value="" onclick="do_submit(this.name)">Xóa menu</button>
+                        </div>
+                        <div class="tablenav-pages pull-right"><span class="displaying-num">12 mục</span></div>
+                    </div>
+                    <table class="table-list" id="manage">
+                        <thead>
+                            <tr>
+                                <th class="manage-column column-checkbox">
+                                    <div class="label-wrap">
+                                        <input type="checkbox" name="checkall" value="">
+                                    </div>
+                                </th>
+                                <th class="manage-column column-menu_order"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;orderby=menu_order&amp;amp;order=desc">Thứ tự</a></th>
+                                <th class="manage-column column-title"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;orderby=title&amp;amp;order=desc">Tên đường dẫn</a></th>
+                                <th class="manage-column column-link"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;orderby=link&amp;amp;order=desc">Địa chỉ trang web</a></th>
+                                <th class="manage-column column-action">
+                                    <div class="label-wrap">Tác vụ</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="row_item" id="row_188">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="188"></span></td>
+                                <td class="manage-column column-menu_order"><span>
+                                        <input class="form-control menu-order" type="text" name="orders[188]" value="1" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(188)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=188">Máy lạnh</a></span></td>
+                                <td class="manage-column column-link"><span>may-lanh</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=188" title="" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="" data-bs-toggle="tooltip" onfocus="do_check(188)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=188" title="" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(188)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_339">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="339"></span></td>
+                                <td class="manage-column column-menu_order"><span><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">
+                                        <input class="form-control menu-order" type="text" name="orders[339]" value="1" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(339)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=339"><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">Máy lạnh treo tường</a></span></td>
+                                <td class="manage-column column-link"><span>may-lanh-treo-tuong</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=339" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(339)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=339" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(339)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_340">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="340"></span></td>
+                                <td class="manage-column column-menu_order"><span><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">
+                                        <input class="form-control menu-order" type="text" name="orders[340]" value="2" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(340)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=340"><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">Máy lạnh âm trần</a></span></td>
+                                <td class="manage-column column-link"><span>may-lanh-am-tran</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=340" title="" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="" data-bs-toggle="tooltip" onfocus="do_check(340)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=340" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(340)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_341">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="341"></span></td>
+                                <td class="manage-column column-menu_order"><span><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">
+                                        <input class="form-control menu-order" type="text" name="orders[341]" value="3" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(341)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=341"><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">Máy lạnh tủ đứng</a></span></td>
+                                <td class="manage-column column-link"><span>may-lanh-tu-dung</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=341" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(341)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=341" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(341)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_342">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="342"></span></td>
+                                <td class="manage-column column-menu_order"><span><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">
+                                        <input class="form-control menu-order" type="text" name="orders[342]" value="4" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(342)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=342"><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">Máy lạnh Giấu trần Ống Gió</a></span></td>
+                                <td class="manage-column column-link"><span>may-lanh-giau-tran-ong-gio</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=342" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(342)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=342" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(342)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_343">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="343"></span></td>
+                                <td class="manage-column column-menu_order"><span><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">
+                                        <input class="form-control menu-order" type="text" name="orders[343]" value="5" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(343)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=343"><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">Máy lạnh áp trần</a></span></td>
+                                <td class="manage-column column-link"><span>may-lanh-ap-tran</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=343" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(343)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=343" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(343)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_344">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="344"></span></td>
+                                <td class="manage-column column-menu_order"><span><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">
+                                        <input class="form-control menu-order" type="text" name="orders[344]" value="6" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(344)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=344"><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">Hệ thống điều hòa Multi</a></span></td>
+                                <td class="manage-column column-link"><span>he-thong-dieu-hoa-multi</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=344" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(344)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=344" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="" data-bs-toggle="tooltip" onfocus="do_check(344)" onclick="return do_submit(this.value)" data-original-title="Xóa bỏ"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_345">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="345"></span></td>
+                                <td class="manage-column column-menu_order"><span><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">
+                                        <input class="form-control menu-order" type="text" name="orders[345]" value="7" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(345)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=345"><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">Hệ thống điều hòa VRV</a></span></td>
+                                <td class="manage-column column-link"><span>he-thong-dieu-hoa-vrv</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=345" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(345)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=345" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(345)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_358">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="358"></span></td>
+                                <td class="manage-column column-menu_order"><span><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">
+                                        <input class="form-control menu-order" type="text" name="orders[358]" value="8" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(358)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=358"><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">Bảng giá máy lạnh mới nhất</a></span></td>
+                                <td class="manage-column column-link"><span>bang-gia-may-lanh</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=358" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(358)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=358" title="" data-bs-toggle="tooltip" data-original-title="Sao chép">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(358)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_190">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="190"></span></td>
+                                <td class="manage-column column-menu_order"><span>
+                                        <input class="form-control menu-order" type="text" name="orders[190]" value="2" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(190)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=190">Tivi</a></span></td>
+                                <td class="manage-column column-link"><span>tivi</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=190" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="" data-bs-toggle="tooltip" onfocus="do_check(190)" onclick="do_submit('hidden')" data-original-title="Đang hiện"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=190" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(190)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_189">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="189"></span></td>
+                                <td class="manage-column column-menu_order"><span>
+                                        <input class="form-control menu-order" type="text" name="orders[189]" value="3" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(189)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=189">Tủ lạnh</a></span></td>
+                                <td class="manage-column column-link"><span>tu-lanh</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=189" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="" data-bs-toggle="tooltip" onfocus="do_check(189)" onclick="do_submit('hidden')" data-original-title="Đang hiện"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=189" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(189)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_285">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="285"></span></td>
+                                <td class="manage-column column-menu_order"><span>
+                                        <input class="form-control menu-order" type="text" name="orders[285]" value="4" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(285)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=285">Máy giặt</a></span></td>
+                                <td class="manage-column column-link"><span>may-giat</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=285" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="" data-bs-toggle="tooltip" onfocus="do_check(285)" onclick="do_submit('hidden')" data-original-title="Đang hiện"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=285" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(285)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_289">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="289"></span></td>
+                                <td class="manage-column column-menu_order"><span>
+                                        <input class="form-control menu-order" type="text" name="orders[289]" value="5" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(289)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=289">Tủ đông</a></span></td>
+                                <td class="manage-column column-link"><span>tu-dong</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=289" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(289)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=289" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(289)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_359">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="359"></span></td>
+                                <td class="manage-column column-menu_order"><span>
+                                        <input class="form-control menu-order" type="text" name="orders[359]" value="6" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(359)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=359">Máy sấy quần áo</a></span></td>
+                                <td class="manage-column column-link"><span>may-say-quan-ao</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=359" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(359)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=359" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(359)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_357">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="357"></span></td>
+                                <td class="manage-column column-menu_order"><span>
+                                        <input class="form-control menu-order" type="text" name="orders[357]" value="7" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(357)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=357">Máy lọc nước</a></span></td>
+                                <td class="manage-column column-link"><span>may-loc-nuoc</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=357" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(357)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=357" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(357)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_191">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="191"></span></td>
+                                <td class="manage-column column-menu_order"><span>
+                                        <input class="form-control menu-order" type="text" name="orders[191]" value="8" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(191)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=191">Máy hút bụi</a></span></td>
+                                <td class="manage-column column-link"><span>may-hut-bui</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=191" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(191)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=191" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(191)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_362">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="362"></span></td>
+                                <td class="manage-column column-menu_order"><span>
+                                        <input class="form-control menu-order" type="text" name="orders[362]" value="9" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(362)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=362">Gia dụng</a></span></td>
+                                <td class="manage-column column-link"><span>gia-dung</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=362" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(362)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=362" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(362)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_363">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="363"></span></td>
+                                <td class="manage-column column-menu_order"><span><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">
+                                        <input class="form-control menu-order" type="text" name="orders[363]" value="1" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(363)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=363"><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">Nồi cơm điện</a></span></td>
+                                <td class="manage-column column-link"><span>noi-com-dien</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=363" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(363)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=363" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(363)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_370">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="370"></span></td>
+                                <td class="manage-column column-menu_order"><span><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">
+                                        <input class="form-control menu-order" type="text" name="orders[370]" value="2" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(370)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=370"><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">Máy ép trái cây</a></span></td>
+                                <td class="manage-column column-link"><span>may-ep-trai-cay</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=370" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(370)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=370" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(370)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_369">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="369"></span></td>
+                                <td class="manage-column column-menu_order"><span><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">
+                                        <input class="form-control menu-order" type="text" name="orders[369]" value="2" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(369)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=369"><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">Lò vi sóng</a></span></td>
+                                <td class="manage-column column-link"><span>lo-vi-song</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=369" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(369)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=369" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(369)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_368">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="368"></span></td>
+                                <td class="manage-column column-menu_order"><span><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">
+                                        <input class="form-control menu-order" type="text" name="orders[368]" value="2" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(368)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=368"><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">Máy xay thịt</a></span></td>
+                                <td class="manage-column column-link"><span>may-xay-thit</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=368" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(368)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=368" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(368)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_367">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="367"></span></td>
+                                <td class="manage-column column-menu_order"><span><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">
+                                        <input class="form-control menu-order" type="text" name="orders[367]" value="2" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(367)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=367"><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">Lò nướng</a></span></td>
+                                <td class="manage-column column-link"><span>lo-nuong</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=367" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(367)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=367" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(367)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_366">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="366"></span></td>
+                                <td class="manage-column column-menu_order"><span><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">
+                                        <input class="form-control menu-order" type="text" name="orders[366]" value="2" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(366)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=366"><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">Máy xay sinh tố</a></span></td>
+                                <td class="manage-column column-link"><span>may-xay-sinh-to</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=366" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(366)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=366" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(366)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_365">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="365"></span></td>
+                                <td class="manage-column column-menu_order"><span><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">
+                                        <input class="form-control menu-order" type="text" name="orders[365]" value="2" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(365)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=365"><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">Quạt</a></span></td>
+                                <td class="manage-column column-link"><span>quat</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=365" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(365)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=365" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(365)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_364">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="364"></span></td>
+                                <td class="manage-column column-menu_order"><span><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">
+                                        <input class="form-control menu-order" type="text" name="orders[364]" value="2" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(364)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=364"><img src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif" alt="">Bếp từ</a></span></td>
+                                <td class="manage-column column-link"><span>bep-tu</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=364" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(364)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=364" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(364)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_300">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="300"></span></td>
+                                <td class="manage-column column-menu_order"><span>
+                                        <input class="form-control menu-order" type="text" name="orders[300]" value="10" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(300)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=300">Bảng giá</a></span></td>
+                                <td class="manage-column column-link"><span>bang-gia</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=300" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(300)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=300" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(300)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_360">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="360"></span></td>
+                                <td class="manage-column column-menu_order"><span>
+                                        <input class="form-control menu-order" type="text" name="orders[360]" value="11" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(360)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=360">Tin tức</a></span></td>
+                                <td class="manage-column column-link"><span>category/tin-tuc</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=360" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(360)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=360" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(360)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                            <tr class="row_item" id="row_361">
+                                <td class="manage-column column-checkbox"><span>
+                                        <input class="checkbox" type="checkbox" name="ids[]" value="361"></span></td>
+                                <td class="manage-column column-menu_order"><span>
+                                        <input class="form-control menu-order" type="text" name="orders[361]" value="12" autocomplete="off" onkeypress="return is_num(event)" onchange="do_check(361)"></span></td>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;sub=edit&amp;amp;pos=primary&amp;amp;id=361">Liên hệ</a></span></td>
+                                <td class="manage-column column-link"><span>lien-he</span></td>
+                                <td class="manage-column column-action"><span>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=edit&amp;amp;id=361" title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                            <button class="btn-action btn-do-action action-display" type="button" title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(361)" onclick="do_submit('hidden')"></button><a class="btn-action action-duplicate" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;sub=dup&amp;amp;id=361" title="Sao chép" data-bs-toggle="tooltip">Sao chép</a>
+                                            <button class="btn-action action-delete bg-red" type="button" value="del" title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(361)" onclick="return do_submit(this.value)"></button>
+                                        </div></span></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td class="manage-column column-checkbox"><span class="label-wrap">
+                                        <input type="checkbox" name="checkall" value=""></span></td>
+                                <td class="manage-column column-menu_order"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;orderby=menu_order&amp;amp;order=desc">Thứ tự</a></td>
+                                <td class="manage-column column-title"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;orderby=title&amp;amp;order=desc">Tên đường dẫn</a></td>
+                                <td class="manage-column column-link"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;amp;pos=primary&amp;amp;orderby=link&amp;amp;order=desc">Địa chỉ trang web</a></td>
+                                <td class="manage-column column-action"><span class="label-wrap">Tác vụ</span></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="tablenav">
+                        <div class="btn-group">
+                            <button class="form-button button" id="bulk-action-update-2" name="update" type="button" value="" onclick="do_submit(this.name)">Cập nhật</button>
+                            <button class="form-button button" id="bulk-action-display-2" name="display" type="button" value="" onclick="do_submit(this.name)">Hiển thị</button>
+                            <button class="form-button button" id="bulk-action-hidden-2" name="hidden" type="button" value="" onclick="do_submit(this.name)">Tạm ẩn</button>
+                            <button class="form-button button" id="bulk-action-del-2" name="del" type="button" value="" onclick="do_submit(this.name)">Xóa menu</button>
+                        </div>
+                        <div class="tablenav-pages"><span class="displaying-num">12 mục</span></div>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <!-- CLOSE CONTENT-->
+        <!-- START FOOTER-->
+        <footer class="main-footer">
+            <div class="pull-left"><span>© 2024 </span><a href="#" target="_blank"><strong>Trắc nghiệm demo</strong></a></div>
+            <div class="pull-right d-none d-md-block">Phiên bản 3.1.10	</div>
+        </footer>
+        <!-- CLOSE FOOTER-->
+        <!-- Bootstrap-->
+        <script src="./js/popper.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+        <!-- Plugins script-->
+        <script src="../js/bundle.min.js"></script>
+        <!-- TinyMCE-->
+        <script src="./editors/tinymce/tinymce.min.js"></script>
+        <!-- CKEditor-->
+        <script src="./editors/ckeditor/ckeditor.js"></script>
+        <!-- Template script-->
+        <script src="../admin/js/admin.min.js"></script>
+        <!-- Common script-->
+    </body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no">
+        <title>Trang quản trị</title>
+        <!-- Favicon-->
+        <link rel="icon" href="../images/favicon.png">
+        <!-- Bootstrap-->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <!-- Plugins style-->
+        <link rel="stylesheet" href="../css/bundle.min.css">
+        <!-- Template syle-->
+        <link rel="stylesheet" href="../admin/css/admin.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <!-- Jquery-->
+        <script src="../js/jquery.min.js"></script>
+    </head>
+    <body class="page-template-admin-panel-seo-page">
+        <!-- START HEADER-->
+        <div class="bm-admin-navbar">
+            <ul dropdown>
+                <li> <a class="bm-collapse-menu-mobile d-md-none" href="javascript:void(0)"><i class="fa-solid fa-bars"></i></a></li>
+                <li><a href="./bm-index.html"><i class="fa-solid fa-home"></i><span class="title name-web">ANOTHER WEBSITE</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-comment"></i>1</a></li>
+                <li><a href="./bm-new-posts.html"><i class="fa-solid fa-plus"></i><span class="title">Tạo mới</span></a>
+                    <ul>
+                        <li><a href="./bm-new-post.html">Bài viết</a></li>
+                        <li><a href="#">Trang</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="my-account" dropdown>
+                <li> <a class="my-account__nav" href="#"><span class="title">Xin chào, maocam </span><img src="../images/default-avatar.png" alt="avatar"></a>
+                    <ul class="my-account__dropdown">
+                        <li class="info-user"><a href="./bm-new-post.html"> <img src="../images/default-avatar.png" alt="avatar"><span class="title">maocam </span><span class="edit-profile">Edit Profile </span></a></li>
+                        <li class="logout"><a href="#">Đăng xuất</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- CLOSE HEADER-->
+        <!-- START SIDEBAR-->
+        <div class="bm-admin-sidebar">
+            <ul>
+                <li><a href="./bm-index.html"><i class="fa-solid fa-tachometer"></i><span class="title">Trang quản trị</span></a></li>
+                <li class="active"><a href="./bm-posts.html"><i class="fa-solid fa-thumb-tack"></i><span class="title">Bài viết</span></a>
+                    <ul class="sub-menu">
+                        <li class="active"><a href="./bm-posts.html">Tất cả bài viết</a></li>
+                        <li><a href="./bm-new-post.html">Thêm bài viết</a></li>
+                        <li><a href="./bm-category.html">Danh mục</a></li>
+                        <li><a href="./tag.html">Thẻ</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-file-image"></i><span class="title">Media<span class="pending-count">45</span></span></a></li>
+                <li><a href="./bm-pages.html"><i class="fa-solid fa-file"></i><span class="title">Trang</span></a>
+                    <ul class="sub-menu">
+                        <li class="active"><a href="./bm-pages.html">Tất cả các Trang</a></li>
+                        <li><a href="./bm-new-page.html">Thêm trang mới</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-comment"></i><span class="title">Bình luận</span></a></li>
+                <li><a href="./bm-theme.html"><i class="fa-solid fa-paintbrush"></i><span class="title">Giao diện</span></a>
+                    <ul class="sub-menu">
+                        <li class="active"><a href="./bm-theme.html">Giao diện</a></li>
+                        <li><a href="./bm-menu.html">Menu   </a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-plug"></i><span class="title">Plugin</span></a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Plugin đã cài đặt</a></li>
+                        <li><a href="#">Cài Plugin</a></li>
+                        <li><a href="#">Sửa tệp tin Plugin</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-wrench"></i><span class="title">Công cụ</span></a></li>
+                <li><a href="./bm-seo.html"><i class="fa-brands fa-superpowers"></i><span class="title">SEO</span></a>
+                    <ul class="sub-menu">
+                        <li><a href="./bm-seo.html">Hiển thị khi tìm kiếm</a></li>
+                        <li><a href="./bm-sitemap.html">XML Sitemaps</a></li>
+                        <li><a href="./bm-redirects.html">Redirects</a></li>
+                    </ul>
+                </li>
+                <li><a href="./bm-user.html"><i class="fa-solid fa-user"></i><span class="title">Thành viên</span></a>
+                    <ul class="sub-menu">
+                        <li><a href="./bm-user.html">Tất cả người dùng</a></li>
+                        <li><a href="./bm-add-user.html">Thêm mới</a></li>
+                        <li><a href="./bm-edit-user.html">Hồ sơ</a></li>
+                    </ul>
+                </li>
+                <li><a href="./bm-settings.html"><i class="fa-solid fa-cog"></i><span class="title">Cài đặt</span></a></li>
+                <li class="line"><span></span></li><a class="bm-collapse-admin-menu" href="#"><i class="fa-solid fa-arrow-circle-left"></i><span class="title">Thu gọn menu</span></a>
+            </ul>
+        </div>
+        <!-- CLOSE SIDEBAR-->
+        <!-- START CONTENT-->
+        <main class="bm-admin-wrap">
+            <div class="bm-admin-title"> 
+                <h1>Hiển thị khi tìm kiếm - SEO</h1>
+            </div>
+            <div class="bm-admin-content">
+                <form class="bm-seo" action="https://dienmaytonghop.com/ws-admin/?mod=seo&amp;amp;act=setting" method="post" accept-charset="utf-8">
+                    <input type="hidden" name="sub" value="update">
+                    <div class="nav-tabs-custom no-margin">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#wsseo_titles" data-toggle="tab">Hiển thị khi tìm kiếm</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab-wsseo_titles">
+                            <table class="form-table no-margin">
+                                <tbody>
+                                    <tr class="field-setting" id="field-prefix_title_tag">
+                                        <th scope="row">
+                                            <label for="separator">Dấu ngăn cách</label>
+                                        </th>
+                                        <td>
+                                            <div class="wsseo-radio-block">
+                                                <input id="separator-sc-dash" type="radio" name="setting[separator]" value="sc-dash">
+                                                <label for="separator-sc-dash" title="Dấu gạch ngang" data-toggle="tooltip">-</label>
+                                                <input id="separator-sc-ndash" type="radio" name="setting[separator]" value="sc-ndash">
+                                                <label for="separator-sc-ndash" title="Dấu gạch ngang ngắn" data-toggle="tooltip">–</label>
+                                                <input id="separator-sc-mdash" type="radio" name="setting[separator]" value="sc-mdash">
+                                                <label for="separator-sc-mdash" title="Dấu gạch ngang dài" data-toggle="tooltip">—</label>
+                                                <input id="separator-sc-colon" type="radio" name="setting[separator]" value="sc-colon">
+                                                <label for="separator-sc-colon" title="Dấu hai chấm" data-toggle="tooltip">:</label>
+                                                <input id="separator-sc-middot" type="radio" name="setting[separator]" value="sc-middot">
+                                                <label for="separator-sc-middot" title="Chấm giữa" data-toggle="tooltip">·</label>
+                                                <input id="separator-sc-bull" type="radio" name="setting[separator]" value="sc-bull">
+                                                <label for="separator-sc-bull" title="Dấu đầu dòng" data-toggle="tooltip">•</label>
+                                                <input id="separator-sc-star" type="radio" name="setting[separator]" value="sc-star">
+                                                <label for="separator-sc-star" title="Dấu hoa thị" data-toggle="tooltip">*</label>
+                                                <input id="separator-sc-smstar" type="radio" name="setting[separator]" value="sc-smstar">
+                                                <label for="separator-sc-smstar" title="Dấu hoa thị thấp" data-toggle="tooltip">⋆</label>
+                                                <input id="separator-sc-pipe" type="radio" name="setting[separator]" value="sc-pipe" checked="checked">
+                                                <label for="separator-sc-pipe" title="" data-toggle="tooltip" data-original-title="Dấu gạch đứng">|</label>
+                                                <input id="separator-sc-tilde" type="radio" name="setting[separator]" value="sc-tilde">
+                                                <label for="separator-sc-tilde" title="Dấu ngã nhỏ" data-toggle="tooltip">~</label>
+                                                <input id="separator-sc-laquo" type="radio" name="setting[separator]" value="sc-laquo">
+                                                <label for="separator-sc-laquo" title="" data-toggle="tooltip" data-original-title="Dấu &lt;&lt;">«</label>
+                                                <input id="separator-sc-raquo" type="radio" name="setting[separator]" value="sc-raquo">
+                                                <label for="separator-sc-raquo" title="" data-toggle="tooltip" data-original-title="Dấu &gt;&gt;">»</label>
+                                                <input id="separator-sc-lt" type="radio" name="setting[separator]" value="sc-lt">
+                                                <label for="separator-sc-lt" title="Dấu nhỏ hơn" data-toggle="tooltip">&amp;lt;</label>
+                                                <input id="separator-sc-gt" type="radio" name="setting[separator]" value="sc-gt">
+                                                <label for="separator-sc-gt" title="Dấu lớn hơn" data-toggle="tooltip">&amp;gt;</label>
+                                            </div>
+                                            <p class="description">Chọn ký tự để làm dấu ngăn cách tiêu đề. Ký tự này sẽ hiển thị, lấy ví dụ, giữa tiêu đề bài viết và tên của trang web. Ký tự sẽ hiển thị với kích cỡ sẽ xuất hiện trong các kết quả tìm kiếm.</p>
+                                        </td>
+                                    </tr>
+                                    <tr class="field-setting" id="field-prefix_title_tag">
+                                        <th scope="row">
+                                            <label for="before_title_tag">Tiền tố thẻ Title</label>
+                                        </th>
+                                        <td>
+                                            <div class="group-control-wrap">
+                                                <label class="switch">
+                                                    <input type="checkbox" name="before_title_tag" value="1" id="before_title_tag"><span class="slider round"></span>
+                                                </label>
+                                                <div class="group-control hide">
+                                                    <input class="form-control regular-text" type="text" name="setting[before_title_tag_text]" value="" id="before_title_tag_text">
+                                                    <p class="description">Nội dung sẽ được <code>thêm vào phía trước</code>&nbsp;nội dung&nbsp;<code>thẻ Title</code>.</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="field-setting" id="field-after_title_tag">
+                                        <th scope="row">
+                                            <label for="after_title_tag">Hậu tố thẻ Title</label>
+                                        </th>
+                                        <td>
+                                            <div class="group-control-wrap">
+                                                <label class="switch">
+                                                    <input type="checkbox" name="after_title_tag" value="1" id="after_title_tag"><span class="slider round"></span>
+                                                </label>
+                                                <div class="group-control hide">
+                                                    <input class="form-control regular-text" type="text" name="setting[after_title_tag_text]" value="DMTD" id="after_title_tag_text">
+                                                    <p class="description">Nội dung sẽ được <code>thêm vào phía sau</code>&nbsp;nội dung&nbsp;<code>thẻ Title</code>.</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="field-setting" id="field-before_metadesc_tag">
+                                        <th scope="row">
+                                            <label for="before_metadesc_tag">Tiền tố thẻ metadesc</label>
+                                        </th>
+                                        <td>
+                                            <div class="group-control-wrap">
+                                                <label class="switch">
+                                                    <input type="checkbox" name="before_metadesc_tag" value="1" id="before_metadesc_tag"><span class="slider round"></span>
+                                                </label>
+                                                <div class="group-control hide">
+                                                    <input class="form-control regular-text" type="text" name="setting[before_metadesc_tag_text]" value="" id="before_metadesc_tag_text">
+                                                    <p class="description">Nội dung sẽ được <code>thêm vào phía trước</code>&nbsp;nội dung&nbsp;<code>thẻ Meta description</code>.</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="field-setting" id="field-after_metadesc_tag">
+                                        <th scope="row">
+                                            <label for="after_metadesc_tag">Hậu tố thẻ metadesc</label>
+                                        </th>
+                                        <td>
+                                            <div class="group-control-wrap">
+                                                <label class="switch">
+                                                    <input type="checkbox" name="after_metadesc_tag" value="1" id="after_metadesc_tag"><span class="slider round"></span>
+                                                </label>
+                                                <div class="group-control hide">
+                                                    <input class="form-control regular-text" type="text" name="setting[after_metadesc_tag_text]" value="Gọi ngay 0936 665 880" id="after_metadesc_tag_text">
+                                                    <p class="description">Nội dung sẽ được <code>thêm vào phía sau</code>&nbsp;nội dung&nbsp;<code>thẻ Meta description</code>.</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="field-setting" id="field-urltypes">
+                                        <th scope="row">
+                                            <label for="urltypes">Các loại đường dẫn</label>
+                                        </th>
+                                        <td>
+                                            <textarea class="form-control large-text" id="urltypes" name="setting[urltypes]" cols="40" rows="3" style="height: 72px; overflow: hidden;"></textarea>
+                                            <p class="description">Cung cấp các loại đường dẫn mà các liên kết nên được đặt. Một loại đường dẫn trên mỗi dòng. Không bắt buộc.</p>
+                                        </td>
+                                    </tr>
+                                    <tr class="field-setting" id="field-blacklist">
+                                        <th scope="row">
+                                            <label for="blacklist">Danh sách đen</label>
+                                        </th>
+                                        <td>
+                                            <textarea class="form-control large-text" id="blacklist" name="setting[blacklist]" cols="40" rows="3" style="height: 72px; overflow: hidden;"></textarea>
+                                            <p class="description">Cung cấp các trang không nên thay đổi. Một url trên mỗi dòng. Không bắt buộc.</p>
+                                        </td>
+                                    </tr>
+                                    <tr class="field-setting" id="field-buttons">
+                                        <th scope="row">
+                                            <input class="button btn-submit" type="submit" name="form-submitted" value="Lưu thay đổi">
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <!-- CLOSE CONTENT-->
+        <!-- START FOOTER-->
+        <footer class="main-footer">
+            <div class="pull-left"><span>© 2024 </span><a href="#" target="_blank"><strong>Trắc nghiệm demo</strong></a></div>
+            <div class="pull-right d-none d-md-block">Phiên bản 3.1.10	</div>
+        </footer>
+        <!-- CLOSE FOOTER-->
+        <!-- Bootstrap-->
+        <script src="./js/popper.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+        <!-- Plugins script-->
+        <script src="../js/bundle.min.js"></script>
+        <!-- TinyMCE-->
+        <script src="./editors/tinymce/tinymce.min.js"></script>
+        <!-- CKEditor-->
+        <script src="./editors/ckeditor/ckeditor.js"></script>
+        <!-- Template script-->
+        <script src="../admin/js/admin.min.js"></script>
+        <!-- Common script-->
+    </body>
+</html>

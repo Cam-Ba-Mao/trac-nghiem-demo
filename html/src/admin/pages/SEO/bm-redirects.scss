@@ -1,0 +1,21 @@
+.bm-redirects {
+    .posts-filter {
+		margin-bottom: 10px;
+	}
+	.posts-filter::after {
+		content: "";
+		clear: both;
+		display: table;
+	}
+	.posts-filter .subsubsub {
+		float: left;
+		margin: 10px 0 0;
+		line-height: 20px;
+	}
+	.posts-filter .search-box {
+		float: right;
+	}
+	.manage-column:last-child {
+		width: 1%;
+	}
+}

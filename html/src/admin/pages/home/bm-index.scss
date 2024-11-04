@@ -330,42 +330,10 @@ p.text-muted {
 	margin-right: 5px;
 }
 
-
-@media all and (max-width: 900px) {
-
-    .bm-admin-navbar {
-        height: 50px;
-
-        >ul {
-            >li {
-                >a {
-                    line-height: 50px;
-                    font-size: 22px;
-
-                    .fa-solid {
-                        font-size: 25px;
-                    }
-
-                    .title {
-                        display: none;
-                    }
-                }
-
-                ul {
-                    top: 50px;
-                }
-            }
-        }
-    }
-
-    .bm-admin-content,
-    .bm-admin-sidebar {
-        height: calc(100% - 50px);
-    }
-    
-    .hide {
-        display: none !important;
-    }
+.text-bold,
+.text-bold.table td,
+.text-bold.table th {
+	font-weight: 700;
 }
 
 .box .overlay > .fa, .overlay-wrapper .overlay > .fa {
