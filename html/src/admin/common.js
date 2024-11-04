@@ -203,6 +203,26 @@ var POST = {
 			// 	language : 'en',
 			// })
 
+			core.formEditor('editor-description', {
+				allowedContent: true,
+				autoParagraph: false,
+				height: 200,
+				toolbar: 'Normal',
+				language: 'vi',
+				toolbarGroups: [{
+					name: 'paragraph',
+					groups: [
+					'basicstyles',
+					'list',
+					'align',
+					'links',
+					'colors',
+					]
+				}],
+				removeButtons: 'Save,NewPage,Preview,Print,Cut,Copy,Find,Replace,SelectAll,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Outdent,Indent,BidiLtr,BidiRtl,Language,Flash,Smiley,SpecialChar,About,Subscript,Superscript,HorizontalRule,PageBreak,Strike,RemoveFormat,Anchor,Paste,PasteFromWord,CreateDiv,ShowBlocks,Youtube,NumberedList'
+
+			})
+
 			
 			const elmTextarea = document.querySelectorAll('textarea[data-editor="true"]');
 			// let editorEnabled = elmTextarea.dataset.editor;
@@ -530,24 +550,24 @@ $(function(){
 	// });
 	
 	// collapse menu
-	var collapse;
-	$('*[data-toggle="offcanvas"]').on('click', function(){
-		if(document.body.classList.contains('sidebar-collapse')) {
-			collapse = 0;
-		}
-		else {
-			collapse = 1;
-		}
-		$.ajax({
-			type: 'POST',
-			dataType: 'json',
-			url: '?act=admin_ajax&do=collapse',
-			data: {collapse: collapse},
-			success: function(){
-				APP.scrollMenu($(".main-header").height());
-			}
-		});
-	});
+	// var collapse;
+	// $('*[data-toggle="offcanvas"]').on('click', function(){
+	// 	if(document.body.classList.contains('sidebar-collapse')) {
+	// 		collapse = 0;
+	// 	}
+	// 	else {
+	// 		collapse = 1;
+	// 	}
+	// 	$.ajax({
+	// 		type: 'POST',
+	// 		dataType: 'json',
+	// 		url: '?act=admin_ajax&do=collapse',
+	// 		data: {collapse: collapse},
+	// 		success: function(){
+	// 			APP.scrollMenu($(".main-header").height());
+	// 		}
+	// 	});
+	// });
 	
 	$(document).on('click', '.picture-wrap', function(){
 		var btn = $(this).parent().find('.btn-upload');
@@ -565,7 +585,7 @@ $(function(){
 	POST.init();
 	
 	// scrollMenu
-	APP.scrollMenu(40);
+	// APP.scrollMenu(40);
 	
 	// message close
 	$(document).on('click', 'button.notice-dismiss', function(){
@@ -613,9 +633,9 @@ var APP = {
 	}
 };
 
-$(window).resize(function(){
-	APP.scrollMenu(40);
-});
+// $(window).resize(function(){
+// 	APP.scrollMenu(40);
+// });
 
 var ws = {
 	dropdown: function(sel){

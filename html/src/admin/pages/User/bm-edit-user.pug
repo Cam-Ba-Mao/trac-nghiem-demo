@@ -86,32 +86,12 @@ block container
                     tr(id="field-user_bio", class="form-field field-title user_bio")
                         th
                             h4 Tự bạch
-                    script(src="https://dienmaytonghop.com/plugins/editors/ckeditor/ckeditor.js?v=241104050309", language="javascript")
                     tr#field-description(class="form-field description")
                         th
                             label(for="description") Tiểu sử
                         td
                             textarea#editor-description(name="description", cols="40", rows="10", class="form-control", style="visibility: hidden; height: 212px; overflow: hidden; display: none;")
-                            
-                            script(language="javascript", type="text/javascript").
-                                var editor_description = CKEDITOR.replace('editor-description', {
-                                allowedContent: true,
-                                autoParagraph: false,
-                                height: 200,
-                                toolbar: 'Normal',
-                                language: 'vi',
-                                toolbarGroups: [{
-                                name: 'paragraph',
-                                groups: [
-                                'basicstyles',
-                                'list',
-                                'align',
-                                'links',
-                                'colors',
-                                ]
-                                }],
-                                removeButtons: 'Save,NewPage,Preview,Print,Cut,Copy,Find,Replace,SelectAll,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Outdent,Indent,BidiLtr,BidiRtl,Language,Flash,Smiley,SpecialChar,About,Subscript,Superscript,HorizontalRule,PageBreak,Strike,RemoveFormat,Anchor,Paste,PasteFromWord,CreateDiv,ShowBlocks,Youtube,NumberedList'
-                                });
+                               
                     tr#field-avatar(class="form-field avatar")
                         th
                             label(for="avatar") Ảnh đại diện
@@ -119,9 +99,9 @@ block container
                             div(class="pull-left small-text")
                                 div(class="upload-button-wrap")
                                     div(class="picture-wrap")
-                                        img(src="https://dienmaytonghop.com/uploads/avatar.jpg", alt="")
+                                        img(src="../images/default-avatar.png", alt="")
                                     button(type="button", class="remove-thumbnail button") Xóa ảnh
-                                    button(type="button", href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;multiple=0&amp;field_id=avatar&amp;fldr=profile&amp;akey=feb0d17ef521e6cabe064baaf11a03eb", class="set-thumbnail button btn-upload hide") Chọn ảnh
+                                    button(type="button", href="#", class="set-thumbnail button btn-upload hide") Chọn ảnh
                                     input#avatar(type="hidden", name="avatar", value="avatar.jpg", onchange="changeUpload('#avatar')")
                     tr(id="field-user_manage", class="form-field field-title user_manage")
                         th

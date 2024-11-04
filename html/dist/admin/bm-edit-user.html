@@ -50,7 +50,7 @@
                         <li class="active"><a href="./bm-posts.html">Tất cả bài viết</a></li>
                         <li><a href="./bm-new-post.html">Thêm bài viết</a></li>
                         <li><a href="./bm-category.html">Danh mục</a></li>
-                        <li><a href="./tag.html">Thẻ</a></li>
+                        <li><a href="./bm-tag.html">Thẻ</a></li>
                     </ul>
                 </li>
                 <li><a href="#"><i class="fa-solid fa-file-image"></i><span class="title">Media<span class="pending-count">45</span></span></a></li>
@@ -211,33 +211,12 @@
                                     <h4>Tự bạch</h4>
                                 </th>
                             </tr>
-                            <script src="https://dienmaytonghop.com/plugins/editors/ckeditor/ckeditor.js?v=241104050309" language="javascript"></script>
                             <tr class="form-field description" id="field-description">
                                 <th>
                                     <label for="description">Tiểu sử</label>
                                 </th>
                                 <td>
                                     <textarea class="form-control" id="editor-description" name="description" cols="40" rows="10" style="visibility: hidden; height: 212px; overflow: hidden; display: none;"></textarea>
-                                    <script language="javascript" type="text/javascript">
-                                        var editor_description = CKEDITOR.replace('editor-description', {
-                                        allowedContent: true,
-                                        autoParagraph: false,
-                                        height: 200,
-                                        toolbar: 'Normal',
-                                        language: 'vi',
-                                        toolbarGroups: [{
-                                        name: 'paragraph',
-                                        groups: [
-                                        'basicstyles',
-                                        'list',
-                                        'align',
-                                        'links',
-                                        'colors',
-                                        ]
-                                        }],
-                                        removeButtons: 'Save,NewPage,Preview,Print,Cut,Copy,Find,Replace,SelectAll,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Outdent,Indent,BidiLtr,BidiRtl,Language,Flash,Smiley,SpecialChar,About,Subscript,Superscript,HorizontalRule,PageBreak,Strike,RemoveFormat,Anchor,Paste,PasteFromWord,CreateDiv,ShowBlocks,Youtube,NumberedList'
-                                        });
-                                    </script>
                                 </td>
                             </tr>
                             <tr class="form-field avatar" id="field-avatar">
@@ -247,9 +226,9 @@
                                 <td>
                                     <div class="pull-left small-text">
                                         <div class="upload-button-wrap">
-                                            <div class="picture-wrap"><img src="https://dienmaytonghop.com/uploads/avatar.jpg" alt=""></div>
+                                            <div class="picture-wrap"><img src="../images/default-avatar.png" alt=""></div>
                                             <button class="remove-thumbnail button" type="button">Xóa ảnh</button>
-                                            <button class="set-thumbnail button btn-upload hide" type="button" href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;amp;multiple=0&amp;amp;field_id=avatar&amp;amp;fldr=profile&amp;amp;akey=feb0d17ef521e6cabe064baaf11a03eb">Chọn ảnh</button>
+                                            <button class="set-thumbnail button btn-upload hide" type="button" href="#">Chọn ảnh</button>
                                             <input id="avatar" type="hidden" name="avatar" value="avatar.jpg" onchange="changeUpload('#avatar')">
                                         </div>
                                     </div>

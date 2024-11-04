@@ -11,16 +11,16 @@ block container
         #toolbar.toolbar
             a.page-title-action.button.action-add(href="#") Viết bài mới
     .bm-admin-content
-        form(action="https://dienmaytonghop.com/ws-admin/?mod=news", name="manage", class="admin-tablelist", method="post", accept-charset="utf-8")
+        form(action="#", name="manage", class="admin-tablelist", method="post", accept-charset="utf-8")
             input(type="hidden", name="paged", value="")
             input(type="hidden", name="action", value="search")
             div#posts-filter(class="posts-filter")
                 ul(class="subsubsub")
                     li
-                        a(href="https://dienmaytonghop.com/ws-admin/?mod=news", class="current") Tất cả 
+                        a(href="#", class="current") Tất cả 
                             span(class="count") (4)
                     li
-                        a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;post_status=publish") Đã xuất bản 
+                        a(href="#") Đã xuất bản 
                             span(class="count") (4)
                 div#search-box(class="search-box")
                     input(type="text", name="keyword", value="", class="form-control text-search")
@@ -63,13 +63,13 @@ block container
                             div(class="label-wrap")
                                 input(type="checkbox", name="checkall", value="")
                         th(class="manage-column column-title")
-                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;orderby=title&amp;order=desc", class="sorted desc") Tiêu đề
+                            a(href="#", class="sorted desc") Tiêu đề
                         th(class="manage-column column-picture")
-                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;orderby=picture&amp;order=desc", class="sorted desc") Hình ảnh
+                            a(href="#", class="sorted desc") Hình ảnh
                         th(class="manage-column column-cat_id")
-                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;orderby=cat_id&amp;order=desc", class="sorted desc") Chuyên mục
+                            a(href="#", class="sorted desc") Chuyên mục
                         th(class="manage-column column-date")
-                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;orderby=date&amp;order=desc", class="sorted desc") Thời gian
+                            a(href="#", class="sorted desc") Thời gian
                         th(class="manage-column column-action")
                             div(class="label-wrap") Tác vụ
                 tbody
@@ -85,17 +85,17 @@ block container
                                         li
                                             a(href="./bm-edit-post.html", class="row-action row-action-edit") Chỉnh sửa
                                         li
-                                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;id=4&amp;action=hidden", onclick="do_check(4); do_submit('hidden')", class="row-action do-action row-action-hidden") Bản nháp
+                                            a(href="#", onclick="do_check(4); do_submit('hidden')", class="row-action do-action row-action-hidden") Bản nháp
                                         li
-                                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;sub=del&amp;id=4", class="row-action row-action-delete", onclick="return do_delete(4)") Xóa
+                                            a(href="#", class="row-action row-action-delete", onclick="return do_delete(4)") Xóa
                                         li
-                                            a(href="https://dienmaytonghop.com/blog/su-khac-biet-cua-gas-r32-va-gas-r410a", class="preview-link", target="_blank") Xem
+                                            a(href="#", class="preview-link", target="_blank") Xem
                         td(class="manage-column column-picture")
                             span
-                                img(src="https://dienmaytonghop.com/uploads/news/10-2024/su-khac-biet-cua-gas-r32-va-gas-r410a.webp", width="50", height="50", class="img-cover", alt="")
+                                img(src="./images/post/su-khac-biet-cua-gas-r32-va-gas-r410a.webp", width="50", height="50", class="img-cover", alt="")
                         td(class="manage-column column-cat_id")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;category_name=tin-tuc") Tin tức
+                                a(href="#") Tin tức
                         td(class="manage-column column-date")
                             span Đã xuất bản
                                 br
@@ -112,23 +112,23 @@ block container
                                 input(type="checkbox", name="ids[]", value="3", class="checkbox")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;sub=edit&amp;id=3", class="title-link-edit") Chế độ Econo là gì? Những ưu nhược điểm về Econo có thể bạn chưa biết?
+                                a(href="#", class="title-link-edit") Chế độ Econo là gì? Những ưu nhược điểm về Econo có thể bạn chưa biết?
                                 div(class="row-actions")
                                     ul
                                         li
-                                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;sub=edit&amp;id=3", class="row-action row-action-edit") Chỉnh sửa
+                                            a(href="#", class="row-action row-action-edit") Chỉnh sửa
                                         li
-                                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;id=3&amp;action=hidden", onclick="do_check(3); do_submit('hidden')", class="row-action do-action row-action-hidden") Bản nháp
+                                            a(href="#", onclick="do_check(3); do_submit('hidden')", class="row-action do-action row-action-hidden") Bản nháp
                                         li
-                                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;sub=del&amp;id=3", class="row-action row-action-delete", onclick="return do_delete(3)") Xóa
+                                            a(href="#", class="row-action row-action-delete", onclick="return do_delete(3)") Xóa
                                         li
-                                            a(href="https://dienmaytonghop.com/blog/che-do-econo-la-gi-nhung-uu-nhuoc-diem-ve-econo-co-the-ban-chua-biet", class="preview-link", target="_blank") Xem
+                                            a(href="#", class="preview-link", target="_blank") Xem
                         td(class="manage-column column-picture")
                             span
-                                img(src="https://dienmaytonghop.com/uploads/news/10-2024/che-do-econo-la-gi-nhung-uu-nhuoc-diem-ve-econo-co-the-ban-chua-biet.webp", width="50", height="50", class="img-cover", alt="")
+                                img(src="./images/post/che-do-econo-la-gi-nhung-uu-nhuoc-diem-ve-econo-co-the-ban-chua-biet.webp", width="50", height="50", class="img-cover", alt="")
                         td(class="manage-column column-cat_id")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;category_name=tin-tuc") Tin tức
+                                a(href="#") Tin tức
                         td(class="manage-column column-date")
                             span Đã xuất bản
                                 br
@@ -136,7 +136,7 @@ block container
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;sub=edit&amp;id=3", data-bs-title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", data-bs-title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", data-bs-title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(3)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
                                     button(type="button", value="del", data-bs-title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(3)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_2", class="row_item")
@@ -158,10 +158,10 @@ block container
                                             a(href="#", class="preview-link", target="_blank") Xem
                         td(class="manage-column column-picture")
                             span
-                                img(src="https://dienmaytonghop.com/uploads/news/10-2024/loc-bui-ban-bao-ve-toi-uu-cung-multi-split-panasonic.webp", width="50", height="50", class="img-cover", alt="")
+                                img(src="./images/post/loc-bui-ban-bao-ve-toi-uu-cung-multi-split-panasonic.webp", width="50", height="50", class="img-cover", alt="")
                         td(class="manage-column column-cat_id")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;category_name=tin-tuc") Tin tức
+                                a(href="#") Tin tức
                         td(class="manage-column column-date")
                             span Đã xuất bản
                                 br
@@ -191,10 +191,10 @@ block container
                                             a(href="#", class="preview-link", target="_blank") Xem
                         td(class="manage-column column-picture")
                             span
-                                img(src="https://dienmaytonghop.com/uploads/news/10-2024/daikin-lien-tiep-4-nam-duoc-vinh-danh-thuong-hieu-dieu-hoa-hieu-suat-cao-nhat-hdd.webp", width="50", height="50", class="img-cover", alt="")
+                                img(src="./images/post/daikin-lien-tiep-4-nam-duoc-vinh-danh-thuong-hieu-dieu-hoa-hieu-suat-cao-nhat-hdd.webp", width="50", height="50", class="img-cover", alt="")
                         td(class="manage-column column-cat_id")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;category_name=tin-tuc") Tin tức
+                                a(href="#") Tin tức
                         td(class="manage-column column-date")
                             span Đã xuất bản
                                 br
@@ -211,13 +211,13 @@ block container
                             span(class="label-wrap")
                                 input(type="checkbox", name="checkall", value="")
                         td(class="manage-column column-title")
-                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;orderby=title&amp;order=desc", class="sorted desc") Tiêu đề
+                            a(href="#", class="sorted desc") Tiêu đề
                         td(class="manage-column column-picture")
-                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;orderby=picture&amp;order=desc", class="sorted desc") Hình ảnh
+                            a(href="#", class="sorted desc") Hình ảnh
                         td(class="manage-column column-cat_id")
-                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;orderby=cat_id&amp;order=desc", class="sorted desc") Chuyên mục
+                            a(href="#", class="sorted desc") Chuyên mục
                         td(class="manage-column column-date")
-                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;orderby=date&amp;order=desc", class="sorted desc") Thời gian
+                            a(href="#", class="sorted desc") Thời gian
                         td(class="manage-column column-action")
                             span(class="label-wrap") Tác vụ
             div(class="tablenav")

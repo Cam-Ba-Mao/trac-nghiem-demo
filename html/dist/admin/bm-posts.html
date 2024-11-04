@@ -50,7 +50,7 @@
                         <li class="active"><a href="./bm-posts.html">Tất cả bài viết</a></li>
                         <li><a href="./bm-new-post.html">Thêm bài viết</a></li>
                         <li><a href="./bm-category.html">Danh mục</a></li>
-                        <li><a href="./tag.html">Thẻ</a></li>
+                        <li><a href="./bm-tag.html">Thẻ</a></li>
                     </ul>
                 </li>
                 <li><a href="#"><i class="fa-solid fa-file-image"></i><span class="title">Media<span class="pending-count">45</span></span></a></li>
@@ -101,13 +101,13 @@
                 <div class="toolbar" id="toolbar"><a class="page-title-action button action-add" href="#">Viết bài mới</a></div>
             </div>
             <div class="bm-admin-content">
-                <form class="admin-tablelist" action="https://dienmaytonghop.com/ws-admin/?mod=news" name="manage" method="post" accept-charset="utf-8">
+                <form class="admin-tablelist" action="#" name="manage" method="post" accept-charset="utf-8">
                     <input type="hidden" name="paged" value="">
                     <input type="hidden" name="action" value="search">
                     <div class="posts-filter" id="posts-filter">
                         <ul class="subsubsub">
-                            <li><a class="current" href="https://dienmaytonghop.com/ws-admin/?mod=news">Tất cả <span class="count">(4)</span></a></li>
-                            <li><a href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;post_status=publish">Đã xuất bản <span class="count">(4)</span></a></li>
+                            <li><a class="current" href="#">Tất cả <span class="count">(4)</span></a></li>
+                            <li><a href="#">Đã xuất bản <span class="count">(4)</span></a></li>
                         </ul>
                         <div class="search-box" id="search-box">
                             <input class="form-control text-search" type="text" name="keyword" value="">
@@ -158,10 +158,10 @@
                                         <input type="checkbox" name="checkall" value="">
                                     </div>
                                 </th>
-                                <th class="manage-column column-title"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;orderby=title&amp;amp;order=desc">Tiêu đề</a></th>
-                                <th class="manage-column column-picture"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;orderby=picture&amp;amp;order=desc">Hình ảnh</a></th>
-                                <th class="manage-column column-cat_id"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;orderby=cat_id&amp;amp;order=desc">Chuyên mục</a></th>
-                                <th class="manage-column column-date"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;orderby=date&amp;amp;order=desc">Thời gian</a></th>
+                                <th class="manage-column column-title"><a class="sorted desc" href="#">Tiêu đề</a></th>
+                                <th class="manage-column column-picture"><a class="sorted desc" href="#">Hình ảnh</a></th>
+                                <th class="manage-column column-cat_id"><a class="sorted desc" href="#">Chuyên mục</a></th>
+                                <th class="manage-column column-date"><a class="sorted desc" href="#">Thời gian</a></th>
                                 <th class="manage-column column-action">
                                     <div class="label-wrap">Tác vụ</div>
                                 </th>
@@ -175,13 +175,13 @@
                                         <div class="row-actions">
                                             <ul>
                                                 <li><a class="row-action row-action-edit" href="./bm-edit-post.html">Chỉnh sửa</a></li>
-                                                <li><a class="row-action do-action row-action-hidden" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;id=4&amp;amp;action=hidden" onclick="do_check(4); do_submit('hidden')">Bản nháp</a></li>
-                                                <li><a class="row-action row-action-delete" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;sub=del&amp;amp;id=4" onclick="return do_delete(4)">Xóa</a></li>
-                                                <li><a class="preview-link" href="https://dienmaytonghop.com/blog/su-khac-biet-cua-gas-r32-va-gas-r410a" target="_blank">Xem</a></li>
+                                                <li><a class="row-action do-action row-action-hidden" href="#" onclick="do_check(4); do_submit('hidden')">Bản nháp</a></li>
+                                                <li><a class="row-action row-action-delete" href="#" onclick="return do_delete(4)">Xóa</a></li>
+                                                <li><a class="preview-link" href="#" target="_blank">Xem</a></li>
                                             </ul>
                                         </div></span></td>
-                                <td class="manage-column column-picture"><span><img class="img-cover" src="https://dienmaytonghop.com/uploads/news/10-2024/su-khac-biet-cua-gas-r32-va-gas-r410a.webp" width="50" height="50" alt=""></span></td>
-                                <td class="manage-column column-cat_id"><span><a href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;category_name=tin-tuc">Tin tức</a></span></td>
+                                <td class="manage-column column-picture"><span><img class="img-cover" src="./images/post/su-khac-biet-cua-gas-r32-va-gas-r410a.webp" width="50" height="50" alt=""></span></td>
+                                <td class="manage-column column-cat_id"><span><a href="#">Tin tức</a></span></td>
                                 <td class="manage-column column-date"><span>Đã xuất bản<br>17/10/2024 lúc 10:53 chiều</span></td>
                                 <td class="manage-column column-action"><span>
                                         <div class="row_action"><a class="btn-action action-edit bg-blue" href="./bm-edit-post.html" data-bs-toggle="tooltip" data-bs-title="Chỉnh sửa">Chỉnh sửa</a>
@@ -192,20 +192,20 @@
                             <tr class="row_item" id="row_3">
                                 <td class="manage-column column-checkbox"><span>
                                         <input class="checkbox" type="checkbox" name="ids[]" value="3"></span></td>
-                                <td class="manage-column column-title"><span><a class="title-link-edit" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;sub=edit&amp;amp;id=3">Chế độ Econo là gì? Những ưu nhược điểm về Econo có thể bạn chưa biết?</a>
+                                <td class="manage-column column-title"><span><a class="title-link-edit" href="#">Chế độ Econo là gì? Những ưu nhược điểm về Econo có thể bạn chưa biết?</a>
                                         <div class="row-actions">
                                             <ul>
-                                                <li><a class="row-action row-action-edit" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;sub=edit&amp;amp;id=3">Chỉnh sửa</a></li>
-                                                <li><a class="row-action do-action row-action-hidden" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;id=3&amp;amp;action=hidden" onclick="do_check(3); do_submit('hidden')">Bản nháp</a></li>
-                                                <li><a class="row-action row-action-delete" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;sub=del&amp;amp;id=3" onclick="return do_delete(3)">Xóa</a></li>
-                                                <li><a class="preview-link" href="https://dienmaytonghop.com/blog/che-do-econo-la-gi-nhung-uu-nhuoc-diem-ve-econo-co-the-ban-chua-biet" target="_blank">Xem</a></li>
+                                                <li><a class="row-action row-action-edit" href="#">Chỉnh sửa</a></li>
+                                                <li><a class="row-action do-action row-action-hidden" href="#" onclick="do_check(3); do_submit('hidden')">Bản nháp</a></li>
+                                                <li><a class="row-action row-action-delete" href="#" onclick="return do_delete(3)">Xóa</a></li>
+                                                <li><a class="preview-link" href="#" target="_blank">Xem</a></li>
                                             </ul>
                                         </div></span></td>
-                                <td class="manage-column column-picture"><span><img class="img-cover" src="https://dienmaytonghop.com/uploads/news/10-2024/che-do-econo-la-gi-nhung-uu-nhuoc-diem-ve-econo-co-the-ban-chua-biet.webp" width="50" height="50" alt=""></span></td>
-                                <td class="manage-column column-cat_id"><span><a href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;category_name=tin-tuc">Tin tức</a></span></td>
+                                <td class="manage-column column-picture"><span><img class="img-cover" src="./images/post/che-do-econo-la-gi-nhung-uu-nhuoc-diem-ve-econo-co-the-ban-chua-biet.webp" width="50" height="50" alt=""></span></td>
+                                <td class="manage-column column-cat_id"><span><a href="#">Tin tức</a></span></td>
                                 <td class="manage-column column-date"><span>Đã xuất bản<br>17/10/2024 lúc 10:53 chiều</span></td>
                                 <td class="manage-column column-action"><span>
-                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;sub=edit&amp;amp;id=3" data-bs-title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
+                                        <div class="row_action"><a class="btn-action action-edit bg-blue" href="#" data-bs-title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
                                             <button class="btn-action btn-do-action action-display" type="button" data-bs-title="Đang hiện" data-bs-toggle="tooltip" onfocus="do_check(3)" onclick="do_submit('hidden')"></button>
                                             <button class="btn-action action-delete bg-red" type="button" value="del" data-bs-title="Xóa bỏ" data-bs-toggle="tooltip" onfocus="do_check(3)" onclick="return do_submit(this.value)"></button>
                                         </div></span></td>
@@ -222,8 +222,8 @@
                                                 <li><a class="preview-link" href="#" target="_blank">Xem</a></li>
                                             </ul>
                                         </div></span></td>
-                                <td class="manage-column column-picture"><span><img class="img-cover" src="https://dienmaytonghop.com/uploads/news/10-2024/loc-bui-ban-bao-ve-toi-uu-cung-multi-split-panasonic.webp" width="50" height="50" alt=""></span></td>
-                                <td class="manage-column column-cat_id"><span><a href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;category_name=tin-tuc">Tin tức</a></span></td>
+                                <td class="manage-column column-picture"><span><img class="img-cover" src="./images/post/loc-bui-ban-bao-ve-toi-uu-cung-multi-split-panasonic.webp" width="50" height="50" alt=""></span></td>
+                                <td class="manage-column column-cat_id"><span><a href="#">Tin tức</a></span></td>
                                 <td class="manage-column column-date"><span>Đã xuất bản<br>17/10/2024 lúc 10:52 chiều</span></td>
                                 <td class="manage-column column-action"><span>
                                         <div class="row_action"><a class="btn-action action-edit bg-blue" href="#" data-bs-title="Chỉnh sửa" data-bs-toggle="tooltip">Chỉnh sửa</a>
@@ -243,8 +243,8 @@
                                                 <li><a class="preview-link" href="#" target="_blank">Xem</a></li>
                                             </ul>
                                         </div></span></td>
-                                <td class="manage-column column-picture"><span><img class="img-cover" src="https://dienmaytonghop.com/uploads/news/10-2024/daikin-lien-tiep-4-nam-duoc-vinh-danh-thuong-hieu-dieu-hoa-hieu-suat-cao-nhat-hdd.webp" width="50" height="50" alt=""></span></td>
-                                <td class="manage-column column-cat_id"><span><a href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;category_name=tin-tuc">Tin tức</a></span></td>
+                                <td class="manage-column column-picture"><span><img class="img-cover" src="./images/post/daikin-lien-tiep-4-nam-duoc-vinh-danh-thuong-hieu-dieu-hoa-hieu-suat-cao-nhat-hdd.webp" width="50" height="50" alt=""></span></td>
+                                <td class="manage-column column-cat_id"><span><a href="#">Tin tức</a></span></td>
                                 <td class="manage-column column-date"><span>Đã xuất bản<br>17/10/2024 lúc 10:47 chiều</span></td>
                                 <td class="manage-column column-action"><span>
                                         <div class="row_action"><a class="btn-action action-edit bg-blue" href="#" data-bs-title="Chỉnh sửa" data-bs-toggle="tooltip" data-bs-placement="top">Chỉnh sửa</a>
@@ -257,10 +257,10 @@
                             <tr>
                                 <td class="manage-column column-checkbox"><span class="label-wrap">
                                         <input type="checkbox" name="checkall" value=""></span></td>
-                                <td class="manage-column column-title"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;orderby=title&amp;amp;order=desc">Tiêu đề</a></td>
-                                <td class="manage-column column-picture"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;orderby=picture&amp;amp;order=desc">Hình ảnh</a></td>
-                                <td class="manage-column column-cat_id"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;orderby=cat_id&amp;amp;order=desc">Chuyên mục</a></td>
-                                <td class="manage-column column-date"><a class="sorted desc" href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;amp;orderby=date&amp;amp;order=desc">Thời gian</a></td>
+                                <td class="manage-column column-title"><a class="sorted desc" href="#">Tiêu đề</a></td>
+                                <td class="manage-column column-picture"><a class="sorted desc" href="#">Hình ảnh</a></td>
+                                <td class="manage-column column-cat_id"><a class="sorted desc" href="#">Chuyên mục</a></td>
+                                <td class="manage-column column-date"><a class="sorted desc" href="#">Thời gian</a></td>
                                 <td class="manage-column column-action"><span class="label-wrap">Tác vụ</span></td>
                             </tr>
                         </tfoot>

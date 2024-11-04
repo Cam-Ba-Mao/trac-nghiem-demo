@@ -50,7 +50,7 @@
                         <li class="active"><a href="./bm-posts.html">Tất cả bài viết</a></li>
                         <li><a href="./bm-new-post.html">Thêm bài viết</a></li>
                         <li><a href="./bm-category.html">Danh mục</a></li>
-                        <li><a href="./tag.html">Thẻ</a></li>
+                        <li><a href="./bm-tag.html">Thẻ</a></li>
                     </ul>
                 </li>
                 <li><a href="#"><i class="fa-solid fa-file-image"></i><span class="title">Media<span class="pending-count">45</span></span></a></li>
@@ -100,14 +100,14 @@
                 <h1>Thêm Trang</h1>
             </div>
             <div class="bm-admin-content">
-                <form action="https://dienmaytonghop.com/ws-admin/?mod=page&amp;amp;sub=add" method="post" accept-charset="utf-8">
+                <form action="#" method="post" accept-charset="utf-8">
                     <div id="poststuff">
                         <div class="metabox-holder columns-2" id="post-body">
                             <div id="post-left-content">
                                 <div id="post-title">
                                     <input id="title" type="text" name="title" value="" placeholder="Nhập tiêu đề ở đây" autofocus="1" required="1" autocomplete="off">
                                 </div>
-                                <div id="edit-slug-box" style="z-index:-1"><strong>Liên kết tĩnh:</strong><span id="sample-permalink"><a href="https://dienmaytonghop.com//" target="_blank">https://dienmaytonghop.com/<span id="editable-post-name"></span></a>
+                                <div id="edit-slug-box" style="z-index:-1"><strong>Liên kết tĩnh:</strong><span id="sample-permalink"><a href="https://trac-nghiem.io.vn" target="_blank">https://trac-nghiem.io.vn<span id="editable-post-name"></span></a>
                                         <input class="post-slug form-control" type="hidden" name="slug" value="" autocomplete="off"></span><span id="edit-slug-buttons">
                                         <button class="edit-slug button" type="button">Chỉnh sửa</button></span></div>
                                 <div class="post-content" id="post-content">
@@ -182,8 +182,8 @@
                                                         <label for="parentid">Cha mẹ</label>
                                                     </div>
                                                     <div class="form-input">
-                                                        <select class="form-control select2 select2-hidden-accessible" id="parentid" name="parentid" data-select2-id="parentid" tabindex="-1" aria-hidden="true">
-                                                            <option value="0" selected="selected" data-select2-id="2">(Không có cha mẹ)</option>
+                                                        <select class="form-control" id="parentid" name="parentid">
+                                                            <option value="0" selected="selected">(Không có cha mẹ)</option>
                                                             <option value="25">Sản phẩm</option>
                                                             <option value="24">Bảng giá</option>
                                                             <option value="23">Dịch vụ</option>
@@ -211,8 +211,8 @@
                                                         <label for="template">Giao diện</label>
                                                     </div>
                                                     <div class="form-input">
-                                                        <select class="form-control select2-hidden-accessible" id="template" name="template" data-select2-id="template" tabindex="-1" aria-hidden="true">
-                                                            <option value="default" selected="selected" data-select2-id="4">Giao diện mặc định</option>
+                                                        <select class="form-control" id="template" name="template">
+                                                            <option value="default" selected="selected">Giao diện mặc định</option>
                                                             <option value="page-changepass">Password Change Page</option>
                                                             <option value="page-compare">Compare Page</option>
                                                             <option value="page-contact">Contact Page</option>
@@ -244,7 +244,7 @@
                                             <div class="handlediv"></div>
                                             <h3>Ảnh đại diện</h3>
                                             <div class="inside">
-                                                <div class="upload-button-wrap"><a class="remove-thumbnail hide" href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;amp;multiple=0&amp;amp;field_id=picture&amp;amp;fldr=page&amp;amp;filter=&amp;amp;akey=f44c2566077276cde6fcca190627ae95">Xóa ảnh đại diện</a><a class="set-thumbnail btn-upload" href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;amp;multiple=0&amp;amp;field_id=picture&amp;amp;fldr=page&amp;amp;filter=&amp;amp;akey=f44c2566077276cde6fcca190627ae95">Đặt ảnh đại điện</a>
+                                                <div class="upload-button-wrap"><a class="remove-thumbnail hide" href="#">Xóa ảnh đại diện</a><a class="set-thumbnail btn-upload" href="#">Đặt ảnh đại điện</a>
                                                     <input id="picture" type="hidden" name="picture" value="" onchange="changeUpload('#picture')">
                                                 </div>
                                             </div>

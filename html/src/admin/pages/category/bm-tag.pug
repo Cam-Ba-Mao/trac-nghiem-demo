@@ -39,11 +39,11 @@ block container
                                         div(class="label-wrap")
                                             input(type="checkbox", name="checkall", value="")
                                     th(class="manage-column column-name")
-                                        a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;act=tag&amp;orderby=name&amp;order=desc", class="sorted desc") Tên
+                                        a(href="#", class="sorted desc") Tên
                                     th(class="manage-column column-slug")
-                                        a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;act=tag&amp;orderby=slug&amp;order=desc", class="sorted desc") Đường dẫn
+                                        a(href="#", class="sorted desc") Đường dẫn
                                     th(class="manage-column column-count")
-                                        a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;act=tag&amp;orderby=count&amp;order=desc", class="sorted desc") Lượt
+                                        a(href="#", class="sorted desc") Lượt
                             tbody
                                 tr(id="row_1", class="row_item")
                                     td(class="manage-column column-checkbox")
@@ -51,31 +51,31 @@ block container
                                             input(type="checkbox", name="ids[]", value="1", class="checkbox")
                                     td(class="manage-column column-name")
                                         span
-                                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;act=tag&amp;sub=edit&amp;id=1", class="title-link-edit") Demo
+                                            a(href="#", class="title-link-edit") Demo
                                             div(class="row-actions")
                                                 ul
                                                     li
-                                                        a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;act=tag&amp;sub=edit&amp;id=1", class="row-action row-action-edit") Chỉnh sửa
+                                                        a(href="#", class="row-action row-action-edit") Chỉnh sửa
                                                     li
-                                                        a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;act=tag&amp;sub=del&amp;id=1", class="row-action row-action-delete", onclick="return do_delete(1)") Thùng rác
+                                                        a(href="#", class="row-action row-action-delete", onclick="return do_delete(1)") Thùng rác
                                                     li
-                                                        a(href="https://dienmaytonghop.com/tag/demo", class="preview-link", target="_blank") Xem
+                                                        a(href="#", class="preview-link", target="_blank") Xem
                                     td(class="manage-column column-slug")
                                         span demo
                                     td(class="manage-column column-count")
                                         span
-                                            a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;tag_name=demo") 0
+                                            a(href="#") 0
                             tfoot
                                 tr
                                     td(class="manage-column column-checkbox")
                                         span(class="label-wrap")
                                             input(type="checkbox", name="checkall", value="")
                                     td(class="manage-column column-name")
-                                        a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;act=tag&amp;orderby=name&amp;order=desc", class="sorted desc") Tên
+                                        a(href="#", class="sorted desc") Tên
                                     td(class="manage-column column-slug")
-                                        a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;act=tag&amp;orderby=slug&amp;order=desc", class="sorted desc") Đường dẫn
+                                        a(href="#", class="sorted desc") Đường dẫn
                                     td(class="manage-column column-count")
-                                        a(href="https://dienmaytonghop.com/ws-admin/?mod=news&amp;act=tag&amp;orderby=count&amp;order=desc", class="sorted desc") Lượt
+                                        a(href="#", class="sorted desc") Lượt
                         div(class="tablenav")
                             div(class="btn-group")
                                 div(class="actions bulkactions")
@@ -88,7 +88,7 @@ block container
                             div(class="tablenav-pages")
                                 div(class="displaying-num") 1 mục
                 .col-md-4
-                    form#add-taxonomy(action="https://dienmaytonghop.com/ws-admin/?mod=news&amp;act=tag", method="post", accept-charset="utf-8")
+                    form#add-taxonomy(action="#", method="post", accept-charset="utf-8")
                         table(class="form-table")
                             tbody
                                 tr#field-title-1(class="form-field")

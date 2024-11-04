@@ -1878,7 +1878,7 @@ function handleRichEditors() {
     if ($('.bm-intro__wrap').length > 0) {
       gsap.registerPlugin(ScrollTrigger);
       ScrollTrigger.matchMedia({
-        "(min-width: 768px)": function minWidth768px() {
+        "(min-width: 768px)": function minWidth_768px() {
           var tl2 = gsap.timeline({
             scrollTrigger: {
               trigger: ".bm-intro__wrap",
@@ -1897,7 +1897,7 @@ function handleRichEditors() {
             transform: "translate3d(10%, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(3deg) scale3d(1,1,1)"
           }, 0);
         },
-        "(max-width: 767px)": function maxWidth767px() {
+        "(max-width: 767px)": function maxWidth_767px() {
           var tl2 = gsap.timeline({
             scrollTrigger: {
               trigger: ".bm-intro__wrap",

@@ -16,7 +16,7 @@ block container
             div(class="handlediv")
             h3 Bộ lọc tìm kiếm
             div(class="inside no-padding")
-                form(action="https://dienmaytonghop.com/ws-admin/?mod=menu", class="search-form", method="post", accept-charset="utf-8")
+                form(action="#", class="search-form", method="post", accept-charset="utf-8")
                     input(type="hidden", name="do_search", value="1")
                     div(class="form-field")
                         div(class="form-label")
@@ -41,7 +41,7 @@ block container
                         div(class="form-input")
                             input#keyword(type="text", name="keyword", value="", autocomplete="off", class="text-search form-control")
                             button(type="submit", class="btn-search button") Tìm menu
-        form(action="https://dienmaytonghop.com/ws-admin/?mod=menu", name="manage", method="post", accept-charset="utf-8")
+        form(action="#", name="manage", method="post", accept-charset="utf-8")
             input(type="hidden", name="pos", value="primary")
             input(type="hidden", name="action", value="")
             div(class="tablenav clearfix")
@@ -59,11 +59,11 @@ block container
                             div(class="label-wrap")
                                 input(type="checkbox", name="checkall", value="")
                         th(class="manage-column column-menu_order")
-                            a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;orderby=menu_order&amp;order=desc", class="sorted desc") Thứ tự
+                            a(href="#", class="sorted desc") Thứ tự
                         th(class="manage-column column-title")
-                            a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;orderby=title&amp;order=desc", class="sorted desc") Tên đường dẫn
+                            a(href="#", class="sorted desc") Tên đường dẫn
                         th(class="manage-column column-link")
-                            a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;orderby=link&amp;order=desc", class="sorted desc") Địa chỉ trang web
+                            a(href="#", class="sorted desc") Địa chỉ trang web
                         th(class="manage-column column-action")
                             div(class="label-wrap") Tác vụ
                 tbody
@@ -76,15 +76,15 @@ block container
                                 input(type="text", name="orders[188]", value="1", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(188)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=188", class="title-link-edit") Máy lạnh
+                                a(href="#", class="title-link-edit") Máy lạnh
                         td(class="manage-column column-link")
                             span may-lanh
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=188", title="", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="", data-bs-toggle="tooltip", onfocus="do_check(188)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=188", title="", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(188)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_339", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -92,21 +92,21 @@ block container
                                 input(type="checkbox", name="ids[]", value="339", class="checkbox")
                         td(class="manage-column column-menu_order")
                             span
-                                img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                img(src="./images/row-sub.gif", alt="")
                                 input(type="text", name="orders[339]", value="1", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(339)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=339", class="title-link-edit")
-                                    img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                a(href="#", class="title-link-edit")
+                                    img(src="./images/row-sub.gif", alt="")
                                     | Máy lạnh treo tường
                         td(class="manage-column column-link")
                             span may-lanh-treo-tuong
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=339", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(339)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=339", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(339)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_340", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -114,21 +114,21 @@ block container
                                 input(type="checkbox", name="ids[]", value="340", class="checkbox")
                         td(class="manage-column column-menu_order")
                             span
-                                img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                img(src="./images/row-sub.gif", alt="")
                                 input(type="text", name="orders[340]", value="2", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(340)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=340", class="title-link-edit")
-                                    img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                a(href="#", class="title-link-edit")
+                                    img(src="./images/row-sub.gif", alt="")
                                     | Máy lạnh âm trần
                         td(class="manage-column column-link")
                             span may-lanh-am-tran
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=340", title="", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="", data-bs-toggle="tooltip", onfocus="do_check(340)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=340", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(340)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_341", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -136,21 +136,21 @@ block container
                                 input(type="checkbox", name="ids[]", value="341", class="checkbox")
                         td(class="manage-column column-menu_order")
                             span
-                                img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                img(src="./images/row-sub.gif", alt="")
                                 input(type="text", name="orders[341]", value="3", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(341)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=341", class="title-link-edit")
-                                    img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                a(href="#", class="title-link-edit")
+                                    img(src="./images/row-sub.gif", alt="")
                                     | Máy lạnh tủ đứng
                         td(class="manage-column column-link")
                             span may-lanh-tu-dung
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=341", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(341)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=341", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(341)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_342", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -158,21 +158,21 @@ block container
                                 input(type="checkbox", name="ids[]", value="342", class="checkbox")
                         td(class="manage-column column-menu_order")
                             span
-                                img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                img(src="./images/row-sub.gif", alt="")
                                 input(type="text", name="orders[342]", value="4", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(342)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=342", class="title-link-edit")
-                                    img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                a(href="#", class="title-link-edit")
+                                    img(src="./images/row-sub.gif", alt="")
                                     | Máy lạnh Giấu trần Ống Gió
                         td(class="manage-column column-link")
                             span may-lanh-giau-tran-ong-gio
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=342", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(342)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=342", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(342)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_343", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -180,21 +180,21 @@ block container
                                 input(type="checkbox", name="ids[]", value="343", class="checkbox")
                         td(class="manage-column column-menu_order")
                             span
-                                img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                img(src="./images/row-sub.gif", alt="")
                                 input(type="text", name="orders[343]", value="5", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(343)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=343", class="title-link-edit")
-                                    img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                a(href="#", class="title-link-edit")
+                                    img(src="./images/row-sub.gif", alt="")
                                     | Máy lạnh áp trần
                         td(class="manage-column column-link")
                             span may-lanh-ap-tran
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=343", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(343)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=343", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(343)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_344", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -202,21 +202,21 @@ block container
                                 input(type="checkbox", name="ids[]", value="344", class="checkbox")
                         td(class="manage-column column-menu_order")
                             span
-                                img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                img(src="./images/row-sub.gif", alt="")
                                 input(type="text", name="orders[344]", value="6", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(344)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=344", class="title-link-edit")
-                                    img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                a(href="#", class="title-link-edit")
+                                    img(src="./images/row-sub.gif", alt="")
                                     | Hệ thống điều hòa Multi
                         td(class="manage-column column-link")
                             span he-thong-dieu-hoa-multi
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=344", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(344)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=344", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="", data-bs-toggle="tooltip", onfocus="do_check(344)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red", data-original-title="Xóa bỏ")
                     tr(id="row_345", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -224,21 +224,21 @@ block container
                                 input(type="checkbox", name="ids[]", value="345", class="checkbox")
                         td(class="manage-column column-menu_order")
                             span
-                                img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                img(src="./images/row-sub.gif", alt="")
                                 input(type="text", name="orders[345]", value="7", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(345)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=345", class="title-link-edit")
-                                    img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                a(href="#", class="title-link-edit")
+                                    img(src="./images/row-sub.gif", alt="")
                                     | Hệ thống điều hòa VRV
                         td(class="manage-column column-link")
                             span he-thong-dieu-hoa-vrv
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=345", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(345)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=345", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(345)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_358", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -246,21 +246,21 @@ block container
                                 input(type="checkbox", name="ids[]", value="358", class="checkbox")
                         td(class="manage-column column-menu_order")
                             span
-                                img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                img(src="./images/row-sub.gif", alt="")
                                 input(type="text", name="orders[358]", value="8", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(358)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=358", class="title-link-edit")
-                                    img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                a(href="#", class="title-link-edit")
+                                    img(src="./images/row-sub.gif", alt="")
                                     | Bảng giá máy lạnh mới nhất
                         td(class="manage-column column-link")
                             span bang-gia-may-lanh
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=358", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(358)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=358", title="", data-bs-toggle="tooltip", class="btn-action action-duplicate", data-original-title="Sao chép") Sao chép
+                                    a(href="#", title="", data-bs-toggle="tooltip", class="btn-action action-duplicate", data-original-title="Sao chép") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(358)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_190", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -271,15 +271,15 @@ block container
                                 input(type="text", name="orders[190]", value="2", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(190)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=190", class="title-link-edit") Tivi
+                                a(href="#", class="title-link-edit") Tivi
                         td(class="manage-column column-link")
                             span tivi
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=190", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="", data-bs-toggle="tooltip", onfocus="do_check(190)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display", data-original-title="Đang hiện")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=190", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(190)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_189", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -290,15 +290,15 @@ block container
                                 input(type="text", name="orders[189]", value="3", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(189)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=189", class="title-link-edit") Tủ lạnh
+                                a(href="#", class="title-link-edit") Tủ lạnh
                         td(class="manage-column column-link")
                             span tu-lanh
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=189", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="", data-bs-toggle="tooltip", onfocus="do_check(189)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display", data-original-title="Đang hiện")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=189", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(189)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_285", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -309,15 +309,15 @@ block container
                                 input(type="text", name="orders[285]", value="4", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(285)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=285", class="title-link-edit") Máy giặt
+                                a(href="#", class="title-link-edit") Máy giặt
                         td(class="manage-column column-link")
                             span may-giat
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=285", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="", data-bs-toggle="tooltip", onfocus="do_check(285)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display", data-original-title="Đang hiện")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=285", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(285)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_289", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -328,15 +328,15 @@ block container
                                 input(type="text", name="orders[289]", value="5", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(289)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=289", class="title-link-edit") Tủ đông
+                                a(href="#", class="title-link-edit") Tủ đông
                         td(class="manage-column column-link")
                             span tu-dong
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=289", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(289)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=289", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(289)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_359", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -347,15 +347,15 @@ block container
                                 input(type="text", name="orders[359]", value="6", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(359)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=359", class="title-link-edit") Máy sấy quần áo
+                                a(href="#", class="title-link-edit") Máy sấy quần áo
                         td(class="manage-column column-link")
                             span may-say-quan-ao
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=359", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(359)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=359", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(359)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_357", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -366,15 +366,15 @@ block container
                                 input(type="text", name="orders[357]", value="7", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(357)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=357", class="title-link-edit") Máy lọc nước
+                                a(href="#", class="title-link-edit") Máy lọc nước
                         td(class="manage-column column-link")
                             span may-loc-nuoc
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=357", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(357)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=357", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(357)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_191", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -385,15 +385,15 @@ block container
                                 input(type="text", name="orders[191]", value="8", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(191)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=191", class="title-link-edit") Máy hút bụi
+                                a(href="#", class="title-link-edit") Máy hút bụi
                         td(class="manage-column column-link")
                             span may-hut-bui
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=191", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(191)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=191", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(191)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_362", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -404,15 +404,15 @@ block container
                                 input(type="text", name="orders[362]", value="9", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(362)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=362", class="title-link-edit") Gia dụng
+                                a(href="#", class="title-link-edit") Gia dụng
                         td(class="manage-column column-link")
                             span gia-dung
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=362", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(362)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=362", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(362)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_363", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -420,21 +420,21 @@ block container
                                 input(type="checkbox", name="ids[]", value="363", class="checkbox")
                         td(class="manage-column column-menu_order")
                             span
-                                img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                img(src="./images/row-sub.gif", alt="")
                                 input(type="text", name="orders[363]", value="1", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(363)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=363", class="title-link-edit")
-                                    img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                a(href="#", class="title-link-edit")
+                                    img(src="./images/row-sub.gif", alt="")
                                     | Nồi cơm điện
                         td(class="manage-column column-link")
                             span noi-com-dien
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=363", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(363)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=363", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(363)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_370", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -442,21 +442,21 @@ block container
                                 input(type="checkbox", name="ids[]", value="370", class="checkbox")
                         td(class="manage-column column-menu_order")
                             span
-                                img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                img(src="./images/row-sub.gif", alt="")
                                 input(type="text", name="orders[370]", value="2", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(370)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=370", class="title-link-edit")
-                                    img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                a(href="#", class="title-link-edit")
+                                    img(src="./images/row-sub.gif", alt="")
                                     | Máy ép trái cây
                         td(class="manage-column column-link")
                             span may-ep-trai-cay
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=370", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(370)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=370", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(370)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_369", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -464,21 +464,21 @@ block container
                                 input(type="checkbox", name="ids[]", value="369", class="checkbox")
                         td(class="manage-column column-menu_order")
                             span
-                                img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                img(src="./images/row-sub.gif", alt="")
                                 input(type="text", name="orders[369]", value="2", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(369)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=369", class="title-link-edit")
-                                    img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                a(href="#", class="title-link-edit")
+                                    img(src="./images/row-sub.gif", alt="")
                                     | Lò vi sóng
                         td(class="manage-column column-link")
                             span lo-vi-song
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=369", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(369)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=369", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(369)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_368", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -486,21 +486,21 @@ block container
                                 input(type="checkbox", name="ids[]", value="368", class="checkbox")
                         td(class="manage-column column-menu_order")
                             span
-                                img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                img(src="./images/row-sub.gif", alt="")
                                 input(type="text", name="orders[368]", value="2", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(368)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=368", class="title-link-edit")
-                                    img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                a(href="#", class="title-link-edit")
+                                    img(src="./images/row-sub.gif", alt="")
                                     | Máy xay thịt
                         td(class="manage-column column-link")
                             span may-xay-thit
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=368", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(368)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=368", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(368)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_367", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -508,21 +508,21 @@ block container
                                 input(type="checkbox", name="ids[]", value="367", class="checkbox")
                         td(class="manage-column column-menu_order")
                             span
-                                img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                img(src="./images/row-sub.gif", alt="")
                                 input(type="text", name="orders[367]", value="2", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(367)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=367", class="title-link-edit")
-                                    img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                a(href="#", class="title-link-edit")
+                                    img(src="./images/row-sub.gif", alt="")
                                     | Lò nướng
                         td(class="manage-column column-link")
                             span lo-nuong
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=367", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(367)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=367", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(367)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_366", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -530,21 +530,21 @@ block container
                                 input(type="checkbox", name="ids[]", value="366", class="checkbox")
                         td(class="manage-column column-menu_order")
                             span
-                                img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                img(src="./images/row-sub.gif", alt="")
                                 input(type="text", name="orders[366]", value="2", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(366)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=366", class="title-link-edit")
-                                    img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                a(href="#", class="title-link-edit")
+                                    img(src="./images/row-sub.gif", alt="")
                                     | Máy xay sinh tố
                         td(class="manage-column column-link")
                             span may-xay-sinh-to
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=366", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(366)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=366", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(366)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_365", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -552,21 +552,21 @@ block container
                                 input(type="checkbox", name="ids[]", value="365", class="checkbox")
                         td(class="manage-column column-menu_order")
                             span
-                                img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                img(src="./images/row-sub.gif", alt="")
                                 input(type="text", name="orders[365]", value="2", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(365)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=365", class="title-link-edit")
-                                    img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                a(href="#", class="title-link-edit")
+                                    img(src="./images/row-sub.gif", alt="")
                                     | Quạt
                         td(class="manage-column column-link")
                             span quat
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=365", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(365)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=365", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(365)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_364", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -574,21 +574,21 @@ block container
                                 input(type="checkbox", name="ids[]", value="364", class="checkbox")
                         td(class="manage-column column-menu_order")
                             span
-                                img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                img(src="./images/row-sub.gif", alt="")
                                 input(type="text", name="orders[364]", value="2", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(364)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=364", class="title-link-edit")
-                                    img(src="https://dienmaytonghop.com/ws-admin/themes/assets/images/row-sub.gif", alt="")
+                                a(href="#", class="title-link-edit")
+                                    img(src="./images/row-sub.gif", alt="")
                                     | Bếp từ
                         td(class="manage-column column-link")
                             span bep-tu
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=364", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(364)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=364", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(364)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_300", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -599,15 +599,15 @@ block container
                                 input(type="text", name="orders[300]", value="10", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(300)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=300", class="title-link-edit") Bảng giá
+                                a(href="#", class="title-link-edit") Bảng giá
                         td(class="manage-column column-link")
                             span bang-gia
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=300", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(300)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=300", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(300)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_360", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -618,15 +618,15 @@ block container
                                 input(type="text", name="orders[360]", value="11", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(360)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=360", class="title-link-edit") Tin tức
+                                a(href="#", class="title-link-edit") Tin tức
                         td(class="manage-column column-link")
                             span category/tin-tuc
                         td(class="manage-column column-action")
                             span
                                 div(class="row_action")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=edit&amp;id=360", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
+                                    a(href="#", title="Chỉnh sửa", data-bs-toggle="tooltip", class="btn-action action-edit bg-blue") Chỉnh sửa
                                     button(type="button", title="Đang hiện", data-bs-toggle="tooltip", onfocus="do_check(360)", onclick="do_submit('hidden')", class="btn-action btn-do-action action-display")
-                                    a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;sub=dup&amp;id=360", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
+                                    a(href="#", title="Sao chép", data-bs-toggle="tooltip", class="btn-action action-duplicate") Sao chép
                                     button(type="button", value="del", title="Xóa bỏ", data-bs-toggle="tooltip", onfocus="do_check(360)", onclick="return do_submit(this.value)", class="btn-action action-delete bg-red")
                     tr(id="row_361", class="row_item")
                         td(class="manage-column column-checkbox")
@@ -637,7 +637,7 @@ block container
                                 input(type="text", name="orders[361]", value="12", autocomplete="off", class="form-control menu-order", onkeypress="return is_num(event)", onchange="do_check(361)")
                         td(class="manage-column column-title")
                             span
-                                a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;sub=edit&amp;pos=primary&amp;id=361", class="title-link-edit") Liên hệ
+                                a(href="#", class="title-link-edit") Liên hệ
                         td(class="manage-column column-link")
                             span lien-he
                         td(class="manage-column column-action")
@@ -653,11 +653,11 @@ block container
                             span(class="label-wrap")
                                 input(type="checkbox", name="checkall", value="")
                         td(class="manage-column column-menu_order")
-                            a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;orderby=menu_order&amp;order=desc", class="sorted desc") Thứ tự
+                            a(href="#", class="sorted desc") Thứ tự
                         td(class="manage-column column-title")
-                            a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;orderby=title&amp;order=desc", class="sorted desc") Tên đường dẫn
+                            a(href="#", class="sorted desc") Tên đường dẫn
                         td(class="manage-column column-link")
-                            a(href="https://dienmaytonghop.com/ws-admin/?mod=menu&amp;pos=primary&amp;orderby=link&amp;order=desc", class="sorted desc") Địa chỉ trang web
+                            a(href="#", class="sorted desc") Địa chỉ trang web
                         td(class="manage-column column-action")
                             span(class="label-wrap") Tác vụ
             div(class="tablenav")

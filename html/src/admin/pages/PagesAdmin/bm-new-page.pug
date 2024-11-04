@@ -8,7 +8,7 @@ block container
     .bm-admin-title 
         h1 Thêm Trang
     .bm-admin-content
-        form(action="https://dienmaytonghop.com/ws-admin/?mod=page&amp;sub=add", method="post", accept-charset="utf-8")
+        form(action="#", method="post", accept-charset="utf-8")
             div#poststuff
                 div#post-body(class="metabox-holder columns-2")
                     div#post-left-content
@@ -17,7 +17,7 @@ block container
                         div#edit-slug-box(style="z-index:-1")
                             strong Liên kết tĩnh:
                             span#sample-permalink
-                                a(href="https://dienmaytonghop.com//", target="_blank") https://dienmaytonghop.com/
+                                a(href="https://trac-nghiem.io.vn", target="_blank") https://trac-nghiem.io.vn
                                     span#editable-post-name
                                 input(type="hidden", name="slug", value="", autocomplete="off", class="post-slug form-control")
                             span#edit-slug-buttons
@@ -77,8 +77,8 @@ block container
                                             div(class="form-label")
                                                 label(for="parentid") Cha mẹ
                                             div(class="form-input")
-                                                select#parentid(name="parentid", class="form-control select2 select2-hidden-accessible", data-select2-id="parentid", tabindex="-1", aria-hidden="true")
-                                                    option(value="0", selected="selected", data-select2-id="2") (Không có cha mẹ)
+                                                select#parentid(name="parentid", class="form-control")
+                                                    option(value="0", selected="selected") (Không có cha mẹ)
                                                     option(value="25") Sản phẩm
                                                     option(value="24") Bảng giá
                                                     option(value="23") Dịch vụ
@@ -103,8 +103,8 @@ block container
                                             div(class="form-label")
                                                 label(for="template") Giao diện
                                             div(class="form-input")
-                                                select#template(name="template", class="form-control select2-hidden-accessible", data-select2-id="template", tabindex="-1", aria-hidden="true")
-                                                    option(value="default", selected="selected", data-select2-id="4") Giao diện mặc định
+                                                select#template(name="template", class="form-control")
+                                                    option(value="default", selected="selected") Giao diện mặc định
                                                     option(value="page-changepass") Password Change Page
                                                     option(value="page-compare") Compare Page
                                                     option(value="page-contact") Contact Page
@@ -130,8 +130,8 @@ block container
                                     h3 Ảnh đại diện
                                     div(class="inside")
                                         div(class="upload-button-wrap")
-                                            a(href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;multiple=0&amp;field_id=picture&amp;fldr=page&amp;filter=&amp;akey=f44c2566077276cde6fcca190627ae95", class="remove-thumbnail hide") Xóa ảnh đại diện
-                                            a(href="https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&amp;multiple=0&amp;field_id=picture&amp;fldr=page&amp;filter=&amp;akey=f44c2566077276cde6fcca190627ae95", class="set-thumbnail btn-upload") Đặt ảnh đại điện
+                                            a(href="#", class="remove-thumbnail hide") Xóa ảnh đại diện
+                                            a(href="#", class="set-thumbnail btn-upload") Đặt ảnh đại điện
                                             input#picture(type="hidden", name="picture", value="", onchange="changeUpload('#picture')")
                                 div#post-published(class="metabox")
                                     div(class="handlediv down", title="Click to toggle")
