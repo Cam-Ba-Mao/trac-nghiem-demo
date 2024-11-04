@@ -267,43 +267,51 @@ ul {
     color: darkgray;
     margin-top: 5px;
     font-size: 13px;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        list-style: none;
+        overflow: hidden;
+        white-space: nowrap;
+        align-items: center;
+    }
+
+    li {
+        padding: 0 11px 0 0;
+        position: relative;
+        float: left;
+
+        &:not(.hide)::after {
+            top: 50%;
+            right: 5px;
+            width: 1px;
+            content: "";
+            height: 12px;
+            margin-top: -6px;
+            position: absolute;
+            background: darkgray;
+        }
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        &:last-child {
+            padding-right: 0;
+
+            &::after {
+                display: none;
+            }
+        }
+
+        a {
+            font-weight: 400;
+        }
+    }
 }
-.row-actions ul {
-    margin: 0;
-    padding: 0;
-	display: flex;
-    list-style: none;
-    overflow: hidden;
-	white-space: nowrap;
-	align-items: center;
-}
-.row-actions li {
-    padding: 0 11px 0 0;
-    position: relative;
-    float: left;
-}
-.row-actions li:not(.hide)::after {
-    top: 50%;
-    right: 5px;
-    width: 1px;
-    content: "";
-    height: 12px;
-    margin-top: -6px;
-    position: absolute;
-    background: darkgray;
-}
-.row-actions li:first-child {
-    padding-left: 0;
-}
-.row-actions li:last-child {
-    padding-right: 0;
-}
-.row-actions li:last-child::after {
-    display: none;
-}
-.row-actions li a {
-    font-weight: 400;
-}
+
 .row-action-delete,
 .row-action-delete:hover {
     border: none;

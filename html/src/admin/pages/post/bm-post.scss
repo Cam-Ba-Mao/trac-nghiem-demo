@@ -17,51 +17,62 @@
 .col-date_post * {
     white-space: nowrap;
 }
-.row_action .btn-action {
-    outline: 0;
-    width: 30px;
-    height: 30px;
-    border: none;
-    overflow: hidden;
-    font-weight: 400;
-    text-indent: 30px;
-    border-radius: 3px;
-    position: relative;
-}
-.row_action .btn-action::before {
-    text-indent: 0;
-    display: grid;
-    color: white;
-    font-size: 16px;
-    font-weight: 400;
-    text-align: center;
-    align-items: center;
-    vertical-align: middle;
-    font-family: "FontAwesome";
-}
-.row_action a.btn-action::before {
-    line-height: 30px;
-}
-.row_action .action-edit::before {
-    content: "\f044";
-}
-.row_action .action-display {
-    background: gray !important;
-}
-.row_action .action-display::before {
-    content: "\f06e";
-}
-.row_action .action-hidden::before {
-    content: "\f070";
-}
-.row_action .action-duplicate {
-    background: darkcyan;
-}
-.row_action .action-duplicate::before {
-    content: "\f0c5";
-}
-.row_action .action-delete::before {
-    content: "\f014";
+.row_action {
+    .btn-action {
+        outline: 0;
+        width: 30px;
+        height: 30px;
+        border: none;
+        overflow: hidden;
+        font-weight: 400;
+        text-indent: 30px;
+        border-radius: 3px;
+        position: relative;
+
+        &::before {
+            text-indent: 0;
+            display: grid;
+            color: white;
+            font-size: 16px;
+            font-weight: 400;
+            text-align: center;
+            align-items: center;
+            vertical-align: middle;
+            font-family: "FontAwesome";
+        }
+    }
+
+    a.btn-action::before {
+        line-height: 30px;
+    }
+
+    .action-edit::before {
+        content: "\f044";
+    }
+
+    .action-display {
+        background: gray !important;
+
+        &::before {
+            content: "\f06e";
+        }
+    }
+
+    .action-hidden::before {
+        content: "\f070";
+    }
+
+    .action-duplicate {
+        background: darkcyan;
+
+        &::before {
+            content: "\f0c5";
+        }
+    }
+
+    .action-delete::before {
+        content: "\f014";
+    }
 }
 
 .bg-red, .bg-yellow, .bg-aqua , .bg-green {

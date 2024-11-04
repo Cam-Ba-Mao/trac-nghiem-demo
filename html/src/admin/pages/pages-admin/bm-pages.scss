@@ -7,14 +7,19 @@
 span.post-state {
     color: #50575e;
     font-weight: 500;
+
+    &::before {
+        content: "—";
+        margin: 0 3px;
+    }
 }
-span.post-state::before {
-    content: "—";
-    margin: 0 3px;
-}
-.row-actions .row-action-hidden {
-    color: #996800;
-}
-.row-actions .row-action-display {
-    color: #007017;
+
+.row-actions {
+    .row-action-hidden {
+        color: #996800;
+    }
+
+    .row-action-display {
+        color: #007017;
+    }
 }

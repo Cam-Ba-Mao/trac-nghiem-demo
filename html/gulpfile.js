@@ -111,23 +111,9 @@ function bootstrap() {
 
 function editors() {
     return src(paths.editors.src)
-        // .pipe(fileInclude({
-        //     prefix: '@@',
-        //     basepath: '@file'
-        // }))
         .pipe(dest(paths.editors.dest))
 }
 
-// function tinymceStyles() {
-//     return src(paths.tiny.css, { sourcemaps: true })
-//         .pipe(concat('custom.css'))
-//         .pipe(cleanCSS())
-//         .pipe(rename({
-//             suffix: '.min'
-//         }))
-//         .pipe(dest(paths.tiny.dest , { sourcemaps: true }))
-//         .pipe(browserSync.stream());
-// }
 
 function html() {
     return src([SRC + '**/*.pug', '!' + SRC + 'admin/**/*.pug'], { since: lastRun(html) })
@@ -270,17 +256,15 @@ function adminHtml() {
 }
 
 function adminJs() {
-    return src(SRC + 'admin/*.js', SRC + 'admin/components/**/*.js', SRC + 'admin/pages/**/*.js')
+    return src([SRC + 'admin/**/*.js']) // Sử dụng pattern rộng hơn để bao gồm tất cả thư mục con
         .pipe(concat('admin.js'))
         .pipe(babel({ presets: ['@babel/preset-env'] }))
         .pipe(dest(DEST + 'admin/js'))
-        .pipe(uglify()) // Nén file JS
-        // .pipe(rename({ suffix: '.min' }))
+        .pipe(uglify())
         .pipe(concat('admin.min.js'))
         .pipe(dest(DEST + 'admin/js'))
         .pipe(browserSync.stream());
 }
-
 
 // function adminJs() {
 //     return src(SRC + 'admin/*.js')
@@ -293,15 +277,12 @@ function adminWatcher() {
             baseDir: [DEST, ADMIN],
             index: "admin/bm-index.html"  
         },
-        port: 8192
+        port: 8193
     });
 
-    watch(SRC + 'admin/*.scss', adminCss);
-    watch(SRC + 'admin/*.pug', adminHtml);
-    watch(SRC + 'admin/*.js', adminJs);
     watch(SRC + 'admin/**/*.pug', adminHtml);
-    watch(SRC + 'admin/**/*.scss', adminCss);
-    watch([SRC + 'admin/admin.js', SRC + 'admin/components/**/*.js', SRC + 'admin/pages/**/*.js'], js);
+    watch([SRC + 'admin/*.scss', SRC + 'admin/**/*.scss'], adminCss);
+    watch([SRC + 'admin/*.js', SRC + 'admin/components/**/*.js', SRC + 'admin/pages/**/*.js'], adminJs);
     // watch(SRC + 'assets/tinymce/*.scss', tinymceStyles);
 }
 
@@ -313,7 +294,7 @@ const build = series(clean, icons, images, fonts, bootstrap, pluginsJs, bundleCs
 const start = series(icons, html, css, js, watcher);
 const plugins = parallel(pluginsJs, bundleCss, bundleJs, editors);
 const email = series(emailHtml, emailCss, emailWatcher);
-const admin = series(fonts, adminCss, adminHtml, adminJs, adminWatcher);
+const admin = series(adminHtml, adminCss, adminJs, adminWatcher);
 
 /*
  * You can use CommonJS `exports` module notation to declare tasks

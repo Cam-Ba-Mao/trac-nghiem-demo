@@ -4,25 +4,25 @@
  */
 
 
-var imagesTemplatePath =  ROOT + "plugins/editors/ckeditor/" ;
-var xhttp ,temp_content;
-xhttp = new XMLHttpRequest();
-temp_content = [];
-xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        var x,i,xmlDoc;
-        xmlDoc = xhttp.responseXML;
-        x = xmlDoc.getElementsByTagName("item");
-        for (i = 0; i < x.length; i++) {
-            temp_content[i] = {
-                'title' : x[i].getElementsByTagName("title")[0].firstChild.data,
-                'image' : x[i].getElementsByTagName("image")[0].firstChild.data,
-                'description' : x[i].getElementsByTagName("description")[0].firstChild.data,
-                'html' : x[i].getElementsByTagName("html")[0].innerHTML
-            }
-        }
-    }
-};
+// var imagesTemplatePath =  ROOT + "plugins/editors/ckeditor/" ;
+// var xhttp ,temp_content;
+// xhttp = new XMLHttpRequest();
+// temp_content = [];
+// xhttp.onreadystatechange = function() {
+//     if (this.readyState == 4 && this.status == 200) {
+//         var x,i,xmlDoc;
+//         xmlDoc = xhttp.responseXML;
+//         x = xmlDoc.getElementsByTagName("item");
+//         for (i = 0; i < x.length; i++) {
+//             temp_content[i] = {
+//                 'title' : x[i].getElementsByTagName("title")[0].firstChild.data,
+//                 'image' : x[i].getElementsByTagName("image")[0].firstChild.data,
+//                 'description' : x[i].getElementsByTagName("description")[0].firstChild.data,
+//                 'html' : x[i].getElementsByTagName("html")[0].innerHTML
+//             }
+//         }
+//     }
+// };
 //xhttp.open("GET", ROOT + "plugins/editor/ckeditor/template.xml" , true);
 //xhttp.send();
 
