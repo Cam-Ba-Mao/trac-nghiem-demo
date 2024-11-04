@@ -13,7 +13,7 @@
     // Kiểm tra vai trò của người dùng
     $role = $_SESSION['role'];
     if($role !== 'admin') {
-        header("Location: trang-chu");
+        header("Location: bm-admin");
         exit();
     }
 
@@ -26,7 +26,7 @@
     <h1>Bảng tin</h1>
 </div>
 <div class="bm-admin-content">
-    <div class="box-welcome" id="box-welcome">Chào mừng &nbsp;<b><font color="red" size="+1">Bá Mão</font></b>&nbsp; Lần đăng nhập gần đây vào lúc :<font color="red">11:23, 02/11/2024</font></div>
+    <div class="box-welcome" id="box-welcome">Chào mừng &nbsp;<b><font color="red" size="+1"><?php echo $_SESSION['username']; ?></font></b>&nbsp; Lần đăng nhập gần đây vào lúc :<font color="red">11:23, 02/11/2024</font></div>
     <div class="box-count" id="box-count">
         <div class="small-box bg-red">
             <div class="inner">
