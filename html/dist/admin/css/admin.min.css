@@ -1129,12 +1129,12 @@ ul {
   color: #fff !important;
   font-size: 10px;
   line-height: 16px;
-  padding: 0 5px;
+  padding: 2px 5px;
   min-width: 6px;
   text-align: center;
   font-weight: 600;
-  margin: 1px 0 0 2px;
-  border-radius: 10px;
+  margin: 1px 0 0 4px;
+  border-radius: 50px;
   display: inline-block;
 }
 .bm-admin-sidebar > ul > li.hover {
@@ -1250,7 +1250,7 @@ ul {
 .bm-admin-sidebar.fix .title {
   display: none;
 }
-.bm-admin-sidebar.fix .fa-solid {
+.bm-admin-sidebar.fix .fa-solid, .bm-admin-sidebar.fix .fa-brands {
   width: 50px;
   font-size: 20px;
   text-indent: -3px;
