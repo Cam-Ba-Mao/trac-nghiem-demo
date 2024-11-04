@@ -85,27 +85,8 @@ block container
                         th
                             label(for="description") Tiểu sử
                         td
-                            textarea#editor-description(name="description", cols="40", rows="10", class="form-control", style="visibility: hidden; height: 212px; overflow: hidden; display: none;")
+                            textarea#editor-description-user(name="description", cols="40", rows="10", class="form-control", style="visibility: hidden; height: 212px; overflow: hidden; display: none;")
                            
-                            script(language="javascript", type="text/javascript").
-                                var editor_description = CKEDITOR.replace('editor-description', {
-                                allowedContent: true,
-                                autoParagraph: false,
-                                height: 200,
-                                toolbar: 'Normal',
-                                language: 'vi',
-                                toolbarGroups: [{
-                                name: 'paragraph',
-                                groups: [
-                                'basicstyles',
-                                'list',
-                                'align',
-                                'links',
-                                'colors',
-                                ]
-                                }],
-                                removeButtons: 'Save,NewPage,Preview,Print,Cut,Copy,Find,Replace,SelectAll,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Outdent,Indent,BidiLtr,BidiRtl,Language,Flash,Smiley,SpecialChar,About,Subscript,Superscript,HorizontalRule,PageBreak,Strike,RemoveFormat,Anchor,Paste,PasteFromWord,CreateDiv,ShowBlocks,Youtube,NumberedList'
-                                });
                     tr#field-avatar(class="form-field avatar")
                         th
                             label(for="avatar") Ảnh đại diện

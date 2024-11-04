@@ -275,22 +275,33 @@ var core = {
 		}
 		return core.handle(cb, isMobile);
 	},
-	formEditor: function(name, options){
+
+	formEditor: function(name, options) {
+		// Kiểm tra xem phần tử có tồn tại trong DOM không
+		if (!document.getElementById(name)) {
+			// console.warn(`Element with ID "${name}" does not exist.`);
+			return; // Dừng hàm nếu phần tử không tồn tại
+		}
+
 		let config = {
-			toolbar : 'Normal',
-			height : '400',
+			toolbar: 'Normal',
+			height: '400',
 			allowedContent: true,
-			autoParagraph : false,
-			language : 'vi',
+			autoParagraph: false,
+			language: 'vi',
 			filebrowserBrowseUrl : 'https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&editor=ckeditor&fldr=news/11-2024&akey=feb0d17ef521e6cabe064baaf11a03eb',
 			filebrowserUploadUrl : 'https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&editor=ckeditor&fldr=news/11-2024&akey=feb0d17ef521e6cabe064baaf11a03eb',
 			filebrowserImageBrowseUrl : 'https://dienmaytonghop.com/plugins/filemanager/dialog.php?type=1&editor=ckeditor&fldr=news/11-2024&akey=feb0d17ef521e6cabe064baaf11a03eb&multiple=0'
-		}
-		if(options) {
+
+		};
+
+		// Gộp cấu hình mặc định với options truyền vào
+		if (options) {
 			config = Object.assign({}, config, options);
 		}
 		console.log(config);
 
+		// Khởi tạo CKEditor
 		CKEDITOR.replace(name, config);
 	},
 

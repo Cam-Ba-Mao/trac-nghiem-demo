@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($user['role'] == 'student') {
                     header("Location: trang-chu"); // Chuyển hướng tới trang chủ cho sinh viên
                 } elseif ($user['role'] == 'admin') {
-                    header("Location: trang-quan-tri"); // Chuyển hướng tới trang quản trị cho admin
+                    header("Location: bm-admin"); // Chuyển hướng tới trang quản trị cho admin
                 }
                 exit();
             } else {

@@ -202,8 +202,7 @@ var POST = {
 			// core.formEditor('textarea34', {
 			// 	language : 'en',
 			// })
-
-			core.formEditor('editor-description', {
+			core.formEditor('editor-description-user', {
 				allowedContent: true,
 				autoParagraph: false,
 				height: 200,
@@ -223,7 +222,6 @@ var POST = {
 
 			})
 
-			
 			const elmTextarea = document.querySelectorAll('textarea[data-editor="true"]');
 			// let editorEnabled = elmTextarea.dataset.editor;
 			// console.log(editorEnabled);
@@ -232,6 +230,9 @@ var POST = {
 					language : 'en',
 				})
 			});
+
+			
+			
 		});
 	}
 }

@@ -2,7 +2,16 @@
 // logout.php
 
 session_start();
-session_destroy();
-header("Location: dang-nhap");
-exit();
+$role = $_SESSION['role'];
+
+if($role == 'admin') {
+    session_destroy();
+    header("Location: bm-login");
+    exit();
+} else {
+    session_destroy();
+    header("Location: dang-nhap");
+    exit();
+}
+
 ?>

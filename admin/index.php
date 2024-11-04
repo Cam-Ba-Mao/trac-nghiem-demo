@@ -2,11 +2,11 @@
     // index-admin.php
 
     session_start();
-    include('./config/config.php');
+    include(dirname(__DIR__) . '/config/config.php');
 
     // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng đến trang đăng nhập
     if (!isset($_SESSION['user_id'])) {
-        header("Location: dang-nhap");
+        header("Location: bm-login");
         exit();
     }
 
@@ -281,7 +281,7 @@
         <div class="handlediv down"></div>
         <h3>Thông tin hệ thống</h3>
         <div class="inside"><strong><i class="fa fa-book margin-r-5"></i>Domain</strong>
-            <p class="text-muted">dienmaytonghop.com</p>
+            <p class="text-muted">trac-nghiem.io.vn</p>
             <hr style="margin-top:10px; margin-bottom:10px"><strong><i class="fa fa-book margin-r-5"></i>PHP</strong>
             <p class="text-muted">7.4.33</p>
             <hr style="margin-top:10px; margin-bottom:10px"><strong><i class="fa fa-book margin-r-5"></i>MySQL</strong>

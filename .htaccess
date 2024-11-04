@@ -11,6 +11,7 @@ Options -Indexes
 RewriteRule ^dang-nhap$ login.php [L]
 RewriteRule ^trang-chu$ index.php [L]
 RewriteRule ^bm-admin$ admin/index.php [L]
+RewriteRule ^bm-login$ admin/login.php [L]
 #RewriteRule ^danh-sach-de-thi$ student/exams.php [L]
 #RewriteRule ^xem-ket-qua-thi$ student/list-results.php [L]
 

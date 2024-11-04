@@ -1,5 +1,5 @@
 <?php
-    include(__DIR__ .'/config/config.php');
+    include(dirname(__DIR__) . '/config/config.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,17 +41,17 @@
                         $queryAvatar = "SELECT avatar FROM users WHERE id = $user_id";
                         $resultAvatar = mysqli_query($conn, $queryAvatar);
                         $user = mysqli_fetch_assoc($resultAvatar);
-                        $avatar = $user['avatar'] ? $user['avatar'] :  BASE_URL . '/html/dist/images/default-avatar.png';     
+                        $avatar = $user['avatar'] ? BASE_URL . '/assets/upload/' . $user['avatar'] :  BASE_URL . '/html/dist/images/default-avatar.png';     
                     ?>
                     <li> 
                         <a class="my-account__nav" href="#">
                             <span class="title">Xin chào, <?php echo $_SESSION['username']; ?> </span>
-                            <img src="<?php echo BASE_URL; ?>/assets/upload/<?php echo $avatar; ?>" alt="avatar">
+                            <img src="<?php echo $avatar; ?>" alt="avatar">
                         </a>
                         <ul class="my-account__dropdown">
                             <li class="info-user">
                                 <a href="#"> 
-                                    <img src="<?php echo BASE_URL; ?>/assets/upload/<?php echo $avatar; ?>" alt="avatar">
+                                    <img src="<?php echo $avatar; ?>" alt="avatar">
                                     <span class="title"><?php echo $_SESSION['username']; ?> </span>
                                     <span class="edit-profile">Edit Profile </span>
                                 </a>
@@ -74,7 +74,7 @@
                         <li class="active"><a href="./bm-posts.html">Tất cả bài viết</a></li>
                         <li><a href="./bm-new-post.html">Thêm bài viết</a></li>
                         <li><a href="./bm-category.html">Danh mục</a></li>
-                        <li><a href="./tag.html">Thẻ</a></li>
+                        <li><a href="./bm-tag.html">Thẻ</a></li>
                     </ul>
                 </li>
                 <li><a href="#"><i class="fa-solid fa-file-image"></i><span class="title">Media<span class="pending-count">45</span></span></a></li>

@@ -7,16 +7,16 @@
         </footer>
         <!-- CLOSE FOOTER-->
         <!-- Bootstrap-->
-        <script src="./js/popper.min.js"></script>
-        <script src="./js/bootstrap.min.js"></script>
+        <script src="<?php echo BASE_URL; ?>/html/dist/js/popper.min.js"></script>
+        <script src="<?php echo BASE_URL; ?>/html/dist/js/bootstrap.min.js"></script>
         <!-- Plugins script-->
-        <script src="../js/bundle.min.js"></script>
+        <script src="<?php echo BASE_URL; ?>/html/dist/js/bundle.min.js"></script>
         <!-- TinyMCE-->
-        <script src="./editors/tinymce/tinymce.min.js"></script>
+        <script src="<?php echo BASE_URL; ?>/html/dist/editors/tinymce/tinymce.min.js"></script>
         <!-- CKEditor-->
-        <script src="./editors/ckeditor/ckeditor.js"></script>
+        <script src="<?php echo BASE_URL; ?>/html/dist/editors/ckeditor/ckeditor.js"></script>
         <!-- Template script-->
-        <script src="../admin/js/admin.min.js"></script>
+        <script src="<?php echo BASE_URL; ?>/html/dist/admin/js/admin.min.js"></script>
         <!-- Common script-->
     </body>
 </html>
