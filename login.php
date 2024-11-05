@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($username_error) && empty($password_error)) {
         // Kiểm tra thông tin đăng nhập
-        $query = "SELECT id, username, password, role FROM users WHERE username='$username'";
+        $query = "SELECT id, username, password, display_name, role FROM users WHERE username='$username'";
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) == 1) {
@@ -40,6 +40,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['role'] = $user['role'];
+                $_SESSION['display_name'] = $user['display_name'];
+
+                // Cập nhật thời gian đăng nhập
+                $current_time = date('Y-m-d H:i:s');
+                $query = "UPDATE users SET last_login = '$current_time' WHERE id=" . $user['id'];
+                mysqli_query($conn, $query);
 
                 // Nếu người dùng chọn "Nhớ tài khoản"
                 if (isset($_POST['remember-me']) && $_POST['remember-me'] == 'on') {
@@ -59,6 +65,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['role'] = $user['role'];
+                $_SESSION['display_name'] = $user['display_name'];
+
+                // Cập nhật thời gian đăng nhập
+                $current_time = date('Y-m-d H:i:s');
+                $query = "UPDATE users SET last_login = '$current_time' WHERE id=" . $user['id'];
+                mysqli_query($conn, $query);
 
                 // Nếu người dùng chọn "Nhớ tài khoản"
                 if (isset($_POST['remember-me']) && $_POST['remember-me'] == 'on') {

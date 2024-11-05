@@ -1197,6 +1197,19 @@ var core = {
     });
   }
 };
+$(document).on("click", "button.button", function () {
+  var self = this.closest(".field-pwd");
+  self.querySelector("input").focus();
+  if (self.classList.contains("show-pwd")) {
+    self.classList.remove("show-pwd");
+    self.querySelector("i").setAttribute("class", "fa fa-eye");
+    self.querySelector("input").setAttribute("type", "password");
+  } else {
+    self.classList.add("show-pwd");
+    self.querySelector("input").setAttribute("type", "text");
+    self.querySelector("i").setAttribute("class", "fa fa-eye-slash");
+  }
+});
 function addCommas(nStr) {
   nStr += '';
   var x = nStr.split('.');
@@ -1295,19 +1308,6 @@ function chartInit(canvas, config) {
   });
 }
 chartInit('areaChartHits');
-$(document).on("click", "button.button", function () {
-  var self = this.closest(".field-pwd");
-  self.querySelector("input").focus();
-  if (self.classList.contains("show-pwd")) {
-    self.classList.remove("show-pwd");
-    self.querySelector("i").setAttribute("class", "fa fa-eye");
-    self.querySelector("input").setAttribute("type", "password");
-  } else {
-    self.classList.add("show-pwd");
-    self.querySelector("input").setAttribute("type", "text");
-    self.querySelector("i").setAttribute("class", "fa fa-eye-slash");
-  }
-});
 $(function () {
   $(".switch input").on("change", function () {
     var td = this.closest("td");

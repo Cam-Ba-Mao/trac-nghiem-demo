@@ -9,12 +9,23 @@ CREATE TABLE users (
     google_id VARCHAR(255) NOT NULL,
     avatar VARCHAR(255) NOT NULL,
     role ENUM('student', 'admin') NOT NULL
+    display_name VARCHAR(250) NOT NULL,
+    last_login timestamp NULL DEFAULT NULL
 );
 
-INSERT INTO users (id, username, password, email, google_id, avatar, role) VALUES
-(1, 'maocam', 'Magano123', 'cambamao98@gmail.com', '', '', 'admin'),
-(2, 'phuongbui', 'phuong@101220', 'phuongbui@gmail.com', '', '', 'student');
+INSERT INTO users (id, username, password, email, google_id, avatar, role, display_name, last_login) VALUES
+(1, 'maocam', 'Magano123', 'cambamao98@gmail.com', '', '', 'admin', 'Cầm Bá Mão', '2024-11-05 08:42:48'),
+(2, 'phuongbui', 'phuong@101220', 'phuongbui@gmail.com', '', '', 'student','Bùi Thị Phương','');
 
+CREATE TABLE visitors (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    views INT DEFAULT 1,
+    browser VARCHAR(255),
+    operating_system VARCHAR(255),
+    version VARCHAR(50),
+    ip_address VARCHAR(50),
+    last_visit TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
 
 CREATE TABLE questions (
     id INT AUTO_INCREMENT PRIMARY KEY,

@@ -6,6 +6,8 @@ $db = 'trac_nghiem'; // Tên cơ sở dữ liệu
 $user = 'root'; // Tên người dùng MySQL
 $pass = ''; // Mật khẩu MySQL
 
+date_default_timezone_set("Asia/Ho_Chi_Minh");
+
 // Kết nối tới cơ sở dữ liệu MySQL
 $conn = mysqli_connect($host, $user, $pass, $db);
 
@@ -49,6 +51,48 @@ if (!function_exists('dd')) {
         if ($c) {
             die();
         }
+    }
+}
+if (!function_exists('getBrowser')) {
+    function getBrowser($userAgent, &$version) {
+        $version = 'Unknown';
+
+        if (preg_match('/Chrome\/([0-9.]+)/', $userAgent, $matches)) {
+            $version = $matches[1];
+            return 'Chrome';
+        }
+        if (preg_match('/Firefox\/([0-9.]+)/', $userAgent, $matches)) {
+            $version = $matches[1];
+            return 'Firefox';
+        }
+        if (preg_match('/Safari\/([0-9.]+)/', $userAgent, $matches) && !preg_match('/Chrome/', $userAgent)) {
+            $version = $matches[1];
+            return 'Safari';
+        }
+        if (preg_match('/MSIE ([0-9.]+)/', $userAgent, $matches) || preg_match('/Trident\/.*rv:([0-9.]+)/', $userAgent, $matches)) {
+            $version = $matches[1];
+            return 'Internet Explorer';
+        }
+        if (preg_match('/OPR\/([0-9.]+)/', $userAgent, $matches) || preg_match('/Opera\/([0-9.]+)/', $userAgent, $matches)) {
+            $version = $matches[1];
+            return 'Opera';
+        }
+
+        return 'Unknown Browser';
+    }
+}
+
+if (!function_exists('getOperatingSystem')) {
+    function getOperatingSystem($userAgent) {
+        if (strpos($userAgent, 'Windows NT 10.0') !== false) return 'Windows 10 / Windows 11';
+        if (strpos($userAgent, 'Windows NT 6.3') !== false) return 'Windows 8.1';
+        if (strpos($userAgent, 'Windows NT 6.2') !== false) return 'Windows 8';
+        if (strpos($userAgent, 'Windows NT 6.1') !== false) return 'Windows 7';
+        if (strpos($userAgent, 'Mac OS X') !== false) return 'Mac OS X';
+        if (strpos($userAgent, 'Android') !== false) return 'Android';
+        if (strpos($userAgent, 'Linux') !== false) return 'Linux';
+        if (strpos($userAgent, 'iPhone') !== false || strpos($userAgent, 'iPad') !== false) return 'iOS';
+        return 'Unknown OS';
     }
 }
 

@@ -45,14 +45,14 @@
                     ?>
                     <li> 
                         <a class="my-account__nav" href="#">
-                            <span class="title">Xin chào, <?php echo $_SESSION['username']; ?> </span>
+                            <span class="title">Xin chào, <?php echo $_SESSION['display_name']; ?> </span>
                             <img src="<?php echo $avatar; ?>" alt="avatar">
                         </a>
                         <ul class="my-account__dropdown">
                             <li class="info-user">
                                 <a href="#"> 
                                     <img src="<?php echo $avatar; ?>" alt="avatar">
-                                    <span class="title"><?php echo $_SESSION['username']; ?> </span>
+                                    <span class="title"><?php echo $_SESSION['display_name']; ?> </span>
                                     <span class="edit-profile">Edit Profile </span>
                                 </a>
                             </li>

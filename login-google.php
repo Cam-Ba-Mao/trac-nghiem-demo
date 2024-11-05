@@ -14,7 +14,7 @@ if ($type == 'google') {
     $picture = $_POST['picture'];
 
     // Kiểm tra xem người dùng đã tồn tại trong cơ sở dữ liệu chưa
-    $query = "SELECT id, username, role FROM users WHERE google_id='$provide_id' OR email='$email'";
+    $query = "SELECT id, username, display_name, role FROM users WHERE google_id='$provide_id' OR email='$email'";
     $result = mysqli_query($conn, $query);
 
     if (mysqli_num_rows($result) > 0) {
@@ -23,6 +23,12 @@ if ($type == 'google') {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
         $_SESSION['role'] = $user['role'];
+        $_SESSION['display_name'] = $user['display_name'];
+
+        // Cập nhật thời gian đăng nhập
+        $current_time = date('Y-m-d H:i:s');
+        $query = "UPDATE users SET last_login = '$current_time' WHERE id=" . $user['id'];
+        mysqli_query($conn, $query);
 
         // Đáp ứng thành công
         echo json_encode(['success' => true , 'role' => $user['role']]);
