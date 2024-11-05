@@ -137,3 +137,40 @@
         
     }
 }
+
+@media screen and (max-width: 900px) {
+
+    .bm-admin-navbar {
+        height: 40px;
+
+        >ul {
+            >li {
+                >a {
+                    line-height: 40px;
+                    font-size: 18px;
+
+                    .fa-solid {
+                        font-size: 20px;
+                    }
+
+                    .title {
+                        display: none;
+                    }
+                }
+
+                ul {
+                    top: 40px;
+                }
+            }
+        }
+    }
+
+    .bm-admin-content,
+    .bm-admin-sidebar {
+        height: calc(100% - 50px);
+    }
+    
+    .hide {
+        display: none !important;
+    }
+}

@@ -1082,6 +1082,31 @@ ul {
   }
 }
 
+@media screen and (max-width: 900px) {
+  .bm-admin-navbar {
+    height: 40px;
+  }
+  .bm-admin-navbar > ul > li > a {
+    line-height: 40px;
+    font-size: 18px;
+  }
+  .bm-admin-navbar > ul > li > a .fa-solid {
+    font-size: 20px;
+  }
+  .bm-admin-navbar > ul > li > a .title {
+    display: none;
+  }
+  .bm-admin-navbar > ul > li ul {
+    top: 40px;
+  }
+  .bm-admin-content,
+  .bm-admin-sidebar {
+    height: calc(100% - 50px);
+  }
+  .hide {
+    display: none !important;
+  }
+}
 .bm-admin-sidebar {
   height: calc(100% - 32px);
   width: 180px;
@@ -1099,6 +1124,17 @@ ul {
   min-height: 100%;
   width: 180px;
   z-index: 2;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+.bm-admin-sidebar .title {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+  -webkit-transition: opacity 0.3s ease, visibility 0s 0s;
+  transition: opacity 0.3s ease, visibility 0s 0s;
 }
 .bm-admin-sidebar > ul > li {
   position: relative;
@@ -1248,6 +1284,14 @@ ul {
   transform: translate(0, 0);
 }
 .bm-admin-sidebar.fix .title {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: opacity 0.3s ease, visibility 0s 0.3s;
+  transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+.bm-admin-sidebar.fix .title .pending-count {
   display: none;
 }
 .bm-admin-sidebar.fix .fa-solid, .bm-admin-sidebar.fix .fa-brands {
@@ -1265,42 +1309,25 @@ ul {
   top: 15px;
 }
 
-@media all and (max-width: 900px) {
-  .bm-admin-navbar {
-    height: 40px;
-  }
-  .bm-admin-navbar > ul > li > a {
-    line-height: 40px;
-    font-size: 18px;
-  }
-  .bm-admin-navbar > ul > li > a .fa-solid {
-    font-size: 20px;
-  }
-  .bm-admin-navbar > ul > li > a .title {
-    display: none;
-  }
-  .bm-admin-navbar > ul > li ul {
-    top: 40px;
-  }
-  .bm-admin-content,
-  .bm-admin-sidebar {
-    height: calc(100% - 50px);
-  }
-  .hide {
-    display: none !important;
-  }
-}
 @media (max-width: 767px) {
   .bm-admin-sidebar {
-    width: 50px !important;
     -webkit-transform: translate(-210px, 0);
     -ms-transform: translate(-210px, 0);
     transform: translate(-210px, 0);
+    width: 50px !important;
   }
   .bm-admin-sidebar .title {
-    display: none !important;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: opacity 0.3s ease, visibility 0s 0.3s;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
   }
-  .bm-admin-sidebar .fa-solid {
+  .bm-admin-sidebar .title .pending-count {
+    display: none;
+  }
+  .bm-admin-sidebar .fa-solid, .bm-admin-sidebar .fa-brands {
     width: 50px !important;
     font-size: 20px !important;
     text-indent: -3px !important;

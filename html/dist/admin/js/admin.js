@@ -70,7 +70,10 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
   });
   function sidebarCheck() {
     if (localStorage.getItem('sidebar')) {
-      $('.bm-admin-sidebar .bm-collapse-admin-menu').trigger('click');
+      $('body').addClass('sidebar-collapse');
+      $('.bm-admin-sidebar').addClass('fix');
+      $('.bm-admin-sidebar >ul >li.active .sub-menu').hide();
+      $('.bm-collapse-admin-menu .fa-solid').removeClass('fa-arrow-circle-left').addClass('fa-arrow-circle-right');
     }
   }
   sidebarCheck();

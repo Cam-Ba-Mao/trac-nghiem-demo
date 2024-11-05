@@ -18,6 +18,14 @@
 	min-height: 100%;
 	width: 180px;
 	z-index: 2;
+    transition: transform 0.3s ease-in-out;
+
+    .title {
+        opacity: 1;
+        visibility: visible;
+        position: relative;
+        transition: opacity 0.3s ease, visibility 0s 0s;
+    }
 
 
     >ul {
@@ -201,7 +209,16 @@
         transform: translate(0, 0);
 
         .title {
-            display: none;
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            z-index: -1;
+            transition: opacity 0.3s ease, visibility 0s 0.3s;    
+            
+            .pending-count {
+                display: none;
+            }
+            
         }
 
         .fa-solid, .fa-brands {
@@ -227,54 +244,34 @@
         }
     }
 }
-@media all and (max-width: 900px) {
 
-    .bm-admin-navbar {
-        height: 40px;
+// @include breakpoint-down(991px) {
+//     .bm-admin-sidebar {
+        
 
-        >ul {
-            >li {
-                >a {
-                    line-height: 40px;
-                    font-size: 18px;
-
-                    .fa-solid {
-                        font-size: 20px;
-                    }
-
-                    .title {
-                        display: none;
-                    }
-                }
-
-                ul {
-                    top: 40px;
-                }
-            }
-        }
-    }
-
-    .bm-admin-content,
-    .bm-admin-sidebar {
-        height: calc(100% - 50px);
-    }
-    
-    .hide {
-        display: none !important;
-    }
-}
+       
+//     }
+// }
 
 @include breakpoint-down(767px) {
     .bm-admin-sidebar {
-        width: 50px !important;
-
         transform: translate(-210px, 0);
 
+        width: 50px !important;
+        
         .title {
-            display: none !important;
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            z-index: -1;
+            transition: opacity 0.3s ease, visibility 0s 0.3s;    
+            
+            .pending-count {
+                display: none;
+            }
         }
 
-        .fa-solid {
+        .fa-solid, .fa-brands {
             width: 50px !important;
             font-size: 20px !important;
             text-indent: -3px !important;
