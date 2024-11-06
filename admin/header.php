@@ -22,47 +22,48 @@
     </head>
     <body class="<?= !empty($class) ?  $class : '' ?>">
         <!-- START HEADER-->
-        <div class="bm-admin-navbar">
-            <ul dropdown>
-                <li> <a class="bm-collapse-menu-mobile d-md-none" href="javascript:void(0)"><i class="fa-solid fa-bars"></i></a></li>
-                <li><a href="./bm-index.html"><i class="fa-solid fa-home"></i><span class="title name-web">ANOTHER WEBSITE</span></a></li>
-                <li><a href="#"><i class="fa-solid fa-comment"></i>1</a></li>
-                <li><a href="./bm-new-posts.html"><i class="fa-solid fa-plus"></i><span class="title">Tạo mới</span></a>
-                    <ul>
-                        <li><a href="./bm-new-post.html">Bài viết</a></li>
-                        <li><a href="#">Trang</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="my-account" dropdown>
-                <?php if (isset($_SESSION['user_id'])): ?>
-                    <?php
-                        $user_id = $_SESSION['user_id'];
-                        $queryAvatar = "SELECT avatar FROM users WHERE id = $user_id";
-                        $resultAvatar = mysqli_query($conn, $queryAvatar);
-                        $user = mysqli_fetch_assoc($resultAvatar);
-                        $avatar = $user['avatar'] ? BASE_URL . '/assets/upload/' . $user['avatar'] :  BASE_URL . '/html/dist/images/default-avatar.png';     
-                    ?>
-                    <li> 
-                        <a class="my-account__nav" href="#">
-                            <span class="title">Xin chào, <?php echo $_SESSION['display_name']; ?> </span>
-                            <img src="<?php echo $avatar; ?>" alt="avatar">
-                        </a>
-                        <ul class="my-account__dropdown">
-                            <li class="info-user">
-                                <a href="#"> 
-                                    <img src="<?php echo $avatar; ?>" alt="avatar">
-                                    <span class="title"><?php echo $_SESSION['display_name']; ?> </span>
-                                    <span class="edit-profile">Edit Profile </span>
-                                </a>
-                            </li>
-                            <li class="logout">
-                                <a href="logout.php">Đăng xuất</a>
-                            </li>
+        <div class="bm-adminbar">
+            <div class="bm-adminbar__left">
+                <ul dropdown>
+                    <li> <a class="bm-collapse-menu-mobile d-md-none" href="javascript:void(0)"><i class="fa-solid fa-bars"></i></a></li>
+                    <li><a href="#"> <i class="fa-solid fa-home"></i><span class="title">Trắc nghiệm demo</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Bảng tin</a></li>
+                            <li><a href="#">Giao diện</a></li>
+                            <li><a href="#">Menus</a></li>
                         </ul>
                     </li>
-                <?php endif; ?>
-            </ul>
+                    <li><a href="#"> <i class="fa-solid fa-plus"></i><span class="title">Tạo Mới</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Trang</a></li>
+                            <li><a href="#">Bài viết</a></li>
+                            <li><a href="#">Sản phẩm</a></li>
+                            <li><a href="#">Bảng giá</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="bm-adminbar-edit" href="#"> <i class="fa-solid fa-pen"> </i><span class="title">Sửa trang</span></a></li>
+                </ul>
+            </div>
+            <div class="bm-adminbar__right">
+                <ul dropdown>
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <?php
+                            $user_id = $_SESSION['user_id'];
+                            $queryAvatar = "SELECT avatar FROM users WHERE id = $user_id";
+                            $resultAvatar = mysqli_query($conn, $queryAvatar);
+                            $user = mysqli_fetch_assoc($resultAvatar);
+                            $avatar = $user['avatar'] ? BASE_URL . '/assets/upload/' . $user['avatar'] :  BASE_URL . '/html/dist/images/default-avatar.png';     
+                        ?>
+                        <li>
+                            <a href="#">Chào, <?php echo $_SESSION['display_name']; ?> <img src="<?php echo $avatar; ?>" alt="Bá Mão"></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="fa fa-user"></i>Sửa hồ sơ</a></li>
+                                <li><a href="#"><i class="fa fa-sign-out"></i>Đăng xuất</a></li>
+                            </ul>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+            </div>
         </div>
         <!-- CLOSE HEADER-->
         <!-- START SIDEBAR-->

@@ -60,7 +60,11 @@
                         setcookie('password', '', time() - 3600, "/");
                     }
 
-                    header("Location: trang-chu");
+                    if ($user['role'] == 'student') {
+                        header("Location: trang-chu"); // Chuyển hướng tới trang chủ cho sinh viên
+                    } elseif ($user['role'] == 'admin') {
+                        header("Location: bm-admin"); // Chuyển hướng tới trang quản trị cho admin
+                    }
                     exit();
                 } elseif (password_verify($password, $user['password'])) {
                     // Nếu mật khẩu đã được mã hóa

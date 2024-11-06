@@ -19,26 +19,38 @@
     </head>
     <body class="page-template-admin-panel-menu">
         <!-- START HEADER-->
-        <div class="bm-admin-navbar">
-            <ul dropdown>
-                <li> <a class="bm-collapse-menu-mobile d-md-none" href="javascript:void(0)"><i class="fa-solid fa-bars"></i></a></li>
-                <li><a href="./bm-index.html"><i class="fa-solid fa-home"></i><span class="title name-web">ANOTHER WEBSITE</span></a></li>
-                <li><a href="#"><i class="fa-solid fa-comment"></i>1</a></li>
-                <li><a href="./bm-new-posts.html"><i class="fa-solid fa-plus"></i><span class="title">Tạo mới</span></a>
-                    <ul>
-                        <li><a href="./bm-new-post.html">Bài viết</a></li>
-                        <li><a href="#">Trang</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="my-account" dropdown>
-                <li> <a class="my-account__nav" href="#"><span class="title">Xin chào, maocam </span><img src="../images/default-avatar.png" alt="avatar"></a>
-                    <ul class="my-account__dropdown">
-                        <li class="info-user"><a href="./bm-new-post.html"> <img src="../images/default-avatar.png" alt="avatar"><span class="title">maocam </span><span class="edit-profile">Edit Profile </span></a></li>
-                        <li class="logout"><a href="#">Đăng xuất</a></li>
-                    </ul>
-                </li>
-            </ul>
+        <div class="bm-adminbar">
+            <div class="bm-adminbar__left">
+                <ul dropdown>
+                    <li> <a class="bm-collapse-menu-mobile d-md-none" href="javascript:void(0)"><i class="fa-solid fa-bars"></i></a></li>
+                    <li><a href="#"> <i class="fa-solid fa-home"></i><span class="title">Trắc nghiệm demo</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Bảng tin</a></li>
+                            <li><a href="#">Giao diện</a></li>
+                            <li><a href="#">Menus</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"> <i class="fa-solid fa-plus"></i><span class="title">Tạo Mới</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Trang</a></li>
+                            <li><a href="#">Bài viết</a></li>
+                            <li><a href="#">Sản phẩm</a></li>
+                            <li><a href="#">Bảng giá</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="bm-adminbar-edit" href="#"> <i class="fa-solid fa-pen"> </i><span class="title">Sửa trang</span></a></li>
+                </ul>
+            </div>
+            <div class="bm-adminbar__right">
+                <ul dropdown>
+                    <li><a href="#">Chào, Bá Mão <img width="25" src="../images/default-avatar.png" alt="Bá Mão"></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-user"></i>Sửa hồ sơ</a></li>
+                            <li><a href="#"><i class="fa fa-sign-out"></i>Đăng xuất</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
         <!-- CLOSE HEADER-->
         <!-- START SIDEBAR-->

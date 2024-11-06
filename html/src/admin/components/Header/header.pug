@@ -1,36 +1,49 @@
-.bm-admin-navbar
-    ul(dropdown)
-        li 
-            a.bm-collapse-menu-mobile.d-md-none(href="javascript:void(0)")
-                i.fa-solid.fa-bars
-        li
-            a(href="./bm-index.html")
-                i.fa-solid.fa-home
-                span.title.name-web ANOTHER WEBSITE
-        li
-            a(href="#")
-                i.fa-solid.fa-comment
-                | 1
-        li
-            a(href="./bm-new-posts.html")
-                i.fa-solid.fa-plus
-                span.title Tạo mới
-            ul
-                li
-                    a(href="./bm-new-post.html") Bài viết
-                li
-                    a(href="#") Trang
-
-    ul(dropdown class="my-account")
-        li 
-            a(href="#" class="my-account__nav")
-                span.title Xin chào, maocam 
-                img(src="../images/default-avatar.png", alt="avatar")
-            ul.my-account__dropdown
-                li.info-user
-                    a(href="./bm-new-post.html") 
-                        img(src="../images/default-avatar.png", alt="avatar")
-                        span.title maocam 
-                        span.edit-profile Edit Profile 
-                li.logout
-                    a(href="#") Đăng xuất
+.bm-adminbar
+    .bm-adminbar__left
+        ul(dropdown)
+            li 
+                a.bm-collapse-menu-mobile.d-md-none(href="javascript:void(0)")
+                    i.fa-solid.fa-bars
+            li
+                a(href="#") 
+                    i.fa-solid.fa-home
+                    span.title Trắc nghiệm demo
+                ul.dropdown-menu
+                    li
+                        a(href="#") Bảng tin
+                    li
+                        a(href="#") Giao diện
+                    li
+                        a(href="#") Menus
+            li
+                a(href="#") 
+                    i.fa-solid.fa-plus
+                    span.title Tạo Mới
+                ul.dropdown-menu
+                    li
+                        a(href="#") Trang
+                    li
+                        a(href="#") Bài viết
+                    li
+                        a(href="#") Sản phẩm
+                    li
+                        a(href="#") Bảng giá
+            li
+                a(href="#", class="bm-adminbar-edit") 
+                    i(class="fa-solid fa-pen") 
+                    span.title Sửa trang
+    
+    .bm-adminbar__right
+        ul(dropdown)
+            li
+                a(href="#") Chào, Bá Mão 
+                    img(width="25", src="../images/default-avatar.png", alt="Bá Mão")
+                ul.dropdown-menu
+                    li
+                        a(href="#")
+                            i(class="fa fa-user")
+                            | Sửa hồ sơ
+                    li
+                        a(href="#")
+                            i(class="fa fa-sign-out")
+                            | Đăng xuất

@@ -8,7 +8,7 @@ CREATE TABLE users (
     email VARCHAR(255) NOT NULL,
     google_id VARCHAR(255) NOT NULL,
     avatar VARCHAR(255) NOT NULL,
-    role ENUM('student', 'admin') NOT NULL
+    role ENUM('student', 'admin') NOT NULL,
     display_name VARCHAR(250) NOT NULL,
     last_login timestamp NULL DEFAULT NULL
 );
@@ -133,7 +133,7 @@ CREATE TABLE term_relationships (
     post_id INT NOT NULL,
     term_id INT NOT NULL,
     PRIMARY KEY (post_id, term_id),
-    FOREIGN KEY (post_id) REFERENCES posts(id),
+    FOREIGN KEY (post_id) REFERENCES custom_posts(id),
     FOREIGN KEY (term_id) REFERENCES terms(id)
 );
 

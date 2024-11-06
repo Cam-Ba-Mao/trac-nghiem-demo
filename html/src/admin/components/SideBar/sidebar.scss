@@ -1,24 +1,19 @@
-
-
 // sidebar
 .bm-admin-sidebar {
+    min-height: 100%;
     height: calc(100% - 32px);
     width: 180px;
     background: #23282d;
-    box-sizing: border-box;
-    padding-top: 12px;
-    float: left;
-    position: relative;
-    z-index: 20;
-
     position: fixed;
 	top: 0;
 	left: 0;
-	padding-top: 40px;
-	min-height: 100%;
-	width: 180px;
-	z-index: 2;
+    z-index: 20;
     transition: transform 0.3s ease-in-out;
+    padding-top: 32px;
+
+    @media screen and (max-width: 767px) {
+        padding-top: 40px;
+    }
 
     .title {
         opacity: 1;
@@ -245,13 +240,17 @@
     }
 }
 
-// @include breakpoint-down(991px) {
-//     .bm-admin-sidebar {
-        
+@media screen and (max-width: 900px) {
 
-       
-//     }
-// }
+    .bm-admin-content,
+    .bm-admin-sidebar {
+        height: calc(100% - 50px);
+    }
+    
+    .hide {
+        display: none !important;
+    }
+}
 
 @include breakpoint-down(767px) {
     .bm-admin-sidebar {
