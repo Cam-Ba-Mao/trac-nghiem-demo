@@ -130,66 +130,67 @@ $result = mysqli_query($conn, $query);
 
 $title = "Quản lý câu hỏi";
 
-include(__DIR__ . '/../header.php');
+include('header.php');
 ?>
+    <div class="bm-admin-title">
+        <h1>Quản lý câu hỏi</h1>
+    </div>
+    <div class="bm-admin-content">
 
-    <h1 class="bm-title">Quản lý câu hỏi</h1>
+        <!-- Form thêm câu hỏi -->
+        <form method="POST" class="admin-tablelist">
+            <h2>Thêm câu hỏi</h2>
+            Nội dung câu hỏi: <input type="text" class="form-control" name="question_text" required><br>
+            Lựa chọn A: <input type="text" class="form-control" name="option_a" required><br>
+            Lựa chọn B: <input type="text" class="form-control" name="option_b" required><br>
+            Lựa chọn C: <input type="text" class="form-control" name="option_c" required><br>
+            Lựa chọn D: <input type="text" class="form-control" name="option_d" required><br>
+            Đáp án đúng: 
+            <select class="form-control" name="correct_option">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select><br>
+            <input type="submit" class="button btn-submit" name="add_question" value="Thêm">
+        </form>
 
-    <!-- Form thêm câu hỏi -->
-    <form method="POST">
-        <h2>Thêm câu hỏi</h2>
-        Nội dung câu hỏi: <input type="text" name="question_text" required><br>
-        Lựa chọn A: <input type="text" name="option_a" required><br>
-        Lựa chọn B: <input type="text" name="option_b" required><br>
-        Lựa chọn C: <input type="text" name="option_c" required><br>
-        Lựa chọn D: <input type="text" name="option_d" required><br>
-        Đáp án đúng: 
-        <select name="correct_option">
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-            <option value="D">D</option>
-        </select><br>
-        <input type="submit" name="add_question" value="Thêm">
-    </form>
+        <?php if (isset($success_message)) { echo "<p style='color: green;'>$success_message</p>"; } ?>
+        <?php if (isset($error_message)) { echo "<p style='color: red;'>$error_message</p>"; } ?>
 
-    <?php if (isset($success_message)) { echo "<p style='color: green;'>$success_message</p>"; } ?>
-    <?php if (isset($error_message)) { echo "<p style='color: red;'>$error_message</p>"; } ?>
+        <!-- Form tải lên file Excel -->
+        <h2>Nhập câu hỏi từ file Excel</h2>
+        <form method="POST" enctype="multipart/form-data">
+            Chọn file Excel: <input type="file" class="form-control regular-text" name="questions_file" required><br>
+            <input type="submit" class="button btn-submit" name="import_questions" value="Nhập">
+        </form>
 
-    <!-- Form tải lên file Excel -->
-    <h2>Nhập câu hỏi từ file Excel</h2>
-    <form method="POST" enctype="multipart/form-data">
-        Chọn file Excel: <input type="file" name="questions_file" required><br>
-        <input type="submit" name="import_questions" value="Nhập">
-    </form>
+        <!-- Nút xuất câu hỏi ra file Excel -->
+        <h2>Xuất câu hỏi ra file Excel</h2>
+        <form method="POST">
+            <input type="submit" class="button btn-submit" name="export_questions" value="Xuất">
+        </form>
 
-    <!-- Nút xuất câu hỏi ra file Excel -->
-    <h2>Xuất câu hỏi ra file Excel</h2>
-    <form method="POST">
-        <input type="submit" name="export_questions" value="Xuất">
-    </form>
-
-    <!-- Danh sách câu hỏi -->
-    <h2>Danh sách câu hỏi</h2>
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Nội dung câu hỏi</th>
-            <th>Đáp án đúng</th>
-            <th>Thao tác</th>
-        </tr>
-        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+        <!-- Danh sách câu hỏi -->
+        <h2>Danh sách câu hỏi</h2>
+        <table border="1" class="table-list">
             <tr>
-                <td><?php echo $row['id']; ?></td>
-                <td><?php echo $row['question_text']; ?></td>
-                <td><?php echo $row['correct_option']; ?></td>
-                <td>
-                    <a href="edit_question.php?id=<?php echo $row['id']; ?>">Sửa</a> | 
-                    <a href="manage_questions.php?delete_id=<?php echo $row['id']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa câu hỏi này?');">Xóa</a>
-                </td>
+                <th class="manage-column">ID</th>
+                <th class="manage-column">Nội dung câu hỏi</th>
+                <th class="manage-column">Đáp án đúng</th>
+                <th class="manage-column">Thao tác</th>
             </tr>
-        <?php } ?>
-    </table>
-
-   <p><a href="<?php echo BASE_URL; ?>/index.php">Trang chủ</a></p>
-<?php include(__DIR__ . '/../footer.php');
+            <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                <tr>
+                    <td><?php echo $row['id']; ?></td>
+                    <td><?php echo $row['question_text']; ?></td>
+                    <td><?php echo $row['correct_option']; ?></td>
+                    <td>
+                        <a href="edit_question.php?id=<?php echo $row['id']; ?>">Sửa</a> | 
+                        <a href="manage_questions.php?delete_id=<?php echo $row['id']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa câu hỏi này?');">Xóa</a>
+                    </td>
+                </tr>
+            <?php } ?>
+        </table>
+    </div>
+<?php include('footer.php');

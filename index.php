@@ -22,26 +22,13 @@ include('header.php');
     <div class="wrapper">
         <div class="admin-menu expanded">
             <div class="menu-toggle">☰</div>
-            <?php if ($role == 'admin'): ?>
-                <ul>
-                    <li><a href="./admin/manage_students.php"><span>Quản lý học sinh</span></a></li>
-                    <li><a href="./admin/manage_questions.php"><span>Quản lý câu hỏi</span></a></li>
-                    <li><a href="./admin/manage_exams.php"><span>Quản lý đề thi</span></a></li>
-                    <li><a href="./admin/exam_questions.php"><span>Quản lý câu hỏi cho từng đề thi</span></a></li>
-                </ul>
-            <?php else: ?>
-                <ul>
-                    <li><a href="./student/exams.php">Làm bài thi</a></li>
-                    <li><a href="./student/list-results.php">Xem kết quả</a></li>
-                </ul>
-            <?php endif; ?>
+            <ul>
+                <li><a href="./student/exams.php">Làm bài thi</a></li>
+                <li><a href="./student/list-results.php">Xem kết quả</a></li>
+            </ul>
         </div>
         <div class="content">
-            <?php if ($role == 'admin'): ?>
-                <h1>Welcome to Admin Dashboard</h1>
-            <?php else: ?>
-                <h1>Welcome to Student Dashboard</h1>
-            <?php endif; ?>
+            <h1>Welcome to Student Dashboard</h1>
             <section class="bm-home-page">
                 <p class="bm-title">Chào mừng, <?php echo $_SESSION['username']; ?>!</p>
                 <p><a href="logout.php" class="logout-btn">Đăng xuất</a></p>

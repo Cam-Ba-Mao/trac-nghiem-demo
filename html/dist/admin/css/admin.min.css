@@ -357,8 +357,9 @@ body {
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 14px;
   background-color: #f1f1f1;
+  padding-top: 40px;
 }
-body.sidebar-collapse .bm-admin-wrap {
+body.sidebar-collapse .bm-admin-wrap, body.sidebar-collapse .main-footer {
   margin-left: 50px;
 }
 
@@ -610,12 +611,6 @@ html {
 
 body {
   margin: 0;
-  padding-top: 32px;
-}
-@media screen and (max-width: 767px) {
-  body {
-    padding-top: 40px;
-  }
 }
 
 article,
@@ -994,12 +989,12 @@ ul {
   background: #1d2327;
   line-height: 1.42857143;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  height: 32px;
+  height: 40px;
+}
+.bm-adminbar .fa-solid {
+  font-size: 16px;
 }
 @media screen and (max-width: 767px) {
-  .bm-adminbar {
-    height: 40px;
-  }
   .bm-adminbar .fa-solid {
     font-size: 20px;
   }
@@ -1073,6 +1068,7 @@ ul {
   display: none;
   float: left;
   min-width: 160px;
+  width: 100%;
   font-size: 14px;
   text-align: left;
   list-style: none;
@@ -1098,7 +1094,6 @@ ul {
 
 .bm-admin-sidebar {
   min-height: 100%;
-  height: calc(100% - 32px);
   width: 180px;
   background: #23282d;
   position: fixed;
@@ -1109,12 +1104,7 @@ ul {
   transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  padding-top: 32px;
-}
-@media screen and (max-width: 767px) {
-  .bm-admin-sidebar {
-    padding-top: 40px;
-  }
+  padding-top: 40px;
 }
 .bm-admin-sidebar .title {
   opacity: 1;

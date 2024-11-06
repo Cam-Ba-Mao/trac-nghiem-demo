@@ -68,56 +68,57 @@ if (isset($_GET['delete_id'])) {
 
 $title = "Quản lý câu hỏi cho đề thi";
 
-include(__DIR__ . '/../header.php');
+include('header.php');
 ?>
 
-    <h1 class="bm-title">Quản lý câu hỏi cho đề thi</h1>
-
-    <!-- Form chọn đề thi -->
-    <form method="POST">
-        Chọn đề thi: 
-        <select name="exam_id">
-            <?php while ($row = mysqli_fetch_assoc($result_exams)) { ?>
-                <option value="<?php echo $row['id']; ?>"><?php echo $row['exam_name']; ?></option>
-            <?php } ?>
-        </select>
-        <input type="submit" name="select_exam" value="Chọn">
-    </form>
-
-    <?php if (isset($exam)) { ?>
-        <h2>Đề thi: <?php echo $exam['exam_name']; ?></h2>
-
-        <!-- Danh sách câu hỏi của đề thi -->
-        <h3>Danh sách câu hỏi của đề thi</h3>
-        <table border="1">
-            <tr>
-                <th>ID</th>
-                <th>Nội dung câu hỏi</th>
-                <th>Thao tác</th>
-            </tr>
-            <?php while ($row = mysqli_fetch_assoc($result_questions)) { ?>
-                <tr>
-                    <td><?php echo $row['id']; ?></td>
-                    <td><?php echo $row['question_text']; ?></td>
-                    <td>
-                        <a href="exam_questions.php?delete_id=<?php echo $row['id']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa câu hỏi này khỏi đề thi?');">Xóa khỏi đề thi</a>
-                    </td>
-                </tr>
-            <?php } ?>
-        </table>
-
-        <!-- Form thêm số lượng câu hỏi vào đề thi -->
-        <h3>Thêm số lượng câu hỏi vào đề thi</h3>
-        <form method="POST">
-            <input type="hidden" name="exam_id" value="<?php echo $exam['id']; ?>">
-            Số lượng câu hỏi: 
-            <input type="number" name="num_questions" min="1" max="100" required>
-            <input type="submit" name="add_random_questions" value="Thêm vào đề thi">
+    <div class="bm-admin-title">
+        <h1>Quản lý câu hỏi cho đề thi</h1>
+    </div>
+    <div class="bm-admin-content">
+        <!-- Form chọn đề thi -->
+        <form method="POST" class="admin-tablelist">
+            Chọn đề thi: 
+            <select name="exam_id" class="form-control">
+                <?php while ($row = mysqli_fetch_assoc($result_exams)) { ?>
+                    <option value="<?php echo $row['id']; ?>"><?php echo $row['exam_name']; ?></option>
+                <?php } ?>
+            </select>
+            <input type="submit" name="select_exam" value="Chọn">
         </form>
 
-        <?php if (isset($success_message)) { echo "<p style='color: green;'>$success_message</p>"; } ?>
-        <?php if (isset($error_message)) { echo "<p style='color: red;'>$error_message</p>"; } ?>
-    <?php } ?>
+        <?php if (isset($exam)) { ?>
+            <h2>Đề thi: <?php echo $exam['exam_name']; ?></h2>
 
-   <p><a href="<?php echo BASE_URL; ?>/index.php">Trang chủ</a></p>
-<?php include(__DIR__ . '/../footer.php');
+            <!-- Danh sách câu hỏi của đề thi -->
+            <h3>Danh sách câu hỏi của đề thi</h3>
+            <table border="1" class="table-list">
+                <tr>
+                    <th>ID</th>
+                    <th>Nội dung câu hỏi</th>
+                    <th>Thao tác</th>
+                </tr>
+                <?php while ($row = mysqli_fetch_assoc($result_questions)) { ?>
+                    <tr>
+                        <td><?php echo $row['id']; ?></td>
+                        <td><?php echo $row['question_text']; ?></td>
+                        <td>
+                            <a href="exam_questions.php?delete_id=<?php echo $row['id']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa câu hỏi này khỏi đề thi?');">Xóa khỏi đề thi</a>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </table>
+
+            <!-- Form thêm số lượng câu hỏi vào đề thi -->
+            <h3>Thêm số lượng câu hỏi vào đề thi</h3>
+            <form method="POST">
+                <input type="hidden" name="exam_id" value="<?php echo $exam['id']; ?>">
+                Số lượng câu hỏi: 
+                <input type="number" class="form-control regular-text" name="num_questions" min="1" max="100" required>
+                <input type="submit" class="button btn-submit" name="add_random_questions" value="Thêm vào đề thi">
+            </form>
+
+            <?php if (isset($success_message)) { echo "<p style='color: green;'>$success_message</p>"; } ?>
+            <?php if (isset($error_message)) { echo "<p style='color: red;'>$error_message</p>"; } ?>
+        <?php } ?>
+    </div>
+<?php include('footer.php');

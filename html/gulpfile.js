@@ -256,14 +256,32 @@ function adminHtml() {
 }
 
 function adminJs() {
-    return src([SRC + 'admin/**/*.js']) // Sử dụng pattern rộng hơn để bao gồm tất cả thư mục con
-        .pipe(concat('admin.js'))
-        .pipe(babel({ presets: ['@babel/preset-env'] }))
+    return src([SRC + 'admin/**/*.js', '!' + SRC + 'admin/bundle/**/_*.js', '!' + SRC + 'admin/bundle/_*/**']) // Sử dụng pattern rộng hơn để bao gồm tất cả thư mục con
+        .pipe(babel({
+            presets: ['@babel/preset-env'],
+            compact: true, // Tối ưu hóa cho file lớn
+            ignore: [/\/node_modules\//] // Bỏ qua các thư viện nếu cần thiết
+        }))
+        .pipe(concat('admin.js')) // Kết hợp thành admin.js
         .pipe(dest(DEST + 'admin/js'))
-        .pipe(uglify())
+        .pipe(uglify()) // Minify sau khi kết hợp
         .pipe(concat('admin.min.js'))
         .pipe(dest(DEST + 'admin/js'))
         .pipe(browserSync.stream());
+}
+
+function bundleAdminCss() {
+    return src([SRC + 'admin/bundle/**/*.css', '!' + SRC + 'admin/bundle/**/_*.css', '!' + SRC + 'admin/bundle/_*/**'])
+        .pipe(concat('bundle.min.css'))
+        .pipe(cleanCSS())
+        .pipe(dest(DEST + 'admin/css'));
+}
+
+function bundleAdminJs() {
+    return src([SRC + 'admin/bundle/**/*.js', '!' + SRC + 'admin/bundle/**/_*.js', '!' + SRC + 'admin/bundle/_*/**'])
+        .pipe(concat('bundle.min.js'))
+        .pipe(uglify())
+        .pipe(dest(DEST + 'admin/js'));
 }
 
 // function adminJs() {
@@ -282,7 +300,7 @@ function adminWatcher() {
 
     watch(SRC + 'admin/**/*.pug', adminHtml);
     watch([SRC + 'admin/*.scss', SRC + 'admin/**/*.scss'], adminCss);
-    watch([SRC + 'admin/*.js', SRC + 'admin/components/**/*.js', SRC + 'admin/pages/**/*.js'], adminJs);
+    watch([SRC + 'admin/*.js', SRC + 'admin/components/**/*.js', SRC + 'admin/pages/**/*.js', '!' + SRC + 'admin/bundle/**/_*.js', '!' + SRC + 'admin/bundle/_*/**'], adminJs);
     // watch(SRC + 'assets/tinymce/*.scss', tinymceStyles);
 }
 
@@ -290,9 +308,9 @@ function adminWatcher() {
  * Specify if tasks run in series or parallel using `series` and `parallel`
  */
 
-const build = series(clean, icons, images, fonts, bootstrap, pluginsJs, bundleCss, bundleJs, html, css, js, editors);
+const build = series(clean, icons, images, fonts, bootstrap, pluginsJs, bundleCss, bundleJs, html, css, js, editors, bundleAdminCss, bundleAdminJs);
 const start = series(icons, html, css, js, watcher);
-const plugins = parallel(pluginsJs, bundleCss, bundleJs, editors);
+const plugins = parallel(pluginsJs, bundleCss, bundleJs, editors, bundleAdminCss, bundleAdminJs);
 const email = series(emailHtml, emailCss, emailWatcher);
 const admin = series(adminHtml, adminCss, adminJs, adminWatcher);
 
@@ -306,8 +324,13 @@ exports.fonts = fonts;
 exports.html = html;
 exports.css = css;
 exports.js = js;
+exports.adminHtml = adminHtml;
+exports.adminCss = adminCss;
+exports.adminJs = adminJs;
 exports.bundleCss = bundleCss;
 exports.bundleJs = bundleJs;
+exports.bundleAdminCss = bundleAdminCss;
+exports.bundleAdminJs = bundleAdminJs;
 exports.images = images;
 exports.icons = icons;
 exports.build = build;

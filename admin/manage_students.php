@@ -39,44 +39,49 @@ if (isset($_GET['delete_id'])) {
 // Lấy danh sách học sinh từ cơ sở dữ liệu
 $query = "SELECT id, username FROM users WHERE role = 'student'";
 $result = mysqli_query($conn, $query);
+$index = 1;
 
 $title = "Quản lý học sinh";
 
-include(__DIR__ . '/../header.php');
+// include(__DIR__ . '/../header.php');
+
+include('header.php');
 ?>
+    <div class="bm-admin-title">
+        <h1>Quản lý học sinh</h1>
+    </div>
+    <div class="bm-admin-content">
+        <!-- Form thêm học sinh -->
+        <form method="POST" class="admin-tablelist">
+            <h2>Thêm học sinh</h2>
+            Tên đăng nhập: <input type="text" class="form-control regular-text" name="username" required><br>
+            Mật khẩu: <input type="password" class="form-control regular-text" name="password" required><br>
+            <input type="submit" class="button btn-submit" name="add_student" value="Thêm">
+        </form>
 
-    <h1 class="bm-title">Quản lý học sinh</h1>
+        <?php if (isset($success_message)) { echo "<p style='color: green;'>$success_message</p>"; } ?>
+        <?php if (isset($error_message)) { echo "<p style='color: red;'>$error_message</p>"; } ?>
 
-    <!-- Form thêm học sinh -->
-    <form method="POST">
-        <h2>Thêm học sinh</h2>
-        Tên đăng nhập: <input type="text" name="username" required><br>
-        Mật khẩu: <input type="password" name="password" required><br>
-        <input type="submit" name="add_student" value="Thêm">
-    </form>
-
-    <?php if (isset($success_message)) { echo "<p style='color: green;'>$success_message</p>"; } ?>
-    <?php if (isset($error_message)) { echo "<p style='color: red;'>$error_message</p>"; } ?>
-
-    <!-- Danh sách học sinh -->
-    <h2>Danh sách học sinh</h2>
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Tên đăng nhập</th>
-            <th>Thao tác</th>
-        </tr>
-        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+        <!-- Danh sách học sinh -->
+        <h2>Danh sách học sinh</h2>
+        <table class="table-list" id="manage">
             <tr>
-                <td><?php echo $row['id']; ?></td>
-                <td><?php echo $row['username']; ?></td>
-                <td>
-                    <a href="edit_student.php?id=<?php echo $row['id']; ?>">Sửa</a> | 
-                    <a href="manage_students.php?delete_id=<?php echo $row['id']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa học sinh này?');">Xóa</a>
-                </td>
+                <th class="manage-column">ID</th>
+                <th class="manage-column">Tên đăng nhập</th>
+                <th class="manage-column">Thao tác</th>
             </tr>
-        <?php } ?>
-    </table>
+            <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                <tr>
+                    <td><?php echo $row['id']; ?></td>
+                    <td><?php echo $row['username']; ?></td>
+                    <td>
+                        <a href="edit_student.php?id=<?php echo $row['id']; ?>">Sửa</a> | 
+                        <a href="manage_students.php?delete_id=<?php echo $row['id']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa học sinh này?');">Xóa</a>
+                    </td>
+                </tr>
+            <?php $index++; } ?>
+        </table>
+    </div>
 
-    <p><a href="<?php echo BASE_URL; ?>/index.php">Trang chủ</a></p>
-<?php include(__DIR__ . '/../footer.php');
+    
+<?php include('footer.php');

@@ -10,7 +10,7 @@
         <script src="<?php echo BASE_URL; ?>/html/dist/js/popper.min.js"></script>
         <script src="<?php echo BASE_URL; ?>/html/dist/js/bootstrap.min.js"></script>
         <!-- Plugins script-->
-        <script src="<?php echo BASE_URL; ?>/html/dist/js/bundle.min.js"></script>
+        <script src="<?php echo BASE_URL; ?>/html/dist/admin/js/bundle.min.js"></script>
         <!-- TinyMCE-->
         <script src="<?php echo BASE_URL; ?>/html/dist/editors/tinymce/tinymce.min.js"></script>
         <!-- CKEditor-->
