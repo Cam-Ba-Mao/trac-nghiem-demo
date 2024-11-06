@@ -142,10 +142,11 @@
             };
         };
 
+        // Thực hiện lệnh click bằng cách tạo sự kiện trên iPhone
         const googleButtonWrapper = createFakeGoogleWrapper();
-        window.handleGoogleLogin = () => {
+        document.getElementById("bm-google-btn").addEventListener("click", () => {
             googleButtonWrapper.click();  // Kích hoạt đăng nhập Google
-        };
+        });
     }
 
     function decodeJwtResponse(token) {

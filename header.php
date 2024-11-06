@@ -12,8 +12,16 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#fdc226">
+    <meta name="format-detection" content="telephone=no">
+    <meta property="og:url" content="https://trac-nghiem.io.vn/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Website thi trắc nghiệm">
+    <link href="https://trac-nghiem.io.vn/" rel="canonical">
+    <link href="https://trac-nghiem.io.vn/" rel="alternate" media="handheld">
+    <meta name="robots" content="index,follow">
+    <title>Website thi trắc nghiệm</title>
     <!-- Favicon-->
     <link rel="icon" href="<?php echo BASE_URL; ?>/html/dist/images/favicon.png">
     <!-- Bootstrap-->
