@@ -26,7 +26,7 @@ body {
                     .nav-menu {
                         li {
                             a {
-                                color: $black-1;
+                                // color: $black-1;
                             }
                         }
                     }
@@ -47,11 +47,12 @@ body {
 
                 img {
                     &.is-white {
-                        display: none;
+                     
+                        display: block;
                     }
     
                     &.is-color {
-                        display: block;
+                        display: none;
                     }
                 }
               

@@ -38,7 +38,7 @@
     &__answer {
         // margin-bottom: 0;
         position: sticky;
-        top: 0;
+        top: var(--mh);
         transition: all .2s ease-out;
         max-width: 248px;
         overflow-y: auto;
@@ -136,7 +136,7 @@
         padding: 1.5rem;
         display: inline-block;
         position: sticky;
-        top: 0;
+        top: var(--mh);
         transition: all .2s ease-out;
 
         h3 {

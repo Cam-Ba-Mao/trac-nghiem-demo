@@ -889,6 +889,40 @@ handleSelectBox('.select-time, .select-status');
   });
 })(jQuery);
 (function ($) {
+  function DemoAdminBarMode() {
+    $('#enable-admin-bar').on('change', function () {
+      var adminBarModeStatus = $(this).prop('checked');
+      if (adminBarModeStatus) {
+        $('html').addClass('admin-bar-html');
+        $('body').append('<div id="wpadminbar">WP Admin bar</div>').addClass('admin-bar');
+      } else {
+        $('html').removeClass('admin-bar-html');
+        $('body').removeClass('admin-bar');
+        $('#wpadminbar').remove();
+        $('.js-bm-navbar').css('margin-top', '');
+      }
+      if ($(window).width() <= 600) {
+        DemoNavbarMove();
+        $(window).on('scroll', function () {
+          DemoNavbarMove();
+        });
+      }
+      function DemoNavbarMove() {
+        var top = $(window).scrollTop(),
+          offsetTop = 46 - top > 0 ? 46 - top : 0;
+        if ($('#wpadminbar').length && $('.js-bm-navbar').length) {
+          $('.js-bm-navbar').css('margin-top', offsetTop);
+        } else {
+          $('.js-bm-navbar').css('margin-top', '');
+        }
+      }
+    });
+  }
+  $(function () {
+    DemoAdminBarMode();
+  });
+})(jQuery);
+(function ($) {
   var body = $('body');
   var scrollUp = "scroll-up";
   var scrollDown = "scroll-down";
@@ -959,40 +993,6 @@ handleSelectBox('.select-time, .select-status');
     handleNavCollapse();
     handleScrollMenu();
     calculateScroll();
-  });
-})(jQuery);
-(function ($) {
-  function DemoAdminBarMode() {
-    $('#enable-admin-bar').on('change', function () {
-      var adminBarModeStatus = $(this).prop('checked');
-      if (adminBarModeStatus) {
-        $('html').addClass('admin-bar-html');
-        $('body').append('<div id="wpadminbar">WP Admin bar</div>').addClass('admin-bar');
-      } else {
-        $('html').removeClass('admin-bar-html');
-        $('body').removeClass('admin-bar');
-        $('#wpadminbar').remove();
-        $('.js-bm-navbar').css('margin-top', '');
-      }
-      if ($(window).width() <= 600) {
-        DemoNavbarMove();
-        $(window).on('scroll', function () {
-          DemoNavbarMove();
-        });
-      }
-      function DemoNavbarMove() {
-        var top = $(window).scrollTop(),
-          offsetTop = 46 - top > 0 ? 46 - top : 0;
-        if ($('#wpadminbar').length && $('.js-bm-navbar').length) {
-          $('.js-bm-navbar').css('margin-top', offsetTop);
-        } else {
-          $('.js-bm-navbar').css('margin-top', '');
-        }
-      }
-    });
-  }
-  $(function () {
-    DemoAdminBarMode();
   });
 })(jQuery);
 // (function ($) {

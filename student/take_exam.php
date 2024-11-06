@@ -26,7 +26,7 @@ $class = "page-template-take-exam";
 
 include(__DIR__ . '/../header.php');
 ?>
-    
+    <!-- <section style="background: #005180; height: 100px;"></section> -->
     <section class="bm-take-exam">
         <h1 class="bm-title">Làm bài thi <?= $exam_name; ?></h1>
         <div class="bm-take-exam__wrap">

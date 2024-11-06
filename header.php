@@ -258,7 +258,7 @@
                             <a href="#">Chào, <?php echo $_SESSION['display_name']; ?> <img src="<?php echo $avatar; ?>" alt="<?php echo $_SESSION['display_name']; ?>"></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#"><i class="fa fa-user"></i>Sửa hồ sơ</a></li>
-                                <li><a href="./logout.php"><i class="fa fa-sign-out"></i>Đăng xuất</a></li>
+                                <li><a href="<?php echo BASE_URL; ?>/logout.php"><i class="fa fa-sign-out"></i>Đăng xuất</a></li>
                             </ul>
                         </li>
                     <?php endif; ?>
