@@ -1,0 +1,99 @@
+extends ../../../admin/layouts/layout-admin-no-header-footer
+
+append vars
+    -bodyClass = "page-template-install"
+    -typeMenu = ""
+
+block container
+    section.bm-install 
+        .bm-install__head 
+            .bm-install__head--title Cài Đặt Hệ Thống Trắc Nghiệm Online
+        .container 
+            .bm-install-box
+                .bm-install-box__title Thông Tin
+                .bm-install-box__content 
+                    h2 Hệ Thống Trắc Nghiệm Online
+                    p Phiên bản: <b>3.4.3</b> (20/11/2024)
+                    p Bản quyền tác giả: Cầm Bá Mão
+                    p Email: 
+                        a(href="mailto:cambamao98@gmail.com") cambamao98@gmail.com 
+            .bm-install-box
+                .bm-install-box__title Kiểm Tra Hệ Thống
+                .bm-install-box__content 
+                    strong Trước khi cài đặt, yêu cầu máy chủ cần đáp ứng các điều kiện để tiếp tục cài đặt.
+                        br
+                        span(style="color:red") Nếu bạn đang sử dụng hệ điều hành Linux hoặc Mac, vui lòng cấp đầy đủ quyền cho thư mục cài đặt truớc khi thực hiện để không xảy ra lỗi trong quá trình cài đặt và sử dụng.
+                    br
+                    | PHP 7.0.0:&nbsp;
+                    span(class="pass") ĐẠT
+                    br
+                    | PHP mod_rewrite:&nbsp;
+                    span(class="pass") ĐẠT
+                    br
+                    | PHP extension XML:&nbsp;
+                    span(class="pass") ĐẠT
+                    br
+                    | PHP extension xmlwriter:&nbsp;
+                    span(class="pass") ĐẠT
+                    br
+                    | PHP extension mbstring:&nbsp;
+                    span(class="pass") ĐẠT
+                    br
+                    | PHP extension ZipArchive:&nbsp;
+                    span(class="pass") ĐẠT
+                    br
+                    | PHP extension GD (tùy chọn):&nbsp;
+                    span(class="failed") KHÔNG ĐẠT
+                    br
+                    | PHP extension dom (tùy chọn):&nbsp;
+                    span(class="pass") ĐẠT
+                    br
+            .bm-install-box
+                .bm-install-box__title Tiến Hành Cài Đặt
+                .bm-install-box__content 
+                    strong Nhập các thông số kết nối cơ sở dữ liệu (Hãy chắc chắn bạn đã tạo sẵn 1 database).
+                    br
+                    form(method="POST")
+                        div(class="input-field")
+                            label(for="host", class="active") Database Host
+                            input#host(type="text", name="host", value="localhost", required)
+                        div(class="input-field")
+                            label(for="user") Người dùng
+                            input#user(type="text", name="user", required)
+                        div(class="input-field")
+                            label(for="password") Mật Khẩu
+                            input#password(type="text", name="password")
+                        div(class="input-field")
+                            label(for="database_name") Tên Database
+                            input(id="database_name", type="text", name="database_name", required)
+                        div(class="input-field")
+                            button(type="submit", name="step_1", class="btn-submit") TIẾP TỤC
+                    div(class="input-field")
+                        a(href="install.php?step=0", class="btn-submit") QUAY LẠI
+                    .success-install.d-none
+                        br
+                        span(class="pass") Tạo cơ sở dữ liệu xong.
+                        hr
+                        span(class="pass") Cài đặt Hệ Thống Trắc Nghiệm Online thành công.
+                        br
+                        | File install.php sẽ bị xóa sau quá trình cài đặt để đảm bảo vấn đề bảo mật.
+                        br
+                        | Tài khoản mặc định:
+                        b admin
+                        br
+                        | Mật khẩu:
+                        b 123456
+                        br
+                        | Vui lòng đăng nhập và đổi mật khẩu ngay sau khi đăng nhập.
+                        br
+                        | Mọi thông tin chi tiết, hỗ trợ, góp ý, báo lỗi,
+                        br
+                        | vui lòng liên hệ&nbsp;
+                        span(class="pass") cambamao98@gmail.com
+                        br
+                        br
+                        a(href="index.php", class="btn-submit") KẾT THÚC
+
+
+
+        

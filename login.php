@@ -3,6 +3,12 @@
 session_start();
 include('./config/config.php');
 
+$is_IM = include 'config/connect.php';
+
+if ($is_IM->INSTALL_MODE) {
+    header("Refresh:0; url=install.php");
+} 
+
 $username_error = '';
 $password_error = '';
 $error = '';
@@ -100,6 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $title = "Đăng nhập";
+$class = "page-template-login";
 
 // Xử lý việc điền sẵn thông tin đăng nhập nếu có cookie
 $saved_username = isset($_COOKIE['username']) ? $_COOKIE['username'] : '';

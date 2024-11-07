@@ -296,63 +296,43 @@
         <?php endif; ?>
         <!-- START HEADER-->
         <header class="bm-header">
-            <div class="bm-header__wrap">
-                <div class="container">
-                    <div class="bm-header__mobile">
-                        <a class="brand-logo d-lg-none" href="<?php echo BASE_URL; ?>/index.php">
-                            <img class="is-color"
-                                src="<?php echo BASE_URL; ?>/html/dist/images/Logo_TDMU_2024_nguyen_ban.svg" alt="">
-                            <img class="is-white"
-                                src="<?php echo BASE_URL; ?>/html/dist/images/Logo_TDMU_2024_nguyen_ban_Trang.svg"
-                                alt="">
+            <div class="container">
+                <div class="bm-header__wrap">
+                    <div class="bm-header__brand">
+                        <a href="#">
+                            <img class="is-color" src="<?php echo BASE_URL; ?>/html/dist/images/Logo_TDMU_2024_nguyen_ban.svg" alt="">
+                            <img class="is-white" src="<?php echo BASE_URL; ?>/html/dist/images/Logo_TDMU_2024_nguyen_ban_Trang.svg" alt="">
                         </a>
-                        <div class="group-cta is-mobile">
-                            <div class="bm-header__language">
-                                <div class="dropdown">
-                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false"><img class="lazy"
-                                            data-src="<?php echo BASE_URL; ?>/html/dist/images/language-vi.png"
-                                            alt=""></button>
-                                    <ul class="dropdown-menu">
-                                        <li class="lang-item-vi"><a href="#">VI</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="bm-header-toggler">
-                                <div class="bm-header-toggler__icon"><span></span></div>
-                            </div>
-                        </div>
                     </div>
-                    <div class="bm-header__desktop">
-                        <div class="container">
-                            <div class="bm-header__desktop--wrap">
-                                <a class="brand-logo d-none d-lg-block" href="<?php echo BASE_URL; ?>/index.php">
-                                    <img class="is-color"
-                                        src="<?php echo BASE_URL; ?>/html/dist/images/Logo_TDMU_2024_nguyen_ban.svg"
-                                        alt="">
-                                    <img class="is-white"
-                                        src="<?php echo BASE_URL; ?>/html/dist/images/Logo_TDMU_2024_nguyen_ban_Trang.svg"
-                                        alt="">
-                                </a>
-                                <div class="nav-menu">
-                                    <ul>
-                                        <li> <a href="#gioi-thieu">Giới thiệu</a></li>
-                                        <li> <a href="#news">Tin tức</a></li>
-                                        <li> <a href="#tuyen-sinh">Tuyển sinh</a></li>
-                                        <li> <a href="#dao-tao">Đào tạo</a></li>
-                                        <li> <a href="#gallery">Tuyển dụng</a></li>
-                                    </ul>
-                                </div>
-                                <?php if (isset($title) && $title == "Làm bài thi"): ?>
-                                <div class="bm-header__take-exam-time">
-                                    <span>Thời gian làm bài:</span>
-                                    <div class="time-to-do" id="timer">
-                                        <?php echo $exam['exam_time'] . ":00"; ?>
-                                    </div>
-                                </div>
-                                <?php endif; ?>
+                    <div class="bm-header__right">
+                        <?php if (isset($title) && $title == "Làm bài thi"): ?>
+                        <div class="bm-header__take-exam-time">
+                            <span>Thời gian làm bài:</span>
+                            <div class="time-to-do" id="timer">
+                                <?php echo $exam['exam_time'] . ":00"; ?>
                             </div>
                         </div>
+                        <?php endif; ?>
+                        <?php if (isset($_SESSION['user_id'])): ?>
+                        <?php
+                            $user_id = $_SESSION['user_id'];
+                            $queryAvatar = "SELECT avatar FROM users WHERE id = $user_id";
+                            $resultAvatar = mysqli_query($conn, $queryAvatar);
+                            $user = mysqli_fetch_assoc($resultAvatar);
+                            $avatar = $user['avatar'] ? $user['avatar'] : 'default-avatar.png';     
+                        ?>
+                        <div class="avatar-container">
+                            <div class="avatar-container__image">
+                                <img src="<?php echo BASE_URL; ?>/assets/upload/<?php echo $avatar; ?>" alt="Avatar" class="avatar">
+                            </div>
+                            <div id="dropdownMenu" class="dropdown-menu">
+                                <a href="<?php echo BASE_URL; ?>/request_password_change.php">Đổi mật khẩu</a>
+                                <a href="<?php echo BASE_URL; ?>/upload_avatar.php">Đổi avatar</a>
+                                <a href="<?php echo BASE_URL; ?>/logout.php">Đăng xuất</a>
+                                <!-- Other menu items if needed -->
+                            </div>
+                        </div>    
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

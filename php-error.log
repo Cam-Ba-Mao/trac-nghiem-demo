@@ -1,0 +1,42 @@
+[07-Nov-2024 12:04:00 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'dtrac_nghiem' in C:\source-code\trac-nghiem-demo\config\config.php:21
+Stack trace:
+#0 C:\source-code\trac-nghiem-demo\config\config.php(21): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'dtrac_nghiem')
+#1 C:\source-code\trac-nghiem-demo\config\config.php(62): getDatabaseConnection()
+#2 C:\source-code\trac-nghiem-demo\login.php(4): include('C:\\source-code\\...')
+#3 {main}
+  thrown in C:\source-code\trac-nghiem-demo\config\config.php on line 21
+[07-Nov-2024 12:04:26 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'dtrac_nghiem' in C:\source-code\trac-nghiem-demo\config\config.php:21
+Stack trace:
+#0 C:\source-code\trac-nghiem-demo\config\config.php(21): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'dtrac_nghiem')
+#1 C:\source-code\trac-nghiem-demo\config\config.php(62): getDatabaseConnection()
+#2 C:\source-code\trac-nghiem-demo\login.php(4): include('C:\\source-code\\...')
+#3 {main}
+  thrown in C:\source-code\trac-nghiem-demo\config\config.php on line 21
+[07-Nov-2024 12:04:44 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'dtrac_nghiem' in C:\source-code\trac-nghiem-demo\config\config.php:21
+Stack trace:
+#0 C:\source-code\trac-nghiem-demo\config\config.php(21): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'dtrac_nghiem')
+#1 C:\source-code\trac-nghiem-demo\config\config.php(62): getDatabaseConnection()
+#2 C:\source-code\trac-nghiem-demo\index.php(5): include('C:\\source-code\\...')
+#3 {main}
+  thrown in C:\source-code\trac-nghiem-demo\config\config.php on line 21
+[07-Nov-2024 12:05:30 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'dtrac_nghiem' in C:\source-code\trac-nghiem-demo\config\config.php:21
+Stack trace:
+#0 C:\source-code\trac-nghiem-demo\config\config.php(21): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'dtrac_nghiem')
+#1 C:\source-code\trac-nghiem-demo\config\config.php(62): getDatabaseConnection()
+#2 C:\source-code\trac-nghiem-demo\index.php(5): include('C:\\source-code\\...')
+#3 {main}
+  thrown in C:\source-code\trac-nghiem-demo\config\config.php on line 21
+[07-Nov-2024 12:05:30 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'dtrac_nghiem' in C:\source-code\trac-nghiem-demo\config\config.php:21
+Stack trace:
+#0 C:\source-code\trac-nghiem-demo\config\config.php(21): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'dtrac_nghiem')
+#1 C:\source-code\trac-nghiem-demo\config\config.php(62): getDatabaseConnection()
+#2 C:\source-code\trac-nghiem-demo\index.php(5): include('C:\\source-code\\...')
+#3 {main}
+  thrown in C:\source-code\trac-nghiem-demo\config\config.php on line 21
+[07-Nov-2024 13:50:01 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'dtrac_nghiem' in C:\source-code\trac-nghiem-demo\config\config.php:21
+Stack trace:
+#0 C:\source-code\trac-nghiem-demo\config\config.php(21): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'dtrac_nghiem')
+#1 C:\source-code\trac-nghiem-demo\config\config.php(62): getDatabaseConnection()
+#2 C:\source-code\trac-nghiem-demo\index.php(5): include('C:\\source-code\\...')
+#3 {main}
+  thrown in C:\source-code\trac-nghiem-demo\config\config.php on line 21

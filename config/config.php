@@ -1,24 +1,66 @@
 <?php
-// config.php
+// Bật ghi log lỗi vào file
+ini_set('log_errors', 1);
+ini_set('error_log', 'php-error.log'); // Chỉ định đường dẫn log lỗi
+// Tắt hiển thị lỗi trong trình duyệt
+// ini_set('display_errors', 0);
+$connect = include 'connect.php';
 
-$host = 'localhost'; // Địa chỉ máy chủ MySQL
-$db = 'trac_nghiem'; // Tên cơ sở dữ liệu
-$user = 'root'; // Tên người dùng MySQL
-$pass = ''; // Mật khẩu MySQL
-
-date_default_timezone_set("Asia/Ho_Chi_Minh");
-
-// Kết nối tới cơ sở dữ liệu MySQL
-$conn = mysqli_connect($host, $user, $pass, $db);
-
-// Kiểm tra kết nối
-if (!$conn) {
-    // Kết nối không thành công, in ra lỗi và dừng thực hiện
-    die("Kết nối thất bại: " . mysqli_connect_error());
+if (!$connect) {
+    die('Không thể bao gồm file connect.php');
 }
 
-// Thiết lập charset utf8 để hỗ trợ tiếng Việt
-mysqli_set_charset($conn, 'utf8');
+if (!function_exists('getDatabaseConnection')) {
+    /**
+     * Kết nối tới cơ sở dữ liệu
+     * @return mysqli|null
+     */
+    function getDatabaseConnection() {
+        global $connect;  // Sử dụng biến toàn cục $connect
+
+        $connection = mysqli_connect($connect->host, $connect->user, $connect->password, $connect->dbname);
+
+        if (!$connection) {
+            die("Kết nối thất bại: " . mysqli_connect_error());
+
+            
+            if ($connect->INSTALL_MODE) {
+                header("Refresh:0; url=install.php");
+            } 
+        }
+
+        return $connection;
+    }
+}
+
+// if (!function_exists('getDatabaseConnection')) {
+//     /**
+//      * Kết nối tới cơ sở dữ liệu
+//      * @return PDO|null
+//      */
+//     function getDatabaseConnection() {
+//         global $connect;  // Sử dụng biến toàn cục $connect
+
+//         try {
+//             // Kết nối với cơ sở dữ liệu bằng PDO
+//             $dsn = "mysql:host={$connect->host};dbname={$connect->dbname};charset=utf8";
+//             $options = [
+//                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // Bật chế độ báo lỗi
+//                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, // Lấy kết quả dưới dạng mảng liên kết
+//                 PDO::ATTR_EMULATE_PREPARES => false, // Không giả lập câu lệnh chuẩn bị
+//             ];
+            
+//             $connection = new PDO($dsn, $connect->user, $connect->password, $options);
+//             return $connection;
+//         } catch (PDOException $e) {
+//             die("Kết nối thất bại: " . $e->getMessage());
+//         }
+//     }
+// }
+
+date_default_timezone_set("Asia/Ho_Chi_Minh");
+$conn = getDatabaseConnection();
+// mysqli_set_charset($conn, 'utf8');
 
 // Định nghĩa base URL
 if (!defined('BASE_URL')) {

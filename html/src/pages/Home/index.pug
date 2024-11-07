@@ -5,18 +5,11 @@ append vars
     -typeMenu = ""
 
 block container
-
-    .wrapper
-        .admin-menu.expanded
-            .menu-toggle ☰
-            ul
-                li
+    section.bm-home 
+        .container 
+            .bm-home__wrap 
+                .bm-home__menu 
                     a(href='./student/exams.php') Làm bài thi
-                li
                     a(href='./student/list-results.php') Xem kết quả
-        .content
-            h1 Welcome to Student Dashboard
-            section.bm-home-page
-                p.bm-title Chào mừng, IT Test
-                p
-                    a.logout-btn(href='logout.php') Đăng xuất
+                .bm-home__welcome 
+                    h1 Chào mừng, IT Test

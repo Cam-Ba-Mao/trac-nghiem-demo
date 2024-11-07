@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no">
+        <title>Trang Login</title>
+        <!-- Favicon-->
+        <link rel="icon" href="../images/favicon.png">
+        <!-- Bootstrap-->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <!-- Template syle-->
+        <link rel="stylesheet" href="../admin/css/admin.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <!-- Jquery-->
+        <script src="../js/jquery.min.js"></script>
+    </head>
+    <body class="page-template-install">
+        <!-- START CONTENT-->
+        <section class="bm-install"> 
+            <div class="bm-install__head"> 
+                <div class="bm-install__head--title">Cài Đặt Hệ Thống Trắc Nghiệm Online</div>
+            </div>
+            <div class="container"> 
+                <div class="bm-install-box">
+                    <div class="bm-install-box__title">Thông Tin</div>
+                    <div class="bm-install-box__content"> 
+                        <h2>Hệ Thống Trắc Nghiệm Online</h2>
+                        <p>Phiên bản: <b>3.4.3</b> (20/11/2024)</p>
+                        <p>Bản quyền tác giả: Cầm Bá Mão</p>
+                        <p>Email: <a href="mailto:cambamao98@gmail.com">cambamao98@gmail.com </a></p>
+                    </div>
+                </div>
+                <div class="bm-install-box">
+                    <div class="bm-install-box__title">Kiểm Tra Hệ Thống</div>
+                    <div class="bm-install-box__content"> <strong>Trước khi cài đặt, yêu cầu máy chủ cần đáp ứng các điều kiện để tiếp tục cài đặt.<br><span style="color:red">Nếu bạn đang sử dụng hệ điều hành Linux hoặc Mac, vui lòng cấp đầy đủ quyền cho thư mục cài đặt truớc khi thực hiện để không xảy ra lỗi trong quá trình cài đặt và sử dụng.</span></strong><br>PHP 7.0.0:&nbsp;<span class="pass">ĐẠT</span><br>PHP mod_rewrite:&nbsp;<span class="pass">ĐẠT</span><br>PHP extension XML:&nbsp;<span class="pass">ĐẠT</span><br>PHP extension xmlwriter:&nbsp;<span class="pass">ĐẠT</span><br>PHP extension mbstring:&nbsp;<span class="pass">ĐẠT</span><br>PHP extension ZipArchive:&nbsp;<span class="pass">ĐẠT</span><br>PHP extension GD (tùy chọn):&nbsp;<span class="failed">KHÔNG ĐẠT</span><br>PHP extension dom (tùy chọn):&nbsp;<span class="pass">ĐẠT</span><br></div>
+                </div>
+                <div class="bm-install-box">
+                    <div class="bm-install-box__title">Tiến Hành Cài Đặt</div>
+                    <div class="bm-install-box__content"> <strong>Nhập các thông số kết nối cơ sở dữ liệu (Hãy chắc chắn bạn đã tạo sẵn 1 database).</strong><br>
+                        <form method="POST">
+                            <div class="input-field">
+                                <label class="active" for="host">Database Host</label>
+                                <input id="host" type="text" name="host" value="localhost" required>
+                            </div>
+                            <div class="input-field">
+                                <label for="user">Người dùng</label>
+                                <input id="user" type="text" name="user" required>
+                            </div>
+                            <div class="input-field">
+                                <label for="password">Mật Khẩu</label>
+                                <input id="password" type="text" name="password">
+                            </div>
+                            <div class="input-field">
+                                <label for="database_name">Tên Database</label>
+                                <input id="database_name" type="text" name="database_name" required>
+                            </div>
+                            <div class="input-field">
+                                <button class="btn-submit" type="submit" name="step_1">TIẾP TỤC</button>
+                            </div>
+                        </form>
+                        <div class="input-field"><a class="btn-submit" href="install.php?step=0">QUAY LẠI</a></div>
+                        <div class="success-install d-none"><br><span class="pass">Tạo cơ sở dữ liệu xong.</span>
+                            <hr><span class="pass">Cài đặt Hệ Thống Trắc Nghiệm Online thành công.</span><br>File install.php sẽ bị xóa sau quá trình cài đặt để đảm bảo vấn đề bảo mật.<br>Tài khoản mặc định:<b>admin</b><br>Mật khẩu:<b>123456</b><br>Vui lòng đăng nhập và đổi mật khẩu ngay sau khi đăng nhập.<br>Mọi thông tin chi tiết, hỗ trợ, góp ý, báo lỗi,<br>vui lòng liên hệ&nbsp;<span class="pass">cambamao98@gmail.com</span><br><br><a class="btn-submit" href="index.php">KẾT THÚC</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CLOSE CONTENT-->
+        <!-- Bootstrap-->
+        <script src="./js/popper.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+        <!-- Plugins script-->
+        <script src="../admin/js/bundle.min.js"></script>
+        <!-- Template script-->
+        <script src="../admin/js/admin.min.js"></script>
+        <!-- Common script-->
+    </body>
+</html>

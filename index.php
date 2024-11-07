@@ -4,6 +4,12 @@
 session_start();
 include('./config/config.php');
 
+$is_IM = include 'config/connect.php';
+
+if ($is_IM->INSTALL_MODE) {
+    header("Refresh:0; url=install.php");
+} 
+
 // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng đến trang đăng nhập
 if (!isset($_SESSION['user_id'])) {
     header("Location: dang-nhap");
@@ -15,8 +21,11 @@ $role = $_SESSION['role'];
 
 // Thiết lập tiêu đề cho trang
 $title = "Trang chính";
+$class = "page-template-home";
 
 include('header.php');
+
+
 
 ?>
     <div class="wrapper">
