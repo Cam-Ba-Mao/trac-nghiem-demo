@@ -75,6 +75,115 @@ if (!defined('SMTP_PASSWORD')) {
     define('SMTP_PASSWORD', 'jfrp rljh hwhb vkyr');
 }
 
+if (!function_exists('executeQuery')) {
+    // Hàm chuẩn bị và thực thi các truy vấn SQL (SELECT, INSERT, UPDATE, DELETE)
+    function executeQuery($conn, $queryType, $table, $data = [], $conditions = "") {
+        // Kiểm tra kiểu truy vấn
+        if ($queryType == 'SELECT') {
+            // Tạo câu lệnh SELECT
+            $query = "SELECT * FROM $table $conditions";
+            $stmt = mysqli_prepare($conn, $query);
+
+            // Kiểm tra nếu có lỗi khi chuẩn bị câu lệnh
+            if ($stmt === false) {
+                die("ERROR: Could not prepare query. " . mysqli_error($conn));
+            }
+
+            // Gắn tham số nếu có
+            if (!empty($data)) {
+                $types = str_repeat("s", count($data)); // Giả sử tất cả tham số là chuỗi (string)
+                mysqli_stmt_bind_param($stmt, $types, ...$data);
+            }
+
+            // Thi hành câu lệnh
+            mysqli_stmt_execute($stmt);
+
+            // Lấy kết quả
+            $result = mysqli_stmt_get_result($stmt);
+
+            // Đóng câu lệnh
+            mysqli_stmt_close($stmt);
+
+            return mysqli_fetch_all($result, MYSQLI_ASSOC); // Trả về kết quả dưới dạng mảng
+
+        } elseif ($queryType == 'INSERT') {
+            // Tạo câu lệnh INSERT
+            $columns = implode(", ", array_keys($data));
+            $placeholders = implode(", ", array_fill(0, count($data), "?"));
+            $query = "INSERT INTO $table ($columns) VALUES ($placeholders)";
+
+            $stmt = mysqli_prepare($conn, $query);
+
+            // Kiểm tra nếu có lỗi khi chuẩn bị câu lệnh
+            if ($stmt === false) {
+                die("ERROR: Could not prepare query. " . mysqli_error($conn));
+            }
+
+            // Gắn giá trị cho các tham số
+            $types = str_repeat("s", count($data)); // Giả sử tất cả các tham số là chuỗi (string)
+            mysqli_stmt_bind_param($stmt, $types, ...array_values($data));
+
+            // Thi hành câu lệnh
+            mysqli_stmt_execute($stmt);
+
+            // Đóng câu lệnh
+            mysqli_stmt_close($stmt);
+
+            return mysqli_insert_id($conn); // Trả về ID vừa insert
+
+        } elseif ($queryType == 'UPDATE') {
+            // Tạo câu lệnh UPDATE
+            $setClause = "";
+            foreach ($data as $column => $value) {
+                $setClause .= "$column = ?, ";
+            }
+            $setClause = rtrim($setClause, ", ");
+            $query = "UPDATE $table SET $setClause $conditions";
+
+            $stmt = mysqli_prepare($conn, $query);
+
+            // Kiểm tra nếu có lỗi khi chuẩn bị câu lệnh
+            if ($stmt === false) {
+                die("ERROR: Could not prepare query. " . mysqli_error($conn));
+            }
+
+            // Gắn giá trị cho các tham số
+            $types = str_repeat("s", count($data)); // Giả sử tất cả các tham số là chuỗi (string)
+            mysqli_stmt_bind_param($stmt, $types, ...array_values($data));
+
+            // Thi hành câu lệnh
+            mysqli_stmt_execute($stmt);
+
+            // Đóng câu lệnh
+            mysqli_stmt_close($stmt);
+
+            return mysqli_affected_rows($conn); // Trả về số hàng bị ảnh hưởng
+
+        } elseif ($queryType == 'DELETE') {
+            // Tạo câu lệnh DELETE
+            $query = "DELETE FROM $table $conditions";
+
+            $stmt = mysqli_prepare($conn, $query);
+
+            // Kiểm tra nếu có lỗi khi chuẩn bị câu lệnh
+            if ($stmt === false) {
+                die("ERROR: Could not prepare query. " . mysqli_error($conn));
+            }
+
+            // Thi hành câu lệnh
+            mysqli_stmt_execute($stmt);
+
+            // Đóng câu lệnh
+            mysqli_stmt_close($stmt);
+
+            return mysqli_affected_rows($conn); // Trả về số hàng bị ảnh hưởng
+        }
+
+        return false; // Nếu kiểu truy vấn không hợp lệ
+    }
+}
+
+
 /**
  * Hàm debug
  */

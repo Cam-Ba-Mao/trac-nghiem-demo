@@ -29,7 +29,6 @@ body {
 .bm-header {
     background: $color-005180;
     position: fixed;
-    top: 0;
     width: 100%;
     z-index: 20;
     transition: transform .5s, background-color .5s, position .5s;

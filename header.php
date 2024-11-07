@@ -257,13 +257,20 @@
                     <?php if (isset($_SESSION['user_id'])): ?>
                         <?php
                             $user_id = $_SESSION['user_id'];
-                            $queryAvatar = "SELECT avatar FROM users WHERE id = $user_id";
-                            $resultAvatar = mysqli_query($conn, $queryAvatar);
-                            $user = mysqli_fetch_assoc($resultAvatar);
-                            $avatar = $user['avatar'] ? BASE_URL . '/assets/upload/' . $user['avatar'] :  BASE_URL . '/html/dist/images/default-avatar.png';     
+                            // Chuẩn bị dữ liệu và điều kiện
+                            $data = [$user_id]; // Truyền user_id vào mảng data để làm tham số cho câu lệnh WHERE
+                            $conditions = "WHERE id = ?"; // Điều kiện WHERE với tham số
+
+                            // Thực thi câu lệnh SELECT và truyền vào user_id
+                            $result = executeQuery($conn, 'SELECT', 'users', $data, $conditions);
+                            if (!empty($result)) {
+                                $user = $result[0]; // Giả sử có ít nhất 1 kết quả trả về
+                                $avatar = $user['avatar'] ? BASE_URL . '/assets/upload/' . $user['avatar'] :  BASE_URL . '/html/dist/images/default-avatar.png';  
+                            }
                         ?>
                         <li>
-                            <a href="#">Chào, <?php echo $_SESSION['display_name']; ?> <img src="<?php echo $avatar; ?>" alt="<?php echo $_SESSION['display_name']; ?>"></a>
+                            <a href="#">Chào, <?php echo $_SESSION['display_name']; ?> 
+                            <img src="<?php echo $avatar; ?>" alt="<?php echo $_SESSION['display_name']; ?>"></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#"><i class="fa fa-user"></i>Sửa hồ sơ</a></li>
                                 <li><a href="<?php echo BASE_URL; ?>/logout.php"><i class="fa fa-sign-out"></i>Đăng xuất</a></li>

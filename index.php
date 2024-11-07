@@ -25,23 +25,32 @@ $class = "page-template-home";
 
 include('header.php');
 
-
+// Thực hiện truy vấn SELECT lấy tất cả các bản ghi từ bảng exams
+$result = executeQuery($conn, 'SELECT', 'exams');
 
 ?>
-    <div class="wrapper">
-        <div class="admin-menu expanded">
-            <div class="menu-toggle">☰</div>
-            <ul>
-                <li><a href="./student/exams.php">Làm bài thi</a></li>
-                <li><a href="./student/list-results.php">Xem kết quả</a></li>
-            </ul>
+    <section class="bm-home"> 
+        <div class="container"> 
+            <div class="bm-home__welcome"> 
+                <h1>Chào mừng, <?php echo $_SESSION['username']; ?>!</h1>
+            </div>
+            <div class="bm-home__menu"> 
+                <ul> 
+                    <li> <a href="./student/exams.php">Làm bài thi</a></li>
+                </ul>
+            </div>
+            <div class="bm-home__exam">
+                <h2>Danh sách kết quả đề thi</h2>
+                <?php if(!empty($result)): ?>
+                <ul> 
+                    <?php foreach( $result as $exam ): ?>
+                    <li><a href="results.php?exam_id=<?php echo $exam['id']; ?>"><?php echo $exam['exam_name']; ?></a></li>
+                    <?php endforeach; ?>
+                </ul>
+                <?php else: ?>
+                    <p>Hiện chưa có kết quả bài thi nào</p>
+                <?php endif; ?>
+            </div>
         </div>
-        <div class="content">
-            <h1>Welcome to Student Dashboard</h1>
-            <section class="bm-home-page">
-                <p class="bm-title">Chào mừng, <?php echo $_SESSION['username']; ?>!</p>
-                <p><a href="logout.php" class="logout-btn">Đăng xuất</a></p>
-            </section>
-        </div>
-    </div>
+    </section>
 <?php include('footer.php'); ?>
