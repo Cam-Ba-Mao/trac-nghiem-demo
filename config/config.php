@@ -1,9 +1,22 @@
 <?php
+// Định nghĩa base URL
+if (!defined('BASE_URL')) {
+    define('BASE_URL', '/trac-nghiem-demo');
+}
+
+if (!defined('SMTP_USERNAME')) {
+    define('SMTP_USERNAME', 'cambamao98@gmail.com');
+}
+
+if (!defined('SMTP_PASSWORD')) {
+    define('SMTP_PASSWORD', 'jfrp rljh hwhb vkyr');
+}
 // Bật ghi log lỗi vào file
 ini_set('log_errors', 1);
-ini_set('error_log', 'php-error.log'); // Chỉ định đường dẫn log lỗi
+ini_set('error_log', BASE_URL . 'php-error.log'); // Chỉ định đường dẫn log lỗi
 // Tắt hiển thị lỗi trong trình duyệt
 // ini_set('display_errors', 0);
+date_default_timezone_set("Asia/Ho_Chi_Minh");
 $connect = include 'connect.php';
 
 if (!$connect) {
@@ -33,6 +46,9 @@ if (!function_exists('getDatabaseConnection')) {
     }
 }
 
+
+$conn = getDatabaseConnection();
+
 // if (!function_exists('getDatabaseConnection')) {
 //     /**
 //      * Kết nối tới cơ sở dữ liệu
@@ -58,22 +74,8 @@ if (!function_exists('getDatabaseConnection')) {
 //     }
 // }
 
-date_default_timezone_set("Asia/Ho_Chi_Minh");
-$conn = getDatabaseConnection();
+
 // mysqli_set_charset($conn, 'utf8');
-
-// Định nghĩa base URL
-if (!defined('BASE_URL')) {
-    define('BASE_URL', '/trac-nghiem-demo');
-}
-
-if (!defined('SMTP_USERNAME')) {
-    define('SMTP_USERNAME', 'cambamao98@gmail.com');
-}
-
-if (!defined('SMTP_PASSWORD')) {
-    define('SMTP_PASSWORD', 'jfrp rljh hwhb vkyr');
-}
 
 if (!function_exists('executeQuery')) {
     // Hàm chuẩn bị và thực thi các truy vấn SQL (SELECT, INSERT, UPDATE, DELETE)

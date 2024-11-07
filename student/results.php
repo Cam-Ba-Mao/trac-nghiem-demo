@@ -15,26 +15,34 @@ $query = "SELECT * FROM results WHERE user_id = $user_id AND exam_id = $exam_id 
 $result = mysqli_query($conn, $query);
 $exam_result = mysqli_fetch_assoc($result);
 
-// Lấy danh sách các câu hỏi và câu trả lời
-$query = "SELECT q.id, q.question_text, q.option_a, q.option_b, q.option_c, q.option_d, q.correct_option, ua.selected_option
-          FROM questions q
-          JOIN exam_questions eq ON q.id = eq.question_id
-          JOIN user_answers ua ON q.id = ua.question_id
-          WHERE eq.exam_id = $exam_id AND ua.result_id = " . $exam_result['id'];
-$result = mysqli_query($conn, $query);
+// Kiểm tra nếu kết quả thi mới nhất tồn tại
+if ($exam_result) {
+    
+    // Lấy danh sách các câu hỏi và câu trả lời
+    $query = "SELECT q.id, q.question_text, q.option_a, q.option_b, q.option_c, q.option_d, q.correct_option, ua.selected_option
+    FROM questions q
+    JOIN exam_questions eq ON q.id = eq.question_id
+    JOIN user_answers ua ON q.id = ua.question_id
+    WHERE eq.exam_id = $exam_id AND ua.result_id = " . $exam_result['id'];
+    $result = mysqli_query($conn, $query);
 
-// Tính tổng số câu hỏi
-$query_total_questions = "SELECT COUNT(*) as total_questions FROM exam_questions WHERE exam_id = $exam_id";
-$result_total_questions = mysqli_query($conn, $query_total_questions);
-$total_questions_data = mysqli_fetch_assoc($result_total_questions);
-$total_questions = $total_questions_data['total_questions'];
+    // Tính tổng số câu hỏi
+    $query_total_questions = "SELECT COUNT(*) as total_questions FROM exam_questions WHERE exam_id = $exam_id";
+    $result_total_questions = mysqli_query($conn, $query_total_questions);
+    $total_questions_data = mysqli_fetch_assoc($result_total_questions);
+    $total_questions = $total_questions_data['total_questions'];
 
-// Tính điểm theo thang điểm 10
-$score_per_question = 10 / $total_questions;
-$total_score = $score_per_question * $exam_result['score'];
+    // Tính điểm theo thang điểm 10
+    $score_per_question = 10 / $total_questions;
+    $total_score = $score_per_question * $exam_result['score'];
 
-// Tính số câu sai
-$wrong_answers = $total_questions - $exam_result['score'];
+    // Tính số câu sai
+    $wrong_answers = $total_questions - $exam_result['score'];
+}
+
+
+
+
 
 $title = "Kết quả thi";
 $class = "page-template-results";
@@ -43,6 +51,7 @@ include(__DIR__ . '/../header.php');
 <section class="bm-results">
     <h1 class="bm-title">Kết quả thi</h1>
     <div class="bm-results__wrap">
+        <?php if ($exam_result) : ?>
         <div class="bm-results-left">
             <div class="bm-take-exam__answer">
                 <?php 
@@ -107,6 +116,9 @@ include(__DIR__ . '/../header.php');
                 </ul>
             </div>
         </div>
+        <?php else: ?>
+            <p>Không tìm thấy kết quả thi của người dùng này.</p>
+        <?php endif; ?>
     </div>
 </section>
 
