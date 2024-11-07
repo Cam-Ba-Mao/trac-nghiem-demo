@@ -40,10 +40,6 @@ if ($exam_result) {
     $wrong_answers = $total_questions - $exam_result['score'];
 }
 
-
-
-
-
 $title = "Kết quả thi";
 $class = "page-template-results";
 include(__DIR__ . '/../header.php');
