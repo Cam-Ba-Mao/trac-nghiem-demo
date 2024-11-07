@@ -306,7 +306,7 @@
             <div class="container">
                 <div class="bm-header__wrap">
                     <div class="bm-header__brand">
-                        <a href="#">
+                        <a href="<?php echo BASE_URL; ?>/trang-chu">
                             <img class="is-color" src="<?php echo BASE_URL; ?>/html/dist/images/Logo_TDMU_2024_nguyen_ban.svg" alt="">
                             <img class="is-white" src="<?php echo BASE_URL; ?>/html/dist/images/Logo_TDMU_2024_nguyen_ban_Trang.svg" alt="">
                         </a>
