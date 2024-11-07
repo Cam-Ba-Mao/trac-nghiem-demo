@@ -45,29 +45,33 @@ if (isset($_GET['id'])) {
 }
 $title = "Sửa câu hỏi";
 
-include(__DIR__ . '/../header.php');
+include('header.php');
 ?>
-    <h1 class="bm-title">Sửa câu hỏi</h1>
+    <div class="bm-admin-title">
+        <h1>Sửa câu hỏi</h1>
+    </div>
+    <div class="bm-admin-content">
 
-    <?php if (isset($success_message)) { echo "<p style='color: green;'>$success_message</p>"; } ?>
-    <?php if (isset($error_message)) { echo "<p style='color: red;'>$error_message</p>"; } ?>
+        <?php if (isset($success_message)) { echo "<p style='color: green;'>$success_message</p>"; } ?>
+        <?php if (isset($error_message)) { echo "<p style='color: red;'>$error_message</p>"; } ?>
 
-    <form method="POST">
-        <input type="hidden" name="id" value="<?php echo $question['id']; ?>">
-        Nội dung câu hỏi: <input type="text" name="question_text" value="<?php echo $question['question_text']; ?>" required><br>
-        Lựa chọn A: <input type="text" name="option_a" value="<?php echo $question['option_a']; ?>" required><br>
-        Lựa chọn B: <input type="text" name="option_b" value="<?php echo $question['option_b']; ?>" required><br>
-        Lựa chọn C: <input type="text" name="option_c" value="<?php echo $question['option_c']; ?>" required><br>
-        Lựa chọn D: <input type="text" name="option_d" value="<?php echo $question['option_d']; ?>" required><br>
-        Đáp án đúng: 
-        <select name="correct_option">
-            <option value="A" <?php if ($question['correct_option'] == 'A') echo 'selected'; ?>>A</option>
-            <option value="B" <?php if ($question['correct_option'] == 'B') echo 'selected'; ?>>B</option>
-            <option value="C" <?php if ($question['correct_option'] == 'C') echo 'selected'; ?>>C</option>
-            <option value="D" <?php if ($question['correct_option'] == 'D') echo 'selected'; ?>>D</option>
-        </select><br>
-        <input type="submit" name="edit_question" value="Lưu">
-    </form>
+        <form method="POST">
+            <input type="hidden" name="id" value="<?php echo $question['id']; ?>">
+            Nội dung câu hỏi: <input type="text" name="question_text" value="<?php echo $question['question_text']; ?>" required><br>
+            Lựa chọn A: <input type="text" class="form-control regular-text" name="option_a" value="<?php echo $question['option_a']; ?>" required><br>
+            Lựa chọn B: <input type="text" class="form-control regular-text" name="option_b" value="<?php echo $question['option_b']; ?>" required><br>
+            Lựa chọn C: <input type="text" class="form-control regular-text" name="option_c" value="<?php echo $question['option_c']; ?>" required><br>
+            Lựa chọn D: <input type="text" class="form-control regular-text" name="option_d" value="<?php echo $question['option_d']; ?>" required><br>
+            Đáp án đúng: 
+            <select name="correct_option" class="form-control">
+                <option value="A" <?php if ($question['correct_option'] == 'A') echo 'selected'; ?>>A</option>
+                <option value="B" <?php if ($question['correct_option'] == 'B') echo 'selected'; ?>>B</option>
+                <option value="C" <?php if ($question['correct_option'] == 'C') echo 'selected'; ?>>C</option>
+                <option value="D" <?php if ($question['correct_option'] == 'D') echo 'selected'; ?>>D</option>
+            </select><br>
+            <input type="submit" class="button btn-submit" name="edit_question" value="Lưu">
+        </form>
 
-    <p><a href="manage_questions.php">Quay lại</a></p>
-<?php include(__DIR__ . '/../footer.php');
+        <p><a href="manage_questions.php">Quay lại</a></p>
+    </div>
+<?php include('footer.php');

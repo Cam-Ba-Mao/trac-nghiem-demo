@@ -41,20 +41,22 @@ if (isset($_GET['id'])) {
 
 $title = "Sửa học sinh";
 
-include(__DIR__ . '/../header.php');
+include('header.php');
 ?>
+    <div class="bm-admin-title">
+        <h1>Sửa học sinh</h1>
+    </div>
+    <div class="bm-admin-content">
+        <?php if (isset($success_message)) { echo "<p style='color: green;'>$success_message</p>"; } ?>
+        <?php if (isset($error_message)) { echo "<p style='color: red;'>$error_message</p>"; } ?>
 
-    <h1 class="bm-title">Sửa học sinh</h1>
+        <form method="POST">
+            <input type="hidden" name="id" value="<?php echo $student['id']; ?>">
+            Tên đăng nhập: <input type="text" class="form-control regular-text" name="username" value="<?php echo $student['username']; ?>" required><br>
+            Mật khẩu mới: <input type="password" class="form-control regular-text" name="password" placeholder="Để trống nếu không muốn thay đổi"><br>
+            <input type="submit" class="button btn-submit" name="edit_student" value="Lưu">
+        </form>
 
-    <?php if (isset($success_message)) { echo "<p style='color: green;'>$success_message</p>"; } ?>
-    <?php if (isset($error_message)) { echo "<p style='color: red;'>$error_message</p>"; } ?>
-
-    <form method="POST">
-        <input type="hidden" name="id" value="<?php echo $student['id']; ?>">
-        Tên đăng nhập: <input type="text" name="username" value="<?php echo $student['username']; ?>" required><br>
-        Mật khẩu mới: <input type="password" name="password" placeholder="Để trống nếu không muốn thay đổi"><br>
-        <input type="submit" name="edit_student" value="Lưu">
-    </form>
-
-    <p><a href="manage_students.php">Quay lại</a></p>
-<?php include(__DIR__ . '/../footer.php'); ?>
+        <p><a href="manage_students.php">Quay lại</a></p>
+    </div>
+<?php include('footer.php'); ?>

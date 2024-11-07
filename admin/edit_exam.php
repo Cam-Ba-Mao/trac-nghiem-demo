@@ -35,20 +35,22 @@ if (isset($_GET['id'])) {
 
 $title = "Sửa đề thi";
 
-include(__DIR__ . '/../header.php');
+include('header.php');
 
 ?>
-    <h1 class="bm-title">Sửa đề thi</h1>
+    <div class="bm-admin-title">
+        <h1>Sửa đề thi</h1>
+    </div>
+    <div class="bm-admin-content">
+        <?php if (isset($success_message)) { echo "<p style='color: green;'>$success_message</p>"; } ?>
+        <?php if (isset($error_message)) { echo "<p style='color: red;'>$error_message</p>"; } ?>
 
-    <?php if (isset($success_message)) { echo "<p style='color: green;'>$success_message</p>"; } ?>
-    <?php if (isset($error_message)) { echo "<p style='color: red;'>$error_message</p>"; } ?>
-
-    <form method="POST">
-        <input type="hidden" name="id" value="<?php echo $exam['id']; ?>">
-        Tên đề thi: <input type="text" name="exam_name" value="<?php echo $exam['exam_name']; ?>" required><br>
-        Thời gian làm bài: <input type="number" name="exam_time" value="<?php echo $exam['exam_time']; ?>" required><br>
-        <input type="submit" name="edit_exam" value="Lưu">
-    </form>
-
-    <p><a href="manage_exams.php">Quay lại</a></p>
-<?php include(__DIR__ . '/../footer.php');
+        <form method="POST">
+            <input type="hidden" name="id" value="<?php echo $exam['id']; ?>">
+            Tên đề thi: <input type="text" class="form-control regular-text" name="exam_name" value="<?php echo $exam['exam_name']; ?>" required><br>
+            Thời gian làm bài: <input type="number" class="form-control regular-text" name="exam_time" value="<?php echo $exam['exam_time']; ?>" required><br>
+            <input type="submit" class="button btn-submit" name="edit_exam" value="Lưu">
+        </form>
+        <p><a href="manage_exams.php">Quay lại</a></p>
+    </div>
+<?php include('footer.php');
