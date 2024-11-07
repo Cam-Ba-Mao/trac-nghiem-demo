@@ -36,7 +36,7 @@ $result = executeQuery($conn, 'SELECT', 'exams');
             </div>
             <div class="bm-home__menu"> 
                 <ul> 
-                    <li> <a href="./student/exams.php">Làm bài thi</a></li>
+                    <li> <a href="<?php echo BASE_URL; ?>/student/exams.php">Làm bài thi</a></li>
                 </ul>
             </div>
             <div class="bm-home__exam">
@@ -44,7 +44,7 @@ $result = executeQuery($conn, 'SELECT', 'exams');
                 <?php if(!empty($result)): ?>
                 <ul> 
                     <?php foreach( $result as $exam ): ?>
-                    <li><a href="results.php?exam_id=<?php echo $exam['id']; ?>"><?php echo $exam['exam_name']; ?></a></li>
+                    <li><a href="<?php echo BASE_URL; ?>/student/results.php?exam_id=<?php echo $exam['id']; ?>"><?php echo $exam['exam_name']; ?></a></li>
                     <?php endforeach; ?>
                 </ul>
                 <?php else: ?>

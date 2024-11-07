@@ -32,18 +32,22 @@ $title = "Yêu Cầu Thay Đổi Mật Khẩu";
 
 include('header.php');
 ?>
-    <div class="bm-request-password-change">
-        <h2><?= $title; ?></h2>
-        <div class="bm-request-password-change__desc">Nhập địa chỉ email của bạn và chúng tôi sẽ gửi cho bạn mã OTP để đặt lại mật khẩu.</div>
-        <form method="POST">
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" name="email" required>
+    <section class="bm-request-password-change">
+        <div class="container">
+            <div class="bm-request-password-change__wrap">
+                <h2><?= $title; ?></h2>
+                <div class="bm-request-password-change__desc">Nhập địa chỉ email của bạn và chúng tôi sẽ gửi cho bạn mã OTP để đặt lại mật khẩu.</div>
+                <form method="POST">
+                    <div class="bm-form-group">
+                        <label class="bm-form-label" for="email-password-change">Email</label>
+                        <input class="bm-form-control" type="text" id="email-password-change" name="email" required placeholder=""/>
+                    </div>
+                    <div class="bm-form-group"> 
+                        <button class="bm-btn bm-btn-primary" type="submit">Gửi OTP</button>
+                    </div>
+                </form>
+                <?php if (isset($error)) echo "<p class='invalid-message'>$error</p>"; ?>
             </div>
-            <div class="form-group form-button">
-                <button type="submit">Gửi OTP</button>
-            </div>
-        </form>
-        <?php if (isset($error)) echo "<p class='invalid-message'>$error</p>"; ?>
-    </div>
+        </div>
+    </section>
 <?php include('footer.php'); ?>

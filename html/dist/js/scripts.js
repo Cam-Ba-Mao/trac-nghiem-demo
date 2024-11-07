@@ -734,81 +734,6 @@ handleSelectBox('.select-time, .select-status');
   });
 })(jQuery);
 (function ($) {
-  function initSliderFeaturedEvents() {
-    if ($('.isa-featured-events__list').length < 1) return;
-    var swiper = new Swiper('.isa-featured-events__list', {
-      speed: 400,
-      slidesPerView: 1.1,
-      spaceBetween: 16,
-      loop: true,
-      allowSlideNext: true,
-      pagination: {
-        el: ".isa-featured-events__pagination--bulet",
-        clickable: true
-      },
-      navigation: {
-        nextEl: '.isa-featured-events__arrow--next',
-        prevEl: '.isa-featured-events__arrow--prev'
-      },
-      breakpoints: {
-        1400: {
-          slidesPerView: 2.7
-        },
-        1024: {
-          slidesPerView: 2.1
-        },
-        // when window width is >= 768px
-        768: {
-          slidesPerView: 1.7
-        },
-        576: {
-          slidesPerView: 1.4,
-          spaceBetween: 24
-        }
-      }
-    });
-  }
-  function handleHoverFeaturedEvents() {
-    // $(".isa-why-us__item").each(function () {    
-    //     let headHeight = $(this).find('.isa-why-us__item--head').outerHeight();
-    //     let bodyHeight = $(this).find('.isa-why-us__item--body').outerHeight();
-    //     console.log(headHeight)
-    //     let itemHeight = headHeight + bodyHeight
-    //     $(this).attr('style', '--itemHeight:' + itemHeight + 'px; --headHeight:' + headHeight + 'px'); 
-    // });
-
-    $('.isa-featured-events__item').on({
-      mouseenter: function mouseenter() {
-        $(this).find('.isa-ticket').addClass('is-hover');
-      },
-      mouseleave: function mouseleave() {
-        $(this).find('.isa-ticket').removeClass('is-hover');
-      }
-    });
-  }
-  function handlePostMore() {
-    var showChar = 50;
-    var ellipsestext = "...";
-    $(".isa-ticket__inner--left").find('h3').each(function () {
-      var content = $(this).html();
-      if (content.length > showChar) {
-        var c = content.substr(0, showChar);
-        var h = content.substr(showChar, content.length - showChar);
-        var html = c + '<span class="moreellipses">' + ellipsestext + '</span>';
-        $(this).html(html);
-      }
-    });
-  }
-  $(function () {
-    initSliderFeaturedEvents();
-    handleHoverFeaturedEvents();
-    $(window).on("resize", function () {});
-    $(document).ready(function () {
-      // handlePostMore();
-    });
-  });
-})(jQuery);
-(function ($) {
   function initializeCustomSelect(selectId, customSelectId) {
     var select = $(selectId);
     var customSelect = $(customSelectId);
@@ -885,6 +810,81 @@ handleSelectBox('.select-time, .select-status');
     handleDisplayScrollToTop();
     $(window).scroll(function () {
       handleDisplayScrollToTop();
+    });
+  });
+})(jQuery);
+(function ($) {
+  function initSliderFeaturedEvents() {
+    if ($('.isa-featured-events__list').length < 1) return;
+    var swiper = new Swiper('.isa-featured-events__list', {
+      speed: 400,
+      slidesPerView: 1.1,
+      spaceBetween: 16,
+      loop: true,
+      allowSlideNext: true,
+      pagination: {
+        el: ".isa-featured-events__pagination--bulet",
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.isa-featured-events__arrow--next',
+        prevEl: '.isa-featured-events__arrow--prev'
+      },
+      breakpoints: {
+        1400: {
+          slidesPerView: 2.7
+        },
+        1024: {
+          slidesPerView: 2.1
+        },
+        // when window width is >= 768px
+        768: {
+          slidesPerView: 1.7
+        },
+        576: {
+          slidesPerView: 1.4,
+          spaceBetween: 24
+        }
+      }
+    });
+  }
+  function handleHoverFeaturedEvents() {
+    // $(".isa-why-us__item").each(function () {    
+    //     let headHeight = $(this).find('.isa-why-us__item--head').outerHeight();
+    //     let bodyHeight = $(this).find('.isa-why-us__item--body').outerHeight();
+    //     console.log(headHeight)
+    //     let itemHeight = headHeight + bodyHeight
+    //     $(this).attr('style', '--itemHeight:' + itemHeight + 'px; --headHeight:' + headHeight + 'px'); 
+    // });
+
+    $('.isa-featured-events__item').on({
+      mouseenter: function mouseenter() {
+        $(this).find('.isa-ticket').addClass('is-hover');
+      },
+      mouseleave: function mouseleave() {
+        $(this).find('.isa-ticket').removeClass('is-hover');
+      }
+    });
+  }
+  function handlePostMore() {
+    var showChar = 50;
+    var ellipsestext = "...";
+    $(".isa-ticket__inner--left").find('h3').each(function () {
+      var content = $(this).html();
+      if (content.length > showChar) {
+        var c = content.substr(0, showChar);
+        var h = content.substr(showChar, content.length - showChar);
+        var html = c + '<span class="moreellipses">' + ellipsestext + '</span>';
+        $(this).html(html);
+      }
+    });
+  }
+  $(function () {
+    initSliderFeaturedEvents();
+    handleHoverFeaturedEvents();
+    $(window).on("resize", function () {});
+    $(document).ready(function () {
+      // handlePostMore();
     });
   });
 })(jQuery);
@@ -1221,171 +1221,6 @@ handleSelectBox('.select-time, .select-status');
   }
   $(function () {
     handleLoadNewsMore();
-  });
-})(jQuery);
-(function ($) {
-  var showPassword = function showPassword() {
-    window.addEventListener("load", function () {
-      var togglePassword = document.querySelector(".togglePassword");
-      if (togglePassword) {
-        togglePassword.addEventListener("click", function () {
-          var input = this.previousElementSibling;
-          var inputType = input.getAttribute("type");
-
-          // Toggle input type
-          if (inputType === "password") {
-            input.setAttribute("type", "text");
-          } else {
-            input.setAttribute("type", "password");
-          }
-
-          // Toggle icon classes
-          this.classList.toggle("fa-eye");
-          this.classList.toggle("fa-eye-slash");
-        });
-      } else {
-        // console.log('Không tìm thấy phần tử togglePassword.');
-      }
-    });
-  };
-  var facebookLogin = function facebookLogin(id, config) {
-    window.fbAsyncInit = function () {
-      FB.init(config);
-      FB.AppEvents.logPageView();
-    };
-    (function (d, s, id) {
-      var js,
-        fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) {
-        return;
-      }
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "https://connect.facebook.net/en_US/sdk.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    })(document, 'script', 'facebook-jssdk');
-    document.addEventListener('click', function (e) {
-      var element = document.getElementById(id);
-      if (element.contains(e.target)) {
-        e.preventDefault();
-        FB.login(function () {
-          FB.getLoginStatus(function (response) {
-            if ('connected' === response.status) {
-              FB.api('/me', {
-                fields: 'id,first_name,last_name,email,gender,picture'
-              }, function (profile) {
-                handleLogin({
-                  id: profile.id,
-                  login: profile.email,
-                  email: profile.email,
-                  last_name: profile.last_name,
-                  first_name: profile.first_name,
-                  avatar: profile.picture.data.url
-                });
-                FB.logout(response);
-              });
-            }
-          });
-        }, {
-          scope: 'email'
-        });
-      }
-    });
-  };
-  var googleLoginCallback = function googleLoginCallback(response) {
-    $('.bm-google-btn').addClass('is-loading');
-    var profile = decodeJwtResponse(response.credential);
-    console.log(profile);
-    var provide_id = profile.jti || '';
-    var first_name = profile.family_name || '';
-    var last_name = profile.given_name || '';
-    var name = profile.name || '';
-    var email = profile.email || '';
-    var picture = profile.picture || '';
-    if (provide_id === "" || email === "") {
-      alert('Không thể lấy được thông tin người dùng.');
-      return false;
-    }
-
-    // Gửi dữ liệu lên server để xác thực và đăng nhập
-    jQuery.ajax({
-      url: 'login-google.php',
-      type: 'POST',
-      data: {
-        "type": "google",
-        "id": provide_id,
-        "first_name": first_name,
-        "last_name": last_name,
-        "display_name": name,
-        "email": email,
-        "picture": picture
-      },
-      success: function success(response) {
-        var res = JSON.parse(response);
-        if (res.success) {
-          if (res.role == "admin") {
-            window.location.href = "bm-admin";
-          } else {
-            window.location.href = "trang-chu";
-          }
-        } else {
-          alert(res.message);
-        }
-      },
-      error: function error() {
-        alert('Đã xảy ra lỗi trong quá trình đăng nhập bằng Google.');
-      }
-    });
-  };
-  if (window.google && window.google.accounts) {
-    window.google.accounts.id.initialize({
-      client_id: '539559261576-2qhoqucptfova61pk3tomuclh74e9abp.apps.googleusercontent.com',
-      ux_mode: "popup",
-      callback: googleLoginCallback
-    });
-
-    // Tạo một nút ẩn (nếu cần) để kích hoạt đăng nhập
-    var createFakeGoogleWrapper = function createFakeGoogleWrapper() {
-      var googleLoginWrapper = document.createElement("div");
-      googleLoginWrapper.style.display = "none";
-      googleLoginWrapper.classList.add("custom-google-button");
-      document.body.appendChild(googleLoginWrapper);
-      window.google.accounts.id.renderButton(googleLoginWrapper, {
-        theme: 'outline',
-        size: 'large'
-      });
-      var googleLoginWrapperButton = googleLoginWrapper.querySelector("div[role=button]");
-      return {
-        click: function click() {
-          googleLoginWrapperButton.click();
-        }
-      };
-    };
-
-    // Thực hiện lệnh click bằng cách tạo sự kiện trên iPhone
-    var googleButtonWrapper = createFakeGoogleWrapper();
-    document.getElementById("bm-google-btn").addEventListener("click", function () {
-      googleButtonWrapper.click(); // Kích hoạt đăng nhập Google
-    });
-  }
-  function decodeJwtResponse(token) {
-    var base64Url = token.split(".")[1];
-    var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-    var jsonPayload = decodeURIComponent(atob(base64).split("").map(function (c) {
-      return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(""));
-    return JSON.parse(jsonPayload);
-  }
-  $(function () {
-    showPassword();
-    // facebookLogin('fbLogin', {
-    //     xfbml: true,
-    //     cookie: true,
-    //     appId: "1073491914479527",
-    //     version: "v21.0"
-    // });
-
-    $(window).on("resize", function () {});
   });
 })(jQuery);
 (function ($) {
@@ -2430,5 +2265,236 @@ function handleRichEditors() {
       handleScrollBusinessField();
       handleImageTopBusinessField();
     });
+  });
+})(jQuery);
+(function ($) {
+  var showPassword = function showPassword() {
+    window.addEventListener("load", function () {
+      var togglePassword = document.querySelector(".togglePassword");
+      if (togglePassword) {
+        togglePassword.addEventListener("click", function () {
+          var input = this.previousElementSibling;
+          var inputType = input.getAttribute("type");
+
+          // Toggle input type
+          if (inputType === "password") {
+            input.setAttribute("type", "text");
+          } else {
+            input.setAttribute("type", "password");
+          }
+
+          // Toggle icon classes
+          this.classList.toggle("fa-eye");
+          this.classList.toggle("fa-eye-slash");
+        });
+      } else {
+        // console.log('Không tìm thấy phần tử togglePassword.');
+      }
+    });
+  };
+  var facebookLogin = function facebookLogin(id, config) {
+    window.fbAsyncInit = function () {
+      FB.init(config);
+      FB.AppEvents.logPageView();
+    };
+    (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        return;
+      }
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, 'script', 'facebook-jssdk');
+    document.addEventListener('click', function (e) {
+      var element = document.getElementById(id);
+      if (element.contains(e.target)) {
+        e.preventDefault();
+        FB.login(function () {
+          FB.getLoginStatus(function (response) {
+            if ('connected' === response.status) {
+              FB.api('/me', {
+                fields: 'id,first_name,last_name,email,gender,picture'
+              }, function (profile) {
+                handleLogin({
+                  id: profile.id,
+                  login: profile.email,
+                  email: profile.email,
+                  last_name: profile.last_name,
+                  first_name: profile.first_name,
+                  avatar: profile.picture.data.url
+                });
+                FB.logout(response);
+              });
+            }
+          });
+        }, {
+          scope: 'email'
+        });
+      }
+    });
+  };
+  var googleLoginCallback = function googleLoginCallback(response) {
+    $('.bm-google-btn').addClass('is-loading');
+    var profile = decodeJwtResponse(response.credential);
+    console.log(profile);
+    var provide_id = profile.jti || '';
+    var first_name = profile.family_name || '';
+    var last_name = profile.given_name || '';
+    var name = profile.name || '';
+    var email = profile.email || '';
+    var picture = profile.picture || '';
+    if (provide_id === "" || email === "") {
+      alert('Không thể lấy được thông tin người dùng.');
+      return false;
+    }
+
+    // Gửi dữ liệu lên server để xác thực và đăng nhập
+    jQuery.ajax({
+      url: 'login-google.php',
+      type: 'POST',
+      data: {
+        "type": "google",
+        "id": provide_id,
+        "first_name": first_name,
+        "last_name": last_name,
+        "display_name": name,
+        "email": email,
+        "picture": picture
+      },
+      success: function success(response) {
+        var res = JSON.parse(response);
+        if (res.success) {
+          if (res.role == "admin") {
+            window.location.href = "bm-admin";
+          } else {
+            window.location.href = "trang-chu";
+          }
+        } else {
+          alert(res.message);
+        }
+      },
+      error: function error() {
+        alert('Đã xảy ra lỗi trong quá trình đăng nhập bằng Google.');
+      }
+    });
+  };
+  if (window.google && window.google.accounts) {
+    window.google.accounts.id.initialize({
+      client_id: '539559261576-2qhoqucptfova61pk3tomuclh74e9abp.apps.googleusercontent.com',
+      ux_mode: "popup",
+      callback: googleLoginCallback
+    });
+
+    // Tạo một nút ẩn (nếu cần) để kích hoạt đăng nhập
+    var createFakeGoogleWrapper = function createFakeGoogleWrapper() {
+      var googleLoginWrapper = document.createElement("div");
+      googleLoginWrapper.style.display = "none";
+      googleLoginWrapper.classList.add("custom-google-button");
+      document.body.appendChild(googleLoginWrapper);
+      window.google.accounts.id.renderButton(googleLoginWrapper, {
+        theme: 'outline',
+        size: 'large'
+      });
+      var googleLoginWrapperButton = googleLoginWrapper.querySelector("div[role=button]");
+      return {
+        click: function click() {
+          googleLoginWrapperButton.click();
+        }
+      };
+    };
+
+    // Thực hiện lệnh click bằng cách tạo sự kiện trên iPhone
+    var googleButtonWrapper = createFakeGoogleWrapper();
+    document.getElementById("bm-google-btn").addEventListener("click", function () {
+      googleButtonWrapper.click(); // Kích hoạt đăng nhập Google
+    });
+  }
+  function decodeJwtResponse(token) {
+    var base64Url = token.split(".")[1];
+    var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    var jsonPayload = decodeURIComponent(atob(base64).split("").map(function (c) {
+      return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(""));
+    return JSON.parse(jsonPayload);
+  }
+  $(function () {
+    showPassword();
+    // facebookLogin('fbLogin', {
+    //     xfbml: true,
+    //     cookie: true,
+    //     appId: "1073491914479527",
+    //     version: "v21.0"
+    // });
+
+    $(window).on("resize", function () {});
+  });
+})(jQuery);
+(function ($) {
+  function handleInputEmail() {
+    BMplaceholderTypewriter('#email-password-change', {
+      delay: 50,
+      pause: 1000,
+      text: ["Nhập Email của bạn ..", "Mã OTP sẽ được gửi về Email .."]
+    });
+    BMplaceholderTypewriter('#otp', {
+      delay: 50,
+      pause: 1000,
+      text: ["Nhập OTP của bạn .."]
+    });
+  }
+  $(function () {
+    handleInputEmail();
+    $(window).on("resize", function () {});
+  });
+})(jQuery);
+(function ($) {
+  var handleUploadAvatar = function handleUploadAvatar(id, options) {
+    var form = document.getElementById(id);
+    if (form) {
+      Dropzone.autoDiscover = false;
+      new Dropzone('#' + id, {
+        url: 'upload_avatar.php',
+        // Đảm bảo đường dẫn chính xác đến file PHP xử lý upload
+        method: "post",
+        // Phương thức gửi dữ liệu
+        paramName: "file",
+        // Tên mặc định cho Dropzone để gửi file
+        thumbnailWidth: options.thumbnailWidth,
+        thumbnailHeight: options.thumbnailHeight,
+        maxFilesize: 5,
+        // MB
+        acceptedFiles: 'image/*',
+        dictFileTooBig: "Tệp quá lớn ({{filesize}}MB). Tối đa cho phép: {{maxFilesize}}MB.",
+        dictInvalidFileType: "Bạn không thể tải lên các tập tin loại này.",
+        success: function success(file, response) {
+          toast({
+            type: "success",
+            position: "top-right",
+            title: "Cập nhập ảnh Avatar thành công",
+            redirect: 'upload_avatar.php'
+          });
+        },
+        error: function error(file, message) {
+          toast({
+            type: "error",
+            position: "top-right",
+            title: message
+          });
+          form.classList.remove('dz-started');
+          $(form).find('.dz-preview').remove();
+          return false;
+        }
+      });
+    }
+  };
+  $(function () {
+    handleUploadAvatar('upload-avatar-user', {
+      thumbnailWidth: 120,
+      thumbnailHeight: 120
+    });
+    $(window).on("resize", function () {});
   });
 })(jQuery);

@@ -1,0 +1,72 @@
+.bm-upload-avatar {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
+    &__wrap {
+        border: 1px solid rgba($blue, .2);
+        background: $white;
+        border-radius: 16px;
+        padding: 1rem;
+            
+        @include breakpoint-up(sm) {
+            padding: 2rem;
+        }
+    }
+
+    &__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+        gap: 1.5rem;
+    }
+   
+
+    &__title {
+        font-family: $font-family-primary;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: calc(32/24);
+    }
+
+    .dash-gallery {
+        border: none;
+    
+        @include breakpoint-down(575px) {
+            padding: 0;
+        }
+    
+        .dz-message {
+            img {
+                margin-bottom: 2rem;
+            }
+    
+            h2 {
+                font-family: $font-family-primary;
+                font-size: clamp(1.25rem, 1.0278rem + 1.1111vw, 2rem);
+                font-weight: 700;
+                line-height: calc(40/32);
+                margin-bottom: 4px;
+            }
+    
+            p {
+                font-size: clamp(1rem, 0.963rem + 0.1852vw, 1.125rem);
+                font-weight: 400;
+                line-height: calc(28/18);
+                margin-bottom: 1.5rem;
+            }
+        }
+    
+        &__cta {
+            .bm-btn-primary {
+                font-weight: 600;
+                border-radius: 10px;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 1.125rem 2.625rem;
+            }
+        }
+    }
+}

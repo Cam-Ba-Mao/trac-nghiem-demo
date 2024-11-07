@@ -41,27 +41,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $title = "Xác Thực OTP";
 include('header.php');
 ?>
-
-    <div class="bm-verify-otp">
-        <h2><?= $title; ?></h2>
-        <?php if (isset($error)) { echo "<p>$error</p>"; } ?>
-        <form action="verify_otp.php" method="post">
-            <div class="form-group">
-                <label for="otp">Mã OTP:</label>
-                <input type="text" id="otp" name="otp" required>
+    <section class="bm-verify-otp">
+        <div class="container">
+            <div class="bm-verify-otp__wrap">
+                <h2><?= $title; ?></h2>
+                <?php if (isset($error)) { echo "<p>$error</p>"; } ?>
+                <form action="verify_otp.php" method="POST">
+                    <div class="bm-form-group">
+                        <label class="bm-form-label" for="otp">Mã OTP:</label>
+                        <input class="bm-form-control" type="text" id="otp" name="otp" placeholder="" required/>
+                    </div>
+                    <div class="bm-form-group">
+                        <label class="bm-form-label" for="new_password">Mật khẩu mới:</label>
+                        <input class="bm-form-control" type="text" id="new_password" name="new_password" placeholder="" required/>
+                    </div>
+                    <div class="bm-form-group">
+                        <label class="bm-form-label" for="confirm_password">Xác nhận mật khẩu:</label>
+                        <input class="bm-form-control" type="text" id="confirm_password" name="confirm_password" placeholder="" required/>
+                    </div>
+                    <div class="bm-form-group"> 
+                        <button class="bm-btn bm-btn-primary" type="submit">Xác thực</button>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="new_password">Mật khẩu mới:</label>
-                <input type="password" id="new_password" name="new_password" required>
-            </div>
-            <div class="form-group">
-                <label for="confirm_password">Xác nhận mật khẩu:</label>
-                <input type="password" id="confirm_password" name="confirm_password" required>
-            </div>
-            <div class="form-group">
-                <button type="submit">Xác thực</button>
-            </div>
-        </form>
-    </div>   
-
+        </div>
+    </section>
+ 
 <?php include('footer.php'); ?>

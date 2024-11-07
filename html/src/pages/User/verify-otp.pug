@@ -1,0 +1,19 @@
+extends ../../_core/layouts/layouts-default
+
+append vars
+    -bodyClass = "page-template-verify-otp"
+    -typeMenu = ""
+
+block container
+
+    section.bm-verify-otp
+        .container
+            .bm-verify-otp__wrap
+                h2 Xác thực OTP
+               
+                form(action="verify_otp.php" method="POST")
+                    +bm-input("text", "otp", "Mã OTP:", "")
+                    +bm-input("text", "new_password", "Mật khẩu mới:", "")
+                    +bm-input("text", "confirm_password", "Xác nhận mật khẩu:", "")
+                    .bm-form-group 
+                        button(type="submit" class="bm-btn bm-btn-primary") Xác thực
