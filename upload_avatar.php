@@ -96,7 +96,7 @@ include('header.php');
         <div class="container">
             <div class="bm-upload-avatar__wrap">
                 <div class="bm-upload-avatar__head">
-                    <h2 class="bm-upload-avatar__title">Chọn avatar mới:</h2>
+                    <h2 class="bm-upload-avatar__title">Cập nhập Avatar</h2>
                 </div>
                 <div class="bm-upload-avatar__gallery">
                     <form class="dropzone dash-gallery" id="upload-avatar-user" action="upload_avatar.php" method="post" enctype="multipart/form-data">
