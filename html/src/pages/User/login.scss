@@ -6,7 +6,6 @@
     }
 
     &__wrap {
-        max-width: 1200px;
         background: #fff;
         margin: 0 auto;
         box-shadow: 0px 0 16.83px 0.17px rgba(0, 0, 0, 0.08);
@@ -16,18 +15,22 @@
 
     &__content {
         display: flex;
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-        gap: 1rem;
+        padding: 3rem 1.5rem;
+        gap: 1.5rem;
 
-        @include breakpoint-down(768px) {
+        @include breakpoint-down(991px) {
             justify-content: center;
             flex-direction: column;
+        }
+
+        @include breakpoint-up(sm) {
+            padding: 3rem 3rem;
         }
 
         @include breakpoint-up(md) {
             padding-top: 5.5rem;
             padding-bottom: 5.5rem;
+            gap: 2.5rem;
         }
 
         &--image {
@@ -35,14 +38,14 @@
             overflow: hidden;
             text-align: center;
 
-            @include breakpoint-down(768px) {
+            @include breakpoint-down(991px) {
                 width: auto;
                 order: 2;
             }
 
             img {
-                max-width: 100%;
-                height: auto;
+                width: 100%;
+                object-fit: cover;
                 margin-bottom: 3rem;
             }
 
@@ -56,16 +59,13 @@
         }
 
         &--form {
-            margin-right: 80px;
-            margin-left: 20px;
             width: 50%;
             overflow: hidden;
 
-            @include breakpoint-down(768px) {
+            @include breakpoint-down(991px) {
                 order: 1;
                 margin-right: 0px;
                 margin-left: 0px;
-                padding: 0 30px;
                 width: auto;
             }
 
@@ -186,6 +186,10 @@
         display: flex;
         gap: 1rem;
 
+        @include breakpoint-down(767px) {
+            flex-direction: column;
+        }
+
         button {
             display: flex;
             align-items: center;
@@ -196,6 +200,10 @@
             padding: 1rem 2rem;
             width: 100%;
             font-weight: 500;
+
+            @include breakpoint-up(md) {
+                width: 50%;
+            }
         }
     }
 }

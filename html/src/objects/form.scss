@@ -152,6 +152,8 @@
         appearance: none;
 
         &[type="checkbox"] {
+            display: none;
+
             & + label {
                 &::after {
                     background-color: $custom-control-border-color;
@@ -162,6 +164,8 @@
         }
 
         &[type="radio"] {
+            display: none;
+            
             & + label {
 
                 &::before,
