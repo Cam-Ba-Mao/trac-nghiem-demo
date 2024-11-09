@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <div class="bm-footer__copyright">© <?= date('Y'); ?> Trường Đại học Thủ Dầu Một</div>
-                <div class="bm-footer__author">Make by Ba Mao</div>
+                <div class="bm-footer__author">Made by Ba Mao</div>
             </div>
         </footer>
         <a class="bm-scroll-to-top" href="#">
