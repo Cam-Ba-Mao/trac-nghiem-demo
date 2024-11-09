@@ -1,8 +1,10 @@
 /*---------------------------------
 **** Global | Layout
 -----------------------------------*/
+
 :root {
     --safe-area-bottom: calc(100vh - 100 * var(--vh));
+    scroll-behavior: auto;
 }
 
 * {

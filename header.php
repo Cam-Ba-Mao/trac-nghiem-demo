@@ -13,23 +13,30 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#fdc226">
+    <meta name="robots" content="index,follow">
+    <meta name="theme-color" content="#005180">
     <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="description" content="Trang web thi trắc nghiệm trực tuyến giúp bạn kiểm tra kiến thức, cải thiện kỹ năng và chuẩn bị cho các kỳ thi quan trọng. Đa dạng các bài thi từ học thuật đến chứng chỉ nghề nghiệp.">
+    <meta name="keywords" content="">
     <meta property="og:url" content="https://trac-nghiem.io.vn/">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Website thi trắc nghiệm">
+    <meta property="og:site_name" content="Website Thi Trắc Nghiệm">
+    <meta property="og:title" content="">
+    <meta property="og:locale" content="vi_VN">
+    <meta property="og:description" content="Trang web thi trắc nghiệm trực tuyến giúp bạn kiểm tra kiến thức, cải thiện kỹ năng và chuẩn bị cho các kỳ thi quan trọng. Đa dạng các bài thi từ học thuật đến chứng chỉ nghề nghiệp.">
     <link href="https://trac-nghiem.io.vn/" rel="canonical">
     <link href="https://trac-nghiem.io.vn/" rel="alternate" media="handheld">
-    <meta name="robots" content="index,follow">
-    <title>Website thi trắc nghiệm</title>
+    <title>Website Thi Trắc Nghiệm</title>
     <!-- Favicon-->
     <link rel="icon" href="<?php echo BASE_URL; ?>/html/dist/images/favicon.png">
+    <link href="<?php echo BASE_URL; ?>/html/dist/images/favicon.png" rel="apple-touch-icon">
     <!-- Bootstrap-->
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/html/dist/css/bootstrap.min.css">
     <!-- Plugins style-->
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/html/dist/css/bundle.min.css">
     <!-- Template syle-->
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/html/dist/css/main.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/html/dist/css/main.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <!-- Admin bar demo ( Not include )-->
