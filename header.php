@@ -31,6 +31,7 @@
     <!-- Template syle-->
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/html/dist/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <!-- Admin bar demo ( Not include )-->
     <style>
         .admin-bar-html {
@@ -75,7 +76,6 @@
                 font-weight: 400;
                 background: #1d2327;
                 line-height: 1.42857143;
-                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
                 height: 40px;
             }
 

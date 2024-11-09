@@ -119,5 +119,6 @@
         <script src="<?php echo BASE_URL; ?>/html/dist/js/scripts.min.js"></script>
         <!-- Scripts demo ( Not include )-->
         <!-- Icon sprites-->
+       
     </body>
 </html>

@@ -114,14 +114,12 @@ $saved_password = isset($_COOKIE['password']) ? $_COOKIE['password'] : '';
 
 include('header.php');
 ?>
-<script src="https://accounts.google.com/gsi/client" async defer></script>
 <section class="bm-sign-in">
     <div class="container">
         <div class="bm-sign-in__wrap">
             <div class="bm-sign-in__content">
                 <div class="bm-sign-in__content--image">
                     <img src="<?php echo BASE_URL; ?>/html/dist/images/signin-image.jpg" alt="sign up image">
-                    <a class="forgot-password" href="<?php echo BASE_URL; ?>/request_password_change.php">Quên mật khẩu</a>
                 </div>
                 <div class="bm-sign-in__content--form">
                     <h2 class="form-title">Đăng nhập</h2>
@@ -163,7 +161,7 @@ include('header.php');
                     <div class="social-login">
                         <span class="social-login__label"> <span>Hoặc đăng nhập bằng</span></span>
                         <div class="social-login__wrap">
-                            <button id="bm-google-btn" onclick="handleGoogleLogin()">
+                            <button id="bm-google-btn">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M20.6261 11.2139C20.6261 10.4225 20.5605 9.84497 20.4187 9.24609H11.1975V12.818H16.6102C16.5011 13.7057 15.9118 15.0425 14.6022 15.9408L14.5839 16.0603L17.4995 18.2738L17.7015 18.2936C19.5566 16.6145 20.6261 14.1441 20.6261 11.2139Z" fill="#205CD4"></path>
                                     <path d="M11.1969 20.625C13.8486 20.625 16.0748 19.7694 17.7008 18.2936L14.6016 15.9408C13.7723 16.5076 12.6592 16.9033 11.1969 16.9033C8.5997 16.9033 6.39536 15.2243 5.60957 12.9036L5.4944 12.9131L2.46274 15.2125L2.4231 15.3205C4.03815 18.4647 7.35561 20.625 11.1969 20.625Z" fill="#34A853"></path>

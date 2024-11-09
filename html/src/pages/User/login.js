@@ -70,9 +70,9 @@
     };
 
     const googleLoginCallback = (response) => {
-        $('.bm-google-btn').addClass('is-loading');
+        $('#bm-google-btn').addClass('is-loading');
         var profile = decodeJwtResponse(response.credential);
-        console.log(profile);
+        // console.log(profile);
         
         var provide_id = profile.jti || '';
         var first_name = profile.family_name || '';
@@ -108,7 +108,13 @@
                         window.location.href = "trang-chu";
                     }
                 } else {
-                    alert(res.message);
+                    // alert(res.message);
+                    toast({
+                        type: "error",
+                        position: "top-right",
+                        title: res.message,
+                    });
+                    return false;
                 }
             },
             error: function() {
@@ -117,37 +123,13 @@
         });
     };
 
-    if (window.google && window.google.accounts) {
-        window.google.accounts.id.initialize({
-            client_id: '539559261576-2qhoqucptfova61pk3tomuclh74e9abp.apps.googleusercontent.com',
-            ux_mode: "popup",
-            callback: googleLoginCallback
-        });
-
-        // Tạo một nút ẩn (nếu cần) để kích hoạt đăng nhập
-        const createFakeGoogleWrapper = () => {
-            const googleLoginWrapper = document.createElement("div");
-            googleLoginWrapper.style.display = "none";
-            googleLoginWrapper.classList.add("custom-google-button");
-            document.body.appendChild(googleLoginWrapper);
-            window.google.accounts.id.renderButton(googleLoginWrapper, {
-                theme: 'outline',
-                size: 'large',
-            });
-            const googleLoginWrapperButton = googleLoginWrapper.querySelector("div[role=button]");
-            return {
-                click: () => {
-                    googleLoginWrapperButton.click();
-                },
-            };
-        };
-
-        // Thực hiện lệnh click bằng cách tạo sự kiện trên iPhone
-        const googleButtonWrapper = createFakeGoogleWrapper();
-        document.getElementById("bm-google-btn").addEventListener("click", () => {
-            googleButtonWrapper.click();  // Kích hoạt đăng nhập Google
-        });
-    }
+    // if (window.google && window.google.accounts) {
+    //     window.google.accounts.id.initialize({
+    //         client_id: '539559261576-2qhoqucptfova61pk3tomuclh74e9abp.apps.googleusercontent.com',
+    //         ux_mode: "popup",
+    //         callback: googleLoginCallback
+    //     });
+    // }
 
     function decodeJwtResponse(token) {
         var base64Url = token.split(".")[1];
@@ -162,8 +144,69 @@
         );
         return JSON.parse(jsonPayload);
     }
+    
+    // Hàm khởi tạo Google Login
+    function initializeGoogleLogin() {
+        // Đảm bảo rằng SDK đã sẵn sàng trước khi xử lý
+        if (window.google && window.google.accounts) {
+            window.google.accounts.id.initialize({
+                client_id: '539559261576-2qhoqucptfova61pk3tomuclh74e9abp.apps.googleusercontent.com',
+                ux_mode: "popup",
+                callback: googleLoginCallback
+            });
+    
+            const createFakeGoogleWrapper = () => {
+                const googleLoginWrapper = document.createElement("div");
+                googleLoginWrapper.style.display = "none";
+                googleLoginWrapper.classList.add("custom-google-button");
+                document.body.appendChild(googleLoginWrapper);
+                window.google.accounts.id.renderButton(googleLoginWrapper, {
+                    theme: 'outline',
+                    size: 'large',
+                });
+                const googleLoginWrapperButton = googleLoginWrapper.querySelector("div[role=button]");
+                return {
+                    click: () => {
+                        googleLoginWrapperButton.click();
+                    },
+                };
+            };
+    
+            const googleButton = document.getElementById('bm-google-btn');
+            if (googleButton) {
+                const googleButtonWrapper = createFakeGoogleWrapper();
+                googleButton.addEventListener('click', function (e) {
+                    googleButtonWrapper.click();
+                });
+            }
+        }
+    }
 
-  
+    document.addEventListener("DOMContentLoaded", function () {
+        // Kiểm tra xem Google SDK đã sẵn sàng hay chưa
+        if (window.google && window.google.accounts && window.google.accounts.id) {
+            initializeGoogleLogin();
+        } else {
+            // Nếu chưa sẵn sàng, lắng nghe sự kiện để khởi tạo sau
+            window.addEventListener('googleSdkLoaded', function () {
+                initializeGoogleLogin();
+            });
+        }
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://accounts.google.com/gsi/client";
+            js.onload = function() {
+                console.log("Google SDK đã tải xong");
+                // Gọi hàm khởi tạo Google login sau khi SDK đã tải xong
+                initializeGoogleLogin();
+            };
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'google-jssdk'));
+    });
+    
     
     $(function () {      
         showPassword();
@@ -173,6 +216,7 @@
         //     appId: "1073491914479527",
         //     version: "v21.0"
         // });
+
 
         $(window).on("resize", function () {
 

@@ -1,7 +1,9 @@
 <?php
+//login-google.php
 session_start();
 include('./config/config.php');
-header("Cross-Origin-Opener-Policy: same-origin-allow-popups");
+
+
 // Nhận dữ liệu từ AJAX
 $type = $_POST['type'];
 
@@ -34,19 +36,20 @@ if ($type == 'google') {
         echo json_encode(['success' => true , 'role' => $user['role']]);
     } else {
         // Người dùng chưa tồn tại, thêm mới vào cơ sở dữ liệu
-        $insert_query = "INSERT INTO users (username, email, google_id, role) VALUES ('$display_name', '$email', '$provide_id', 'student')";
-        if (mysqli_query($conn, $insert_query)) {
-            $user_id = mysqli_insert_id($conn);
-            $_SESSION['user_id'] = $user_id;
-            $_SESSION['username'] = removeWhitespaceAndConvertToNoSign($display_name);
-            $_SESSION['role'] = 'student';
+        // $insert_query = "INSERT INTO users (username, email, google_id, role) VALUES ('$display_name', '$email', '$provide_id', 'student')";
+        // if (mysqli_query($conn, $insert_query)) {
+        //     $user_id = mysqli_insert_id($conn);
+        //     $_SESSION['user_id'] = $user_id;
+        //     $_SESSION['username'] = removeWhitespaceAndConvertToNoSign($display_name);
+        //     $_SESSION['role'] = 'student';
 
-            // Đáp ứng thành công
-            echo json_encode(['success' => true]);
-        } else {
-            // Lỗi khi thêm người dùng
-            echo json_encode(['success' => false, 'message' => 'Không thể tạo tài khoản mới.']);
-        }
+        //     // Đáp ứng thành công
+        //     echo json_encode(['success' => true]);
+        // } else {
+        //     // Lỗi khi thêm người dùng
+        //     echo json_encode(['success' => false, 'message' => 'Không thể tạo tài khoản mới.']);
+        // }
+        echo json_encode(['success' => false, 'message' => 'Không có Tài khoản nào ứng với email này.']);
     }
 } else {
     echo json_encode(['success' => false, 'message' => 'Loại đăng nhập không hợp lệ.']);

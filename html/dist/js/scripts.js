@@ -710,32 +710,6 @@ handleSelectBox('.select-time, .select-status');
   });
 })(jQuery);
 (function ($) {
-  function handleScrollToTop() {
-    $(document).on('click', '.bm-scroll-to-top', function (e) {
-      e.preventDefault();
-      $('html, body').animate({
-        scrollTop: 0
-      }, 1000);
-    });
-  }
-  function handleDisplayScrollToTop() {
-    var scrollHeight = $(document).height();
-    var scrollPosition = $(window).height() + $(window).scrollTop();
-    if (scrollPosition >= scrollHeight - 100) {
-      $('.bm-scroll-to-top').addClass('is-active');
-    } else {
-      $('.bm-scroll-to-top').removeClass('is-active');
-    }
-  }
-  $(function () {
-    handleScrollToTop();
-    handleDisplayScrollToTop();
-    $(window).scroll(function () {
-      handleDisplayScrollToTop();
-    });
-  });
-})(jQuery);
-(function ($) {
   function initializeCustomSelect(selectId, customSelectId) {
     var select = $(selectId);
     var customSelect = $(customSelectId);
@@ -889,6 +863,32 @@ handleSelectBox('.select-time, .select-status');
   });
 })(jQuery);
 (function ($) {
+  function handleScrollToTop() {
+    $(document).on('click', '.bm-scroll-to-top', function (e) {
+      e.preventDefault();
+      $('html, body').animate({
+        scrollTop: 0
+      }, 1000);
+    });
+  }
+  function handleDisplayScrollToTop() {
+    var scrollHeight = $(document).height();
+    var scrollPosition = $(window).height() + $(window).scrollTop();
+    if (scrollPosition >= scrollHeight - 100) {
+      $('.bm-scroll-to-top').addClass('is-active');
+    } else {
+      $('.bm-scroll-to-top').removeClass('is-active');
+    }
+  }
+  $(function () {
+    handleScrollToTop();
+    handleDisplayScrollToTop();
+    $(window).scroll(function () {
+      handleDisplayScrollToTop();
+    });
+  });
+})(jQuery);
+(function ($) {
   function DemoAdminBarMode() {
     $('#enable-admin-bar').on('change', function () {
       var adminBarModeStatus = $(this).prop('checked');
@@ -944,43 +944,6 @@ handleSelectBox('.select-time, .select-status');
   };
   $(function () {
     toggleDropdown();
-  });
-})(jQuery);
-(function ($) {
-  function handleDetailMeetTheTeam() {
-    if ($('.rt-meet-the-team__item').length < 1) return;
-    $(document).on('click', '.rt-meet-the-team__item', function (e) {
-      e.preventDefault();
-      var element = $(this);
-      var modal = $('#popup-detail-team');
-      if (modal.length) {
-        var image = $(element).find('.rt-meet-the-team__item--img-popup img').length > 0 ? $(element).find('.rt-meet-the-team__item--img-popup img').attr('src') : '';
-        var title = $(element).find('.rt-meet-the-team__item--wrap .title').length > 0 ? $(element).find('.rt-meet-the-team__item--wrap .title').text() : '';
-        var data = $(element).find('.rt-meet-the-team__item--content').html();
-        if (image.length > 0) {
-          modal.find('.rt-popup-detail-team__image img').attr('src', image);
-          modal.find('.rt-popup-detail-team__image').removeClass('d-none');
-        } else {
-          modal.find('.rt-popup-detail-team__image').addClass('d-none');
-        }
-        if (title.length > 0) {
-          modal.find('.rt-popup-detail-team__title').html(title);
-          modal.find('.rt-popup-detail-team__title').removeClass('d-none');
-        } else {
-          modal.find('.rt-popup-detail-team__title').addClass('d-none');
-        }
-        if (data.length > 0) {
-          modal.find('.rt-popup-detail-team__content').html(data);
-          modal.find('.rt-popup-detail-team__content').removeClass('d-none');
-        } else {
-          modal.find('.rt-popup-detail-team__content').addClass('d-none');
-        }
-        modal.modal('show');
-      }
-    });
-  }
-  $(function () {
-    handleDetailMeetTheTeam();
   });
 })(jQuery);
 // (function ($) {
@@ -1065,6 +1028,43 @@ handleSelectBox('.select-time, .select-status');
 //     });
 
 // })(jQuery);
+(function ($) {
+  function handleDetailMeetTheTeam() {
+    if ($('.rt-meet-the-team__item').length < 1) return;
+    $(document).on('click', '.rt-meet-the-team__item', function (e) {
+      e.preventDefault();
+      var element = $(this);
+      var modal = $('#popup-detail-team');
+      if (modal.length) {
+        var image = $(element).find('.rt-meet-the-team__item--img-popup img').length > 0 ? $(element).find('.rt-meet-the-team__item--img-popup img').attr('src') : '';
+        var title = $(element).find('.rt-meet-the-team__item--wrap .title').length > 0 ? $(element).find('.rt-meet-the-team__item--wrap .title').text() : '';
+        var data = $(element).find('.rt-meet-the-team__item--content').html();
+        if (image.length > 0) {
+          modal.find('.rt-popup-detail-team__image img').attr('src', image);
+          modal.find('.rt-popup-detail-team__image').removeClass('d-none');
+        } else {
+          modal.find('.rt-popup-detail-team__image').addClass('d-none');
+        }
+        if (title.length > 0) {
+          modal.find('.rt-popup-detail-team__title').html(title);
+          modal.find('.rt-popup-detail-team__title').removeClass('d-none');
+        } else {
+          modal.find('.rt-popup-detail-team__title').addClass('d-none');
+        }
+        if (data.length > 0) {
+          modal.find('.rt-popup-detail-team__content').html(data);
+          modal.find('.rt-popup-detail-team__content').removeClass('d-none');
+        } else {
+          modal.find('.rt-popup-detail-team__content').addClass('d-none');
+        }
+        modal.modal('show');
+      }
+    });
+  }
+  $(function () {
+    handleDetailMeetTheTeam();
+  });
+})(jQuery);
 (function ($) {
   var sliderInstances = {};
   function initStrategicPartnershipSlider(elementTop, tabId) {
@@ -1249,7 +1249,8 @@ handleSelectBox('.select-time, .select-status');
     });
   };
   $(function () {
-    toggleMenu();
+    // toggleMenu();
+
     $(window).on("resize", function () {});
   });
 })(jQuery);
@@ -1666,7 +1667,7 @@ function handleRichEditors() {
     if ($('.bm-intro__wrap').length > 0) {
       gsap.registerPlugin(ScrollTrigger);
       ScrollTrigger.matchMedia({
-        "(min-width: 768px)": function minWidth768px() {
+        "(min-width: 768px)": function minWidth_768px() {
           var tl2 = gsap.timeline({
             scrollTrigger: {
               trigger: ".bm-intro__wrap",
@@ -1685,7 +1686,7 @@ function handleRichEditors() {
             transform: "translate3d(10%, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(3deg) scale3d(1,1,1)"
           }, 0);
         },
-        "(max-width: 767px)": function maxWidth767px() {
+        "(max-width: 767px)": function maxWidth_767px() {
           var tl2 = gsap.timeline({
             scrollTrigger: {
               trigger: ".bm-intro__wrap",
@@ -2337,9 +2338,10 @@ function handleRichEditors() {
     });
   };
   var googleLoginCallback = function googleLoginCallback(response) {
-    $('.bm-google-btn').addClass('is-loading');
+    $('#bm-google-btn').addClass('is-loading');
     var profile = decodeJwtResponse(response.credential);
-    console.log(profile);
+    // console.log(profile);
+
     var provide_id = profile.jti || '';
     var first_name = profile.family_name || '';
     var last_name = profile.given_name || '';
@@ -2373,7 +2375,13 @@ function handleRichEditors() {
             window.location.href = "trang-chu";
           }
         } else {
-          alert(res.message);
+          // alert(res.message);
+          toast({
+            type: "error",
+            position: "top-right",
+            title: res.message
+          });
+          return false;
         }
       },
       error: function error() {
@@ -2381,37 +2389,15 @@ function handleRichEditors() {
       }
     });
   };
-  if (window.google && window.google.accounts) {
-    window.google.accounts.id.initialize({
-      client_id: '539559261576-2qhoqucptfova61pk3tomuclh74e9abp.apps.googleusercontent.com',
-      ux_mode: "popup",
-      callback: googleLoginCallback
-    });
 
-    // Tạo một nút ẩn (nếu cần) để kích hoạt đăng nhập
-    var createFakeGoogleWrapper = function createFakeGoogleWrapper() {
-      var googleLoginWrapper = document.createElement("div");
-      googleLoginWrapper.style.display = "none";
-      googleLoginWrapper.classList.add("custom-google-button");
-      document.body.appendChild(googleLoginWrapper);
-      window.google.accounts.id.renderButton(googleLoginWrapper, {
-        theme: 'outline',
-        size: 'large'
-      });
-      var googleLoginWrapperButton = googleLoginWrapper.querySelector("div[role=button]");
-      return {
-        click: function click() {
-          googleLoginWrapperButton.click();
-        }
-      };
-    };
+  // if (window.google && window.google.accounts) {
+  //     window.google.accounts.id.initialize({
+  //         client_id: '539559261576-2qhoqucptfova61pk3tomuclh74e9abp.apps.googleusercontent.com',
+  //         ux_mode: "popup",
+  //         callback: googleLoginCallback
+  //     });
+  // }
 
-    // Thực hiện lệnh click bằng cách tạo sự kiện trên iPhone
-    var googleButtonWrapper = createFakeGoogleWrapper();
-    document.getElementById("bm-google-btn").addEventListener("click", function () {
-      googleButtonWrapper.click(); // Kích hoạt đăng nhập Google
-    });
-  }
   function decodeJwtResponse(token) {
     var base64Url = token.split(".")[1];
     var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
@@ -2420,6 +2406,68 @@ function handleRichEditors() {
     }).join(""));
     return JSON.parse(jsonPayload);
   }
+
+  // Hàm khởi tạo Google Login
+  function initializeGoogleLogin() {
+    // Đảm bảo rằng SDK đã sẵn sàng trước khi xử lý
+    if (window.google && window.google.accounts) {
+      window.google.accounts.id.initialize({
+        client_id: '539559261576-2qhoqucptfova61pk3tomuclh74e9abp.apps.googleusercontent.com',
+        ux_mode: "popup",
+        callback: googleLoginCallback
+      });
+      var createFakeGoogleWrapper = function createFakeGoogleWrapper() {
+        var googleLoginWrapper = document.createElement("div");
+        googleLoginWrapper.style.display = "none";
+        googleLoginWrapper.classList.add("custom-google-button");
+        document.body.appendChild(googleLoginWrapper);
+        window.google.accounts.id.renderButton(googleLoginWrapper, {
+          theme: 'outline',
+          size: 'large'
+        });
+        var googleLoginWrapperButton = googleLoginWrapper.querySelector("div[role=button]");
+        return {
+          click: function click() {
+            googleLoginWrapperButton.click();
+          }
+        };
+      };
+      var googleButton = document.getElementById('bm-google-btn');
+      if (googleButton) {
+        var googleButtonWrapper = createFakeGoogleWrapper();
+        googleButton.addEventListener('click', function (e) {
+          googleButtonWrapper.click();
+        });
+      }
+    }
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    // Kiểm tra xem Google SDK đã sẵn sàng hay chưa
+    if (window.google && window.google.accounts && window.google.accounts.id) {
+      initializeGoogleLogin();
+    } else {
+      // Nếu chưa sẵn sàng, lắng nghe sự kiện để khởi tạo sau
+      window.addEventListener('googleSdkLoaded', function () {
+        initializeGoogleLogin();
+      });
+    }
+    (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        return;
+      }
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://accounts.google.com/gsi/client";
+      js.onload = function () {
+        console.log("Google SDK đã tải xong");
+        // Gọi hàm khởi tạo Google login sau khi SDK đã tải xong
+        initializeGoogleLogin();
+      };
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, 'script', 'google-jssdk');
+  });
   $(function () {
     showPassword();
     // facebookLogin('fbLogin', {
@@ -2466,6 +2514,8 @@ function handleRichEditors() {
         thumbnailHeight: options.thumbnailHeight,
         maxFilesize: 5,
         // MB
+        maxFiles: 1,
+        // Giới hạn chỉ được chọn 1 file
         acceptedFiles: 'image/*',
         dictFileTooBig: "Tệp quá lớn ({{filesize}}MB). Tối đa cho phép: {{maxFilesize}}MB.",
         dictInvalidFileType: "Bạn không thể tải lên các tập tin loại này.",
@@ -2486,6 +2536,17 @@ function handleRichEditors() {
           form.classList.remove('dz-started');
           $(form).find('.dz-preview').remove();
           return false;
+        },
+        // Nếu người dùng đã tải lên 1 file, không cho phép chọn thêm
+        addedfile: function addedfile(file) {
+          if (this.files.length > 1) {
+            this.removeFile(file); // Xóa file đã chọn nếu có quá 1 file
+            toast({
+              type: "error",
+              position: "top-right",
+              title: "Chỉ được phép tải lên 1 hình ảnh."
+            });
+          }
         }
       });
     }

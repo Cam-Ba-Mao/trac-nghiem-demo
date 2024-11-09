@@ -28,7 +28,7 @@
     
     $(function () {     
         
-        toggleMenu();
+        // toggleMenu();
      
         $(window).on("resize", function () {
 

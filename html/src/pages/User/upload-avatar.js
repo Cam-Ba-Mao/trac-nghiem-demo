@@ -11,6 +11,7 @@
                 thumbnailWidth: options.thumbnailWidth,
                 thumbnailHeight: options.thumbnailHeight,
                 maxFilesize: 5, // MB
+                maxFiles: 1, // Giới hạn chỉ được chọn 1 file
                 acceptedFiles: 'image/*',
                 dictFileTooBig: "Tệp quá lớn ({{filesize}}MB). Tối đa cho phép: {{maxFilesize}}MB.",
                 dictInvalidFileType: "Bạn không thể tải lên các tập tin loại này.",
@@ -31,7 +32,17 @@
                     form.classList.remove('dz-started');
                     $(form).find('.dz-preview').remove();
                     return false;
-
+                },
+                // Nếu người dùng đã tải lên 1 file, không cho phép chọn thêm
+                addedfile: function(file) {
+                    if (this.files.length > 1) {
+                        this.removeFile(file); // Xóa file đã chọn nếu có quá 1 file
+                        toast({
+                            type: "error",
+                            position: "top-right",
+                            title: "Chỉ được phép tải lên 1 hình ảnh.",
+                        });
+                    }
                 }
             });
         }
